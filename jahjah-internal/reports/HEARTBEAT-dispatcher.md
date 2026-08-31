@@ -6,9 +6,9 @@ immediately whenever the lane pauses or trips its failure cap.
 | | |
 |---|---|
 | State | **running** |
-| Last poll (UTC) | 2026-08-31T19:18:43Z |
+| Last poll (UTC) | 2026-08-31T20:17:53Z |
 | Timer unit | `jahjah-dispatcher.timer` — enabled |
-| Jobs run today (UTC 2026-08-31) | 1 of 5 |
+| Jobs run today (UTC 2026-08-31) | 2 of 5 |
 | Consecutive failures | 0 of 3 before self-disable |
 | Kill switch | clear |
 
