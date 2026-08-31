@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-08-31T21:02:01Z by `jahjah-health`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-08-31T21:03:13Z by `jahjah-health`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -11,7 +11,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
-| `HEALTH-daily.md` | 2026-08-31T21:02:01Z | daily health — NEEDS ATTENTION (1 item(s)) |
+| `HEALTH-daily.md` | 2026-08-31T21:03:13Z | daily health — OK, all 6 automations alive |
 | `HEARTBEAT-dispatcher.md` | 2026-08-31T20:21:50Z | Dispatcher heartbeat |
 | `README.md` | 2026-08-31T19:09:24Z | jahjah-internal — machine reports |
 | `SCAN-gitleaks.md` | 2026-08-31T21:01:36Z | weekly gitleaks scan — ZERO secrets found in either repo history |
