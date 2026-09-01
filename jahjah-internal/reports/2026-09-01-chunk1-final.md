@@ -106,3 +106,36 @@ drain more than the dispatch record justifies. **Recommend B as the control, A a
 structural backstop.** Either re-crosses the approval gate. Not urgent as live risk — there are zero
 sale movements today — but urgent in the sense the original decision meant: an append-only ledger
 cannot be corrected by deletion, so it wants closing before real stock data exists.
+
+## 8. RELAY BLOCK
+
+*Written into this report at chunk 2 · T0, 2026-09-01. The block was not captured in the file when
+chunk 1 published it; every field below is **reconstructed from the merged commits, the post-merge CI
+run and this report's own sections** — it is accurate, not verbatim.*
+
+```
+=== RELAY ===
+HEAD: a745e45 | tree: clean
+CI: pass — post-merge main run 33502873616, success, 2026-09-01T11:30–11:39Z
+DONE: T1 money anchor promoted to ENABLE ALWAYS + seed matched-pair alignment (PR #77, fab6902)
+      T2 canon fixes — false website-SKU claim removed, model routing corrected (PR #77, fab6902)
+      T3 generated schema types committed + hermetic CI drift gate (PR #78, ca2c75e)
+      T4 from-scratch DB replay wired in as a CI job (PR #79, 2f8ab7f)
+      T5 BLOCKED by design — approved D174 index breaks partial dispatch, proven by execution; no SQL applied
+      chunk close — D218/D219 written, STATE rewritten, register updated (PR #80, a745e45)
+FILES: 17 files, +4535/-83 across the chunk. Notable: supabase/migrations/20260901120000_currency_anchor_enable_always.sql,
+      supabase/seed/05_currencies.sql, supabase/tests/reference_data_tests.sql, scripts/replay-check.sh,
+      scripts/gen-types.sh, src/lib/supabase/database.types.ts, .github/workflows/ci.yml,
+      docs/DECISIONS.md, docs/STATE.md, docs/ROADMAP.md, docs/reference/*
+FINDINGS/BLOCKERS: T5 blocked — the approved index keys on the wrong grain (D218); corrected design not applied.
+      M3 incident, self-caught and corrected — two unapproved indexes reached the live database for ~4 minutes
+      during the T5 proof and were dropped; restoration verified four ways (D219).
+      No CI job in this repository is a hard merge gate — branch protection is Pro-gated and 403s here.
+      Two CI failures on newly added jobs, neither fixed by re-running; both had undiagnosable failure output,
+      now fixed to surface the underlying error.
+      Pilot rule: the prompt specified Opus 4.8; this ran on Opus 5, xhigh.
+NEXT-NEEDED: which corrected D218 design to authorize — (A) key the backstop on the dispatch line via a new
+      nullable reference, or (B) guard on INSERT so the ledger cannot drain more than the dispatch record
+      justifies. Recommend B as the control, A as the optional structural backstop.
+=== END ===
+```
