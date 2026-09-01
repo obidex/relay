@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-01T08:49:45Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-01T09:40:41Z by `jahjah-dispatcher`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -12,7 +12,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | File | Updated (UTC) | What it is |
 |---|---|---|
 | `HEALTH-daily.md` | 2026-09-01T05:00:02Z | daily health — OK, all 7 automations alive |
-| `HEARTBEAT-dispatcher.md` | 2026-09-01T08:39:08Z | dispatch lane proof-of-life — running, last poll 2026-09-01T08:39:07Z |
+| `HEARTBEAT-dispatcher.md` | 2026-09-01T09:40:41Z | dispatch lane proof-of-life — running, last poll 2026-09-01T09:40:40Z |
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
 | `SCAN-gitleaks.md` | 2026-08-31T21:01:36Z | weekly gitleaks scan — ZERO secrets found in either repo history |
 | `SCAN-trivy.md` | 2026-08-31T23:13:57Z | weekly trivy scan — 1 critical, 30 high, 23 medium, 14 low |
@@ -22,7 +22,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | File | Updated (UTC) | What it is |
 |---|---|---|
 | `2026-09-01-w1-website-truth.md` | 2026-09-01T00:25:12Z | onboarded jahjah-website read-only, first clean Linux build (68 pages), built the weekly truth job, F7 port... |
-| `2026-09-01-chunk1-t1.md` | 2026-09-01T08:49:45Z | T1+T2 MERGED — anchor trigger promoted to ENABLE ALWAYS, replica bypass closed, false website-SKU claim cor... |
+| `2026-09-01-chunk1-t1.md` | 2026-09-01T08:49:46Z | T1+T2 MERGED — anchor trigger promoted to ENABLE ALWAYS, replica bypass closed, false website-SKU claim cor... |
 | `2026-09-01-chunk1-preflight.md` | 2026-09-01T08:49:44Z | chunk-1 preflight — permissions clear, CI green, T1 premise CONFIRMED, T5 premise FALSE (partial dispatch) |
 | `2026-08-31-p3-automation-fleet.md` | 2026-08-31T22:24:44Z | P3 — five scheduled jobs built, run and published; relay conventions; CI secret+SAST gates merged |
 | `2026-08-31-p31-cleanup.md` | 2026-08-31T23:26:44Z | P3.1 — deps to zero advisories, postgres:17 removed, reference regenerated, automation code now in git |
