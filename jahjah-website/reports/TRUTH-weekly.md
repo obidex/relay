@@ -5,7 +5,7 @@
 > **World-readable file. Commit subjects appear here — website strategist: confirm this is
 > acceptable or request hashes-only.**
 
-**Generated (UTC):** 2026-09-01T00:09:57Z · by `jahjah-web-truth` on the VPS work engine · **overwritten weekly**
+**Generated (UTC):** 2026-09-01T00:11:53Z · by `jahjah-web-truth` on the VPS work engine · **overwritten weekly**
 
 An outside reading of `obidex/jahjah-website`, taken without touching it. This job never
 pushes to that repo, never edits its files, never touches Vercel or Sanity, and never applies
@@ -54,12 +54,12 @@ still resolves every import.
 | Result | **clean** |
 | Exit code | 0 |
 | Pages built | 68 |
-| Duration | 35 s |
+| Duration | 37 s |
 | `dist/` size | 9.8M |
 
 Notable build output:
 
-    00:10:51 [WARN] [vite] [plugin vite-plugin-sanity-studio-chunk-warning] Some chunks are larger than 500 kB after minification. Consider:
+    00:12:45 [WARN] [vite] [plugin vite-plugin-sanity-studio-chunk-warning] Some chunks are larger than 500 kB after minification. Consider:
     The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
 
 -----
@@ -74,9 +74,9 @@ on one line would count as one — under-reporting exactly the pages carrying th
 
 | Page type | Pages | Blocks | Pages with none | `@type`s present |
 |---|---|---|---|---|
-| home (EN+AR) | 2 | 2 | 0 | Country,Organization Place,PostalAddress |
-| product detail | 44 | 46 | 0 | Brand,BreadcrumbList ListItem,Product |
-| brand detail | 10 | 20 | 0 | Brand,BreadcrumbList ListItem |
+| home (EN+AR) | 2 | 2 | 0 | Country, Organization, Place, PostalAddress |
+| product detail | 44 | 46 | 0 | Brand, BreadcrumbList, ListItem, Product |
+| brand detail | 10 | 20 | 0 | Brand, BreadcrumbList, ListItem |
 | listing pages | 4 | 0 | 4 | — |
 | static pages | 7 | 0 | 7 | — |
 | studio mount | 1 | 0 | 1 | — |
@@ -88,9 +88,9 @@ on one line would count as one — under-reporting exactly the pages carrying th
 | `hreflang` links | 201 | 67 / 68 |
 | `og:image` tags | 67 | 67 / 68 |
 
-No `hreflang`: `admin/index.html `
+No `hreflang`: `admin/index.html`
 
-No `og:image`: `admin/index.html `
+No `og:image`: `admin/index.html`
 
 ### Images (content pages, Studio excluded)
 
