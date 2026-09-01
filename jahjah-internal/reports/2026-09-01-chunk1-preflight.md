@@ -62,26 +62,21 @@ dispatcher lane's much tighter deny list (`run-job.sh`) is a **different** conte
 
 ## 4. Live state — the T1 premise, read from the catalog
 
-```
-tgname    | currencies_anchor_immutable
-tgenabled | O
-tgtype    | 31          (row-level, BEFORE, INSERT+UPDATE+DELETE)
-function  | currencies_anchor_immutable
-table     | currencies
-```
-
-`tgtype = 31` decomposes to ROW | BEFORE | INSERT | DELETE | UPDATE — all three verbs, as
-`20260825120800` intended. `tgenabled = 'O'` is **origin-only**: the guard is skipped wholesale by
-any role that can `SET session_replication_role = 'replica'`. That is exactly "door 2" in
-`docs/pitfalls/money-fx.md`, and closing it for this trigger is what T1 does.
+The trigger exists, is bound to all three verbs as `20260825120800` intended, and is in the WEAKER of
+the two enabled states — the one T1 promotes. **The mechanism, the actor analysis and the exact
+statements are deliberately NOT reproduced here:** this report is world-readable, and that class of
+detail belongs only in `docs/pitfalls/money-fx.md`, which is excluded from the public docs mirror on
+purpose (`docs/pitfalls/docs-mirror.md`). *(An earlier revision of this file did name it; trimmed on
+2026-09-01. Git history is permanent, so the earlier revision cannot be recalled — recorded rather
+than quietly dropped. Practical exposure is low: every path needs privileges no application-reachable
+role holds.)*
 
 The repo already anticipates the change in two places, which is a good sign the premise is sound:
 
-- `docs/pitfalls/money-fx.md` names the exact statement and warns that **`seed/05_currencies.sql`'s
-  plain `enable trigger` must become `enable always trigger` in the same change**, or a re-run
-  silently downgrades `'A'` back to `'O'`.
-- `scripts/replay-check.sh`'s postlude already accepts `('O','A')` **and carries a comment saying to
-  pin the single letter once the migration lands and the seed is updated**.
+- `docs/pitfalls/money-fx.md` already names the change and warns that the seed which establishes the
+  anchor must be moved in the SAME change, or a re-run silently undoes it.
+- `scripts/replay-check.sh`'s postlude already tolerates the post-change state **and carries a comment
+  saying to tighten it once the migration lands and the seed is updated**.
 
 ## 5. Premise check, task by task
 
