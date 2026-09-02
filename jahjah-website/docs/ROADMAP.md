@@ -68,17 +68,20 @@ Mobile app (after commerce is stable; Sanity + web DB are already API-shaped) ·
 | # | Item | Opened | Priority | Closes when |
 |---|---|---|---|---|
 | F1 | Verify watermark claim on DCEL washer images | 2026-09-02 | high | TRUTH grep result recorded in STATE |
-| F2 | Register `jahjah-web-docs` + `jahjah-web-backup` in `jahjah-internal/docs/runbooks/automations.md` | 2026-09-02 | high | cross-repo PR merged |
+| ~~F2~~ | Register `jahjah-web-docs` + `jahjah-web-backup` in `jahjah-internal/docs/runbooks/automations.md` | 2026-09-02 | high | **closed 2026-09-02** — `jahjah-internal` PR #85 `743b17e` |
 | F3 | Deprecated `@sanity/image-url` import pattern (build warning) | 2026-09-01 | low | warning gone |
 | F4 | Chunk-size build warning (Studio bundle) | 2026-09-01 | low | accepted or split |
 | F5 | **Two** dead RTL rules — `ProductDetail.*.css` `.product-name`, `Layout.*.css` `.footer-heading` | 2026-09-01 | low | P5 |
 | F6 | GitHub Pro for branch protection | 2026-09-02 | low | revisit at P2 with Vercel Pro (W084) |
 | F7 | Name the three price tiers | 2026-09-02 | med | owner names them (default Tier 1/2/3) |
-| F8 | Confirm `gh` push scope for `jahjah-website` from the VPS | 2026-09-02 | high | P0 preflight passes |
+| ~~F8~~ | Confirm `gh` push scope for `jahjah-website` from the VPS | 2026-09-02 | high | **closed 2026-09-02** — preflight passed; PR #1 was pushed and merged from the VPS |
 | F9 | `/ar/404/` — the 404 page's Arabic hreflang alternate has no route, so Vercel answers it with the English 404 body. `verify.sh` WARNs it as known-until-P1; `STRICT_P1=1` FAILs it | 2026-09-02 | med | P1 fixes the alternate or adds the route |
+| F10 | CI hardening: pin `gitleaks/gitleaks-action` to a commit SHA instead of the mutable `@v2` tag, and move off Node-20 actions before the runner drops them. (`GITLEAKS_LICENSE` is **not** needed — `obidex` is a user account. The permissions half is **done**: `pull-requests: read` was added after CI failed 403 without it — this row previously claimed the permissions were already sufficient, which was wrong.) | 2026-09-02 | med | ci.yml updated in a chunk that names it |
 | F11 | Prove empirically whether `.claude/agents/reviewer.md`'s `tools:` frontmatter actually restricts the agent. The documentation says that field takes permission-rule syntax, and the file parses (the agent is listed), but no run has yet confirmed the Bash scoping binds | 2026-09-02 | med | a session started in `/opt/jahjah/web` invokes `reviewer` by name and its tool set is observed |
 | F12 | Four facts left the old `CLAUDE.md` and are extracted by nothing, so they are in no canon file: Sanity `apiVersion: '2024-01-01'`, the `/images/placeholder.jpg` fallback, `ProductDetail.astro` variant data attributes, and the `category->{slug,nameEn,nameAr}` projection | 2026-09-02 | med | the generator extracts them, or `CLAUDE.md` §3 restates them |
-| F10 | CI hardening: pin `gitleaks/gitleaks-action` to a commit SHA instead of the mutable `@v2` tag, and move off Node-20 actions before the runner drops them. (`GITLEAKS_LICENSE` is **not** needed — `obidex` is a user account. The permissions half is **done**: `pull-requests: read` was added after CI failed 403 without it — this row previously claimed the permissions were already sufficient, which was wrong.) | 2026-09-02 | med | ci.yml updated in a chunk that names it |
+| F13 | The executor workspace is not trusted, so Claude Code ignores `.claude/settings.json`'s **allow** list (the deny half still applies) and every session prompts for routine commands. Owner action, deliberately not automated — it is a human trust decision | 2026-09-02 | med | one interactive `claude` session in `/opt/jahjah/web` accepts the trust dialog |
+| F14 | `jahjah-web-truth` still reports git facts about `/root/jahjah-website`, which is no longer the executor clone. Either point it at `/opt/jahjah/web` or say in the report that the section describes a spare copy | 2026-09-02 | med | the unit is updated in a chunk that names it |
+| F15 | Optional, deferred from P0: have `jahjah-web-truth` run `bash scripts/verify.sh` from its clean checkout after its own build, so the verification ritual has one home. Not done in P0 — it is a proven job whose next run is Monday, so a change could not be re-proven inside the chunk | 2026-09-02 | low | web-truth runs verify.sh and stays green |
 
 ---
 

@@ -2,9 +2,13 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `939653a9b91b169a8db89ca464acaab9a062063b`
-**Commit subject:** docs: canon reset (P0) (#1)
-**Copied (UTC):** 2026-09-02T05:07:03Z
+**Mirrored commit:** `624744efaf9e9cc74c230dd88792b3555f7c001b`
+**Commit subject:** docs: close P0 (canon reset) (#2)
+**Copied (UTC):** 2026-09-02T06:07:03Z
+**Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
+report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
+is not acceptable.
+
 **Source:** `obidex/jahjah-website` branch `master` · **read-only mirror**, published by
 `jahjah-web-docs` every 30 minutes when that branch moves.
 
@@ -15,9 +19,9 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 |---|---|---|
 | `CLAUDE.md` | 12814 | `CLAUDE.md` |
 | `STRATEGIST.md` | 15370 | `docs/STRATEGIST.md` |
-| `STATE.md` | 8448 | `docs/STATE.md` |
-| `ROADMAP.md` | 10361 | `docs/ROADMAP.md` |
-| `DECISIONS.md` | 22756 | `docs/DECISIONS.md` |
+| `STATE.md` | 9311 | `docs/STATE.md` |
+| `ROADMAP.md` | 11480 | `docs/ROADMAP.md` |
+| `DECISIONS.md` | 24445 | `docs/DECISIONS.md` |
 | `reference/site.md` | 8172 | `docs/reference/site.md` |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it

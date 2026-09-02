@@ -8,7 +8,7 @@
 |---|---|
 | **Programme** | **P0 · CANON RESET** ★ this chunk → **P1 launch blockers** → P2 identity + foundation → P3 Admin Mode → P4 customer accounts → P5 public UX/content (parallel) → **L launch** → P6 |
 | **Next step** | P1 — website strategist's first chunk (see ROADMAP §2). Architecture is locked (W074–W082); no decision is pending for P1. |
-| **`master` HEAD** | `9bdcb40` — "docs: update Claude project status" (pre-reset). The canon reset merges as PR #1; **this line is set to the squash hash by the chunk-close PR**, which is the first commit that can know it. |
+| **`master` HEAD at the last canon update** | `939653a` — "docs: canon reset (P0) (#1)". Written by the chunk-close PR, the first commit that could know the squash hash — so `master` is normally **one commit ahead of this line**, that PR itself. A larger gap means commits landed outside the chunk loop. |
 | **Live** | 68 pages EN + AR on `https://jahjah-website.vercel.app` · 22 products · 5 brands · 6 categories · no prices, no login |
 | **Content** | Placeholder catalogue (AI-generated names/copy, 126/192 images placeholder). Deleted when real data enters — never polished (W007). |
 | **Sister project** | `jahjah-internal` (ERP) — separate canon, **not connected** (W075). |
@@ -44,7 +44,7 @@ One job on every PR and on `master`, Node 22: `npm ci` → `npm run build` → p
 
 | Date | Session | Model | Result |
 |---|---|---|---|
-| 2026-09-02 | **P0 · Canon reset** — five off-disk docs → repo canon (STRATEGIST/STATE/ROADMAP/DECISIONS W001–W091/reference generator/archive), `.claude/` layer (deny rules, reviewer, `/verify` `/ship` `/relay-report`), CI, VPS executor `web`, docs mirror + backup units. Loss-prevention inventory: 0 binding rules lost. | strategist (Fable) + Claude Code (Opus 5) | **PR #1** (canon) + the chunk-close PR, which records both squash hashes in §1. Cross-repo: `jahjah-internal` **PR #85** — `jahjah-web-docs` + `jahjah-web-backup`. |
+| 2026-09-02 | **P0 · Canon reset** — five off-disk docs → repo canon (STRATEGIST/STATE/ROADMAP/DECISIONS W001–W091/reference generator/archive), `.claude/` layer (deny rules, reviewer, `/verify` `/ship` `/relay-report`), CI, VPS executor `web`, docs mirror + backup units. Loss-prevention inventory: 0 binding rules lost. | strategist (Fable) + Claude Code (Opus 5) | **PR #1** `939653a` merged (+ this chunk-close PR). Cross-repo: `jahjah-internal` **PR #85** `743b17e` merged — `jahjah-web-docs`, `jahjah-web-backup`, and a backup-freshness heartbeat in `health.sh`. Three reviewer passes on #1, one infra pass on #85; one BLOCK each, both closed. |
 | 2026-08-31 | Weekly read-only audit `jahjah-web-truth` installed on the VPS (ERP platform W1). First report 2026-09-01. | — | ERP commit `8d980d3` |
 | 2026-06-11 | Strategic reset: three pillars, ShamCash, docs remake (no code) | strategist | — |
 | 2026-05-18 | How to Buy page EN+AR | Claude Code (laptop) | `9a5c1d7` |
@@ -96,4 +96,8 @@ Rule on the launch facts (W088) · name the three price tiers (default Tier 1/2/
 
 **P1 · launch blockers** — first chunk of the website strategist. No open decision blocks it. Inputs: this file, ROADMAP §2 P1, `docs/reference/site.md`, TRUTH-weekly.
 
-**Carried from P0:** verify the watermark claim (TRUTH grep) · confirm `gh` push scope for `jahjah-website` from the VPS · register the two new units in the ERP runbook (cross-repo PR) · Node-22 pin in CI matches `package.json` engines.
+**Carried from P0:** verify the watermark claim (TRUTH grep, **F1 — still open**, first TRUTH run under the new canon is Mon 05:30 UTC).
+
+**Closed in P0:** `gh` push scope confirmed (F8 — preflight passed, PR #1 pushed and merged from the VPS) · the two units registered and merged in the ERP runbook (F2 — `jahjah-internal` PR #85) · Node-22 pin in CI matches `package.json` engines (`node-version: 22` vs `>=22.12.0`, and the box runs 22.23.2).
+
+**Opened in P0:** F9 `/ar/404/` · F10 CI hardening · F11 the reviewer agent's `tools:` field · F12 four facts now in no canon file · **F13 the executor workspace is not trusted, so `.claude/settings.json`'s allow list is ignored** (one interactive `claude` session in `/opt/jahjah/web` clears it; the deny half is in force meanwhile) · F14 `jahjah-web-truth` still reads the old clone · F15 the deferred `web-truth`/`verify.sh` unification.
