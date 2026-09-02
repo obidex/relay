@@ -14,8 +14,9 @@ and answering 200 on all nine addresses I checked throughout. Three independent 
 forty-line documentation change; the first two found real wording problems and I fixed all of them. The
 third found six leftovers of a different kind — **places where older sentences elsewhere in the rules
 now disagree with the new section**, because this chunk was told to change nothing but the one section.
-They are listed at the bottom and none of them affects the site or blocks anything; the next chunk needs
-about ten minutes and permission to touch four more files. Nothing needs you.
+They are listed at the bottom, along with a seventh thing I noticed while checking that the public copy
+had refreshed. None of them affects the site or blocks anything; the next chunk needs about ten minutes
+and permission to touch four more files. Nothing needs you.
 
 -----
 
@@ -80,6 +81,16 @@ FINDINGS/BLOCKERS:
       implementer but appears only in §8; neither the mega-prompt PREFLIGHT template nor CLAUDE.md's
       preflight list carries a file-count step, so no chunk would execute it. W092's actual failure was
       an OWNER push, which has no preflight in canon at all.
+  F22 OBSERVED WHILE CONFIRMING THIS CHUNK, and it qualifies a claim §8 itself makes. The mirror job
+      pushed at 13:07:04Z. At 13:07:35Z and again at 13:09:52Z, a plain WebFetch-equivalent of
+      docs/STRATEGIST.md WITH a ?v= cache-buster still returned the pre-merge body — while INDEX.md,
+      fetched the same second with the same buster, already named the new commit e33b478. The body
+      caught up at 13:11:04Z, about four minutes later. So the ?v= buster reduces staleness but does
+      not guarantee a fresh body: raw.githubusercontent can serve a current INDEX.md and a stale
+      sibling at the same instant. The reliable freshness signal is INDEX.md's "Mirrored commit" line,
+      not the body just fetched — if the body looks older than the commit INDEX names, re-fetch rather
+      than conclude the canon says what the stale copy says. §8's reading block should carry this;
+      fold it into the F16-F21 chunk.
   Unrelated, seen in passing: the post-merge CI run annotates that actions/checkout@v4,
   actions/setup-node@v4 and gitleaks/gitleaks-action@v2 target Node 20 and are being forced onto
   Node 24 by the runner. Green today; belongs with ROADMAP F10 (pin the actions).
