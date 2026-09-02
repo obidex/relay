@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-02T15:48:08Z by `jahjah-dispatcher`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-02T15:48:38Z by `jahjah-dispatcher`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -22,6 +22,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
+| `2026-09-02-chunk3-ruleset.md` | 2026-09-02T15:48:38Z | chunk 3 — ruleset 22122876 active on main: PR-only, squash-only, ci-ok required, no bypass actors |
 | `2026-09-02-chunk3-preflight.md` | 2026-09-02T14:56:42Z | chunk 3 toolkit preflight — surface confirmed, ONE deviation on the plan check, no stop condition met |
 | `2026-09-02-chunk3-pr-a.md` | 2026-09-02T15:48:08Z | chunk 3 PR-A merged — ci-ok is the single required check, Dependabot is live, the D229 grant audit landed B... |
 | `2026-09-02-chunk2-t1.md` | 2026-09-02T04:53:58Z | T1 MERGED — D218 closed as BOUNDED not closed; panel found a real residual by exploit; D220/D221 recovered ... |
