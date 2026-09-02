@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `58912bdd26b963f9db6880e965bf293712e3019d`
-**Commit subject:** ci: name the job ci, pin every action to a SHA, add tier3-guard (#4)
-**Copied (UTC):** 2026-09-02T16:37:04Z
+**Mirrored commit:** `44bef69fc39dd2fa2c4926143bd5e35f58568f4a`
+**Commit subject:** feat(relay-report): report to the chunk issue as well as the relay (#10)
+**Copied (UTC):** 2026-09-02T19:07:03Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
