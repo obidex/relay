@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-02T06:08:10Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-02T13:09:32Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website/reports/<name>`.
@@ -21,3 +21,4 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-we
 | `2026-09-02-p0-canon-reset-progress.md` | 2026-09-02T05:09:38Z | P0 progress — canon merged to master as PR #1, executor stood up, mirror live; two VPS automations built an... |
 | `2026-09-02-p0-canon-reset-final.md` | 2026-09-02T06:08:10Z | P0 final — canon on master, VPS is the executor, two automations live and proven from their timers; one own... |
 | `2026-09-02-p0-canon-reset-blocked.md` | 2026-09-02T02:45:29Z | P0 canon reset stopped at preflight — the .claude/ agentic layer never left the laptop (the repo's own .git... |
+| `2026-09-02-p01-cowork-lane-final.md` | 2026-09-02T13:09:32Z | P0.1 final — the strategist's own lane is now written down in STRATEGIST §8; merged, mirrored, six document... |
