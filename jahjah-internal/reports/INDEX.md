@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-02T01:42:01Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-02T01:55:45Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -21,12 +21,13 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
+| `2026-09-02-chunk2-t1-gate1.md` | 2026-09-02T01:55:45Z | T1 GATE-1 — final SQL published BEFORE applying; one identifier rename, zero semantic changes |
 | `2026-09-01-w1-website-truth.md` | 2026-09-01T00:25:12Z | onboarded jahjah-website read-only, first clean Linux build (68 pages), built the weekly truth job, F7 port... |
 | `2026-09-01-chunk2-t2.md` | 2026-09-02T01:03:22Z | T2 MERGED — D215 closed; three panel rounds corrected what the change actually buys, now recorded as measur... |
 | `2026-09-01-chunk2-t0.md` | 2026-09-01T12:34:50Z | T0 DONE — PR #80 was already merged and green before this session; chunk 1's RELAY BLOCK written into its f... |
 | `2026-09-01-chunk2-preflight.md` | 2026-09-01T12:34:50Z | chunk-2 preflight — LANE MISMATCH: no database access in this session, so T1/T2 cannot be applied; T1 also ... |
 | `2026-09-01-chunk2-final.md` | 2026-09-01T12:34:50Z | chunk 2 FINAL — T0 done; T1+T2 BLOCKED with no SQL applied; both GATE-1 packages prepared for a session on ... |
-| `2026-09-01-chunk2-final-2.md` | 2026-09-02T01:42:01Z | chunk 2 resume FINAL — T2 merged and D215 closed; T1 BLOCKED-2, its approved SQL exists nowhere |
+| `2026-09-01-chunk2-final-2.md` | 2026-09-02T01:42:02Z | chunk 2 resume FINAL — T2 merged and D215 closed; T1 BLOCKED-2, its approved SQL exists nowhere |
 | `2026-09-01-chunk2-BLOCKED.md` | 2026-09-01T12:34:50Z | T1+T2 BLOCKED — no DB lane in this session, and T1's approved guard is RLS-blind against the actor it targe... |
 | `2026-09-01-chunk2-BLOCKED-2.md` | 2026-09-02T01:03:55Z | T1 BLOCKED-2 — parts (a) and (c) exist nowhere; T2 merged. A blocked task's report must carry the SQL, not ... |
 | `2026-09-01-chunk1-t4.md` | 2026-09-01T10:00:08Z | T4 MERGED — replay-check.sh wired into CI; D209 closed, and D214's replica probe becomes automatic |
