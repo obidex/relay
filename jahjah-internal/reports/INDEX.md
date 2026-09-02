@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-02T18:42:53Z by `jahjah-inbox`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-02T18:48:04Z by `jahjah-inbox`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
