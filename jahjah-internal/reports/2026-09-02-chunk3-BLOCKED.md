@@ -180,3 +180,43 @@ FINDINGS/BLOCKERS: STOPPED on the "panel blocker on T3/T4" condition. B1 the GAT
 NEXT-NEEDED: three owner decisions before chunk 4 can touch this again — (1) will the owner provision a signing key so the inbox lane can require a verified signature, or is "who can push to the relay" accepted as the real boundary; (2) where should GATE-1's pause live, given it cannot be a file the constrained session can write; (3) should the migration gate move to the database (event trigger / apply wrapper) rather than a shell-command matcher, as two reviewers independently concluded. Chunk 4's migration work (D225 a–g, D161, rls_auto_enable) is unaffected and can proceed by the normal pasted-prompt route.
 === END ===
 ```
+
+-----
+
+## ADDENDUM (2026-09-02, after publication) — two items from the website executor that bear on chunk 4
+
+Recorded here rather than left in a session log, because chunk 4 will read this report and both change
+what it can assume.
+
+**1. The H3 injection class was not confined to this lane, and the fix is now proven on the other one.**
+The website executor checked `jahjah-web-dispatch` against the reproduction above and found the same
+*shape* — six values interpolated into the string handed to `tmux new-window`. All six were constants
+or a GitHub-issued integer, so nothing was exploitable, but that was a property of today's inputs
+rather than of the script. It now validates the issue number as digits at the point it leaves `jq`,
+asserts the model is one of two literals, and launches with `tmux new-window -e VAR=value` flags and
+the script as a bare argument, so **no shell string is built at all**. That is the same fix queued in
+`chunk3-pr-b` for the ERP lane, and it is now proven to work on a live lane. **Its lane has since run
+end to end from its timer** (issue labelled → picked up in 48s → dispatched into tmux `web` → exit
+code reported → relabelled), so ours is the only one of the two that is disabled.
+
+**2. An authenticity lesson from a second angle, and it generalises B2.**
+That session had written that its `chunk:approved` label gate "requires write access"; a reviewer
+corrected it — GitHub's **Triage** role can label an existing issue with **no push access at all**.
+So its real gate is "at least Triage on a private repo", now recorded as an external invariant the
+job depends on and cannot itself enforce.
+
+That is the same defect as `B2` reached from the other direction, and the pair is worth stating as one
+rule for anything that starts privileged work: **a control that rests on metadata, a label, or a
+self-asserted identity is a convention, not a boundary — and it must be written down as an assumption
+about somebody else's system rather than as a property of ours.** `B2` claimed authorship from git
+metadata; theirs claimed authorship from a label. Neither survived a reviewer. `CLAUDE.md` §4 already
+says the equivalent thing about client input; this is that rule applied to a trigger surface.
+
+**3. A shared relay-publishing wrapper exists — with one caveat if the inbox lane returns.**
+`/opt/jahjah/session/publish-report.sh <project>/reports/<name>.md <local-file>` takes the shared
+relay `flock` properly via `jj_relay_sync` / `jj_relay_push`, redacts, rebuilds that folder's
+`INDEX.md`, and prints the raw URL, with path guards and a 512 KB ceiling. It lands in
+`infra/vps/session/` on `main` shortly. **Caveat before adopting it here: it hardcodes
+`JJ_JOB=session`, so two lanes publishing concurrently would share `/opt/jahjah/session.log` and one
+state directory** — which is exactly the kind of shared-state collision the relay lock exists to
+prevent. Worth reading before the inbox lane reuses it instead of its own locking.
