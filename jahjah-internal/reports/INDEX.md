@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-02T16:07:03Z by `jahjah-web-docs`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-02T16:07:44Z by `jahjah-inbox`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -14,8 +14,8 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | `ALERT-inbox.md` | 2026-09-02T16:01:05Z | ALERT — the inbox lane refused a chunk file; it was NOT started |
 | `HEALTH-daily.md` | 2026-09-02T05:16:48Z | daily health — OK, all 9 automations alive |
 | `HEARTBEAT-dispatcher.md` | 2026-09-02T15:34:25Z | dispatch lane proof-of-life — running, last poll 2026-09-02T15:34:23Z |
-| `HEARTBEAT-inbox.md` | 2026-09-02T16:02:37Z | inbox lane proof-of-life — running, last poll 2026-09-02T16:02:35Z |
-| `HEARTBEAT-web-docs.md` | 2026-09-02T16:07:03Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
+| `HEARTBEAT-inbox.md` | 2026-09-02T16:07:44Z | inbox lane proof-of-life — running, last poll 2026-09-02T16:07:44Z |
+| `HEARTBEAT-web-docs.md` | 2026-09-02T16:07:05Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
 | `SCAN-gitleaks.md` | 2026-08-31T21:01:36Z | weekly gitleaks scan — ZERO secrets found in either repo history |
 | `SCAN-trivy.md` | 2026-08-31T23:13:57Z | weekly trivy scan — 1 critical, 30 high, 23 medium, 14 low |
