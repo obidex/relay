@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `624744efaf9e9cc74c230dd88792b3555f7c001b`
-**Commit subject:** docs: close P0 (canon reset) (#2)
-**Copied (UTC):** 2026-09-02T06:07:03Z
+**Mirrored commit:** `e33b47896fb8b94426ca03665eaaeb9a4e19a6c5`
+**Commit subject:** docs: cowork lane into STRATEGIST §8; project-knowledge row in STATE (#3)
+**Copied (UTC):** 2026-09-02T13:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -18,8 +18,8 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 | File | Bytes | Source path in the repo |
 |---|---|---|
 | `CLAUDE.md` | 12814 | `CLAUDE.md` |
-| `STRATEGIST.md` | 15370 | `docs/STRATEGIST.md` |
-| `STATE.md` | 9311 | `docs/STATE.md` |
+| `STRATEGIST.md` | 18734 | `docs/STRATEGIST.md` |
+| `STATE.md` | 9396 | `docs/STATE.md` |
 | `ROADMAP.md` | 11480 | `docs/ROADMAP.md` |
 | `DECISIONS.md` | 24445 | `docs/DECISIONS.md` |
 | `reference/site.md` | 8172 | `docs/reference/site.md` |

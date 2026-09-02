@@ -72,6 +72,7 @@ Commits between `9a5c1d7` and `9bdcb40` (brand infrastructure, bilingual content
 | Sanity | project `pxf1amia`, dataset `production`, Studio embedded |
 | VPS executor | box `germany-vpn` · tmux session **`web`** (`tmux attach -t web`) · clone at `/opt/jahjah/web` · Node 22 (set in P0). **Address and login are not recorded here — this file is mirrored to the public relay** (`jj_redact` scrubs the box IP from everything the fleet publishes; canon must not reintroduce it). |
 | Relay | `raw.githubusercontent.com/obidex/relay/main/jahjah-website/{docs,reports}/` |
+| Project knowledge | GitHub sync of `docs/` + `CLAUDE.md` (snapshot; mirror wins) |
 | Old laptop clone | the Windows clone — optional after P0, never the executor. Path not recorded here (public mirror). |
 
 ### Secrets — names only, never values

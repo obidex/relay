@@ -209,3 +209,43 @@ Full text and reasoning by `W` number in `docs/DECISIONS.md`.
 ### Handover ritual
 
 Chats rotate every one or two chunks. At chunk close: (1) canon current, ledger row written; (2) a SHORT handover note in the final report — where you left off, the single next step with a one-line why, a nudge to pressure-test the next feature against domain leaders. Reading order lives here, so the note never repeats it. New chat's first move: `docs/STATE.md` from the mirror, then act by mood.
+
+---
+
+## 8. THE COWORK LANE — how the strategist chat reaches this project
+
+The strategist chat has **no `gh` and no GitHub credential**. It cannot open a branch, a PR or a merge, and its only channel **to the executor** is **one mega-prompt per chunk**, pasted by the owner into tmux `web`. That paste is the confirmation (§1), and apart from a folder the owner connects himself (below) it is the only way work leaves this chat.
+
+| Direction | Channel | Limit |
+|---|---|---|
+| **In** — canon, reports | the public relay mirror (READING MAP) | read-only; lags `master` |
+| **Out** — work | one mega-prompt per chunk, owner-pasted into tmux `web` | no mid-chunk pings (§1) |
+| **Both** — a connected folder | Cowork device tools on the owner's laptop clone | may edit and commit there; **the push stays his**, and **GATE 2 still binds** (§2) — a commit made in that folder reaches `master` only as a PR merged on green CI after a clean reviewer pass. Canon updates are not this path's work: they stay with the implementer, in the chunk's last PR (§7) |
+
+### Reading the canon
+
+Plain `WebFetch` is the reader; the URL, the `?v=` cache-buster and the mirror's lag are in the READING MAP. What that entry does not say:
+
+| Source | Verdict |
+|---|---|
+| the raw mirror (+ `?v=`), and `INDEX.md` | **the only readable surface** |
+| `api.github.com` | rate-limited; never build a workflow on it |
+| `github.com` HTML | robots-blocked |
+
+And: a large file comes back **summarized, and the summary is lossy**. Never conclude a rule is absent because a search result or an extract omitted it — open the file that owns the fact (READING MAP) and read the section. Absence from an extract is evidence of nothing.
+
+### The claude.ai project knowledge
+
+A **GitHub sync of this repo's `docs/` + `CLAUDE.md`** — a searchable snapshot, useful for orientation and for finding which file owns a fact. It is not the canon: the mirror is fresher and **the mirror wins**. Never upload a copy of a canon file to the project.
+
+### What the guardrails actually guarantee
+
+- **`.claude/settings.json` is a guardrail against accident, not a sandbox (W095).** Deny rules match command patterns, so a path around any one of them exists. What holds is that only the owner's plans run and every change to `master` goes through a reviewed PR.
+- **Allow-rules load only after a human trusts the workspace once** — until then the deny half is in force and the allow half is ignored. Done for the executor clone `/opt/jahjah/web`.
+- **A repo `.gitignore` can silently drop files from an owner push (W092).** `git add` reports nothing; the branch simply lands without them. **Every preflight counts files**, before and after.
+
+### Owner rules for this lane
+
+- **Rephrase his request before acting.** Say back what you understood and act on that reading — it is how a misread surfaces while it is still cheap, and it gives him something concrete to correct.
+- **When he connects a folder, the work happens in that folder** — not in the cloud container, and not as text he has to place by hand. The loop and the gates are unchanged by where the keystrokes land.
+- **One-time information goes in chat, never a new file.** §5 states this in full; it is repeated here because a connected folder makes writing the file the path of least resistance. The rule does not relax there.
