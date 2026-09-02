@@ -45,6 +45,10 @@ DEVIATIONS:
   5. health.sh (a proven job, not named by the plan) was extended, because the BLOCK below could not be
      closed without it. Proven in both directions before merge.
   6. The mirror was held off with its kill switch for 27 minutes before the merge (reason below).
+  7. REPORTING: the plan asked for a second progress report after T3d. jahjah-internal #85 merged at
+     05:33 and the T4 close PR opened at 05:35, so a separate -progress-2 would have been superseded
+     before it could be read. T3 is reported in full here instead. Three files, not four:
+     -blocked, -progress, -final.
 FINDINGS/BLOCKERS: two BLOCKs, both closed and proven. Full list below. None open against master.
 CANON: CLAUDE.md · docs/{STRATEGIST,STATE,ROADMAP,DECISIONS}.md · docs/archive/HISTORY.md ·
        docs/reference/site.md · scripts/{verify.sh,generate-reference.mjs} · .claude/** ·
