@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `e33b47896fb8b94426ca03665eaaeb9a4e19a6c5`
-**Commit subject:** docs: cowork lane into STRATEGIST §8; project-knowledge row in STATE (#3)
-**Copied (UTC):** 2026-09-02T13:07:04Z
+**Mirrored commit:** `58912bdd26b963f9db6880e965bf293712e3019d`
+**Commit subject:** ci: name the job ci, pin every action to a SHA, add tier3-guard (#4)
+**Copied (UTC):** 2026-09-02T16:37:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
