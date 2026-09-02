@@ -11,10 +11,11 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
-| `ALERT-inbox.md` | 2026-09-02T16:26:34Z | ALERT — the inbox lane refused a chunk file; it was NOT started |
+| `ALERT-inbox-disabled.md` | 2026-09-02T16:26:34Z | ALERT — the inbox job hit its failure cap and turned itself off |
+| `ALERT-inbox.md` | 2026-09-02T16:26:35Z | ALERT — the inbox lane refused a chunk file; it was NOT started |
 | `HEALTH-daily.md` | 2026-09-02T05:16:48Z | daily health — OK, all 9 automations alive |
 | `HEARTBEAT-dispatcher.md` | 2026-09-02T15:34:25Z | dispatch lane proof-of-life — running, last poll 2026-09-02T15:34:23Z |
-| `HEARTBEAT-inbox.md` | 2026-09-02T16:26:34Z | inbox lane proof-of-life — running, last poll 2026-09-02T16:26:34Z |
+| `HEARTBEAT-inbox.md` | 2026-09-02T16:26:35Z | inbox lane proof-of-life — running, last poll 2026-09-02T16:26:34Z |
 | `HEARTBEAT-web-dispatch.md` | 2026-09-02T16:26:06Z | proof-of-life for the website chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-docs.md` | 2026-09-02T16:07:05Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
