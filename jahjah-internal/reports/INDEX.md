@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-02T16:26:04Z by `jahjah-web-dispatch`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-02T16:26:34Z by `jahjah-inbox`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -11,11 +11,11 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
-| `ALERT-inbox.md` | 2026-09-02T16:23:15Z | ALERT — the inbox lane refused a chunk file; it was NOT started |
+| `ALERT-inbox.md` | 2026-09-02T16:26:34Z | ALERT — the inbox lane refused a chunk file; it was NOT started |
 | `HEALTH-daily.md` | 2026-09-02T05:16:48Z | daily health — OK, all 9 automations alive |
 | `HEARTBEAT-dispatcher.md` | 2026-09-02T15:34:25Z | dispatch lane proof-of-life — running, last poll 2026-09-02T15:34:23Z |
-| `HEARTBEAT-inbox.md` | 2026-09-02T16:23:15Z | inbox lane proof-of-life — running, last poll 2026-09-02T16:23:13Z |
-| `HEARTBEAT-web-dispatch.md` | 2026-09-02T16:26:04Z | proof-of-life for the website chunk lane — stale > ~70 min means chunks are not being picked up |
+| `HEARTBEAT-inbox.md` | 2026-09-02T16:26:34Z | inbox lane proof-of-life — running, last poll 2026-09-02T16:26:34Z |
+| `HEARTBEAT-web-dispatch.md` | 2026-09-02T16:26:06Z | proof-of-life for the website chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-docs.md` | 2026-09-02T16:07:05Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
 | `SCAN-gitleaks.md` | 2026-08-31T21:01:36Z | weekly gitleaks scan — ZERO secrets found in either repo history |
