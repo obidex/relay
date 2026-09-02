@@ -1,6 +1,6 @@
 # Dispatcher heartbeat
 
-<!-- index: dispatch lane proof-of-life — running, last poll 2026-09-02T00:03:53Z -->
+<!-- index: dispatch lane proof-of-life — running, last poll 2026-09-02T01:05:23Z -->
 
 Proof of life for the Jahjah dispatch lane on `germany-vpn`. Rewritten at most once an hour, and
 immediately whenever the lane pauses or trips its failure cap.
@@ -8,7 +8,7 @@ immediately whenever the lane pauses or trips its failure cap.
 | | |
 |---|---|
 | State | **running** |
-| Last poll (UTC) | 2026-09-02T00:03:53Z |
+| Last poll (UTC) | 2026-09-02T01:05:23Z |
 | Timer unit | `jahjah-dispatcher.timer` — enabled |
 | Jobs run today (UTC 2026-09-02) | 0 of 5 |
 | Consecutive failures | 0 of 3 before self-disable |

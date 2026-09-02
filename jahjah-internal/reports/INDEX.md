@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-02T01:03:54Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-02T01:05:24Z by `jahjah-dispatcher`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -12,7 +12,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | File | Updated (UTC) | What it is |
 |---|---|---|
 | `HEALTH-daily.md` | 2026-09-01T05:00:02Z | daily health — OK, all 7 automations alive |
-| `HEARTBEAT-dispatcher.md` | 2026-09-02T00:03:55Z | dispatch lane proof-of-life — running, last poll 2026-09-02T00:03:53Z |
+| `HEARTBEAT-dispatcher.md` | 2026-09-02T01:05:24Z | dispatch lane proof-of-life — running, last poll 2026-09-02T01:05:23Z |
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
 | `SCAN-gitleaks.md` | 2026-08-31T21:01:36Z | weekly gitleaks scan — ZERO secrets found in either repo history |
 | `SCAN-trivy.md` | 2026-08-31T23:13:57Z | weekly trivy scan — 1 critical, 30 high, 23 medium, 14 low |
@@ -27,7 +27,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | `2026-09-01-chunk2-preflight.md` | 2026-09-01T12:34:50Z | chunk-2 preflight — LANE MISMATCH: no database access in this session, so T1/T2 cannot be applied; T1 also ... |
 | `2026-09-01-chunk2-final.md` | 2026-09-01T12:34:50Z | chunk 2 FINAL — T0 done; T1+T2 BLOCKED with no SQL applied; both GATE-1 packages prepared for a session on ... |
 | `2026-09-01-chunk2-BLOCKED.md` | 2026-09-01T12:34:50Z | T1+T2 BLOCKED — no DB lane in this session, and T1's approved guard is RLS-blind against the actor it targe... |
-| `2026-09-01-chunk2-BLOCKED-2.md` | 2026-09-02T01:03:54Z | T1 BLOCKED-2 — parts (a) and (c) exist nowhere; T2 merged. A blocked task's report must carry the SQL, not ... |
+| `2026-09-01-chunk2-BLOCKED-2.md` | 2026-09-02T01:03:55Z | T1 BLOCKED-2 — parts (a) and (c) exist nowhere; T2 merged. A blocked task's report must carry the SQL, not ... |
 | `2026-09-01-chunk1-t4.md` | 2026-09-01T10:00:08Z | T4 MERGED — replay-check.sh wired into CI; D209 closed, and D214's replica probe becomes automatic |
 | `2026-09-01-chunk1-t3.md` | 2026-09-01T10:00:06Z | T3 MERGED — Supabase schema types committed + hermetic CI drift gate; D208 half-closed, adoption registered |
 | `2026-09-01-chunk1-t1.md` | 2026-09-01T08:49:46Z | T1+T2 MERGED — anchor trigger promoted to ENABLE ALWAYS, replica bypass closed, false website-SKU claim cor... |
