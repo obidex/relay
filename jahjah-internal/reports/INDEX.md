@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-02T01:55:45Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-02T02:07:15Z by `jahjah-dispatcher`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -12,7 +12,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | File | Updated (UTC) | What it is |
 |---|---|---|
 | `HEALTH-daily.md` | 2026-09-01T05:00:02Z | daily health — OK, all 7 automations alive |
-| `HEARTBEAT-dispatcher.md` | 2026-09-02T01:05:25Z | dispatch lane proof-of-life — running, last poll 2026-09-02T01:05:23Z |
+| `HEARTBEAT-dispatcher.md` | 2026-09-02T02:07:15Z | dispatch lane proof-of-life — running, last poll 2026-09-02T02:07:14Z |
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
 | `SCAN-gitleaks.md` | 2026-08-31T21:01:36Z | weekly gitleaks scan — ZERO secrets found in either repo history |
 | `SCAN-trivy.md` | 2026-08-31T23:13:57Z | weekly trivy scan — 1 critical, 30 high, 23 medium, 14 low |
@@ -21,7 +21,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
-| `2026-09-02-chunk2-t1-gate1.md` | 2026-09-02T01:55:45Z | T1 GATE-1 — final SQL published BEFORE applying; one identifier rename, zero semantic changes |
+| `2026-09-02-chunk2-t1-gate1.md` | 2026-09-02T01:55:46Z | T1 GATE-1 — final SQL published BEFORE applying; one identifier rename, zero semantic changes |
 | `2026-09-01-w1-website-truth.md` | 2026-09-01T00:25:12Z | onboarded jahjah-website read-only, first clean Linux build (68 pages), built the weekly truth job, F7 port... |
 | `2026-09-01-chunk2-t2.md` | 2026-09-02T01:03:22Z | T2 MERGED — D215 closed; three panel rounds corrected what the change actually buys, now recorded as measur... |
 | `2026-09-01-chunk2-t0.md` | 2026-09-01T12:34:50Z | T0 DONE — PR #80 was already merged and green before this session; chunk 1's RELAY BLOCK written into its f... |
