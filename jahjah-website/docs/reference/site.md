@@ -194,6 +194,7 @@ Engines: `{"node":">=22.12.0"}` · Scripts: `dev`, `build`, `preview`, `astro`, 
 | scripts/migrate-to-sanity.mjs | Migrates all products, brands, and categories from the static JS data |
 | scripts/verify.sh | verify.sh — the compiled-output verification ritual (W046, W047, W019, W033, W077). |
 | .github/workflows/ci.yml | CI |
+| .github/workflows/claude-review.yml | Claude review |
 | .claude/agents/reviewer.md |  |
 | .claude/settings.json |  |
 | .claude/skills/relay-report/SKILL.md |  |

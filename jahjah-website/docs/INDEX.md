@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `44bef69fc39dd2fa2c4926143bd5e35f58568f4a`
-**Commit subject:** feat(relay-report): report to the chunk issue as well as the relay (#10)
-**Copied (UTC):** 2026-09-02T19:07:03Z
+**Mirrored commit:** `b840c3a6ed8b07cd5b0efe3d71a0880d37f6dd33`
+**Commit subject:** ci: an independent Claude review on every pull request (#13)
+**Copied (UTC):** 2026-09-02T19:37:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -22,7 +22,7 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 | `STATE.md` | 9396 | `docs/STATE.md` |
 | `ROADMAP.md` | 11480 | `docs/ROADMAP.md` |
 | `DECISIONS.md` | 24445 | `docs/DECISIONS.md` |
-| `reference/site.md` | 8172 | `docs/reference/site.md` |
+| `reference/site.md` | 8228 | `docs/reference/site.md` |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it
 looks old, that may only mean nothing merged. Liveness is
