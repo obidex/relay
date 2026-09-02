@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-02T04:53:59Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-02T05:00:04Z by `jahjah-health`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -11,7 +11,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
-| `HEALTH-daily.md` | 2026-09-01T05:00:02Z | daily health — OK, all 7 automations alive |
+| `HEALTH-daily.md` | 2026-09-02T05:00:04Z | daily health — OK, all 9 automations alive |
 | `HEARTBEAT-dispatcher.md` | 2026-09-02T04:11:05Z | dispatch lane proof-of-life — running, last poll 2026-09-02T04:11:03Z |
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
 | `SCAN-gitleaks.md` | 2026-08-31T21:01:36Z | weekly gitleaks scan — ZERO secrets found in either repo history |
@@ -28,7 +28,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | `2026-09-01-chunk2-t0.md` | 2026-09-01T12:34:50Z | T0 DONE — PR #80 was already merged and green before this session; chunk 1's RELAY BLOCK written into its f... |
 | `2026-09-01-chunk2-preflight.md` | 2026-09-01T12:34:50Z | chunk-2 preflight — LANE MISMATCH: no database access in this session, so T1/T2 cannot be applied; T1 also ... |
 | `2026-09-01-chunk2-final.md` | 2026-09-01T12:34:50Z | chunk 2 FINAL — T0 done; T1+T2 BLOCKED with no SQL applied; both GATE-1 packages prepared for a session on ... |
-| `2026-09-01-chunk2-final-3.md` | 2026-09-02T04:53:59Z | chunk 2 COMPLETE — D215 and D218 both closed; D220/D221 recovered; one nil-impact incident reported |
+| `2026-09-01-chunk2-final-3.md` | 2026-09-02T04:54:00Z | chunk 2 COMPLETE — D215 and D218 both closed; D220/D221 recovered; one nil-impact incident reported |
 | `2026-09-01-chunk2-final-2.md` | 2026-09-02T01:42:02Z | chunk 2 resume FINAL — T2 merged and D215 closed; T1 BLOCKED-2, its approved SQL exists nowhere |
 | `2026-09-01-chunk2-BLOCKED.md` | 2026-09-01T12:34:50Z | T1+T2 BLOCKED — no DB lane in this session, and T1's approved guard is RLS-blind against the actor it targe... |
 | `2026-09-01-chunk2-BLOCKED-2.md` | 2026-09-02T01:03:55Z | T1 BLOCKED-2 — parts (a) and (c) exist nowhere; T2 merged. A blocked task's report must carry the SQL, not ... |
