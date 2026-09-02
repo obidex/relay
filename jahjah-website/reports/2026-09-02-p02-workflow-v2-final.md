@@ -2,7 +2,7 @@
 
 <!-- index: P0.2 final — GATE 2 is machine-enforced, a chunk now starts from a labelled issue, and two new VPS units are proven from their timers; the site is byte-identical -->
 
-**Generated (UTC):** 2026-09-02T20:20:00Z · **Executor:** VPS `germany-vpn`, tmux `web`, Claude Code (Opus 5, xhigh) · **Chunk issue:** [#6](https://github.com/obidex/jahjah-website/issues/6)
+**Generated (UTC):** 2026-09-02T20:35:00Z (amended once — see the addendum at the end) · **Executor:** VPS `germany-vpn`, tmux `web`, Claude Code (Opus 5, xhigh) · **Chunk issue:** [#6](https://github.com/obidex/jahjah-website/issues/6)
 
 ## For the owner — one paragraph
 
@@ -26,7 +26,7 @@ you soon and it is written up below; it is not urgent and it is not a chore.
 
 ```
 === REPORT: P0.2 workflow v2 · done ===
-HEAD: master 5eaeb7c "docs: close P0.2 — canon for the issue-driven loop (#22)" | tree: clean | branch: master
+HEAD: master 30f7988 "fix(relay-report): gh issue list lags, so confirm with a retry (#23)" | tree: clean | branch: master
       file count 73 tracked, recounted before every push (W092)
       jahjah-internal main 2f2278b; zero drift between that repo and /opt/jahjah
 PRs (obidex/jahjah-website):
@@ -36,13 +36,14 @@ PRs (obidex/jahjah-website):
   #13 b840c3a MERGED — independent `review` job + REVIEW.md
   #18 7ce7932 MERGED — review turn cap 40 -> 120, after a measured failure
   #17 7821043 MERGED — Dependabot
-  #22 5eaeb7c MERGED — this canon close
+  #22 5eaeb7c MERGED — the canon close
+  #23 30f7988 MERGED — a defect this report's own publication exposed (addendum below)
 PRs (obidex/jahjah-internal):
   #91 2c66949 MERGED — jahjah-web-dispatch + session/publish-report.sh
   #92 2f2278b MERGED — jahjah-web-backup-check
 CI: every PR green on `ci` before merge; post-merge master run on 5eaeb7c SUCCESS (33678422772).
     One deliberate red recorded: 33653968894, tier3-guard, to prove the guard bites.
-PROD: deployment 6231039311, sha 5eaeb7c, Production, state success
+PROD: deployment on 30f7988, Production, state success (6231039311 on 5eaeb7c before it)
       live probes 5/5 200: / · /ar/ · /products/ · /sitemap-0.xml · /robots.txt
       `/` HTML sha256 2043b04a…d679d1 — BYTE-IDENTICAL to the pre-chunk reading
 RULESET: master-protection, id 22124934, enforcement active, bypass_actors [],
@@ -180,6 +181,7 @@ FINDINGS/BLOCKERS:
      committed inside the file the chunk rewrote, three times. The lesson is not "be careful": it is
      that a chunk introducing a superseding fact must name every file holding the old one, and that
      an adversarial pass over the canon is not optional ceremony.
+  L. PUBLISHING THIS REPORT BROKE THE SKILL THAT PUBLISHES IT — see the addendum. Fixed in PR #23.
   K. MY OWN GATE LIED TO ME ONCE. `npm run reference >/dev/null 2>&1` plus an unchecked `git diff`
      reported a clean reference when the generator had added a row for the new workflow — which would
      have turned `ci` red on the one required context. Caught by review. W106.
@@ -215,3 +217,39 @@ would be observed if it were false, and go and look.
 **Two things are deliberately unfinished** and are in the register rather than hidden: the `review`
 job is installed and silent (F25), and Dependabot PRs need the owner's decision before they can go
 green (F23, F24).
+
+
+-----
+
+## Addendum — the chunk's last finding came from closing it
+
+Publishing this report was `/relay-report`'s **first real use**, and it failed in a way no review had
+caught, because no review could: it only appears when you write a label and immediately read it back.
+
+Both label edits on issue #6 exited 0, and the timeline confirms both landed:
+
+```
+2026-09-02T20:19:34Z labeled   chunk:done
+2026-09-02T20:19:36Z unlabeled chunk:running
+```
+
+Yet **both of the skill's own confirmations, run seconds later, showed the old state** — `chunk:done`
+absent from its list, `chunk:running` still present. Re-run moments later, both were correct.
+`gh issue list --state all --label` reads an index that lags the write; `gh issue view --json labels`
+reads the issue and does not.
+
+Under the rules the skill shipped with, a **completely successful** label move therefore reported as a
+failure and would have posted a `reporting problem:` comment — **on every chunk**, because the
+write-then-read gap is inherent rather than occasional. The failure direction was safe (a false alarm,
+never a false success), but a false alarm every time is the fastest way to teach everyone to ignore
+the one signal the dispatch lane uses to decide whether a chunk succeeded.
+
+Fixed in **PR #23** (`30f7988`): a disagreement with an edit that exited 0 is not yet evidence of
+anything — wait, read again, at least twice, and only then report. The measurement is recorded in the
+file with its timestamps.
+
+**Why this belongs in the report rather than in a follow-up row.** It is the fifth time in this chunk
+that a claim nobody had tested turned out to be false, and the third that was only discoverable by
+running the thing rather than reading it. The pattern is the finding: **this loop's defects live in
+the gap between what a mechanism is documented to do and what it does**, and the only instrument that
+closes that gap is using it for real and looking at what happened.
