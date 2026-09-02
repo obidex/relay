@@ -1,12 +1,16 @@
 # Daily health — `germany-vpn`
 
-<!-- index: daily health — OK, all 9 automations alive -->
+<!-- index: daily health — NEEDS ATTENTION (1 item(s)) -->
 
-**Generated (UTC):** 2026-09-02T05:16:27Z · **Verdict:** **OK** — everything below is within normal bounds.
+**Generated (UTC):** 2026-09-02T05:16:43Z · **Verdict:** **NEEDS ATTENTION — 1 item(s)**
 
 Overwritten in place once a day. Git history is the archive — the previous days are in
 this file's commit log, not in extra files. **If the timestamp above is more than ~26 hours
 old, the health job itself has stopped and nothing here can be trusted as current.**
+
+## Needs attention
+
+- there is no website catalogue backup in `/root/backups/web` at all
 
 ## The automation fleet
 
@@ -16,7 +20,7 @@ a timer can be `enabled` and still have no next elapse, in which case it never f
 | Job | Enabled | Last run | Result | Consecutive failures | Next run (UTC) | Last run said |
 |---|---|---|---|---|---|---|
 | `jahjah-backup` | enabled | 3h 16m ago | success | 0 / 3 | 2026-09-03 02:00 | ok: 1.6M in 2s, 95 tables, 3 kept, 0 rotated out |
-| `jahjah-dispatcher` | enabled | running now | success | 0 / 3 | (running now) | — |
+| `jahjah-dispatcher` | enabled | 0m ago | success | 0 / 3 | 2026-09-02 05:21 | — |
 | `jahjah-health` | enabled | 16m ago | success | 0 / 3 | 2026-09-03 05:00 | ok: published HEALTH-daily.md — 0 attention item(s), 9 job(s) in the ledger |
 | `jahjah-retention` | enabled | 1d 8h ago | success | 0 / 3 | 2026-09-06 06:00 | ok: 1 folder(s), 0 pruned, newest 10 kept per folder |
 | `jahjah-scan-gitleaks` | enabled | 1d 8h ago | success | 0 / 3 | 2026-09-07 04:00 | ok: published SCAN-gitleaks.md — 0 hit(s) across 141 commits |
@@ -37,7 +41,7 @@ A job disables its own timer after **3 consecutive failures** and publishes
 | Tables in it | 95 |
 | Last dump took | 2s |
 | Dumps kept | 3 (7 nights) |
-| Space used | 7.0M |
+| Space used | 6.9M |
 
 Dumps stay on the box in `/root/backups` (mode 700) and are never published.
 
@@ -45,10 +49,10 @@ Dumps stay on the box in `/root/backups` (mode 700) and are never published.
 
 | | |
 |---|---|
-| Newest export | 24m ago |
-| Size | 62K |
+| Newest export | **none found** |
+| Size | — |
 | Documents in it | 33 |
-| Exports kept | 1 (7 nights) |
+| Exports kept | 0 (7 nights) |
 
 The Sanity catalogue, exported nightly by `jahjah-web-backup` into `/root/backups/web`
 (mode 700) and never published. **Older than 30h raises an attention item** — a unit whose
@@ -59,9 +63,9 @@ conditions fail is skipped rather than failed, so freshness is the only signal t
 | | |
 |---|---|
 | Disk `/` | 16G used of 38G (44%), 21G free |
-| Memory | 1085 MB used of 3819 MB (28%), 2734 MB available |
+| Memory | 1090 MB used of 3819 MB (28%), 2729 MB available |
 | Swap | 416 MB used of 4095 MB (10%) |
-| Load | 0.25, 0.18, 0.17 (over 2 cores) |
+| Load | 0.20, 0.17, 0.17 (over 2 cores) |
 | Uptime | 3 days, 7 hours, 54 minutes |
 
 ## SSH attack blocking (fail2ban — active)
@@ -78,10 +82,10 @@ Counts only. Addresses are deliberately not published.
 
 | Peer | Last handshake |
 |---|---|
-| peer 1 | 1m ago |
-| peer 2 | 5m ago |
+| peer 1 | 0m ago |
+| peer 2 | 6m ago |
 | peer 3 | 1m ago |
-| peer 4 | 12h 54m ago |
+| peer 4 | 12h 55m ago |
 | peer 5 | never |
 | peer 6 | never |
 
