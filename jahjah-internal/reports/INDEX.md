@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-02T19:05:44Z by `jahjah-dispatcher`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-02T19:07:03Z by `jahjah-web-docs`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -15,7 +15,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | `HEARTBEAT-dispatcher.md` | 2026-09-02T18:42:45Z | dispatch lane proof-of-life — running, last poll 2026-09-02T18:42:43Z |
 | `HEARTBEAT-inbox.md` | 2026-09-02T18:16:36Z | inbox lane proof-of-life — running, last poll 2026-09-02T18:16:34Z |
 | `HEARTBEAT-web-dispatch.md` | 2026-09-02T19:00:10Z | proof-of-life for the website chunk lane — stale > ~70 min means chunks are not being picked up |
-| `HEARTBEAT-web-docs.md` | 2026-09-02T18:37:06Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
+| `HEARTBEAT-web-docs.md` | 2026-09-02T19:07:03Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
 | `SCAN-gitleaks.md` | 2026-08-31T21:01:36Z | weekly gitleaks scan — ZERO secrets found in either repo history |
 | `SCAN-trivy.md` | 2026-08-31T23:13:57Z | weekly trivy scan — 1 critical, 30 high, 23 medium, 14 low |
@@ -29,7 +29,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | `2026-09-02-chunk3-pr-a.md` | 2026-09-02T15:48:08Z | chunk 3 PR-A merged — ci-ok is the single required check, Dependabot is live, the D229 grant audit landed B... |
 | `2026-09-02-chunk3-inbox.md` | 2026-09-02T18:17:43Z | chunk 3 — inbox lane built and fully acceptance-tested; timer enabled, inbox empty, NO real chunk started |
 | `2026-09-02-chunk3-hook.md` | 2026-09-02T18:53:47Z | chunk 3 — GATE-1 PreToolUse hook active on the work engine; a migration whose hash is not on the relay cann... |
-| `2026-09-02-chunk3-BLOCKED.md` | 2026-09-02T19:05:44Z | chunk 3 BLOCKED — PR-A merged and good; the GATE-1 hook and inbox lane failed the panel; the lane is DISABL... |
+| `2026-09-02-chunk3-BLOCKED.md` | 2026-09-02T19:05:45Z | chunk 3 BLOCKED — PR-A merged and good; the GATE-1 hook and inbox lane failed the panel; the lane is DISABL... |
 | `2026-09-02-chunk2-t1.md` | 2026-09-02T04:53:58Z | T1 MERGED — D218 closed as BOUNDED not closed; panel found a real residual by exploit; D220/D221 recovered ... |
 | `2026-09-02-chunk2-t1-gate1.md` | 2026-09-02T01:55:46Z | T1 GATE-1 — final SQL published BEFORE applying; one identifier rename, zero semantic changes |
 | `2026-09-01-w1-website-truth.md` | 2026-09-01T00:25:12Z | onboarded jahjah-website read-only, first clean Linux build (68 pages), built the weekly truth job, F7 port... |
