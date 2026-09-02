@@ -216,7 +216,14 @@ says the equivalent thing about client input; this is that rule applied to a tri
 `/opt/jahjah/session/publish-report.sh <project>/reports/<name>.md <local-file>` takes the shared
 relay `flock` properly via `jj_relay_sync` / `jj_relay_push`, redacts, rebuilds that folder's
 `INDEX.md`, and prints the raw URL, with path guards and a 512 KB ceiling. It lands in
-`infra/vps/session/` on `main` shortly. **Caveat before adopting it here: it hardcodes
-`JJ_JOB=session`, so two lanes publishing concurrently would share `/opt/jahjah/session.log` and one
-state directory** — which is exactly the kind of shared-state collision the relay lock exists to
-prevent. Worth reading before the inbox lane reuses it instead of its own locking.
+`infra/vps/session/` on `main` shortly.
+
+**Caveat, stated correctly (an earlier version of this paragraph overstated it).** The wrapper
+hardcodes `JJ_JOB=session`. **The relay repository is NOT at risk from that** — verified by reading
+the file: it publishes through `jj_relay_sync` / `jj_relay_push`, which take the shared `flock` on
+`/opt/jahjah/relay.lock` per invocation, independently of `JJ_JOB`. What `JJ_JOB` actually selects is
+only the log path and the state directory, so the symptom of two lanes publishing concurrently is
+**interleaved lines in `/opt/jahjah/session.log`, not a lost or clobbered report.** That is a
+legibility problem, not a correctness one, and it should not weigh against adopting the wrapper. The
+fix, if the inbox lane ever returns and needs it, is to accept `JJ_JOB` from the caller rather than
+fork the file — the wrapper's own README records this, so chunk 4 will find it there.
