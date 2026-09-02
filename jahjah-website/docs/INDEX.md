@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `7821043d2699fbadb8d6dc6cc9eb70c824303a7a`
-**Commit subject:** ci: Dependabot, weekly, grouped minor+patch (#17)
-**Copied (UTC):** 2026-09-02T20:07:00Z
+**Mirrored commit:** `30f7988af5ce6a36601313f78149a75d596a123e`
+**Commit subject:** fix(relay-report): gh issue list lags, so confirm with a retry (#23)
+**Copied (UTC):** 2026-09-02T20:37:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -17,11 +17,11 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 
 | File | Bytes | Source path in the repo |
 |---|---|---|
-| `CLAUDE.md` | 12814 | `CLAUDE.md` |
-| `STRATEGIST.md` | 18734 | `docs/STRATEGIST.md` |
-| `STATE.md` | 9396 | `docs/STATE.md` |
-| `ROADMAP.md` | 11480 | `docs/ROADMAP.md` |
-| `DECISIONS.md` | 24445 | `docs/DECISIONS.md` |
+| `CLAUDE.md` | 15306 | `CLAUDE.md` |
+| `STRATEGIST.md` | 24510 | `docs/STRATEGIST.md` |
+| `STATE.md` | 15976 | `docs/STATE.md` |
+| `ROADMAP.md` | 18150 | `docs/ROADMAP.md` |
+| `DECISIONS.md` | 34942 | `docs/DECISIONS.md` |
 | `reference/site.md` | 8228 | `docs/reference/site.md` |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it

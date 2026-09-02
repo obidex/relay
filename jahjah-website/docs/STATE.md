@@ -6,16 +6,22 @@
 
 | Aspect | Status |
 |---|---|
-| **Programme** | **P0 · CANON RESET** ★ this chunk → **P1 launch blockers** → P2 identity + foundation → P3 Admin Mode → P4 customer accounts → P5 public UX/content (parallel) → **L launch** → P6 |
-| **Next step** | P1 — website strategist's first chunk (see ROADMAP §2). Architecture is locked (W074–W082); no decision is pending for P1. |
-| **`master` HEAD at the last canon update** | `939653a` — "docs: canon reset (P0) (#1)". Written by the chunk-close PR, the first commit that could know the squash hash — so `master` is normally **one commit ahead of this line**, that PR itself. A larger gap means commits landed outside the chunk loop. |
+| **Programme** | P0 canon reset → P0.1 cowork lane → **P0.2 · WORKFLOW V2** ★ this chunk → **P1 launch blockers** → P2 identity + foundation → P3 Admin Mode → P4 customer accounts → P5 public UX/content (parallel) → **L launch** → P6 |
+| **Next step** | P1 — launch blockers (ROADMAP §2). Architecture is locked (W074–W082); no decision is pending. **It arrives as a GitHub issue** the strategist opens, labelled `chunk:proposed`; the owner's `chunk:approved` label starts it (W099). |
+| **`master` HEAD at the last canon update** | `7821043` — "ci: Dependabot, weekly, grouped minor+patch (#17)". This line is written by the chunk-close PR, the first commit that cannot know its own squash hash — so `master` is normally **one commit ahead of this line**, that PR itself. A larger gap means commits landed outside the chunk loop. |
 | **Live** | 68 pages EN + AR on `https://jahjah-website.vercel.app` · 22 products · 5 brands · 6 categories · no prices, no login |
 | **Content** | Placeholder catalogue (AI-generated names/copy, 126/192 images placeholder). Deleted when real data enters — never polished (W007). |
 | **Sister project** | `jahjah-internal` (ERP) — separate canon, **not connected** (W075). |
 
-### CI shape (`.github/workflows/ci.yml`)
+### CI shape (`.github/workflows/ci.yml`) and the merge gate
 
-One job on every PR and on `master`, Node 22: `npm ci` → `npm run build` → page-count assert (`EXPECTED_PAGES` = 67 content pages — verify.sh excludes `/admin`, Astro reports 68; update it in the same PR that adds routes) → compiled-output checks (`/verify` greps) → `npm run reference` + `git diff --exit-code docs/reference/` → gitleaks. **No job is a hard merge gate** (branch protection is Pro-gated on a private repo). Merge-on-green is discipline (W084).
+One job, **named `ci`**, on every PR and on `master`, Node 22: `tier3-guard` → `npm ci` → `npm run build` → page-count assert (`EXPECTED_PAGES` = 67 content pages — verify.sh excludes `/admin`, Astro reports 68; update it in the same PR that adds routes) → compiled-output checks → `npm run reference` + `git diff --exit-code docs/reference/` → gitleaks. Every action is pinned to a **commit SHA** with its tag in a trailing comment.
+
+**`ci` IS A HARD MERGE GATE from 2026-09-02T16:20:50Z.** Ruleset `master-protection`, id **22124934**: pull request required, squash only, required check `ci` (strict), no deletion, no non-fast-forward, **no bypass actors** — the admin who created it cannot bypass it either (W100). A direct push is refused by GitHub with `GH013`. W084's "merge-on-green is discipline" is history.
+
+`tier3-guard` fails any PR that touches a Tier-3 path without a body line `Tier-3: authorized by chunk <name>` (W101). `on.pull_request.types` includes `edited`, so adding the line re-runs it.
+
+A second job, **`review`** (`.github/workflows/claude-review.yml`) runs an independent Claude review, judged by `REVIEW.md`, on every PR **except Dependabot's** — the workflow carries `if: github.actor != 'dependabot[bot]'`, so on a bot PR the check reports `skipping`. It is **not** a required check — see live flag 10.
 
 ### Automations touching this project (registry: `jahjah-internal/docs/runbooks/automations.md`)
 
@@ -24,6 +30,8 @@ One job on every PR and on `master`, Node 22: `npm ci` → `npm run build` → p
 | `jahjah-web-truth` | Mon 05:30 UTC | `relay/jahjah-website/reports/TRUTH-weekly.md` — clean build, compiled greps, live probes |
 | `jahjah-web-docs` | every 30 min | `relay/jahjah-website/docs/` — mirror of the canon allowlist (set up in P0) |
 | `jahjah-web-backup` | 02:30 UTC nightly | `/root/backups/web/` — Sanity export (+ DB dump from P2), keep 7, VPS-only (set up in P0) |
+| `jahjah-web-dispatch` | every 2 min | starts an approved chunk issue on the executor; heartbeat `HEARTBEAT-web-dispatch.md`. Kill: `touch /opt/jahjah/WEB_DISPATCH_OFF` (P0.2) |
+| `jahjah-web-backup-check` | Mon 03:30 UTC | unpacks the newest backup, compares counts with live Sanity and checks every referenced image is present; verdict on `HEALTH-daily.md` (P0.2) |
 
 ---
 
@@ -36,7 +44,10 @@ One job on every PR and on `master`, Node 22: `npm ci` → `npm run build` → p
 5. **LAUNCH-FACT GATE OPEN (W088).** Site says founded 2010; other company materials say 2009. Damascus number has a Turkish prefix (`+90…`, correct — phone is physically in Turkey). One person rules before launch.
 6. **VERCEL HOBBY.** Non-commercial. Pro is required before the first on-demand route ships (W090), i.e. P2 — not "at launch".
 7. **NO WEB DB YET.** Supabase project #2 is created in P2. When it exists: free tier pauses after ~1 week idle (W091) — the nightly backup keeps it awake.
-8. **CANON MOVED.** Anything in a claude.ai project other than the single pointer file is stale by definition. Read the mirror.
+8. **CANON MOVED, AND THE PROJECT IS A SYNC NOT A PASTE (W098).** The claude.ai project knowledge is a GitHub sync of `docs/` + `CLAUDE.md`. It is not stale by definition — it **lags**. Use it for orientation; the mirror and the connector win. And a fresh `INDEX.md` does not mean a fresh sibling (W102): `raw.githubusercontent.com` will serve a current index beside a stale body, cache-buster on both.
+9. **A CHUNK STARTS FROM A LABELLED ISSUE (W099) — BUT NO REAL CHUNK HAS DONE SO YET.** The strategist opens it, the owner adds `chunk:approved`, `jahjah-web-dispatch` runs it within 2 minutes. That path is proven only by **two smoke tests** (issues #11 and #12); P0.2's own issue #6 was opened by the executor after the fact and deliberately never dispatched. **P1 is the first real test of the loop.** Until it has run, treat the lane as working-but-unexercised. **The relay is dual-published** — every report goes to the issue *and* the relay — and is retired only after that first real chunk (ROADMAP F26).
+10. **THE `review` JOB IS GREEN AND SILENT SO FAR.** The independent review job is installed and no longer errors, but no run has yet posted a finding or a "no issues" summary. It is deliberately not a required check, so it cannot block a merge either way — but do not read a green `review` as approval until one has been seen to produce output. Register row open.
+11. **THE EXECUTOR WORKSPACE IS TRUSTED** (this is the state fact `docs/STRATEGIST.md` §8 points here for): `/opt/jahjah/web` was trusted on 2026-09-02, so `.claude/settings.json`'s allow list is in force, not just its deny half.
 
 ---
 
@@ -44,6 +55,8 @@ One job on every PR and on `master`, Node 22: `npm ci` → `npm run build` → p
 
 | Date | Session | Model | Result |
 |---|---|---|---|
+| 2026-09-02 | **P0.2 · Workflow v2** — GATE 2 machine-enforced (ruleset `master-protection`, no bypass actors); CI job renamed `ci`, every action SHA-pinned, new `tier3-guard`; chunk labels + `/relay-report` to the issue; `jahjah-web-dispatch` (chunk issues → executor) and `jahjah-web-backup-check` (backup integrity) built in the ERP repo; independent `review` job; Dependabot. Chunk issue **#6**. | Claude Code (Opus 5, xhigh) | **PRs #4 `58912bd`, #10 `44bef69`, #13 `b840c3a`, #18 `7ce7932`, #17 `7821043`** merged (+ this chunk-close PR); #5 opened and closed unmerged as the ruleset proof. Cross-repo: `jahjah-internal` **#91 `2c66949`** and **#92 `2f2278b`** merged. Six reviewer passes on the relay-report skill, four on the review workflow, three compliance-panel passes on the lane; one BLOCK and eleven FIXes, all closed. |
+| 2026-09-02 | **P0.1 · Cowork lane into canon** — the strategist's own lane written down as `docs/STRATEGIST.md` §8; one row added to STATE §4. No site change. | strategist (Fable) + Claude Code (**Sonnet 5**, medium) | **PR #3** `e33b478` merged. Three reviewer passes; merged on a NOTE-only verdict, flagged at the time. Opened F16–F22, all closed in P0.2. |
 | 2026-09-02 | **P0 · Canon reset** — five off-disk docs → repo canon (STRATEGIST/STATE/ROADMAP/DECISIONS W001–W091/reference generator/archive), `.claude/` layer (deny rules, reviewer, `/verify` `/ship` `/relay-report`), CI, VPS executor `web`, docs mirror + backup units. Loss-prevention inventory: 0 binding rules lost. | strategist (Fable) + Claude Code (Opus 5) | **PR #1** `939653a` merged (+ this chunk-close PR). Cross-repo: `jahjah-internal` **PR #85** `743b17e` merged — `jahjah-web-docs`, `jahjah-web-backup`, and a backup-freshness heartbeat in `health.sh`. Three reviewer passes on #1, one infra pass on #85; one BLOCK each, both closed. |
 | 2026-08-31 | Weekly read-only audit `jahjah-web-truth` installed on the VPS (ERP platform W1). First report 2026-09-01. | — | ERP commit `8d980d3` |
 | 2026-06-11 | Strategic reset: three pillars, ShamCash, docs remake (no code) | strategist | — |
@@ -81,7 +94,7 @@ Commits between `9a5c1d7` and `9bdcb40` (brand infrastructure, bilingual content
 
 ### Plans and bill safety
 
-Vercel Hobby (→ Pro at P2, ~$20/mo) · Sanity Free (3 users, 10k docs, 100k API req/mo — employees use Admin Mode, not seats) · GitHub Free (no branch protection) · Supabase Free from P2 (2 projects/org: ERP is #1). Claude Max for Claude Code; Fable on owner-bought credits for architecture sessions only.
+Vercel Hobby (→ Pro at P2, ~$20/mo) · Sanity Free (3 users, 10k docs, 100k API req/mo — employees use Admin Mode, not seats) · **GitHub Pro** (~$4/mo — active as of 2026-09-02; rulesets on a private repo are what it buys, and creating `master-protection` is what proved it, since `gh api /user` omits `plan` without the `user` scope) · Supabase Free from P2 (2 projects/org: ERP is #1). Claude Max for Claude Code; Fable on owner-bought credits for architecture sessions only.
 
 ### TRUTH 2026-09-01 findings still open
 
@@ -89,16 +102,48 @@ Build 68 pages / 37 s / exit 0; 2 build warnings (chunk size; deprecated `@sanit
 
 ### Owner-side open items (no code)
 
-Rule on the launch facts (W088) · name the three price tiers (default Tier 1/2/3) · decide currency (W066) before flipping `prices_visible` · obtain ShamCash merchant docs (W064, not urgent) · decide whether the showroom address is published (ROADMAP §4).
+**Decide whether to mirror the three Sanity values as *Dependabot* secrets (ROADMAP F24).** Six
+Dependabot PRs are open right now and **none of them can go green** as things stand — and **three of
+the six are security updates** (#14 undici, #15 browserslist, #16 dompurify; #19 is the grouped
+minor/patch, #20 and #21 are majors). So the default of leaving them red is not free: it means
+declining security fixes for as long as it stands. Mirroring the secrets lets them build; it also
+hands a live Sanity read token — which can see drafts — to a run executing a dependency version
+nobody has reviewed. The ERP repo's canon (D228) rejects the equivalent outright, but its escape hatch
+does not exist here, because our `ci` is one job whose secret-dependent steps *are* the gate. **Nothing
+else in the project waits on this, but the security half means it should not sit indefinitely.**
+
+The five older owner-side items, unchanged: Rule on the launch facts (W088) · name the three price tiers (default Tier 1/2/3) · decide currency (W066) before flipping `prices_visible` · obtain ShamCash merchant docs (W064, not urgent) · decide whether the showroom address is published (ROADMAP §4).
 
 ---
 
 ## 5. NEXT PLANNED STEP
 
-**P1 · launch blockers** — first chunk of the website strategist. No open decision blocks it. Inputs: this file, ROADMAP §2 P1, `docs/reference/site.md`, TRUTH-weekly.
+**P1 · launch blockers** — the first chunk of the new loop. The strategist opens it as a **GitHub issue
+labelled `chunk:proposed`**; the owner adds `chunk:approved` and it starts within two minutes (W099).
+No open decision blocks it. Inputs: this file, ROADMAP §2 P1, `docs/reference/site.md`, TRUTH-weekly.
 
-**Carried from P0:** verify the watermark claim (TRUTH grep, **F1 — still open**, first TRUTH run under the new canon is Mon 05:30 UTC).
+**Carried:** F1, the watermark claim on the DCEL washer images — still open; the first TRUTH run under
+the new canon is Mon 05:30 UTC.
 
-**Closed in P0:** `gh` push scope confirmed (F8 — preflight passed, PR #1 pushed and merged from the VPS) · the two units registered and merged in the ERP runbook (F2 — `jahjah-internal` PR #85) · Node-22 pin in CI matches `package.json` engines (`node-version: 22` vs `>=22.12.0`, and the box runs 22.23.2).
+**Closed in P0.2:** F6 (GitHub Pro / branch protection — the ruleset is live, and its creation is what
+proved Pro is active) · F10 (CI hardening — all three actions pinned to commit SHAs, gitleaks moved
+off the Node-20 `@v2` two weeks before GitHub removes that runtime) · F12 (the four unextractable
+facts now restated in `CLAUDE.md` §3) · **F13 (the executor workspace is trusted — live flag 11)** ·
+F16, F17, F18, F19, F20, F21, F22 (the P0.1 documentation follow-ups; F18 by W098 and W099, which
+supersede rather than edit, since DECISIONS is append-only).
 
-**Opened in P0:** F9 `/ar/404/` · F10 CI hardening · F11 the reviewer agent's `tools:` field · F12 four facts now in no canon file · **F13 the executor workspace is not trusted, so `.claude/settings.json`'s allow list is ignored** (one interactive `claude` session in `/opt/jahjah/web` clears it; the deny half is in force meanwhile) · F14 `jahjah-web-truth` still reads the old clone · F15 the deferred `web-truth`/`verify.sh` unification.
+**F11 is NOT closed, and here is exactly why.** The question is whether `.claude/agents/reviewer.md`'s
+`tools:` frontmatter actually restricts the agent. Evidence gathered this chunk points to **no**: a
+review subagent reported executing `cat`, `sed`, `python3`, `find`, `WebFetch` and `WebSearch`, none of
+them in that list, without restriction. But it was invoked from a session whose working directory is
+`/root`, not `/opt/jahjah/web` — so the project agent was never registered in the first place, and
+every reviewer pass this chunk ran as a general-purpose agent handed `reviewer.md` as its contract.
+That narrows the question rather than answering it. **The row stays open until a session started IN
+`/opt/jahjah/web` invokes `reviewer` by name and its tool set is observed** — which is now easy,
+because a dispatched chunk runs from exactly that directory.
+
+**Opened in P0.2:** ROADMAP **F23–F32** — the three reasons a Dependabot PR is red (F23), **the
+owner's decision on Dependabot secrets (F24, also in §4 above)**, the `review` job's silence (F25),
+the relay retirement (F26), the P3 import drill (F27), the Actions-minutes watch (F28), the generator
+not seeing `.github/dependabot.yml` (F29), `ci.yml`'s stale header (F30), the six Dependabot PRs
+already open and unmergeable (F31), and DECISIONS' two conventions for supersession (F32).

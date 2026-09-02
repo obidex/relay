@@ -17,7 +17,7 @@
 | `docs/archive/` | Frozen history | Provenance only; never load in session |
 
 **Where to read them:** live, from the public relay mirror —
-`https://raw.githubusercontent.com/obidex/relay/main/jahjah-website/docs/<path>` (append `?v=<anything>` to dodge the 15-minute cache). The mirror lags `master` by ≤ 30 min (`jahjah-web-docs`). Reports: `.../jahjah-website/reports/` (+ `INDEX.md`, `TRUTH-weekly.md`). The claude.ai project holds one pointer file and nothing else — never trust a doc uploaded to a project over the mirror.
+`https://raw.githubusercontent.com/obidex/relay/main/jahjah-website/docs/<path>` (append `?v=<anything>` to dodge the 15-minute cache). The mirror lags `master` by ≤ 30 min (`jahjah-web-docs`). Reports: `.../jahjah-website/reports/` (+ `INDEX.md`, `TRUTH-weekly.md`). The claude.ai project knowledge is a **GitHub sync** of `docs/` + `CLAUDE.md` (W098) — useful for orientation and for finding which file owns a fact, but it lags; **the mirror wins**, and never upload a doc to a project. **A fresh `INDEX.md` does not mean a fresh sibling (W102):** `raw.githubusercontent.com` can serve a current index and a stale body in the same second, cache-buster on both, so trust INDEX's "Mirrored commit" line over the body you just fetched. Code, PRs, CI and issues are read through the **GitHub connector** (§8), which is fresher than the mirror.
 
 **The 90% path:** STATE → ROADMAP register → reference → done.
 
@@ -31,21 +31,53 @@
 | **Strategist** | This chat | Plans, writes the chunk, watches the relay, verifies merge/deploy, reports once per chunk |
 | **Implementer** | Claude Code on the VPS, tmux session `web` | Investigates, builds, verifies, opens PRs, merges on green when authorized, publishes reports, updates canon |
 
-Plus, outside the loop: the **native Arabic reviewer** (gate on all meaningful AR copy, W025) and the **machine**: `jahjah-web-truth` (Mon), `jahjah-web-docs` (30 min), `jahjah-web-backup` (nightly), CI on every PR.
+Plus, outside the loop: the **native Arabic reviewer** (gate on all meaningful AR copy, W025) and the **machine**: `jahjah-web-dispatch` (every 2 min — the one that now starts a chunk), `jahjah-web-docs` (30 min), `jahjah-web-truth` (Mon), `jahjah-web-backup` (nightly), `jahjah-web-backup-check` (Mon), `ci` on every PR, and `review` on every PR except Dependabot's. The registry is `jahjah-internal/docs/runbooks/automations.md`; the current list is `docs/STATE.md` §1.
 
 **The owner is a relay, not a reviewer.** Plan for your rigor and the implementer's compliance. He reads headlines, thinks in visuals, and decides — never ask him to review code or a plan; interpret, then bring him A/B with a recommendation.
 
 ### The chunk loop
 
 ```
-STRATEGIST writes chunk plan + mega-prompt (one fenced block)
-   → OWNER pastes it into tmux `web`   (his paste IS the confirmation)
+STRATEGIST opens a GitHub ISSUE in obidex/jahjah-website carrying the whole chunk plan,
+           labelled chunk:proposed (+ model:opus or model:sonnet)
+   → OWNER adds chunk:approved         (his label IS the confirmation — one tap, from anywhere)
+   → jahjah-web-dispatch picks it up within 2 minutes, relabels chunk:running, and starts the
+     chunk on the executor in tmux `web` with CHUNK_ISSUE set
    → CLAUDE CODE runs unattended: tasks → PRs → CI → reviewer → merge (if pre-authorized)
-   → CLAUDE CODE publishes reports/<date>-<chunk>-{progress,final}.md to the relay
-   → STRATEGIST reads the relay on the tiered cadence, verifies prod, reports ONCE
+   → CLAUDE CODE reports as COMMENTS on that issue, and to the relay, and moves the label to
+     chunk:done (or chunk:blocked)
+   → STRATEGIST reads the issue, the PRs and CI through its GitHub connector; verifies prod;
+     reports ONCE
 ```
 
+**The owner's label replaced his paste** (W099). It no longer requires him at a desktop with tmux
+open at the moment the plan is ready, and the plan, the approval, the work and the result end up as
+one thread in the repository the work changes.
+
 No mid-chunk pings. The only mid-chunk messages to the owner are **BLOCKED**, **stall**, or **final**.
+
+**A chunk started by hand still works** — paste the prompt into tmux `web` as before. It differs in
+exactly two ways: `CHUNK_ISSUE` is unset so reports go only to the relay, and the executor is asked
+to approve the relay-publish wrapper once (W103, point a).
+
+**What the lane does when a chunk fails to say so.** When the chunk's process exits, the lane reads
+the issue's labels: still `chunk:running` means no final report was ever posted, so it comments the
+exit code and relabels `chunk:failed`. A chunk that finished properly has already moved the label
+itself. **The label is the machine-readable verdict; the report is the human one.**
+
+| Label | Means |
+|---|---|
+| `chunk:proposed` | the strategist has written the plan; waiting on the owner |
+| `chunk:approved` | the owner's confirmation. The lane starts it within 2 minutes |
+| `chunk:running` | dispatched and running now |
+| `chunk:done` | the chunk posted a final report |
+| `chunk:blocked` | the chunk stopped and needs a decision, or hit a cap |
+| `chunk:failed` | the process exited without the chunk ever reporting — a crash, a kill, a cap on the lane |
+| `model:opus` / `model:sonnet` | routing; `opus` is the default when neither is set |
+
+The lane's own description, caps and kill switch live in `jahjah-internal`'s
+`docs/runbooks/automations.md` under `jahjah-web-dispatch`. **Kill switch:
+`touch /opt/jahjah/WEB_DISPATCH_OFF`.**
 
 ### Chunk plan — required contents
 
@@ -90,8 +122,10 @@ NEXT-NEEDED: single decision/input, or "none"
 ### GATE 2 — Merge to master (= production deploy)
 
 - `master` is production. Nothing reaches it except a PR merged on **green CI** after a **clean reviewer pass**, with a preview URL in the PR.
+- **THIS IS NOW MACHINE-ENFORCED, NOT DISCIPLINE (W100).** A ruleset on `master` requires a pull request, allows **squash only**, requires the status check **`ci`**, forbids deletion and non-fast-forward, and has **no bypass actors** — the admin who created it cannot bypass it either. **Never edit or delete it**; if it blocks a PR because `ci` is red, fix the PR. Its id and the evidence that it bites live in `docs/STATE.md` §1 and in W100, because both are dated facts.
 - **Pre-authorizable per chunk:** the plan states which PRs may merge themselves. Fires only on clean reviewer AND green CI; either failing re-opens the gate. Covers same-scope follow-ups.
-- Tier-3 files (§3) merge only when the chunk plan named them.
+- Tier-3 files (§3) merge only when the chunk plan named them — and CI's **`tier3-guard`** step now enforces the machine half (W101): a PR touching a Tier-3 path must carry a body line `Tier-3: authorized by chunk <name>`. It is a floor, not a ceiling: the judgment half of that list is not path-expressible, and you still decide whether the named chunk plausibly authorized *those* files.
+- **An independent `review` job runs on every PR except Dependabot's** (`.github/workflows/claude-review.yml`), judged by `REVIEW.md`. It is a second pair of eyes and **not** a required check — the executor's reviewer subagent stays the gate. Address every 🔴 it raises before merging; a green-and-silent `review` is not evidence of approval.
 - **Verify merge and deploy yourself** (Vercel MCP `list_deployments` for project `jahjah-website`; live probes). Never ask whether it deployed. PR-green ≠ main-green: watch the post-merge run.
 - The Sanity publish webhook is a second path to production with no commit. It is watched by the weekly TRUTH report, never gated.
 
@@ -119,9 +153,12 @@ If unsure 2 vs 3 → 3. Model is set per session; split mixed work into separate
 
 ```
 CHUNK <name> — MODEL: <per tier>. Confirm model, then run unattended.
+(Delivered as a GitHub issue labelled chunk:proposed — §1. The body below IS the issue body.)
 
 PREFLIGHT (stop with a BLOCKED report if any fails):
 - pwd = /opt/jahjah/web (or the clone path in STATE) · git fetch · HEAD == origin/master · tree clean
+- `git ls-files | wc -l` recorded, and RECOUNTED before every push (W092 — a .gitignore rule can
+  silently drop files from a commit and `git add` reports nothing)
 - gh auth status OK · git ls-remote origin OK · npm ci clean · npm run build exit 0
 - env names present (never print values): PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET, SANITY_READ_TOKEN[, SANITY_WRITE_TOKEN, SUPABASE_*]
 - read docs/STATE.md and docs/reference/site.md; list every assumption in this prompt that contradicts them
@@ -133,7 +170,7 @@ RULES: CLAUDE.md is binding. Every user-facing string via translations.js + AR m
 
 GATE 2: PRs T1–Tk may self-merge on clean reviewer + green CI. Tier-3 PRs: <list or "none">.
 CAPS: <hours>, <retries per task>, build timeout. STOP-CONDITIONS: <...>.
-REPORTS: progress report after each merged PR; final report at end; BLOCKED report on any stop. Publish via /relay-report.
+REPORTS: progress report after each merged PR; final report at end; BLOCKED report on any stop. Publish via /relay-report — which posts to the chunk issue AND the relay, and moves the issue's label.
 CANON: at chunk end update docs/STATE.md (ledger row, HEAD, flags), ROADMAP register, DECISIONS (new W entries), regenerate docs/reference/site.md — in the last PR.
 ```
 
@@ -212,40 +249,74 @@ Chats rotate every one or two chunks. At chunk close: (1) canon current, ledger 
 
 ---
 
-## 8. THE COWORK LANE — how the strategist chat reaches this project
+## 8. THE STRATEGIST'S OWN LANE — how this chat reaches the project
 
-The strategist chat has **no `gh` and no GitHub credential**. It cannot open a branch, a PR or a merge, and its only channel **to the executor** is **one mega-prompt per chunk**, pasted by the owner into tmux `web`. That paste is the confirmation (§1), and apart from a folder the owner connects himself (below) it is the only way work leaves this chat.
+The strategist chat now has a **GitHub connector** (OAuth app "Claude strategist"): it can **read the
+repository, its pull requests and its CI**, and **write issues and comments**. It still has no `gh`,
+no shell and no credential of its own, and the connector cannot push, cannot merge and cannot change
+a setting — blocked at the connector, and blocked again at the `master-protection` ruleset even if it
+could try.
 
 | Direction | Channel | Limit |
 |---|---|---|
-| **In** — canon, reports | the public relay mirror (READING MAP) | read-only; lags `master` |
-| **Out** — work | one mega-prompt per chunk, owner-pasted into tmux `web` | no mid-chunk pings (§1) |
-| **Both** — a connected folder | Cowork device tools on the owner's laptop clone | may edit and commit there; **the push stays his**, and **GATE 2 still binds** (§2) — a commit made in that folder reaches `master` only as a PR merged on green CI after a clean reviewer pass. Canon updates are not this path's work: they stay with the implementer, in the chunk's last PR (§7) |
+| **In** — repo, PRs, CI, issue threads | the GitHub connector | read-only on code; no push, no merge |
+| **In** — canon, reports | the public relay mirror (READING MAP) | read-only; lags `master` by ≤ 30 min |
+| **Out** — work | **one GitHub issue per chunk**, labelled `chunk:proposed` | the OWNER's `chunk:approved` label is what starts it (§1) |
+| **Out** — questions, corrections | a comment on the chunk's issue | the executor may not see it mid-chunk; it is a record, not a channel |
+| **Both** — a connected folder | Cowork device tools on the owner's laptop clone | may edit and commit there; **the push stays his**, and **GATE 2 still binds** (§2). Canon updates are not this path's work: they stay with the implementer, in the chunk's last PR (§7) |
+
+**Reports are dual-published.** Every report goes to the issue *and* to `jahjah-website/reports/`.
+Whether the relay has been retired yet is a state fact — `docs/STATE.md` live flags and ROADMAP F26 —
+and until it is, the relay is the fallback and the thing the check cadence in §1 watches.
 
 ### Reading the canon
 
-Plain `WebFetch` is the reader; the URL, the `?v=` cache-buster and the mirror's lag are in the READING MAP. What that entry does not say:
+Plain `WebFetch` is the reader; the URL, the `?v=` cache-buster and the mirror's lag are in the
+READING MAP. What that entry does not say:
 
 | Source | Verdict |
 |---|---|
-| the raw mirror (+ `?v=`), and `INDEX.md` | **the only readable surface** |
-| `api.github.com` | rate-limited; never build a workflow on it |
+| the raw mirror (+ `?v=`), and `INDEX.md` | the readable surface for canon |
+| the GitHub connector | now the readable surface for **code, PRs, CI and issues** — it is fresher than the mirror and it is not rate-limited the way `api.github.com` is |
+| `api.github.com` unauthenticated | rate-limited; never build a workflow on it |
 | `github.com` HTML | robots-blocked |
 
-And: a large file comes back **summarized, and the summary is lossy**. Never conclude a rule is absent because a search result or an extract omitted it — open the file that owns the fact (READING MAP) and read the section. Absence from an extract is evidence of nothing.
+**A fresh `INDEX.md` does not mean a fresh sibling (W102).** `raw.githubusercontent.com` can serve a
+current `INDEX.md` and a stale body in the same second, cache-buster on both. The freshness signal is
+**INDEX.md's "Mirrored commit" line**, not the body just fetched: if the body looks older than the
+commit INDEX names, re-fetch rather than conclude the canon says what the stale copy says.
+
+And: a large file comes back **summarized, and the summary is lossy**. Never conclude a rule is absent
+because a search result or an extract omitted it — open the file that owns the fact and read the
+section. Absence from an extract is evidence of nothing.
 
 ### The claude.ai project knowledge
 
-A **GitHub sync of this repo's `docs/` + `CLAUDE.md`** — a searchable snapshot, useful for orientation and for finding which file owns a fact. It is not the canon: the mirror is fresher and **the mirror wins**. Never upload a copy of a canon file to the project.
+A **GitHub sync of this repo's `docs/` + `CLAUDE.md`** (W098) — a searchable snapshot, useful for
+orientation and for finding which file owns a fact. It is not the canon: it lags, the mirror is
+fresher, and **the mirror wins**. Never upload a copy of a canon file to the project.
 
 ### What the guardrails actually guarantee
 
-- **`.claude/settings.json` is a guardrail against accident, not a sandbox (W095).** Deny rules match command patterns, so a path around any one of them exists. What holds is that only the owner's plans run and every change to `master` goes through a reviewed PR.
-- **Allow-rules load only after a human trusts the workspace once** — until then the deny half is in force and the allow half is ignored. Done for the executor clone `/opt/jahjah/web`.
-- **A repo `.gitignore` can silently drop files from an owner push (W092).** `git add` reports nothing; the branch simply lands without them. **Every preflight counts files**, before and after.
+- **`.claude/settings.json` is a guardrail against accident, not a sandbox (W095).** Deny rules match
+  command patterns, so a path around any one of them exists. What holds now is machine-enforced:
+  `master-protection` (W100) lets nothing reach `master` except a squash-merged PR on green `ci`, with
+  no bypass actors — the admin who created it included.
+- **Allow-rules load only after a human trusts the workspace once.** Whether that has been done, and
+  for which clone, is a state fact — `docs/STATE.md` §2, not here.
+- **Some things a permission rule cannot reach at all (W103, point a).** Claude Code refuses `.`/`source` as
+  shell-code evaluation whatever the rules say. A plan that assumes "we can allow it" should be
+  checked against that.
+- **A repo `.gitignore` can silently drop files from an owner push (W092).** `git add` reports
+  nothing; the branch simply lands without them. **Every preflight counts files**, before and after.
 
 ### Owner rules for this lane
 
-- **Rephrase his request before acting.** Say back what you understood and act on that reading — it is how a misread surfaces while it is still cheap, and it gives him something concrete to correct.
-- **When he connects a folder, the work happens in that folder** — not in the cloud container, and not as text he has to place by hand. The loop and the gates are unchanged by where the keystrokes land.
-- **One-time information goes in chat, never a new file.** §5 states this in full; it is repeated here because a connected folder makes writing the file the path of least resistance. The rule does not relax there.
+- **Rephrase his request before acting.** Say back what you understood and act on that reading — it is
+  how a misread surfaces while it is still cheap.
+- **When he connects a folder, the work happens in that folder** — not in the cloud container, and not
+  as text he has to place by hand. The loop and the gates are unchanged by where the keystrokes land.
+- **One-time information goes in chat, never a new file.** §5 states this in full; it is repeated here
+  because a connected folder makes writing the file the path of least resistance.
+- **An issue is not a chat.** The chunk issue is a record the owner may read on a phone: put the
+  headline first, the plan below it, and nothing in it that only makes sense to the executor.
