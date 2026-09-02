@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-02T18:17:42Z by `jahjah-dispatcher`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-02T18:18:58Z by `jahjah-health`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -11,7 +11,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
-| `HEALTH-daily.md` | 2026-09-02T05:16:48Z | daily health — OK, all 9 automations alive |
+| `HEALTH-daily.md` | 2026-09-02T18:18:58Z | daily health — OK, all 11 automations alive |
 | `HEARTBEAT-dispatcher.md` | 2026-09-02T17:39:35Z | dispatch lane proof-of-life — running, last poll 2026-09-02T17:39:33Z |
 | `HEARTBEAT-inbox.md` | 2026-09-02T18:16:36Z | inbox lane proof-of-life — running, last poll 2026-09-02T18:16:34Z |
 | `HEARTBEAT-web-dispatch.md` | 2026-09-02T18:06:05Z | proof-of-life for the website chunk lane — stale > ~70 min means chunks are not being picked up |
@@ -27,7 +27,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | `2026-09-02-chunk3-ruleset.md` | 2026-09-02T15:48:38Z | chunk 3 — ruleset 22122876 active on main: PR-only, squash-only, ci-ok required, no bypass actors |
 | `2026-09-02-chunk3-preflight.md` | 2026-09-02T14:56:42Z | chunk 3 toolkit preflight — surface confirmed, ONE deviation on the plan check, no stop condition met |
 | `2026-09-02-chunk3-pr-a.md` | 2026-09-02T15:48:08Z | chunk 3 PR-A merged — ci-ok is the single required check, Dependabot is live, the D229 grant audit landed B... |
-| `2026-09-02-chunk3-inbox.md` | 2026-09-02T18:17:42Z | chunk 3 — inbox lane built and fully acceptance-tested; timer enabled, inbox empty, NO real chunk started |
+| `2026-09-02-chunk3-inbox.md` | 2026-09-02T18:17:43Z | chunk 3 — inbox lane built and fully acceptance-tested; timer enabled, inbox empty, NO real chunk started |
 | `2026-09-02-chunk3-hook.md` | 2026-09-02T15:54:20Z | chunk 3 — GATE-1 PreToolUse hook active on the work engine; a migration whose hash is not on the relay cann... |
 | `2026-09-02-chunk2-t1.md` | 2026-09-02T04:53:58Z | T1 MERGED — D218 closed as BOUNDED not closed; panel found a real residual by exploit; D220/D221 recovered ... |
 | `2026-09-02-chunk2-t1-gate1.md` | 2026-09-02T01:55:46Z | T1 GATE-1 — final SQL published BEFORE applying; one identifier rename, zero semantic changes |
