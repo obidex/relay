@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-02T18:53:46Z by `jahjah-dispatcher`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-02T18:55:05Z by `jahjah-dispatcher`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -28,7 +28,8 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | `2026-09-02-chunk3-preflight.md` | 2026-09-02T14:56:42Z | chunk 3 toolkit preflight — surface confirmed, ONE deviation on the plan check, no stop condition met |
 | `2026-09-02-chunk3-pr-a.md` | 2026-09-02T15:48:08Z | chunk 3 PR-A merged — ci-ok is the single required check, Dependabot is live, the D229 grant audit landed B... |
 | `2026-09-02-chunk3-inbox.md` | 2026-09-02T18:17:43Z | chunk 3 — inbox lane built and fully acceptance-tested; timer enabled, inbox empty, NO real chunk started |
-| `2026-09-02-chunk3-hook.md` | 2026-09-02T18:53:46Z | chunk 3 — GATE-1 PreToolUse hook active on the work engine; a migration whose hash is not on the relay cann... |
+| `2026-09-02-chunk3-hook.md` | 2026-09-02T18:53:47Z | chunk 3 — GATE-1 PreToolUse hook active on the work engine; a migration whose hash is not on the relay cann... |
+| `2026-09-02-chunk3-BLOCKED.md` | 2026-09-02T18:55:05Z | chunk 3 BLOCKED — PR-A merged and good; the GATE-1 hook and inbox lane failed the panel; the lane is DISABL... |
 | `2026-09-02-chunk2-t1.md` | 2026-09-02T04:53:58Z | T1 MERGED — D218 closed as BOUNDED not closed; panel found a real residual by exploit; D220/D221 recovered ... |
 | `2026-09-02-chunk2-t1-gate1.md` | 2026-09-02T01:55:46Z | T1 GATE-1 — final SQL published BEFORE applying; one identifier rename, zero semantic changes |
 | `2026-09-01-w1-website-truth.md` | 2026-09-01T00:25:12Z | onboarded jahjah-website read-only, first clean Linux build (68 pages), built the weekly truth job, F7 port... |
