@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `b840c3a6ed8b07cd5b0efe3d71a0880d37f6dd33`
-**Commit subject:** ci: an independent Claude review on every pull request (#13)
-**Copied (UTC):** 2026-09-02T19:37:04Z
+**Mirrored commit:** `7821043d2699fbadb8d6dc6cc9eb70c824303a7a`
+**Commit subject:** ci: Dependabot, weekly, grouped minor+patch (#17)
+**Copied (UTC):** 2026-09-02T20:07:00Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
