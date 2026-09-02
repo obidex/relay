@@ -1,6 +1,6 @@
 # Inbox lane heartbeat
 
-<!-- index: inbox lane proof-of-life — running, last poll 2026-09-02T16:18:03Z -->
+<!-- index: inbox lane proof-of-life — running, last poll 2026-09-02T16:23:13Z -->
 
 Proof of life for the inbox lane on `germany-vpn` — the lane that starts a chunk from a file the
 owner pushes to `jahjah-internal/inbox/`. Rewritten at most once an hour, and immediately whenever the lane
@@ -9,13 +9,13 @@ pauses or trips its failure cap.
 | | |
 |---|---|
 | State | **running** |
-| Last poll (UTC) | 2026-09-02T16:18:03Z |
+| Last poll (UTC) | 2026-09-02T16:23:13Z |
 | Timer unit | `jahjah-inbox.timer` — enabled |
 | Consecutive failures | 0 of 3 before self-disable |
 | Kill switch | clear |
 | Self-disabled | no |
 | Dry run | YES — validates and reports, never starts |
-| Chunk in flight | none (dry run: **would start CHUNK-1**, model `claude-opus-5`) |
+| Chunk in flight | none |
 
 **How to put a chunk in.** Push `jahjah-internal/inbox/CHUNK-<n>.md` to this repository's `main`. Line 1 must be
 `SHA256: <sha256 of everything after line 1>`; the body must contain a `SESSION: jahjah` line and a

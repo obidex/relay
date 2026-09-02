@@ -2,7 +2,7 @@
 
 <!-- index: ALERT — the inbox lane refused a chunk file; it was NOT started -->
 
-**When (UTC):** 2026-09-02T16:01:03Z
+**When (UTC):** 2026-09-02T16:23:13Z
 **Box:** `germany-vpn`
 
 One or more files in `jahjah-internal/inbox/` did not pass the checks, so **nothing was started**.
@@ -10,7 +10,8 @@ Each refusal also counts a strike; 3 in a row disable the lane.
 
 ## Refused this pass
 
-- `CHUNK-0.md` — no `SESSION: jahjah` line (a chunk is never started in the `web` session)
+- `CHUNK-2.md` — author is `Someone Else <someone@example.invalid>`, not the owner `obidex <144545793+obidex@users.noreply.github.com>`
+- `CHUNK-3.md` — body sha256 is `802e2f2266884f1111bcf9f366aa40b42e6cba981c2f28498185438d40161d8c` but line 1 declares `a6db0a955e706a6ad0a9ae14f2e825363d21006a7f0de44d5b139869061c7854` — the file was altered after it was hashed
 
 ## What to do
 

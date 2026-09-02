@@ -1,0 +1,3 @@
+body sha256 is `802e2f2266884f1111bcf9f366aa40b42e6cba981c2f28498185438d40161d8c` but line 1 declares `a6db0a955e706a6ad0a9ae14f2e825363d21006a7f0de44d5b139869061c7854` — the file was altered after it was hashed
+UTC: 2026-09-02T16:23:13Z
+file: jahjah-internal/inbox/CHUNK-3.md
