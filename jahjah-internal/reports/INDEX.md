@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-03T01:52:03Z by `jahjah-web-dispatch`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-03T01:53:34Z by `jahjah-dispatcher`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -12,9 +12,9 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | File | Updated (UTC) | What it is |
 |---|---|---|
 | `HEALTH-daily.md` | 2026-09-02T19:27:36Z | daily health — NEEDS ATTENTION (2 item(s)) |
-| `HEARTBEAT-dispatcher.md` | 2026-09-03T00:51:55Z | dispatch lane proof-of-life — running, last poll 2026-09-03T00:51:53Z |
+| `HEARTBEAT-dispatcher.md` | 2026-09-03T01:53:34Z | dispatch lane proof-of-life — running, last poll 2026-09-03T01:53:34Z |
 | `HEARTBEAT-inbox.md` | 2026-09-02T18:16:36Z | inbox lane proof-of-life — running, last poll 2026-09-02T18:16:34Z |
-| `HEARTBEAT-web-dispatch.md` | 2026-09-03T01:52:03Z | proof-of-life for the website chunk lane — stale > ~70 min means chunks are not being picked up |
+| `HEARTBEAT-web-dispatch.md` | 2026-09-03T01:52:05Z | proof-of-life for the website chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-docs.md` | 2026-09-03T01:37:06Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
 | `SCAN-gitleaks.md` | 2026-08-31T21:01:36Z | weekly gitleaks scan — ZERO secrets found in either repo history |
