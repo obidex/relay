@@ -2,8 +2,8 @@
 
 <!-- index: proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running -->
 
-**Written (UTC):** 2026-09-03T04:07:04Z
-**State:** OK — mirrored 6e28bc3
+**Written (UTC):** 2026-09-03T05:07:04Z
+**State:** OK — master unchanged
 **Mirrored `master`:** `6e28bc318325a23e89831acae7b1e31ee505716c`
 **Runs:** every 30 minutes. **Stale by more than ~70 minutes = this job is not running**, and
 `jahjah-website/docs/` is then older than it looks.
