@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `c1cd21729f27df2039954501ec926987707f6765`
-**Commit subject:** ci(review): Codex becomes the reviewer of record; Claude review goes manual (#25)
-**Copied (UTC):** 2026-09-03T03:37:04Z
+**Mirrored commit:** `6e28bc318325a23e89831acae7b1e31ee505716c`
+**Commit subject:** test(verify): assert no hidden product reached the build (#28)
+**Copied (UTC):** 2026-09-03T04:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -17,12 +17,12 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 
 | File | Bytes | Source path in the repo |
 |---|---|---|
-| `CLAUDE.md` | 16776 | `CLAUDE.md` |
+| `CLAUDE.md` | 16995 | `CLAUDE.md` |
 | `STRATEGIST.md` | 24896 | `docs/STRATEGIST.md` |
 | `STATE.md` | 16453 | `docs/STATE.md` |
 | `ROADMAP.md` | 18150 | `docs/ROADMAP.md` |
 | `DECISIONS.md` | 34942 | `docs/DECISIONS.md` |
-| `reference/site.md` | 8322 | `docs/reference/site.md` |
+| `reference/site.md` | 8620 | `docs/reference/site.md` |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it
 looks old, that may only mean nothing merged. Liveness is

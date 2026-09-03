@@ -43,6 +43,7 @@ On-demand routes: **0**. Every on-demand route must be named by the chunk plan t
 
 | File | Props (from `Astro.props` destructuring) |
 |---|---|
+| src/components/NoImageTile.astro | `label = ''`, `size = 'md'` |
 | src/components/ProductCard.astro | `name`, `category`, `image`, `imageCard`, `slug`, `brand`, `lang = 'en'`, `variants = []` |
 | src/components/pages/HomeContent.astro | `lang = 'en'`, `base = '/'` |
 | src/components/pages/ProductDetail.astro | `product`, `lang = 'en'`, `base = '/'` |
@@ -165,9 +166,9 @@ EN/AR key sets: **SYMMETRIC**
 
 | Name | Exposure | Used in |
 |---|---|---|
-| `PUBLIC_SANITY_DATASET` | client-visible | src/utils/sanity.js |
-| `PUBLIC_SANITY_PROJECT_ID` | client-visible | src/utils/sanity.js |
-| `SANITY_READ_TOKEN` | server-only | src/utils/sanity.js |
+| `PUBLIC_SANITY_DATASET` | client-visible | src/utils/sanity.js, scripts/hidden-products-check.mjs |
+| `PUBLIC_SANITY_PROJECT_ID` | client-visible | src/utils/sanity.js, scripts/hidden-products-check.mjs |
+| `SANITY_READ_TOKEN` | server-only | src/utils/sanity.js, scripts/hidden-products-check.mjs |
 
 ## Dependencies (`package.json`)
 
@@ -190,6 +191,7 @@ Engines: `{"node":">=22.12.0"}` · Scripts: `dev`, `build`, `preview`, `astro`, 
 | Path | Purpose (first comment line) |
 |---|---|
 | scripts/generate-reference.mjs | generate-reference.mjs — writes docs/reference/site.md from the source tree (W085). |
+| scripts/hidden-products-check.mjs | hidden-products-check.mjs — assert that no hidden product reached the build (W077). |
 | scripts/migrate-brand-copy.mjs | One-shot patch: writes nameEn, nameAr, shortDescriptionEn, shortDescriptionAr, |
 | scripts/migrate-to-sanity.mjs | Migrates all products, brands, and categories from the static JS data |
 | scripts/verify.sh | verify.sh — the compiled-output verification ritual (W046, W047, W019, W033, W077). |
