@@ -128,10 +128,78 @@ Unsure 2 vs 3 → 3. Model is stated on the chunk's first line; do not change it
 ```bash
 cd /opt/jahjah/web
 git fetch && git status -sb && git log --oneline -5
-npm ci && npm run build                       # clean build, 68+ pages
+npm ci && npm run build                       # 68 pages built; verify counts 67 CONTENT pages (/admin excluded)
 npm run reference                             # regenerate docs/reference/site.md
 gh pr create --fill --base master             # after push of a chunk branch
 gh pr checks --watch                          # CI
-gh pr merge --squash --delete-branch          # only when pre-authorized + green + clean
-curl -sI https://jahjah-website.vercel.app/ | head -1
+gh pr merge --squash --delete-branch <n>      # FLAGS FIRST — see the traps below
+curl -sI https://jahjah-website.vercel.app/products/          # live probe, ANY path
+curl -s https://jahjah-website.vercel.app/ -o /dev/null -w '%{http_code}\n'   # status only
+EXPECTED_PAGES=67 bash scripts/verify.sh      # the skill's canonical spelling
 ```
+
+**These were measured from a dispatched (`claude -p`) session, not assumed** — six probes on
+2026-09-03, before and after the allowlist repair. Before it, **9 of 10** commands a dispatched
+session needs were refused, two of them named in §5's own preflight (`gh auth status`,
+`git ls-remote`). **Not every line above was probed:** `cd` (which needs no rule), `git fetch`,
+`git status`, `git log`, `npm ci`, `npm run build`, `npm run reference`, `gh pr create`,
+`gh pr checks --watch`, and `gh pr merge --squash --delete-branch <n>` — that last one **cannot** be
+probed without merging a real pull request, so do not "verify" it destructively; it is matched by the
+same rule the old flag-only spelling used. `git ls-files` was probed and runs **unruled**, as do `head` and `tail`.
+Do not generalize that to "read-only git is auto-approved" — `git ls-remote origin HEAD` is read-only
+and was **DENIED**, which is exactly why its rule exists.
+
+**Five traps, each measured:**
+
+- **A `:*` rule breaks at a token boundary.** `Bash(curl -sI https://…vercel.app:*)` did not match
+  `…vercel.app/products/` — appending path is not "an argument". Rules that must accept a path end
+  `/*`, and the two origin-only rules were deleted once the `/*` forms were measured to cover both
+  `/` and `/products/`.
+- **A leading assignment is part of the command, and a rule must not stop at it.**
+  `EXPECTED_PAGES=67 bash scripts/verify.sh` does not match `Bash(bash scripts/verify.sh:*)`. The
+  fix is the **literal** rule `Bash(EXPECTED_PAGES=67 bash scripts/verify.sh:*)`. **That pins 67 in a
+  second place:** if `EXPECTED_PAGES` moves in `ci.yml`, move it here in the same PR or the canonical
+  verify spelling is silently refused in the next dispatched chunk. **It is not
+  `Bash(EXPECTED_PAGES=*)`** — that was written in this chunk and proved to be a universal bypass:
+  `gh workflow list` was DENIED bare and **RAN** when prefixed `EXPECTED_PAGES=1`. Every deny pattern
+  starts at token 1, so nothing catches such a command. **A rule ending at an assignment matches
+  every command carrying that prefix and voids the deny list behind eight characters.**
+- **Flag order decides whether a rule fires.** `gh pr merge <n> --squash --delete-branch` would need a
+  new wide rule (which would also permit `--admin`); `gh pr merge --squash --delete-branch <n>`
+  matches the existing narrow one. Likewise `curl -s <url> -o /dev/null -w …` matches a URL-first
+  rule. **Put the constrained token first** — but know what that buys: a prefix rule scopes only the
+  FIRST url, so a second URL later on the same line is still permitted. Host scoping is **not**
+  expressible in this syntax, and no rule here achieves it.
+- **A pipeline is probably validated segment by segment** — inference, not measurement: `curl … |
+  head -1` runs, but `head` auto-approves, so nothing in that probe was deniable. Recorded because it
+  is the safe belief to hold; with `head` and `tail` both unruled it changes nothing today.
+- **A WORKING-DIRECTORY SANDBOX SITS ABOVE THE ALLOW LIST, AND NO RULE OVERRIDES IT.** Both
+  `mkdir -p /tmp/x` and `printf … > /tmp/x.md` are refused: *"Claude Code may only write to files in
+  the allowed working directories for this session: '/opt/jahjah/web'"*. A rule written for it was
+  proved unable to fire and removed rather than shipped. Same class as W103(a).
+
+> **⚠ WRITE THE REPORT BODY INSIDE THE REPO.** `/relay-report`'s own example path is
+> `/tmp/relay-report.md`, and **that write is refused** — measured above. The refusal is scoped to the
+> session's working directory, so assume it applies to **any session rooted in `/opt/jahjah/web`**,
+> dispatched or interactive; nothing has measured an exemption. Use an absolute repo-internal path —
+> `/opt/jahjah/web/.astro/relay-report.md` — and pass that to the publish wrapper. `.astro/` is
+> gitignored, so the tree stays clean.
+> **A refused BODY write is not the wrapper failing**, so the skill's "do not retry by another route"
+> clause does not apply to it: substitute the path and carry on. That clause is about the relay
+> publish itself. Until the skill is corrected in a chunk that names it, this paragraph is the
+> workaround, and a chunk following the skill literally fails at its last step.
+> Scratch files generally: inside the repo (`mkdir` there needs no rule) and deleted afterwards, or
+> written to `.astro/`. Asset download works the same way and is measured:
+> `curl -sSL https://cdn.sanity.io/images/… -o <repo>/.astro/x.webp` (the probe wrote to `.work/`,
+> which is **not** gitignored — prefer `.astro/`).
+
+**`node -e` is allowed, and that has a consequence worth stating.** Once any interpreter is allowed,
+the deny block's `Read(.env*)` and `Bash(cat .env:*)` lines are advisory rather than a boundary —
+W095 says exactly this and names `node -e` in its own list. What holds is §6: a value seen outside
+its store is burned and must be reported, never pasted. `npm update`, `gh pr close` and `gh pr list` exist for the
+Dependabot flow in §7 (W114), which is their only caller; `gh pr comment` serves that **and** §5's
+rule to answer a Codex finding in the PR.
+
+**If a command you need is refused, that is a finding, not an obstacle to route around** — report
+it with the exact command. A dispatched session cannot edit `.claude/**` at all, so an allowlist
+gap is fixed by an interactive session, never by the chunk that hits it.

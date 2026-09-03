@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `6e28bc318325a23e89831acae7b1e31ee505716c`
-**Commit subject:** test(verify): assert no hidden product reached the build (#28)
-**Copied (UTC):** 2026-09-03T04:07:04Z
+**Mirrored commit:** `6fbe570b5d7f95983ba4cd5e02ef5c5e2a268c27`
+**Commit subject:** fix(allowlist): make the commands canon documents actually runnable headless (#29)
+**Copied (UTC):** 2026-09-03T10:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -17,7 +17,7 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 
 | File | Bytes | Source path in the repo |
 |---|---|---|
-| `CLAUDE.md` | 16995 | `CLAUDE.md` |
+| `CLAUDE.md` | 22689 | `CLAUDE.md` |
 | `STRATEGIST.md` | 24896 | `docs/STRATEGIST.md` |
 | `STATE.md` | 16453 | `docs/STATE.md` |
 | `ROADMAP.md` | 18150 | `docs/ROADMAP.md` |
