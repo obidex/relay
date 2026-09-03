@@ -2,10 +2,10 @@
 
 <!-- index: proof-of-life for the ERP chunk lane — stale > ~70 min means chunks are not being picked up -->
 
-**Written (UTC):** 2026-09-03T21:15:01Z
-**State:** running — chunk #96 in flight
-**Chunk in flight:** 96
-**Chunks started today (UTC 2026-09-03):** 2 of 3
+**Written (UTC):** 2026-09-03T21:27:04Z
+**State:** running — chunk #97 dispatched
+**Chunk in flight:** 97
+**Chunks started today (UTC 2026-09-03):** 3 of 3
 **Consecutive failures:** 0 of 3 before self-disable
 **Kill switch:** clear
 
