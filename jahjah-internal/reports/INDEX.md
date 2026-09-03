@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-03T09:28:44Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-03T09:28:47Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -24,10 +24,11 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
+| `2026-09-03-chunk4-salvage.md` | 2026-09-03T09:28:47Z | chunk 4 — jahjah-inbox removed from box and relay; only what is still true was carried from chunk3-pr-b |
 | `2026-09-03-chunk4-preflight.md` | 2026-09-03T02:23:39Z | chunk 4 preflight — surface clean, label invariant holds, no stop condition; one premise in T3.2 is wrong a... |
 | `2026-09-03-chunk4-pr-c.md` | 2026-09-03T03:08:59Z | chunk 4 PR-C merged — tier3-guard is live and sabotage-proven; riders #87/#88 merged, majors closed |
 | `2026-09-03-chunk4-lane.md` | 2026-09-03T09:23:25Z | chunk 4 — jahjah-erp-dispatch live and smoke-proven from its timer; one script now serves both projects |
-| `2026-09-03-chunk4-gate.md` | 2026-09-03T09:28:44Z | chunk 4 — GATE-1 rebuilt content-based and project-local; three panel blockers found and closed with evidence |
+| `2026-09-03-chunk4-gate.md` | 2026-09-03T09:28:46Z | chunk 4 — GATE-1 rebuilt content-based and project-local; three panel blockers found and closed with evidence |
 | `2026-09-02-chunk4-gate1-backfill.md` | 2026-09-03T08:18:43Z | GATE-1 backfill — the chunk-2 migration's SHA-256, put on the ledger retroactively |
 | `2026-09-02-chunk3-ruleset.md` | 2026-09-02T15:48:38Z | chunk 3 — ruleset 22122876 active on main: PR-only, squash-only, ci-ok required, no bypass actors |
 | `2026-09-02-chunk3-preflight.md` | 2026-09-02T14:56:42Z | chunk 3 toolkit preflight — surface confirmed, ONE deviation on the plan check, no stop condition met |
