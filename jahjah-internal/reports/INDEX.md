@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-03T09:23:23Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-03T09:27:04Z by `jahjah-erp-dispatch`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -13,7 +13,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 |---|---|---|
 | `HEALTH-daily.md` | 2026-09-03T09:20:27Z | daily health — OK, all 12 automations alive |
 | `HEARTBEAT-dispatcher.md` | 2026-09-03T09:13:07Z | dispatch lane proof-of-life — running, last poll 2026-09-03T09:13:04Z |
-| `HEARTBEAT-erp-dispatch.md` | 2026-09-03T09:05:06Z | proof-of-life for the ERP chunk lane — stale > ~70 min means chunks are not being picked up |
+| `HEARTBEAT-erp-dispatch.md` | 2026-09-03T09:27:04Z | proof-of-life for the ERP chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-dispatch.md` | 2026-09-03T09:16:06Z | proof-of-life for the website chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-docs.md` | 2026-09-03T09:07:06Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
@@ -26,7 +26,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 |---|---|---|
 | `2026-09-03-chunk4-preflight.md` | 2026-09-03T02:23:39Z | chunk 4 preflight — surface clean, label invariant holds, no stop condition; one premise in T3.2 is wrong a... |
 | `2026-09-03-chunk4-pr-c.md` | 2026-09-03T03:08:59Z | chunk 4 PR-C merged — tier3-guard is live and sabotage-proven; riders #87/#88 merged, majors closed |
-| `2026-09-03-chunk4-lane.md` | 2026-09-03T09:23:23Z | chunk 4 — jahjah-erp-dispatch live and smoke-proven from its timer; one script now serves both projects |
+| `2026-09-03-chunk4-lane.md` | 2026-09-03T09:23:25Z | chunk 4 — jahjah-erp-dispatch live and smoke-proven from its timer; one script now serves both projects |
 | `2026-09-02-chunk4-gate1-backfill.md` | 2026-09-03T08:18:43Z | GATE-1 backfill — the chunk-2 migration's SHA-256, put on the ledger retroactively |
 | `2026-09-02-chunk3-ruleset.md` | 2026-09-02T15:48:38Z | chunk 3 — ruleset 22122876 active on main: PR-only, squash-only, ci-ok required, no bypass actors |
 | `2026-09-02-chunk3-preflight.md` | 2026-09-02T14:56:42Z | chunk 3 toolkit preflight — surface confirmed, ONE deviation on the plan check, no stop condition met |
