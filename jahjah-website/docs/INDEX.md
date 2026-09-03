@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `6fbe570b5d7f95983ba4cd5e02ef5c5e2a268c27`
-**Commit subject:** fix(allowlist): make the commands canon documents actually runnable headless (#29)
-**Copied (UTC):** 2026-09-03T10:07:04Z
+**Mirrored commit:** `cc1d89b9837b045f75e89176007da887d45107ef`
+**Commit subject:** feat(seo): take /admin out of the sitemap and mark the Studio noindex (#30)
+**Copied (UTC):** 2026-09-03T20:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
