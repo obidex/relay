@@ -193,6 +193,7 @@ Engines: `{"node":">=22.12.0"}` · Scripts: `dev`, `build`, `preview`, `astro`, 
 | scripts/migrate-brand-copy.mjs | One-shot patch: writes nameEn, nameAr, shortDescriptionEn, shortDescriptionAr, |
 | scripts/migrate-to-sanity.mjs | Migrates all products, brands, and categories from the static JS data |
 | scripts/verify.sh | verify.sh — the compiled-output verification ritual (W046, W047, W019, W033, W077). |
+| .github/dependabot.yml | Dependency updates, weekly, in as few pull requests as possible. |
 | .github/workflows/ci.yml | CI |
 | .github/workflows/claude-review.yml | Claude review |
 | .claude/agents/reviewer.md |  |
