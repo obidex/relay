@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-04T05:53:01Z by `jahjah-dispatcher`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-04T05:55:01Z by `jahjah-erp-dispatch`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -12,8 +12,8 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | File | Updated (UTC) | What it is |
 |---|---|---|
 | `HEALTH-daily.md` | 2026-09-04T05:00:07Z | daily health — OK, all 12 automations alive |
-| `HEARTBEAT-dispatcher.md` | 2026-09-04T05:53:01Z | dispatch lane proof-of-life — running, last poll 2026-09-04T05:46:45Z |
-| `HEARTBEAT-erp-dispatch.md` | 2026-09-04T05:03:06Z | proof-of-life for the ERP chunk lane — stale > ~70 min means chunks are not being picked up |
+| `HEARTBEAT-dispatcher.md` | 2026-09-04T05:53:02Z | dispatch lane proof-of-life — running, last poll 2026-09-04T05:46:45Z |
+| `HEARTBEAT-erp-dispatch.md` | 2026-09-04T05:55:01Z | proof-of-life for the ERP chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-dispatch.md` | 2026-09-04T05:18:03Z | proof-of-life for the website chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-docs.md` | 2026-09-04T05:07:06Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
@@ -24,7 +24,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
-| `2026-09-04-job-100.md` | 2026-09-04T05:53:01Z | chunk 6 (#97) postmortem — the session hit the 5-hour usage cap 7 seconds after writing a complete report, ... |
+| `2026-09-04-job-100.md` | 2026-09-04T05:53:02Z | chunk 6 (#97) postmortem — the session hit the 5-hour usage cap 7 seconds after writing a complete report, ... |
 | `2026-09-03-chunk5-preflight.md` | 2026-09-03T20:49:36Z | chunk 5 preflight — the ERP lane dispatched its first real chunk; a dispatched session turns out to be sand... |
 | `2026-09-03-chunk5-final.md` | 2026-09-03T21:19:26Z | chunk 5 final — PR-E merged D228/D229/D230 + D231; the lane fixes were withheld after a panel blocker, and ... |
 | `2026-09-03-chunk4-salvage.md` | 2026-09-03T09:28:49Z | chunk 4 — jahjah-inbox removed from box and relay; only what is still true was carried from chunk3-pr-b |
