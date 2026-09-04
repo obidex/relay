@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `c336235e63f2d2c541a9595020ca7329a5ec49d9`
-**Commit subject:** fix(verify): the hidden-product guard can no longer pass without checking (#41)
-**Copied (UTC):** 2026-09-04T23:07:00Z
+**Mirrored commit:** `a85edc1ac72d0e1d67bd952721d122c9f7057bf1`
+**Commit subject:** feat(content): apply the W088 launch-fact ruling — no unmade agency claim (#42)
+**Copied (UTC):** 2026-09-04T23:37:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
