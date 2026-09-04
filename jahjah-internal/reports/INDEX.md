@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-04T07:03:16Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-04T07:35:03Z by `jahjah-erp-dispatch`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -13,7 +13,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 |---|---|---|
 | `HEALTH-daily.md` | 2026-09-04T05:00:07Z | daily health — OK, all 12 automations alive |
 | `HEARTBEAT-dispatcher.md` | 2026-09-04T06:54:38Z | dispatch lane proof-of-life — running, last poll 2026-09-04T06:54:35Z |
-| `HEARTBEAT-erp-dispatch.md` | 2026-09-04T06:45:04Z | proof-of-life for the ERP chunk lane — stale > ~70 min means chunks are not being picked up |
+| `HEARTBEAT-erp-dispatch.md` | 2026-09-04T07:35:03Z | proof-of-life for the ERP chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-dispatch.md` | 2026-09-04T06:58:06Z | proof-of-life for the website chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-docs.md` | 2026-09-04T06:37:09Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
@@ -25,7 +25,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | File | Updated (UTC) | What it is |
 |---|---|---|
 | `2026-09-04-job-100.md` | 2026-09-04T05:53:02Z | chunk 6 (#97) postmortem — the session hit the 5-hour usage cap 7 seconds after writing a complete report, ... |
-| `2026-09-04-chunk6-progress.md` | 2026-09-04T07:03:16Z | chunk 6 — progress: the migration is in, the panel has been round the loop once, round two is running |
+| `2026-09-04-chunk6-progress.md` | 2026-09-04T07:03:19Z | chunk 6 — progress: the migration is in, the panel has been round the loop once, round two is running |
 | `2026-09-04-chunk6-preflight.md` | 2026-09-04T06:04:51Z | chunk 6 (resume) — PREFLIGHT + RESCUE |
 | `2026-09-04-chunk6-migration.md` | 2026-09-04T06:19:12Z | chunk 6 — the migration is APPLIED, and the result was read back out of the catalog |
 | `2026-09-04-chunk6-gate1.md` | 2026-09-04T06:16:35Z | chunk 6 — GATE 1: the migration, published before it is applied |
