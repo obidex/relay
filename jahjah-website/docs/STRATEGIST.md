@@ -60,6 +60,16 @@ No mid-chunk pings. The only mid-chunk messages to the owner are **BLOCKED**, **
 exactly two ways: `CHUNK_ISSUE` is unset so reports go only to the relay, and the executor is asked
 to approve the relay-publish wrapper once (W103, point a).
 
+**Three facts about the two kinds of session, learned in P1 and worth planning around (W116, W117).**
+A **dispatched** session cannot edit `.claude/**` at all — the harness refuses it whatever the
+allowlist says — so an allowlist gap is fixed by an **interactive** session and never by the chunk
+that hits it, and a plan that pre-authorizes editing `.claude/settings.json` is pre-authorizing
+something the executor cannot do. A dispatched session also runs only what the allowlist names, so
+the allowlist must be **exercised by a dry run** before a chunk depends on it. And an **interactive**
+session that goes quiet is usually sitting on a permission prompt rather than crashed: the owner
+presses through it or re-pastes the chunk. Neither kind of stall shows up as a failure anywhere —
+the dispatch lane's label fallback only fires when the process actually exits.
+
 **What the lane does when a chunk fails to say so.** When the chunk's process exits, the lane reads
 the issue's labels: still `chunk:running` means no final report was ever posted, so it comments the
 exit code and relabels `chunk:failed`. A chunk that finished properly has already moved the label
@@ -81,17 +91,22 @@ The lane's own description, caps and kill switch live in `jahjah-internal`'s
 
 ### Chunk plan — required contents
 
-Tasks in order (each independently shippable) · expected issues + contingencies · caps (time, retries) · stop-conditions · which Tier-3 files may be touched (named explicitly) · GATE-2 pre-authorization scope · check-cadence tier · what a BLOCKED report must contain.
+Tasks in order (each independently shippable) · expected issues + contingencies · caps (time, retries) · stop-conditions · which Tier-3 files may be touched (named explicitly) · GATE-2 pre-authorization scope · what a BLOCKED report must contain. **No check-cadence tier** — that field died with the MEGA/MID/SMALL table below; the cadence is now the same for every chunk.
 
-### Check cadence (owner-confirmed)
+### Check cadence (owner rule, 2026-09-03)
 
-| Tier | Waits between checks | Cap |
-|---|---|---|
-| MEGA | 60 → 30 → 20 → 20 → 20 → 20 min | 6 consecutive *empty* checks |
-| MID | 30 → 20 → 20 → 20 → 20 → 20 min | 6 |
-| SMALL | 20 min flat | 6 |
+**Once per hour, at most 3 checks per awaited chunk.** This replaces the MEGA / MID / SMALL table
+that stood here, which scheduled up to six checks on a tightening interval — the tiering bought
+nothing a chunk's own reports did not, and the fast early checks mostly found a chunk still
+running.
 
-A check that finds a new relay report resets the counter. Cap hit → evidence sweep first (relay INDEX, HEALTH-daily, Vercel deployments, CI), then ONE no-alarm note saying what was verified, then stop scheduling. Silent > 40 min on a SMALL job = stall protocol.
+**At most 3 chunks per day per lane.** The lane shares one Claude Max pool with the ERP, so a
+fourth chunk here is a chunk the other lane does not get. The scarce resource is weekly usage
+headroom, not tokens.
+
+A check that finds a new relay report resets the counter. Cap hit → evidence sweep first (relay
+INDEX, HEALTH-daily, Vercel deployments, CI), then ONE no-alarm note saying what was verified, then
+stop scheduling.
 
 ### THE REPORT — fixed shape (Claude Code writes it; you read it)
 
