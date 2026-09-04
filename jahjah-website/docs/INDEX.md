@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `3c30b3769c33d55589e378d4f17ca90eff2042aa`
-**Commit subject:** fix(404): noindex, no hreflang, and a language toggle that points somewhere real (#31)
-**Copied (UTC):** 2026-09-04T06:37:04Z
+**Mirrored commit:** `7afc84a8471bb2090214a1e953fadca5cc5e8988`
+**Commit subject:** feat(a11y): pressed state, heading hierarchy, Arabic labels and LTR isolation (#32)
+**Copied (UTC):** 2026-09-04T07:37:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -22,7 +22,7 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 | `STATE.md` | 16453 | `docs/STATE.md` |
 | `ROADMAP.md` | 18881 | `docs/ROADMAP.md` |
 | `DECISIONS.md` | 34942 | `docs/DECISIONS.md` |
-| `reference/site.md` | 8620 | `docs/reference/site.md` |
+| `reference/site.md` | 8742 | `docs/reference/site.md` |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it
 looks old, that may only mean nothing merged. Liveness is
