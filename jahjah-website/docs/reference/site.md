@@ -157,8 +157,8 @@ Status: **IN SYNC** (slug, nameEn, nameAr, hex identical)
 | `home.*` | 13 | 13 |
 | `howToBuy.*` | 19 | 19 |
 | `lang.*` | 2 | 2 |
-| `nav.*` | 9 | 9 |
-| `products.*` | 14 | 14 |
+| `nav.*` | 10 | 10 |
+| `products.*` | 16 | 16 |
 
 EN/AR key sets: **SYMMETRIC**
 

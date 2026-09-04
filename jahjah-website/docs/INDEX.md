@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `646e8879f4f6c20530b5d7eccc049dbadfd8dc53`
-**Commit subject:** docs(canon): close chunk P1-launch-blockers (#35)
-**Copied (UTC):** 2026-09-04T14:37:04Z
+**Mirrored commit:** `0488dc19eff7a9a531d7ae93fdd360a471d66afe`
+**Commit subject:** feat(a11y): localize the last two Arabic accessible labels [AR: pending native review] (#34)
+**Copied (UTC):** 2026-09-04T21:37:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -22,7 +22,7 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 | `STATE.md` | 22264 | `docs/STATE.md` |
 | `ROADMAP.md` | 28316 | `docs/ROADMAP.md` |
 | `DECISIONS.md` | 49009 | `docs/DECISIONS.md` |
-| `reference/site.md` | 8742 | `docs/reference/site.md` |
+| `reference/site.md` | 8744 | `docs/reference/site.md` |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it
 looks old, that may only mean nothing merged. Liveness is
