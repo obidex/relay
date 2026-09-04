@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-04T20:37:04Z by `jahjah-web-docs`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-04T20:41:22Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -15,7 +15,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | `HEARTBEAT-dispatcher.md` | 2026-09-04T20:15:56Z | dispatch lane proof-of-life — running, last poll 2026-09-04T20:15:54Z |
 | `HEARTBEAT-erp-dispatch.md` | 2026-09-04T20:11:06Z | proof-of-life for the ERP chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-dispatch.md` | 2026-09-04T19:54:06Z | proof-of-life for the website chunk lane — stale > ~70 min means chunks are not being picked up |
-| `HEARTBEAT-web-docs.md` | 2026-09-04T20:37:04Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
+| `HEARTBEAT-web-docs.md` | 2026-09-04T20:37:07Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
 | `SCAN-gitleaks.md` | 2026-08-31T21:01:36Z | weekly gitleaks scan — ZERO secrets found in either repo history |
 | `SCAN-trivy.md` | 2026-08-31T23:13:57Z | weekly trivy scan — 1 critical, 30 high, 23 medium, 14 low |
@@ -29,6 +29,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | `2026-09-04-chunk6-preflight.md` | 2026-09-04T06:04:51Z | chunk 6 (resume) — PREFLIGHT + RESCUE |
 | `2026-09-04-chunk6-migration.md` | 2026-09-04T06:19:12Z | chunk 6 — the migration is APPLIED, and the result was read back out of the catalog |
 | `2026-09-04-chunk6-gate1.md` | 2026-09-04T06:16:35Z | chunk 6 — GATE 1: the migration, published before it is applied |
+| `2026-09-04-chunk6-BLOCKED.md` | 2026-09-04T20:41:22Z | chunk 6 — BLOCKED before GATE 2. The work is done and green; the confirming panel round is not. |
 | `2026-09-03-chunk6-BLOCKED.md` | 2026-09-04T06:01:48Z | chunk 6 BLOCKED at preflight — the ERP chunk lane has no database lane of its own; nothing was applied, not... |
 | `2026-09-03-chunk5-preflight.md` | 2026-09-03T20:49:36Z | chunk 5 preflight — the ERP lane dispatched its first real chunk; a dispatched session turns out to be sand... |
 | `2026-09-03-chunk5-final.md` | 2026-09-03T21:19:26Z | chunk 5 final — PR-E merged D228/D229/D230 + D231; the lane fixes were withheld after a panel blocker, and ... |
