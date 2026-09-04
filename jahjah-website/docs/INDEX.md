@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `0488dc19eff7a9a531d7ae93fdd360a471d66afe`
-**Commit subject:** feat(a11y): localize the last two Arabic accessible labels [AR: pending native review] (#34)
-**Copied (UTC):** 2026-09-04T21:37:04Z
+**Mirrored commit:** `fa6df633631154ce6fa2351433259bbd3843d63d`
+**Commit subject:** chore(deps): apply the four minor/patch Dependabot updates (#37)
+**Copied (UTC):** 2026-09-04T22:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
