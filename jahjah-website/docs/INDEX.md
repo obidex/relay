@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `7afc84a8471bb2090214a1e953fadca5cc5e8988`
-**Commit subject:** feat(a11y): pressed state, heading hierarchy, Arabic labels and LTR isolation (#32)
-**Copied (UTC):** 2026-09-04T07:37:04Z
+**Mirrored commit:** `a0f8bffabfdec7a6d561fb1de3a4a8ef0e906665`
+**Commit subject:** feat(seo): page-specific meta descriptions for About, Brands and Contact (#33)
+**Copied (UTC):** 2026-09-04T13:37:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
