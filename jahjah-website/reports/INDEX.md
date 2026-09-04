@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-04T14:26:50Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-04T20:56:03Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website/reports/<name>`.
@@ -21,7 +21,8 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-we
 | `2026-09-04-p1-launch-blockers-progress.md` | 2026-09-04T06:46:06Z | === REPORT: P1-launch-blockers · progress === |
 | `2026-09-04-p1-launch-blockers-progress-3.md` | 2026-09-04T13:32:53Z | === REPORT: P1-launch-blockers · progress === |
 | `2026-09-04-p1-launch-blockers-progress-2.md` | 2026-09-04T07:39:27Z | === REPORT: P1-launch-blockers · progress === |
-| `2026-09-04-p1-launch-blockers-final.md` | 2026-09-04T14:26:50Z | **P1 is closed, and the site is in better shape than it was — but P1's own exit is only partly |
+| `2026-09-04-p1-launch-blockers-final.md` | 2026-09-04T14:26:51Z | **P1 is closed, and the site is in better shape than it was — but P1's own exit is only partly |
+| `2026-09-04-p1.1-p1-leftovers-progress.md` | 2026-09-04T20:56:03Z | **Both dispatched runs of this project died of the same thing, and it is not our code.** Chunk #24 |
 | `2026-09-03-p1-launch-blockers-progress.md` | 2026-09-03T03:17:27Z | **Two of the eight tasks are done and one of them is merged, but the chunk has hit a blocker that needs you... |
 | `2026-09-02-p0-canon-reset-progress.md` | 2026-09-02T05:09:38Z | P0 progress — canon merged to master as PR #1, executor stood up, mirror live; two VPS automations built an... |
 | `2026-09-02-p0-canon-reset-final.md` | 2026-09-02T06:08:10Z | P0 final — canon on master, VPS is the executor, two automations live and proven from their timers; one own... |
