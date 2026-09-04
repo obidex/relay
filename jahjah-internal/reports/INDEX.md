@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-04T06:01:46Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-04T06:04:48Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -25,7 +25,8 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | File | Updated (UTC) | What it is |
 |---|---|---|
 | `2026-09-04-job-100.md` | 2026-09-04T05:53:02Z | chunk 6 (#97) postmortem — the session hit the 5-hour usage cap 7 seconds after writing a complete report, ... |
-| `2026-09-03-chunk6-BLOCKED.md` | 2026-09-04T06:01:46Z | chunk 6 BLOCKED at preflight — the ERP chunk lane has no database lane of its own; nothing was applied, not... |
+| `2026-09-04-chunk6-preflight.md` | 2026-09-04T06:04:48Z | chunk 6 (resume) — PREFLIGHT + RESCUE |
+| `2026-09-03-chunk6-BLOCKED.md` | 2026-09-04T06:01:48Z | chunk 6 BLOCKED at preflight — the ERP chunk lane has no database lane of its own; nothing was applied, not... |
 | `2026-09-03-chunk5-preflight.md` | 2026-09-03T20:49:36Z | chunk 5 preflight — the ERP lane dispatched its first real chunk; a dispatched session turns out to be sand... |
 | `2026-09-03-chunk5-final.md` | 2026-09-03T21:19:26Z | chunk 5 final — PR-E merged D228/D229/D230 + D231; the lane fixes were withheld after a panel blocker, and ... |
 | `2026-09-03-chunk4-salvage.md` | 2026-09-03T09:28:49Z | chunk 4 — jahjah-inbox removed from box and relay; only what is still true was carried from chunk3-pr-b |
