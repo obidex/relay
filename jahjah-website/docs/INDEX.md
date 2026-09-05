@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `7482dde218b5cc306371b35ebed42f6be9d8761c`
-**Commit subject:** chore(deps): apply the three indirect Dependabot updates (#46)
-**Copied (UTC):** 2026-09-05T12:07:04Z
+**Mirrored commit:** `0eb0a2a1fe5d298b3cfe2bb338a082e1330051d9`
+**Commit subject:** ci(verify): give the hidden-product guard its store from env (#51)
+**Copied (UTC):** 2026-09-05T12:37:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
