@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `0eb0a2a1fe5d298b3cfe2bb338a082e1330051d9`
-**Commit subject:** ci(verify): give the hidden-product guard its store from env (#51)
-**Copied (UTC):** 2026-09-05T12:37:04Z
+**Mirrored commit:** `3c8d03b325799cefcfb88539a41ab5642eaaa02b`
+**Commit subject:** docs(canon): close chunk P1.2-gates-deps (#52)
+**Copied (UTC):** 2026-09-05T13:07:03Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -19,9 +19,9 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 |---|---|---|
 | `CLAUDE.md` | 26520 | `CLAUDE.md` |
 | `STRATEGIST.md` | 27387 | `docs/STRATEGIST.md` |
-| `STATE.md` | 28396 | `docs/STATE.md` |
-| `ROADMAP.md` | 35195 | `docs/ROADMAP.md` |
-| `DECISIONS.md` | 60689 | `docs/DECISIONS.md` |
+| `STATE.md` | 34174 | `docs/STATE.md` |
+| `ROADMAP.md` | 40932 | `docs/ROADMAP.md` |
+| `DECISIONS.md` | 68490 | `docs/DECISIONS.md` |
 | `reference/site.md` | 8744 | `docs/reference/site.md` |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it
