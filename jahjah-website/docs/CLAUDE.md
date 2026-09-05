@@ -81,7 +81,7 @@ Corrected record, measured 2026-09-04. **P1.1: Codex answered 4 of 4 PRs** — #
 - **Investigate before writing.** Read the file, check the reference, confirm assumptions. Measure compiled output before fixing cascade/layout bugs (W020).
 - **Verify compiled output, not source.** `dist/` HTML for JSON-LD (`<script type="application/ld+json">` has no space before `>` — W047), hreflang, og:image, noindex; `dist/_astro/*.css` for rule order and specificity (W019, W033); page count.
 - **Two halves of head-slot data:** frontmatter variables AND the `<Fragment slot="head">` emitting them (W046).
-- **Bilingual discipline (W023, W025, W056).** Every user-facing string via `translations.js` + `t(lang, key)`, keys in both `en` and `ar`; every page has an `/ar/` mirror unless scoped EN-only; EN/AR mirrors diffed programmatically (W051). **Arabic never blocks a merge (W125, owner 2026-09-04 — this AMENDS W025).** AR strings you draft ship once the strategist has approved them, which the chunk plan is where it says so; the native reviewer does a **batched** pass afterwards, tracked by a standing ROADMAP row. List every string you shipped in the PR body, with the questions it raises. THE BAR's clause is now "an Arabic string **not approved by the strategist** ships". **`AGENTS.md` has not caught up** and still tells Codex to block on unreviewed Arabic — expect a P1 from it and answer with this entry (ROADMAP F42). Company name exact: `شركة الجحجاح التجارية`; `JAHJAH` stays Latin (W022). AR `<title>` suffix uses `companyNameAr`.
+- **Bilingual discipline (W023, W025, W056).** Every user-facing string via `translations.js` + `t(lang, key)`, keys in both `en` and `ar`; every page has an `/ar/` mirror unless scoped EN-only; EN/AR mirrors diffed programmatically (W051). **Arabic never blocks a merge (W125, owner 2026-09-04 — this AMENDS W025).** AR strings you draft ship once the strategist has approved them, which the chunk plan is where it says so; the native reviewer does a **batched** pass afterwards, tracked by a standing ROADMAP row. List every string you shipped in the PR body, with the questions it raises. THE BAR's clause is now "an Arabic string **not approved by the strategist** ships". Company name exact: `شركة الجحجاح التجارية`; `JAHJAH` stays Latin (W022). AR `<title>` suffix uses `companyNameAr`.
 - **GROQ:** no function calls across a reference traversal — fetch `_id`, filter on `_ref` (W048).
 - **One thing at a time.** No unrelated fixes in a task, no pre-emptive refactors, no "cleanup".
 - **Copy a production pattern verbatim** when one exists; adapt data, not structure (W050).
@@ -192,16 +192,12 @@ title is not enough. #37, #41 and #42 were merged with `--subject` and are corre
   the allowed working directories for this session: '/opt/jahjah/web'"*. A rule written for it was
   proved unable to fire and removed rather than shipped. Same class as W103(a).
 
-> **⚠ WRITE THE REPORT BODY INSIDE THE REPO.** `/relay-report`'s own example path is
+> **⚠ WRITE THE REPORT BODY INSIDE THE REPO.** `/relay-report`'s own example path was
 > `/tmp/relay-report.md`, and **that write is refused** — measured above. The refusal is scoped to the
 > session's working directory, so assume it applies to **any session rooted in `/opt/jahjah/web`**,
 > dispatched or interactive; nothing has measured an exemption. Use an absolute repo-internal path —
-> `/opt/jahjah/web/.astro/relay-report.md` — and pass that to the publish wrapper. `.astro/` is
-> gitignored, so the tree stays clean.
-> **A refused BODY write is not the wrapper failing**, so the skill's "do not retry by another route"
-> clause does not apply to it: substitute the path and carry on. That clause is about the relay
-> publish itself. Until the skill is corrected in a chunk that names it, this paragraph is the
-> workaround, and a chunk following the skill literally fails at its last step.
+> `/opt/jahjah/web/.astro/relay-report.md` — and pass that to the publish wrapper. The skill now
+> carries this path.
 > Scratch files generally: inside the repo (`mkdir` there needs no rule) and deleted afterwards, or
 > written to `.astro/`. Asset download works the same way and is measured:
 > `curl -sSL https://cdn.sanity.io/images/… -o <repo>/.astro/x.webp` (the probe wrote to `.work/`,

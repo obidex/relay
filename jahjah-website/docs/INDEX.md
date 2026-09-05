@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `03d6cd9f01ba2a38c72493350a2fc49f12ad79da`
-**Commit subject:** docs(canon): close chunk P1.1-p1-leftovers (#43)
-**Copied (UTC):** 2026-09-05T00:07:04Z
+**Mirrored commit:** `7482dde218b5cc306371b35ebed42f6be9d8761c`
+**Commit subject:** chore(deps): apply the three indirect Dependabot updates (#46)
+**Copied (UTC):** 2026-09-05T12:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -17,8 +17,8 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 
 | File | Bytes | Source path in the repo |
 |---|---|---|
-| `CLAUDE.md` | 27061 | `CLAUDE.md` |
-| `STRATEGIST.md` | 27330 | `docs/STRATEGIST.md` |
+| `CLAUDE.md` | 26520 | `CLAUDE.md` |
+| `STRATEGIST.md` | 27387 | `docs/STRATEGIST.md` |
 | `STATE.md` | 28396 | `docs/STATE.md` |
 | `ROADMAP.md` | 35195 | `docs/ROADMAP.md` |
 | `DECISIONS.md` | 60689 | `docs/DECISIONS.md` |

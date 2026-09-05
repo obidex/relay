@@ -187,7 +187,7 @@ PREFLIGHT (stop with a BLOCKED report if any fails):
 TASKS (each = branch → PR → CI → reviewer → merge if pre-authorized → next):
 T1 … Tn — scope, files (Tier-3 files named), acceptance checks (compiled-output greps, page count, probes)
 
-RULES: CLAUDE.md is binding. Every user-facing string via translations.js + AR mirror; AR strings drafted only if the plan says so and marked "AR: pending native review" in the PR. No new dependency unless listed here. No secrets in output or reports.
+RULES: CLAUDE.md is binding. Every user-facing string via translations.js + AR mirror; AR strings drafted only if the plan says so — the plan's say-so IS the approval (W125); list them in the PR body with their native-review questions. No new dependency unless listed here. No secrets in output or reports.
 
 GATE 2: PRs T1–Tk may self-merge on clean reviewer + green CI. Tier-3 PRs: <list or "none">.
 CAPS: <hours>, <retries per task>, build timeout. STOP-CONDITIONS: <...>.
