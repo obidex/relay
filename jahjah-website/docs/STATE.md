@@ -6,9 +6,9 @@
 
 | Aspect | Status |
 |---|---|
-| **Programme** | P0 canon reset → P0.1 cowork lane → P0.2 workflow v2 → **P1 LAUNCH BLOCKERS** ★ this chunk → **P1.1 finish P1** → P2 identity + foundation → P3 Admin Mode → P4 customer accounts → P5 public UX/content (parallel) → **L launch** → P6 |
-| **Next step** | **P1.1** — the four things P1 could not do (ROADMAP F33), then P2. Architecture is locked (W074–W082); no decision blocks P1.1. It arrives as a GitHub issue labelled `chunk:proposed`; the owner's `chunk:approved` label starts it (W099). |
-| **`master` HEAD at the last canon update** | `a0f8bff` — "feat(seo): page-specific meta descriptions for About, Brands and Contact (#33)". This line is written by the chunk-close PR, the first commit that cannot know its own squash hash — so `master` is normally **one commit ahead of this line**, that PR itself. A larger gap means commits landed outside the chunk loop. |
+| **Programme** | P0 canon reset → P0.1 cowork lane → P0.2 workflow v2 → P1 launch blockers → **P1.1 FINISH P1** ★ this chunk → P2 identity + foundation → P3 Admin Mode → P4 customer accounts → P5 public UX/content (parallel) → **L launch** → P6 |
+| **Next step** | **P2 — identity and foundation.** P1.1 closed every code item P1 carried out, and no decision blocks P2. **The single first decision is VERCEL PRO** (~$20/mo), which W090 requires before the first on-demand route ships — that is P2's item 2, so it is needed early rather than at launch. The chunk arrives as a GitHub issue labelled `chunk:proposed`; the owner's `chunk:approved` label starts it (W099). **Dispatch it only if the ERP side has fixed the lane's usage-limit handling (W128) — otherwise run it interactively**, because the dispatched executor has failed 2 of 2. |
+| **`master` HEAD at the last canon update** | `a85edc1` — "feat(content): apply the W088 launch-fact ruling — no unmade agency claim (#42)". This line is written by the chunk-close PR, the first commit that cannot know its own squash hash — so `master` is normally **one commit ahead of this line**, that PR itself. A larger gap means commits landed outside the chunk loop. |
 | **Live** | 68 pages EN + AR on `https://jahjah-website.vercel.app` · 22 products · 5 brands · 6 categories · no prices, no login |
 | **Content** | Placeholder catalogue (AI-generated names/copy, 126/192 images placeholder). Deleted when real data enters — never polished (W007). |
 | **Sister project** | `jahjah-internal` (ERP) — separate canon, **not connected** (W075). |
@@ -23,7 +23,7 @@ One job, **named `ci`**, on every PR and on `master`, Node 22: `tier3-guard` →
 
 A second job, **`review`** (`.github/workflows/claude-review.yml`), no longer runs on pull requests at all: since chunk P1 it is `workflow_dispatch`-only, a **manual fallback** taking a PR number. The reviewer of record is **Codex** — see live flag 10.
 
-`verify.sh` now also walks `dist/404.html` explicitly (four assertions, W111), audits heading hierarchy through `scripts/heading-audit.mjs` (0 skips across 67 pages), and asserts through `scripts/hidden-products-check.mjs` that no hidden product reached the build (W110). **That last one exits 0 with a `SKIP` whenever it cannot reach Sanity** — no token, no network, 403 — surfaced as a `WARN`; CI has the secret so it runs there, but the guard that matters most is the one that can silently not run (ROADMAP F37).
+`verify.sh` now also walks `dist/404.html` explicitly (four assertions, W111), audits heading hierarchy through `scripts/heading-audit.mjs` (0 skips across 67 pages), and asserts through `scripts/hidden-products-check.mjs` that no hidden product reached the build (W110). **That guard can no longer pass without checking (W124, #41; closes F37 and F40).** A `SKIP` at exit 0 is now available only where nothing was promised — no `SANITY_READ_TOKEN`, or no `dist/`. Where a token IS supplied, as in CI, any Sanity failure is exit **4** and `verify.sh` reports **FAIL**: a gate that did not run is not a build without hidden products. It also refuses to guess which store to query — no hardcoded `pxf1amia/production` fallback, the project/dataset pair resolves atomically from one source, and when the environment and the build's own image URLs both answer they must agree.
 
 ### Automations touching this project (registry: `jahjah-internal/docs/runbooks/automations.md`)
 
@@ -40,15 +40,24 @@ A second job, **`review`** (`.github/workflows/claude-review.yml`), no longer ru
 ## 2. LIVE FLAGS — things that surprise a newcomer
 
 1. **TWO PATHS TO PRODUCTION.** `git push` to `master` AND a Sanity publish (webhook → Vercel deploy hook, ~2 min). The site changes with no commit; only TRUTH sees it.
-2. **CONTENT IS PLACEHOLDER, AND THE WATERMARK QUESTION IS HALF ANSWERED.** 22 products with AI-generated names; 1 product has real photos. Owner: don't upload photos to placeholder items. The friend's audit (2026-09-02) reported a **stock-photo watermark** on the DCEL front-load washer images. **The grep half is clean** — 3 distinct Sanity CDN assets on that product, no watermark markers, checked in P1 and re-checked by TRUTH weekly. **The visual half is still open and is the owner's**: someone has to look at three photographs (ROADMAP F1).
+2. **CONTENT IS PLACEHOLDER; THE WATERMARK QUESTION IS CLOSED.** 22 products with AI-generated names; 1 product has real photos. Owner: don't upload photos to placeholder items. The friend's audit (2026-09-02) reported a **stock-photo watermark** on the DCEL front-load washer images. Both halves are now answered: the grep half was clean (3 distinct Sanity CDN assets, no watermark markers, re-checked by TRUTH weekly), and **the owner inspected the three photographs on 2026-09-04 and ruled them CLEAN** (W126). ROADMAP F1 is closed.
 3. ~~`/admin/` is in the sitemap~~ — **FIXED in P1** (#30). The sitemap is 66 URLs, `/admin` is not among them, and the Studio surface carries `noindex, nofollow`. `verify.sh` asserts both, independently of each other, so removing one cannot mask the other.
 4. ~~`/images/placeholder.jpg` returns 404~~ — **FIXED in P1** (#26, W112). **There are no asset 404s.** A missing image is `null` and renders an inline no-image tile that emits no `<img>` at all, so the browser makes no request that can fail; 0 placeholder references remain in the build, and `verify.sh` counts them every run.
-5. **LAUNCH-FACT GATE OPEN (W088).** Site says founded 2010; other company materials say 2009. Damascus number has a Turkish prefix (`+90…`, correct — phone is physically in Turkey). One person rules before launch.
+5. **LAUNCH FACTS: PARTLY RULED, AND THE SITE NO LONGER CONTRADICTS ITSELF (W088 → W126).** The owner ruled on 2026-09-04: **founding year is 2010** (the site was right; other company materials are wrong); **SUNNY and DSP are the exclusive agency for all of Syria**; **phone numbers, opening hours, warranty wording and the brand list stay exactly as they stand.** The Damascus number's Turkish prefix (`+90…`) is correct — the phone is physically in Turkey. P1.1 applied the ruling (#42): the last unmade agency claim is gone from the home page's visible copy and from the Organization JSON-LD, which now emits the same string as the page's `<meta name="description">` by construction. **What is still the owner's** is narrower than the original row: the three tier names, the currency (W066), the showroom address, and a confirmation pass on numbers/hours/warranty — all low urgency, none blocking.
 6. **VERCEL HOBBY.** Non-commercial. Pro is required before the first on-demand route ships (W090), i.e. P2 — not "at launch".
 7. **NO WEB DB YET.** Supabase project #2 is created in P2. When it exists: free tier pauses after ~1 week idle (W091) — the nightly backup keeps it awake.
 8. **CANON MOVED, AND THE PROJECT IS A SYNC NOT A PASTE (W098).** The claude.ai project knowledge is a GitHub sync of `docs/` + `CLAUDE.md`. It is not stale by definition — it **lags**. Use it for orientation; the mirror and the connector win. And a fresh `INDEX.md` does not mean a fresh sibling (W102): `raw.githubusercontent.com` will serve a current index beside a stale body, cache-buster on both.
-9. **THE ISSUE LANE HAS NOW CARRIED ONE REAL CHUNK, AND IT DID NOT RUN CLEAN.** P1 (issue #24) is the first real chunk to start from the owner's `chunk:approved` label. What the lane got right: it picked the issue up, relabelled, started the executor with `CHUNK_ISSUE` set, and every report reached both the issue and the relay. What it cost: the **dispatched run exited 1 at 5307 s**, because 9 of 10 commands it needed were refused by an allowlist nobody had exercised — two of them named in `CLAUDE.md` §5's own preflight. That gap was found by the chunk and **repaired by an interactive session** in #29, since a dispatched session cannot edit `.claude/**` at all (W116). The chunk then finished across two interactive resumes, **both of which ended silently** (W117, ROADMAP F39). Treat the lane as *exercised and mended*, not as proven. **The relay stays dual-published** until the strategist confirms it has read a whole chunk from the issue alone (ROADMAP F26).
-10. **THE REVIEWER OF RECORD IS CODEX, THE CLAUDE `review` JOB IS MANUAL-ONLY, AND CODEX SPEAKS ON THREE DIFFERENT SURFACES.** Codex (the ChatGPT GitHub app, on the owner's ChatGPT plan) posts as `chatgpt-codex-connector`, reading `AGENTS.md`. **Across P1 it reviewed 4 of the 10 pull requests this chunk opened** — #26 (one P2), #27 (one P1), #28 (two P1), #31 (two P2) — and was silent on #25, #29, #30, #32, #33 and #34. It **answered an explicit `@codex review` on #31 in 4m23s**. **It has labelled findings P1/P2 since #22 and #23 on 2026-09-02**, so that is observed behaviour, not a convention we request. **READ ALL THREE SURFACES OR YOU WILL MISREAD SILENCE:** `gh pr view <n> --json reviews` (the review), `gh api …/pulls/<n>/comments` (the inline findings, which the review body does not list), and `gh api …/issues/<n>/comments` — **a re-review with no findings arrives as an issue comment.** This session initially recorded #31 as silent after its `@codex review` because it read only the first two. The Claude `review` workflow is `workflow_dispatch`-only (F25, F28 closed by that). **Neither is a required check**: silence is never approval, and per W105 Codex is somebody else's system — a dated assumption, not a property of ours (W113).
+9. **THE ISSUE LANE WORKS. THE DISPATCHED EXECUTOR HAS NEVER FINISHED A REAL CHUNK — 2 real chunks dispatched, 2 dead on the subscription window.** (Two earlier dispatches, the #11 and #12 smoke tests of 2026-09-02, exited 0 in 13 s each; they carried no work.) Keep those two facts apart, because an earlier version of this flag welded them together and got the cause wrong. **The lane itself is sound**: it picked up both approved issues within two minutes, relabelled, started the executor with `CHUNK_ISSUE` set, and every report has reached both the issue and the relay. **The dispatched sessions are what fail.** Chunk #24 exited 1 after 5307 s; chunk #36 exited 1 after 523 s. Each printed exactly one line — `You've hit your session limit · resets <time> (UTC)` — and each left a **53-byte log and no report**, because `claude -p` in its default text mode emits only a final assistant message and a killed run has none: 88 minutes of #24's real work produced 53 bytes. **This flag used to blame the allowlist for #24, and that was false**: the allowlist gap was real and was that chunk's *finding*, reported at 03:17:23Z, after which it kept working and merged two more PRs before the window ran out at 03:56:35Z. Both lanes and every interactive session on this box draw on **one** 5-hour subscription window and the lane cannot see how much of it is left (W128). **INTERACTIVE SESSIONS WORK**: every PR this project has merged since #29 was merged by one, including P1.1's four merged PRs and this chunk-close one. The fix is the dispatcher's, in `jahjah-internal` — capture the transcript, and treat a usage-limit exit as retryable rather than as a chunk failure. **The relay stays dual-published** until the strategist confirms it has read a whole chunk from the issue alone (ROADMAP F26).
+10. **THE REVIEWER OF RECORD IS CODEX, THE CLAUDE `review` JOB IS MANUAL-ONLY, AND CODEX SPEAKS ON **FOUR** SURFACES — THE FOURTH IS A REACTION, AND MISSING IT HAS NOW PRODUCED A FALSE CANON CLAIM TWICE.** Codex (the ChatGPT GitHub app, on the owner's ChatGPT plan) posts as `chatgpt-codex-connector`, reading `AGENTS.md`. **Its own boilerplate states the rule this flag kept getting wrong:** *"If Codex has suggestions, it will comment; otherwise it will react with 👍."* So a 👍 **is** the "reviewed, found nothing" verdict, and it is invisible to all three surfaces this flag used to name.
+
+    | Surface | Command | Carries |
+    |---|---|---|
+    | review | `gh pr view <n> --json reviews` | the review shell; boilerplate only |
+    | inline | `gh api …/pulls/<n>/comments` | **the findings**, which the review body does not list |
+    | issue comment | `gh api …/issues/<n>/comments` | a re-review answer after `@codex review` |
+    | **reaction** | **`gh api …/issues/<n>/reactions`** | **👍 = reviewed, no findings** |
+
+    **THE CORRECTED RECORD, measured 2026-09-04.** P1.1: Codex answered **4 of 4** — #34 in 2m07s and #41 in 3m26s after explicit `@codex review` comments (issue comment + 👍 each), #37 unprompted with a 👍 in 2m41s, #42 unprompted with a review carrying one inline P1 in 1m52s. **Findings on 1 of 4; silence on none.** P1: it posted **findings** on 4 of 10 (#26 one P2, #27 one P1, #28 two P1, #31 two P2) — but the claim that it was "silent on #25, #29, #30, #32, #33 and #34" is **wrong for five of those six**: #25, #29, #30, #32 and #33 all carry a 👍. Only #34 was genuinely unanswered during P1, and it got its 👍 the next day. **Codex answered 9 of 10 P1 PRs, not 4** — and the two signals are complementary, which corroborates the rule: every P1 PR carrying findings has **no** 👍 (#26, #27, #28), every PR without findings has one, and the single PR with both is **#31**, whose explicit `@codex review` found nothing and added a 👍 on top of its original two findings. Neither Codex nor the Claude `review` job is a required check, so silence could never block a merge — but "silence" has been much rarer than this project believed, and the executor's reviewer subagent remains the gate regardless. `claude-review.yml` is `workflow_dispatch`-only, so its absence from a PR means nothing (F25, F28).
 11. **THE EXECUTOR WORKSPACE IS TRUSTED** (this is the state fact `docs/STRATEGIST.md` §8 points here for): `/opt/jahjah/web` was trusted on 2026-09-02, so `.claude/settings.json`'s allow list is in force, not just its deny half.
 12. **A DISPATCHED SESSION AND AN INTERACTIVE ONE ARE NOT THE SAME EXECUTOR (W116).** A dispatched (`claude -p`) session **cannot edit `.claude/**` at all** — the harness refuses it whatever the settings say — and runs only what the allowlist names. So an allowlist change is *interactive-session work*, a plan may not pre-authorize the executor to make one, and any new command a chunk depends on must be **dry-run first**. `CLAUDE.md` §9 carries the five measured traps, including that a rule ending at a `VAR=` assignment is a universal bypass of the whole deny list.
 13. **THE REVIEWER SUBAGENT'S `tools:` FRONTMATTER RESTRICTS IT — BUT NOT TO WHAT IT LISTS (F11, closed 2026-09-04).** Four passes invoked by name from `/opt/jahjah/web` each reported holding exactly **`Read` and `Bash`**: no `Write`, no `Edit`, **no MCP tools** despite MCP instructions arriving in their context — and no `Grep` or `Glob`, which the frontmatter *does* list. The per-command `Bash(git diff:*)` scoping is **not** enforced. **A `tools:` list containing `Bash` is not a read-only guarantee**: Bash grants `node -e`, `python3` and in-repo writes.
@@ -59,6 +68,7 @@ A second job, **`review`** (`.github/workflows/claude-review.yml`), no longer ru
 
 | Date | Session | Model | Result |
 |---|---|---|---|
+| 2026-09-04 | **P1.1 · Finish P1** (**#36**) — the four things P1 carried out, plus the owner's rulings of the same day. Merged the held-open AR accessibility PR under the amended Arabic gate; applied the four minor/patch Dependabot updates; made the hidden-product guard unable to pass without checking; applied the W088 launch-fact ruling; canon close. | Claude Code (Opus 5, xhigh) | **PRs #34 `0488dc1`, #37 `fa6df63`, #41 `c336235`, #42 `a85edc1`** merged (+ this chunk-close PR). #27 closed as the stale duplicate of #28; Dependabot #14, #15, #16, #19 closed naming #37. **Ran INTERACTIVELY, the dispatched run of this very issue having died** — #36's own dispatch exited 1 after 523 s on the subscription window, as #24's had after 5307 s, both leaving 53-byte logs and no report (W128). **Six executor reviewer passes** — T1, T2, T3, a T3 re-review, T4 and this chunk-close — and **five changed the shipped result** (the passes leave no artefact in git, so this count is the session's own report of itself, not a measurable): a lockfile-only PR that had silently stripped 29 `libc` fields; the F40 guard fix, where the first attempt closed one of three doors to the same vacuous pass; a partial application of the owner's ruling (two of three positioning elements on the home card); and an Arabic string whose diacritics were inconsistent with the file and with itself. **Codex answered ALL FOUR PRs, and this row's first draft said it was silent on three of them** — W122 recurring in the very chunk that was correcting it. The cause was mechanical and is now canon: there is a **fourth surface**, the 👍 **reaction**, and Codex's own boilerplate says so — *"If Codex has suggestions, it will comment; otherwise it will react with 👍."* Measured: #34 answered in **2m07s** and #41 in **3m26s** after explicit `@codex review` comments (issue comment + 👍 each), #37 with an unprompted 👍 in **2m41s**, and #42 with a review carrying **one inline P1** in 1m52s. So: findings on 1 of 4, response on 4 of 4, nothing silent. The P1 finding was correct against `AGENTS.md`'s copy of the *superseded* Arabic gate, and is the chunk's top follow-up (F42). **One permanent blemish**: #34 was squashed without `--subject`, so `master` carries a commit whose subject and body say the PR must not be merged. |
 | 2026-09-03/04 | **P1 · Launch blockers** — the FIRST chunk to start from a labelled issue (**#24**). Watermark grep, no-image tile, hidden-product guard, allowlist repair, `/admin` out of the sitemap, the 404 page's head, accessibility, meta descriptions, canon. | Claude Code (Opus 5, xhigh) | **PRs #25 `c1cd217`, #26 `09bc943`, #28 `6e28bc3`, #29 `6fbe570`, #30 `cc1d89b`, #31 `3c30b37`, #32 `7afc84a`, #33 `a0f8bff`** merged (+ this chunk-close PR). **#34 opened and LEFT OPEN on purpose** — it carries three unreviewed Arabic strings, so GATE 2 excludes it. **The run did not go smoothly and the ledger should say so:** the dispatched run **exited 1 at 5307 s** on an allowlist nobody had exercised, and the chunk finished across **two interactive resumes, both of which ended silently** — the first having pushed T5, gone green and taken the Codex review, but never merging #31 or reporting (W117, F39); the second paused ~5.5 h mid-task, resuming under W058 with a from-scratch rebuild before merging. **Five executor reviewer passes in this session** (T5 fix, T6, T6 re-review, T7, T6b) returning 4, 5, 2, 7 and 4 FIXes — every one applied or answered — plus this chunk-close pass. Four of them changed the shipped result: an accessibility *regression* in T5 (the document root was being flipped to Arabic under English chrome), a flex/`text-align` bug in T6, a false verification committed into source in T7, and an `innerHTML` **injection** that T6b's own localization created. **Codex reviewed 4 of the 10 PRs** — and #28's two P1 findings were never seen, because it was merged 88 s after opening and the review landed 108 s later (ROADMAP F40). |
 | 2026-09-02 | **P0.2 · Workflow v2** — GATE 2 machine-enforced (ruleset `master-protection`, no bypass actors); CI job renamed `ci`, every action SHA-pinned, new `tier3-guard`; chunk labels + `/relay-report` to the issue; `jahjah-web-dispatch` (chunk issues → executor) and `jahjah-web-backup-check` (backup integrity) built in the ERP repo; independent `review` job; Dependabot. Chunk issue **#6**. | Claude Code (Opus 5, xhigh) | **PRs #4 `58912bd`, #10 `44bef69`, #13 `b840c3a`, #18 `7ce7932`, #17 `7821043`** merged (+ this chunk-close PR); #5 opened and closed unmerged as the ruleset proof. Cross-repo: `jahjah-internal` **#91 `2c66949`** and **#92 `2f2278b`** merged. Six reviewer passes on the relay-report skill, four on the review workflow, three compliance-panel passes on the lane; one BLOCK and eleven FIXes, all closed. |
 | 2026-09-02 | **P0.1 · Cowork lane into canon** — the strategist's own lane written down as `docs/STRATEGIST.md` §8; one row added to STATE §4. No site change. | strategist (Fable) + Claude Code (**Sonnet 5**, medium) | **PR #3** `e33b478` merged. Three reviewer passes; merged on a NOTE-only verdict, flagged at the time. Opened F16–F22, all closed in P0.2. |
@@ -107,31 +117,27 @@ Build 68 pages / 37 s / exit 0; 2 build warnings (chunk size; deprecated `@sanit
 
 ### Owner-side open items (no code)
 
-**ANSWERED 2026-09-04 — Dependabot secrets: NOT MIRRORED (ROADMAP F24 closed).** A live Sanity read
-token, which can see drafts, is never handed to a run executing a dependency version nobody has
-reviewed. The consequence is that Dependabot PRs stay red, and **W114 makes that the intended state**
-rather than a problem: the bot is a notifier, the executor applies each update in a chunk PR with
-secrets present, then closes the bot's. **Six are still open and three are *labelled* security updates** (#14
-undici, #15 browserslist, #16 dompurify; #19 grouped minor/patch, #20 and #21 majors) — but
-`gh api /repos/obidex/jahjah-website/dependabot/alerts` is the fuller picture and it is wider than
-those three PRs: open advisories on browserslist, nanoid, js-yaml, brace-expansion and undici at
-**high**, plus dompurify and postcss at medium. P1 was
-forbidden `npm update` and `gh pr close`, so **P1.1 does the four minor/patch ones** — #14, #15,
-#16 and #19 (F31). **#20 and #21 are NOT P1.1's**: they are major bumps of the embedded Studio and
-get their own named chunk (F34), per W114.
+**Dependabot secrets: NOT MIRRORED (owner, 2026-09-04; ROADMAP F24 closed).** A live Sanity read token,
+which can see drafts, is never handed to a run executing a dependency version nobody has reviewed. The
+consequence is that Dependabot PRs stay red, and **W114 makes that the intended state**: the bot is a
+notifier, the executor applies each update in a chunk PR with secrets present, then closes the bot's.
 
-**Two of these now gate P1's own exit, so they are no longer background:**
-- **The watermark verdict** (F1). The grep half is clean; someone has to look at three photographs.
-- **The launch-fact ruling** (W088) — and it has become self-inconsistent while unanswered: P1
-  removed "authorized distributor" from **every meta description** in both languages, but the same
-  agency claim still stands in the home page's visible body copy (`home.featureDealer`, "Authorized
-  dealer" / "وكيل معتمد") and in the Organization JSON-LD that feeds knowledge panels. **The site
-  currently says two different things about itself.** Changing the remaining two needs a new Arabic
-  string, so they move together, after the ruling.
-
-**New:** decide **which of the 22 placeholder products to keep** (F35) — W031 wants 8–10 real
-flagships, W007 says placeholder records are deleted rather than polished. The machinery to hide
-them exists and is proven; nobody has said which.
+**DONE 2026-09-04 (P1.1 · T2, PR #37, W123).** The four minor/patch PRs — #14 undici, #15 browserslist,
+#16 dompurify, #19 grouped — were applied and closed naming #37. `npm audit` over the same tree went from
+**30** vulnerabilities (1 critical / 17 high / 10 moderate / 2 low) to **24** (1 / 15 / 6 / 2). **#20 and
+#21 stay open and untouched**: they are major bumps of the embedded Studio and are F34's named chunk, and
+the remaining critical and most of the highs live in that Studio 5.x tree, unreachable by a range bump.
+**The bot opened three more within two minutes of the merge (72–84 s)** as it rescanned the new lockfile — #38
+brace-expansion, #39 tar, #40 postcss, all indirect. They are the next chunk's, under the same flow.
+**Both of the items that gated P1's exit are now answered (2026-09-04), and neither needed code:**
+- **The watermark verdict** (F1) — the owner looked at the three photographs and ruled them **CLEAN**.
+- **The launch-fact ruling** (W088) — ruled in part, and the self-inconsistency is gone: the home page's
+  visible copy and the Organization JSON-LD no longer make an agency claim the owner never made (#42).
+**Still open:** decide **which of the 22 placeholder products to keep** (F35) — W031 wants 8–10 real
+flagships, W007 says placeholder records are deleted rather than polished. The machinery to hide them
+exists and is proven. **The owner ruled on 2026-09-04 that hiding is never the executor's or the
+strategist's** — he does it himself with the existing `published` toggle, in Studio now and Admin Mode
+later (W126). So what is open is a curation decision, not a task waiting on a chunk.
 
 The older items, unchanged: name the three price tiers (default Tier 1/2/3) · decide currency (W066)
 before flipping `prices_visible` · obtain ShamCash merchant docs (W064, not urgent) · decide whether
@@ -141,33 +147,37 @@ the showroom address is published (ROADMAP §4).
 
 ## 5. NEXT PLANNED STEP
 
-**P1.1 · finish P1** — four things, all of them carried out of P1 rather than discovered in it, and
-all of them reachable-but-forbidden there (ROADMAP **F33**):
+**P2 · Identity and foundation.** P1.1 closed everything P1 carried out, so nothing from P1 is still
+owed. P2 is Tier 3 throughout: SKU on every sellable variant under GATE 1 (W076) · the
+`@astrojs/vercel` adapter, the first on-demand route and a middleware skeleton · Supabase project #2
+with schema, RLS and TOTP MFA (W083, W091) · a TypeScript data layer in `src/lib/` (W086).
 
-1. **T0d — the FOUR minor/patch Dependabot PRs**: #14, #15, #16 (**security**) and #19. Apply each
-   update in a chunk PR with secrets present, then close the bot's PR naming it (W114). P1's own
-   plan forbade `npm update` and `gh pr close`. **#20 and #21 are explicitly NOT in P1.1** — they
-   are major bumps of the embedded Studio and get their own named chunk (F34).
-2. **Close #27**, the stale duplicate of #28. P1 was told not to touch it.
-3. **The T1 visual verdict** from the owner (F1) — the grep half is already clean.
-4. **The live probe table**, now unblocked: the allowlist repair in #29 made per-path `curl` work,
-   and P1's later reports carry a real table.
+**The single first decision is VERCEL PRO** (~$20/mo). W090 requires it *before* the first on-demand
+route ships, which is P2's second item — so it is needed early in P2, not at launch, and it is the
+owner's to make. Nothing else blocks.
 
-Then **P2 · identity and foundation**. No decision blocks P1.1.
+**Two things the next chunk should do first, both cheap:**
+1. **Four files still carry the superseded Arabic gate** (ROADMAP F42), and two of them are gates
+   that fire: `AGENTS.md` item 4, which is what the reviewer of record reads — it already produced a
+   correct Codex P1 against a rule the owner had amended hours earlier — and
+   `.claude/agents/reviewer.md`, which lists an unmarked Arabic string as a **blocking** finding, so
+   the executor's own gate will now block strings W125 says ship. Also `REVIEW.md` and softer residue
+   in `.claude/skills/ship/SKILL.md`.
+2. **`gh issue close` is not allowlisted** (ROADMAP F46), and `/relay-report final` now requires it
+   (W127). One line in `.claude/settings.json`, which only an interactive session can add.
+3. **Dependabot #38, #39 and #40** (brace-expansion, tar, postcss — all indirect), opened as the bot
+   rescanned the lockfile #37 refreshed. Same W114 flow, one PR.
 
-**Also open, and each has a row:** PR **#34** is deliberately unmerged, holding three unreviewed
-Arabic strings for the native reviewer — it is the last thing standing between P1.6 and its own
-acceptance line. F35 (which products to keep), F36 (the `.vercel.app` host is indexable and will
-still be at launch), F37 (`verify.sh`'s hidden-product guard can silently SKIP), F38 (the dispatcher
-leaves `chunk:proposed` in place — ERP-side), F39 (two sessions of this chunk ended silently and
-nothing caught it).
+**Open, and each has a row:** F5 (two dead RTL rules, P5) · F26 (retiring the relay — the lane has now
+carried two chunks, so this is the strategist's call) · F34 (Studio 5→6, its own named chunk) · F35
+(which products the owner keeps) · F36 (the `.vercel.app` host is indexable) · F38 (the dispatcher
+leaves `chunk:proposed` in place — ERP-side) · F39 (silent sessions) · F42–F46, opened by this chunk.
 
-**Closed in P1:** F9 (the 404 page — and the register's own explanation of it was wrong, corrected
-in place) · F11 (the reviewer subagent's `tools:` frontmatter **does** restrict, but not to what it
-lists) · F23 and F24 (Dependabot policy and the owner's secrets ruling) · F25 and F28 (the Claude
-`review` job, closed by narrowing its trigger to nothing rather than by explaining its silence) ·
-F29 and F30 (the reference generator's blind spot, and `ci.yml`'s stale header).
+**Closed in P1.1:** F1 (the owner ruled the photographs clean) · F31 and F33 (the four Dependabot
+updates applied, #27 closed, the probe table in every report) · F37 and F40 (the hidden-product guard,
+both of Codex's P1s answered on #28) · F41 (the relay-report skill's dead pointer).
 
-**Carried:** F1 (visual half), F5 (two dead RTL rules, P5), F31 (four Dependabot PRs → P1.1, two majors → F34),
-F26 (retiring the relay — the lane has now carried one real chunk, so this is the strategist's call
-to make next).
+**And the operational fact that outranks all of them:** the dispatched executor has never finished a
+chunk — 2 runs, 2 failures, both on the subscription window (live flag 9, W128). Until the ERP side
+lands the `run-chunk.sh` change, **approve P2's issue only if someone is there to run it
+interactively**, or expect it to die mid-flight leaving a 53-byte log.

@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `a85edc1ac72d0e1d67bd952721d122c9f7057bf1`
-**Commit subject:** feat(content): apply the W088 launch-fact ruling — no unmade agency claim (#42)
-**Copied (UTC):** 2026-09-04T23:37:04Z
+**Mirrored commit:** `03d6cd9f01ba2a38c72493350a2fc49f12ad79da`
+**Commit subject:** docs(canon): close chunk P1.1-p1-leftovers (#43)
+**Copied (UTC):** 2026-09-05T00:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -17,11 +17,11 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 
 | File | Bytes | Source path in the repo |
 |---|---|---|
-| `CLAUDE.md` | 24771 | `CLAUDE.md` |
-| `STRATEGIST.md` | 26122 | `docs/STRATEGIST.md` |
-| `STATE.md` | 22264 | `docs/STATE.md` |
-| `ROADMAP.md` | 28316 | `docs/ROADMAP.md` |
-| `DECISIONS.md` | 49009 | `docs/DECISIONS.md` |
+| `CLAUDE.md` | 27061 | `CLAUDE.md` |
+| `STRATEGIST.md` | 27330 | `docs/STRATEGIST.md` |
+| `STATE.md` | 28396 | `docs/STATE.md` |
+| `ROADMAP.md` | 35195 | `docs/ROADMAP.md` |
+| `DECISIONS.md` | 60689 | `docs/DECISIONS.md` |
 | `reference/site.md` | 8744 | `docs/reference/site.md` |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it

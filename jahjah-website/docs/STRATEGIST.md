@@ -31,7 +31,7 @@
 | **Strategist** | This chat | Plans, writes the chunk, watches the relay, verifies merge/deploy, reports once per chunk |
 | **Implementer** | Claude Code on the VPS, tmux session `web` | Investigates, builds, verifies, opens PRs, merges on green when authorized, publishes reports, updates canon |
 
-Plus, outside the loop: the **native Arabic reviewer** (gate on all meaningful AR copy, W025) and the **machine**: `jahjah-web-dispatch` (every 2 min — the one that now starts a chunk), `jahjah-web-docs` (30 min), `jahjah-web-truth` (Mon), `jahjah-web-backup` (nightly), `jahjah-web-backup-check` (Mon), `ci` on every PR, **Codex** reviewing every PR, and the Claude `review` job only when someone dispatches it. The registry is `jahjah-internal/docs/runbooks/automations.md`; the current list is `docs/STATE.md` §1.
+Plus, outside the loop: the **native Arabic reviewer** (a **batched** pass over all meaningful AR copy — never a merge gate, W125 superseding W025) and the **machine**: `jahjah-web-dispatch` (every 2 min — the one that now starts a chunk), `jahjah-web-docs` (30 min), `jahjah-web-truth` (Mon), `jahjah-web-backup` (nightly), `jahjah-web-backup-check` (Mon), `ci` on every PR, **Codex** reviewing every PR, and the Claude `review` job only when someone dispatches it. The registry is `jahjah-internal/docs/runbooks/automations.md`; the current list is `docs/STATE.md` §1.
 
 **The owner is a relay, not a reviewer.** Plan for your rigor and the implementer's compliance. He reads headlines, thinks in visuals, and decides — never ask him to review code or a plan; interpret, then bring him A/B with a recommendation.
 
@@ -44,11 +44,15 @@ STRATEGIST opens a GitHub ISSUE in obidex/jahjah-website carrying the whole chun
    → jahjah-web-dispatch picks it up within 2 minutes, relabels chunk:running, and starts the
      chunk on the executor in tmux `web` with CHUNK_ISSUE set
    → CLAUDE CODE runs unattended: tasks → PRs → CI → reviewer → merge (if pre-authorized)
-   → CLAUDE CODE reports as COMMENTS on that issue, and to the relay, and moves the label to
-     chunk:done (or chunk:blocked)
+   → CLAUDE CODE reports as COMMENTS on that issue, and to the relay, moves the label to
+     chunk:done (or chunk:blocked), and on `final` CLOSES THE ISSUE
    → STRATEGIST reads the issue, the PRs and CI through its GitHub connector; verifies prod;
      reports ONCE
 ```
+
+**The chunk issue is closed by the final report, not by a person** (W127). `/relay-report final` adds
+`chunk:done`, removes `chunk:running` and then closes the issue; `blocked` and `interrupted` leave it
+open, because they need a person and an open issue is how they ask. The owner never closes one by hand.
 
 **The owner's label replaced his paste** (W099). It no longer requires him at a desktop with tmux
 open at the moment the plan is ready, and the plan, the approval, the work and the result end up as
@@ -146,7 +150,9 @@ NEXT-NEEDED: single decision/input, or "none"
 
 ### THE BAR — what blocks a merge
 
-Only: a public visitor can obtain a price, stock quantity, customer data or a token (via HTML, JS, API or build output); a hidden product reaches static HTML; an unreviewed Arabic string ships; a Tier-3 file changed outside the plan; a broken build. Everything else — conventions, coverage, polish — becomes a dated follow-up in `docs/DECISIONS.md` and a row in ROADMAP's register.
+Only: a public visitor can obtain a price, stock quantity, customer data or a token (via HTML, JS, API or build output); a hidden product reaches static HTML; **an Arabic string not approved by the strategist ships**; a Tier-3 file changed outside the plan; a broken build.
+
+**That Arabic clause was amended by the owner on 2026-09-04 (W125), and the change is deliberate.** It used to read "an unreviewed Arabic string ships", which made the native reviewer a merge gate — and the cost was measured: PR #34 sat open for a day holding an accessibility fix the site needed. **Arabic translation must never block a merge.** AI-drafted Arabic that the strategist has approved ships; the native reviewer does a **batched mass review** afterwards, tracked by a standing row in ROADMAP's register naming the date from which strings are pending. The gate is not waived, it is moved off the critical path — and every shipped string is still listed, with the specific questions it raises, in the PR that shipped it. Everything else — conventions, coverage, polish — becomes a dated follow-up in `docs/DECISIONS.md` and a row in ROADMAP's register.
 
 ---
 
@@ -233,7 +239,7 @@ Full text and reasoning by `W` number in `docs/DECISIONS.md`.
 
 **Access (W080, W081, W079).** Staff roles admin/editor/sales with TOTP MFA; audit row on every write; confirm on destructive; soft-delete preferred. `prices_visible` OFF until the owner flips it; three tiers + none; hidden/disabled semantics as defined. Sanity write token server-side only, never `PUBLIC_`, rotated on exposure.
 
-**Content and language (W022–W025, W042, W056, W060, W010).** Company name `شركة الجحجاح التجارية` exact; `JAHJAH` is a brand, Latin in both languages; brand order DCEL → LAPON → JAHJAH → SUNNY → DSP in `BRAND_ORDER`; Arabic canonical; every meaningful AR string reviewer-approved before it ships, meta included; MSA register; positioning manufacturer + supplier + distributor.
+**Content and language (W022–W025, W042, W056, W060, W010).** Company name `شركة الجحجاح التجارية` exact; `JAHJAH` is a brand, Latin in both languages; brand order DCEL → LAPON → JAHJAH → SUNNY → DSP in `BRAND_ORDER`; Arabic canonical; every meaningful AR string strategist-approved before it ships and native-reviewed in the batch afterwards, meta included (W125); MSA register; positioning manufacturer + supplier + distributor.
 
 **Stack (W003, W004, W014, W086, W038).** Vanilla CSS tokens, no framework; vanilla JS on pages; TypeScript for server-side code; three `/admin` rewrites in `vercel.json`; `COLOR_OPTIONS` duplicated verbatim in `product.ts` and `sanity.js`, edited together (`COLOR_MAP` is only in `sanity.js`, derived from it — W094); no new dependency without the chunk plan naming it.
 
