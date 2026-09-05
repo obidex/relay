@@ -123,7 +123,7 @@ Action maps the refusal to "forbidden" — hiding them is rebuild work.
 | `tier3-guard` | **pass** — after one self-inflicted red: the authorization line was wrapped in markdown bold and the guard's regex is anchored at line start, so `**Tier-3:` failed it. Corrected to the bare form; the guard re-ran on the `edited` trigger, exactly as chunk 4 sabotage-proved it does. **The guard was right and the PR was wrong** — worth recording, because a red `tier3-guard` reads at a glance like a scope problem and this one was punctuation. |
 | `ci-ok` | **green** on run `33969840589` — every job: `checks`, `secret-scan`, `sast`, `types`, `replay` (+ grant audit), `sql`, `e2e`, `tier3-guard` |
 | Merge | squash, **`f43d8d1`**, branch deleted |
-| Post-merge `main` | **green** at `f43d8d1` — a green PR is not a green `main` on shared mutable state, so it was watched |
+| Post-merge `main` | run `33970304195` at `f43d8d1` — **result appended below when it concludes.** A green PR is not a green `main` on shared mutable state, so this is watched rather than assumed; an earlier revision of this report asserted it green before it had finished, which is exactly the thing this row exists to prevent. |
 
 **The two E2E risks this chunk carried, both resolved green.** Deleting the demo dispatches puts
 those four orders back in the dispatch dock with remaining quantity, which changes which order the
