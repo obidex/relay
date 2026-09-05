@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-04T23:42:58Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-05T11:44:13Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website/reports/<name>`.
@@ -18,6 +18,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-we
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
+| `2026-09-05-p12-gates-deps-progress.md` | 2026-09-05T11:44:13Z | **T1 is merged, and it did not go entirely to plan — two of its eight items are not in it, both reported ra... |
 | `2026-09-04-p1-launch-blockers-progress.md` | 2026-09-04T06:46:06Z | === REPORT: P1-launch-blockers · progress === |
 | `2026-09-04-p1-launch-blockers-progress-3.md` | 2026-09-04T13:32:53Z | === REPORT: P1-launch-blockers · progress === |
 | `2026-09-04-p1-launch-blockers-progress-2.md` | 2026-09-04T07:39:27Z | === REPORT: P1-launch-blockers · progress === |
