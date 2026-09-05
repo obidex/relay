@@ -211,5 +211,23 @@ Dependabot flow in §7 (W114), which is their only caller; `gh pr comment` serve
 rule to answer a Codex finding in the PR.
 
 **If a command you need is refused, that is a finding, not an obstacle to route around** — report
-it with the exact command. A dispatched session cannot edit `.claude/**` at all, so an allowlist
-gap is fixed by an interactive session, never by the chunk that hits it.
+it with the exact command. A dispatched session cannot edit `.claude/**` at all (W116) — **and
+`.claude/settings.json` in particular has refused every route yet tried, from interactive sessions
+too** (ROADMAP F47). The one-line `"Bash(gh issue close:*)"` addition has been attempted and refused
+**three times**: twice in P1.2, a scripted edit and the Edit tool alike (W133), in what the P2a plan
+records as an `acceptEdits` session — F47 itself says only "interactive"; and a third time by
+P2a · T1 · Session A, invoked per its chunk plan in **default** permission mode precisely to test
+whether it would prompt instead. **It did not prompt** — and the same words came back every time:
+`Permission for this action was denied by the Claude Code auto mode classifier. Reason: Blocked by
+classifier.` **What the third attempt does not settle** is which of two readings holds, because a
+session cannot read back its own permission mode: either default mode is no protection from the
+classifier, or the invocation did not put the session in default mode at all — Session A's own
+harness system-reminder said auto mode was active. Either way F47 stands, and the axis this task
+set out to close — `acceptEdits` versus default — is still open; a further probe of it needs a chunk
+plan that names one, because both the P1.2 ruling and F47 say do not retry this edit. **Every
+refusal so far has landed on that one file:** the same Session A edited
+`.claude/skills/relay-report/SKILL.md` without complaint, as P1.2 had edited `reviewer.md` and both
+skills. Only those few paths have ever been tried, so the boundary is still unmapped and is not
+guessed at here. The remedy lies outside a Claude Code session — the owner edits the file by hand,
+or the classifier is configured to permit it. Until one of those happens, a plan that turns on
+adding an allow rule stops here.

@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `3c8d03b325799cefcfb88539a41ab5642eaaa02b`
-**Commit subject:** docs(canon): close chunk P1.2-gates-deps (#52)
-**Copied (UTC):** 2026-09-05T13:07:03Z
+**Mirrored commit:** `4b45dbc1aeccb37c45e8d091c99476a06cedd277`
+**Commit subject:** docs(allowlist): record outcome (b) — settings.json refused in default mode (#54)
+**Copied (UTC):** 2026-09-05T14:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -17,7 +17,7 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 
 | File | Bytes | Source path in the repo |
 |---|---|---|
-| `CLAUDE.md` | 26520 | `CLAUDE.md` |
+| `CLAUDE.md` | 28227 | `CLAUDE.md` |
 | `STRATEGIST.md` | 27387 | `docs/STRATEGIST.md` |
 | `STATE.md` | 34174 | `docs/STATE.md` |
 | `ROADMAP.md` | 40932 | `docs/ROADMAP.md` |
