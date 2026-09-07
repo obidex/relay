@@ -2,7 +2,7 @@
 
 <!-- index: proof-of-life for the website chunk lane — stale > ~70 min means chunks are not being picked up -->
 
-**Written (UTC):** 2026-09-07T00:36:04Z
+**Written (UTC):** 2026-09-07T01:26:04Z
 **State:** OK — idle, no `chunk:approved` issue open
 **Chunk in flight:** none
 **Chunks started today (UTC 2026-09-07):** 0 of 3
