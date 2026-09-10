@@ -2,15 +2,15 @@
 
 <!-- index: proof-of-life for the ERP chunk lane — stale > ~70 min means chunks are not being picked up -->
 
-**Written (UTC):** 2026-09-10T07:13:04Z
-**State:** OK — idle, no `chunk:approved` issue open
+**Written (UTC):** 2026-09-10T07:41:04Z
+**State:** PAUSED — /opt/jahjah/ERP_DISPATCH_OFF is present; the lane is deliberately not running
 **Chunk in flight:** none
 **Chunks started today (UTC 2026-09-10):** 0 of 3
 **Consecutive poll failures:** 0 of 3 before self-disable
 **Chunk failures:** 0 of 3 before self-disable
 **Usage cap:** none
 **Dispatches in the last 24 h with a chunk window open at the approval instant:** 0
-**Kill switch:** clear
+**Kill switch:** ENGAGED (`/opt/jahjah/ERP_DISPATCH_OFF` present)
 
 Polls `obidex/jahjah-internal` every 2 minutes for an open issue labelled `chunk:approved`.
 **Stale by more than ~70 minutes and not `PAUSED` = the lane is not running**, and an approved
