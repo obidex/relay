@@ -204,3 +204,20 @@
 - **W147** [2026-09-10] LESSON — **A silent exit 0 from a checker proves nothing until coverage and a negative test say it checked.** T3's `tsc --noEmit` was confirmed with `--listFilesOnly` and a deliberate `locals.lang = 'fr'` that must fail. And `npx tsc` without `-p typescript` fetches an unrelated package called `tsc`.
 
 - **W148** [2026-09-10] LESSON — **Dependabot security updates ignore version-update groups.** #63–#66 arrived one per package, seconds apart, after a lockfile change, although `npm-minor-patch` groups `*`. They were security jobs (`npm_and_yarn in /.`), and grouping them needs its own group with `applies-to: security-updates`. That was drafted in T4 and taken out as an unratified deviation, and it is proposed as F59.
+
+- **W149** [2026-09-10] LOCKED (amends W114's mechanics; P2b-1b). **A Dependabot branch is never built by Vercel and never CI-run. Its only job is to notify.**
+  - **Mechanics:** `vercel.json` sets `git.deploymentEnabled` to false for `dependabot/**` (#75), and `ci` is skipped on bot PRs (#69). The executor applies each update in a chunk PR with secrets present, then closes the bot's PR naming it (W114).
+  - **Majors owned by a named chunk are ignored at the bot.** `sanity` and `@sanity/vision` at `version-update:semver-major` belong to F34. That chunk must delete the two `ignore` entries when it upgrades, or every later major of both is silently ignored.
+  - **npm security updates are grouped** in `npm-security` (`applies-to: security-updates`), because F59 was ruled yes.
+  - **Measured:** the Vercel half works. Dependabot rebased #70 onto `b3f2dc9` 68 s after the merge, and the new head got 0 commit statuses and 0 deployments. Before this, every bot head got a Vercel status within seconds. The grouping half works too. 7 minutes after #76 merged, Dependabot opened #77: one PR for five npm security updates (esbuild, vite, @babel/core, nanoid, ws), on a branch cut from `0f79dc9`. That new branch also got 0 Vercel statuses and 0 deployments. #77 is left open for the next dependency task.
+
+- **W150** [2026-09-10] LESSON — **Never put close/fix/resolve directly before a `#number` in a PR body or commit message.**
+  - **Why:** GitHub reads `close #N` as a closing keyword, and it closes PRs as well as issues. #75's body said "the bot may close #63–#66 itself" and "The bot should close #71/#72 on its own". The merge closed #63 and #71 under the merging account, one second apart.
+  - **Consequence:** small this time, because both were bot PRs the chunk was about to close anyway. The same wording before an issue number would silently close work someone is waiting on.
+  - **How to apply:** T2's body and commit message were scanned for the pattern before opening, and every later one should be too: `grep -noiE '(close[sd]?|fix(e[sd])?|resolve[sd]?)[[:space:]:]+#[0-9]+'`.
+
+- **W151** [2026-09-10] LESSON — **An `ignore` rule's `update-types` does not hold back a security update. GitHub's docs don't say so; Dependabot's source does.**
+  - **The mistake:** the options reference marks `ignore` as affecting security updates. From that, the executor's first `dependabot.yml` comment inferred that the Studio-major rule would also block a 6.x-only security fix.
+  - **The source:** the executor's reviewer read dependabot-core's `ignored_versions` (`common/lib/dependabot/config/ignore_condition.rb`): `return versions if security_updates_only`. A security job honours only an ignore rule's explicit `versions`.
+  - **Outcome:** the claim was reversed before merge. It was read in the source, not observed on this repo.
+  - **How to apply:** when the docs are silent on a mechanism the repo relies on, read the source, and say which of the two you did.
