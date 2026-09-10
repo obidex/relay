@@ -2,14 +2,14 @@
 
 <!-- index: proof-of-life for the scratch chunk lane — stale > ~70 min means chunks are not being picked up -->
 
-**Written (UTC):** 2026-09-10T07:39:38Z
+**Written (UTC):** 2026-09-10T07:43:54Z
 **State:** running — chunk #108 dispatched
 **Chunk in flight:** 108
 **Chunks started today (UTC 2026-09-10):** 1 of 3
 **Consecutive poll failures:** 0 of 3 before self-disable
 **Chunk failures:** 0 of 3 before self-disable
 **Usage cap:** none
-**Dispatches in the last 24 h with a chunk window open at the approval instant:** 0
+**Dispatches in the last 24 h with a chunk window open at the approval instant:** 1
 **Kill switch:** clear
 
 Polls `obidex/jahjah-internal` every 2 minutes for an open issue labelled `chunk:approved`.
