@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `15cf22c33f9be31958318a4773fb49141c97b06b`
-**Commit subject:** docs(canon): close P2b-1b, bot branches notify only (#78)
-**Copied (UTC):** 2026-09-10T22:37:04Z
+**Mirrored commit:** `5cd1e404b1279593f100ab16460e7629977ec681`
+**Commit subject:** build(deps): apply the npm-security group (Dependabot #77) (#80)
+**Copied (UTC):** 2026-09-10T23:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
