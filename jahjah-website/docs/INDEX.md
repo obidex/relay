@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `8d037e584c27890d374ba99ba53b0f221660cc4a`
-**Commit subject:** fix(sku,canon): close P2a — drop the SKU readOnly lock and the slug-as-SKU JSON-LD (#60)
-**Copied (UTC):** 2026-09-10T09:07:04Z
+**Mirrored commit:** `1bc78cf904aee756ebc29edfed0542e333b7c8c4`
+**Commit subject:** build(deps): move to Astro 7 and apply the five Dependabot updates (F48) (#62)
+**Copied (UTC):** 2026-09-10T16:37:03Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.

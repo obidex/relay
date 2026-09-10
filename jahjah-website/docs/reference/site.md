@@ -178,12 +178,12 @@ EN/AR key sets: **SYMMETRIC**
 
 | Package | Version | Kind |
 |---|---|---|
-| @astrojs/sitemap | ^3.7.2 | dependency |
+| @astrojs/sitemap | ^3.7.4 | dependency |
 | @sanity/astro | ^3.4.0 | dependency |
 | @sanity/client | ^7.22.0 | dependency |
 | @sanity/image-url | ^2.1.1 | dependency |
 | @sanity/vision | ^5.24.0 | dependency |
-| astro | ^6.2.2 | dependency |
+| astro | ^7.3.2 | dependency |
 | react | ^19.2.6 | dependency |
 | react-dom | ^19.2.6 | dependency |
 | sanity | ^5.24.0 | dependency |
