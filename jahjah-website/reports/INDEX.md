@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-10T10:01:46Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-10T16:38:31Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website/reports/<name>`.
@@ -18,7 +18,8 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-we
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
-| `2026-09-10-p2b1-astro7-adapter-blocked.md` | 2026-09-10T10:01:46Z | **In plain words:** Astro 7 builds the site correctly: 68 pages, every check passes, the five dependency up... |
+| `2026-09-10-p2b1-astro7-adapter-progress.md` | 2026-09-10T16:38:31Z | **In plain words:** Astro 7 is live. The strategist chose option B, so the site keeps its old browser floor... |
+| `2026-09-10-p2b1-astro7-adapter-blocked.md` | 2026-09-10T10:01:47Z | **In plain words:** Astro 7 builds the site correctly: 68 pages, every check passes, the five dependency up... |
 | `2026-09-10-p2a-foundation-lite-progress.md` | 2026-09-10T00:01:32Z | **Session B has started, and its first act was to commit a line the owner had to add by hand.** T1 (Session... |
 | `2026-09-10-p2a-foundation-lite-progress-2.md` | 2026-09-10T01:11:56Z | **Two more PRs merged, and the second one earned its keep by being wrong first.** T2 put W076's SKU field o... |
 | `2026-09-10-p2a-foundation-lite-final.md` | 2026-09-10T08:52:05Z | **P2a is finished: six PRs merged across four sessions, one of them abandoned early, and the chunk's main q... |
