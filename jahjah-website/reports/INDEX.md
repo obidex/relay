@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-10T23:39:10Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-10T23:47:16Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website/reports/<name>`.
@@ -19,7 +19,8 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-we
 | File | Updated (UTC) | What it is |
 |---|---|---|
 | `2026-09-10-p2b1c-canon-diet-progress.md` | 2026-09-10T23:03:42Z | T1 is done: Dependabot's grouped security update (#77) is applied in #80 and merged, and the bot's PR is cl... |
-| `2026-09-10-p2b1c-canon-diet-progress-2.md` | 2026-09-10T23:39:10Z | T2 is done: the canon diet merged in #81. The six mirrored canon files went from 262,210 to 70,072 bytes, a... |
+| `2026-09-10-p2b1c-canon-diet-progress-2.md` | 2026-09-10T23:39:11Z | T2 is done: the canon diet merged in #81. The six mirrored canon files went from 262,210 to 70,072 bytes, a... |
+| `2026-09-10-p2b1c-canon-diet-final.md` | 2026-09-10T23:47:16Z | DONE. P2b-1c is closed in three merged PRs. The grouped security update is applied, and `npm audit` went fr... |
 | `2026-09-10-p2b1b-bot-quiet-progress.md` | 2026-09-10T21:48:21Z | T1 of chunk P2b-1b is merged. Vercel is now told not to build Dependabot branches, which were the source of... |
 | `2026-09-10-p2b1b-bot-quiet-progress-2.md` | 2026-09-10T22:03:58Z | T2 of chunk P2b-1b is merged: the five pending Dependabot updates are applied and `npm audit` fell from 20 ... |
 | `2026-09-10-p2b1b-bot-quiet-final.md` | 2026-09-10T22:33:32Z | Chunk P2b-1b is done. Dependabot branches no longer produce failed Vercel builds: Vercel is told not to bui... |
