@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-10T10:07:04Z by `jahjah-web-docs`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-10T10:24:53Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -16,7 +16,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | `HEARTBEAT-dispatcher.md` | 2026-09-10T09:52:36Z | dispatch lane proof-of-life — running, last poll 2026-09-10T09:52:34Z |
 | `HEARTBEAT-erp-dispatch.md` | 2026-09-10T09:47:06Z | proof-of-life for the ERP chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-dispatch.md` | 2026-09-10T09:40:02Z | proof-of-life for the website chunk lane — stale > ~70 min means chunks are not being picked up |
-| `HEARTBEAT-web-docs.md` | 2026-09-10T10:07:04Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
+| `HEARTBEAT-web-docs.md` | 2026-09-10T10:07:06Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
 | `SCAN-gitleaks.md` | 2026-09-07T04:00:09Z | weekly gitleaks scan — ZERO secrets found in either repo history |
 | `SCAN-trivy.md` | 2026-09-07T03:00:19Z | weekly trivy scan — 10 critical, 150 high, 181 medium, 132 low |
@@ -27,7 +27,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 |---|---|---|
 | `2026-09-10-chunk8-preflight.md` | 2026-09-10T00:25:45Z | chunk 8 preflight — lane code written, bash -n + shellcheck clean, mirror lane closed with 9 sabotage-prove... |
 | `2026-09-10-chunk8-install.md` | 2026-09-10T08:13:28Z | chunk 8 install — the new chunk-lane code is live on both lanes, resolved config differs by one key, both t... |
-| `2026-09-10-chunk8-final.md` | 2026-09-10T09:35:17Z | chunk 8 final — detective control, chunk breaker, quota/open-PR outcomes, DB lane, reports off the mirror, ... |
+| `2026-09-10-chunk8-final.md` | 2026-09-10T10:24:53Z | chunk 8 final — MERGED 6718a45; detective control, chunk breaker, quota/open-PR outcomes, working DB lane, ... |
 | `2026-09-10-chunk8-dblane.md` | 2026-09-10T08:05:43Z | **Chunk 8 smoke — the dispatched-chunk database lane: GRANTED BUT NOT USABLE HEADLESSLY (ii). The GATE-1 gu... |
 | `2026-09-05-chunk7-preflight.md` | 2026-09-05T12:01:42Z | chunk 7 — preflight: the `D234` migration (decision A) |
 | `2026-09-05-chunk7-gate1.md` | 2026-09-05T12:13:55Z | chunk 7 — GATE 1: the migration, published before it is applied |
