@@ -64,11 +64,14 @@ No mid-chunk pings. The only mid-chunk messages to the owner are **BLOCKED**, **
 exactly two ways: `CHUNK_ISSUE` is unset so reports go only to the relay, and the executor is asked
 to approve the relay-publish wrapper once (W103, point a).
 
-**Three facts about the two kinds of session, learned in P1 and worth planning around (W116, W117).**
+**Three facts about the two kinds of session, learned in P1 and worth planning around (W116, W117, W138).**
 A **dispatched** session cannot edit `.claude/**` at all — the harness refuses it whatever the
-allowlist says — so an allowlist gap is fixed by an **interactive** session and never by the chunk
-that hits it, and a plan that pre-authorizes editing `.claude/settings.json` is pre-authorizing
-something the executor cannot do. A dispatched session also runs only what the allowlist names, so
+allowlist says — and an **interactive** one is refused `.claude/settings.json` too, by the auto-mode
+classifier (W133). So an allowlist gap is fixed by **the owner editing `.claude/settings.json` by
+hand**, outside any Claude Code session, with the executor committing his diff behind a gate
+(measured 2026-09-09, P2a · T1b) — never by the chunk that hits it. A plan that pre-authorizes the
+executor to edit that file is pre-authorizing something no session can do; it names the owner's hand
+edit as a **precondition** instead. A dispatched session also runs only what the allowlist names, so
 the allowlist must be **exercised by a dry run** before a chunk depends on it. And an **interactive**
 session that goes quiet is usually sitting on a permission prompt rather than crashed: the owner
 presses through it or re-pastes the chunk. Neither kind of stall shows up as a failure anywhere —

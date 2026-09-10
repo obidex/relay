@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `9b0a2ce3090e9fd214cf4e51c2771407f8871aad`
-**Commit subject:** perf(images,seo): responsive product images and listing JSON-LD (W137) (#59)
-**Copied (UTC):** 2026-09-10T08:07:04Z
+**Mirrored commit:** `8d037e584c27890d374ba99ba53b0f221660cc4a`
+**Commit subject:** fix(sku,canon): close P2a — drop the SKU readOnly lock and the slug-as-SKU JSON-LD (#60)
+**Copied (UTC):** 2026-09-10T09:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -17,11 +17,11 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 
 | File | Bytes | Source path in the repo |
 |---|---|---|
-| `CLAUDE.md` | 28227 | `CLAUDE.md` |
-| `STRATEGIST.md` | 27387 | `docs/STRATEGIST.md` |
-| `STATE.md` | 34174 | `docs/STATE.md` |
-| `ROADMAP.md` | 40932 | `docs/ROADMAP.md` |
-| `DECISIONS.md` | 68490 | `docs/DECISIONS.md` |
+| `CLAUDE.md` | 29753 | `CLAUDE.md` |
+| `STRATEGIST.md` | 27695 | `docs/STRATEGIST.md` |
+| `STATE.md` | 38895 | `docs/STATE.md` |
+| `ROADMAP.md` | 45286 | `docs/ROADMAP.md` |
+| `DECISIONS.md` | 77815 | `docs/DECISIONS.md` |
 | `reference/site.md` | 8989 | `docs/reference/site.md` |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it

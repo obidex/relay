@@ -163,7 +163,7 @@ review] (#34)" over a body opening "THIS PR IS NOT PRE-AUTHORIZED AND MUST NOT B
 as of the owner's ruling that day, and both in the Vercel deployment metadata too. Editing the PR
 title is not enough. #37, #41 and #42 were merged with `--subject` and are correct.
 
-**Five traps, each measured:**
+**Seven traps, each measured:**
 
 - **A `:*` rule breaks at a token boundary.** `Bash(curl -sI https://…vercel.app:*)` did not match
   `…vercel.app/products/` — appending path is not "an argument". Rules that must accept a path end
@@ -184,13 +184,25 @@ title is not enough. #37, #41 and #42 were merged with `--subject` and are corre
   rule. **Put the constrained token first** — but know what that buys: a prefix rule scopes only the
   FIRST url, so a second URL later on the same line is still permitted. Host scoping is **not**
   expressible in this syntax, and no rule here achieves it.
-- **A pipeline is probably validated segment by segment** — inference, not measurement: `curl … |
-  head -1` runs, but `head` auto-approves, so nothing in that probe was deniable. Recorded because it
-  is the safe belief to hold; with `head` and `tail` both unruled it changes nothing today.
+- **A compound command fails at its most restricted segment, and silently takes the rest with it.**
+  Measured in P2a (the T2 + T3 report): bare `git push` was DENIED while `git push origin <branch>`
+  ran, and a chain the report quotes as `git ls-files | wc -l && git push` was refused **as a whole**
+  — the commit that was part of it never executed either, and nothing said so. Give anything that
+  matters its own call, and check every segment against the allow list before chaining. (The first probe of this,
+  `curl … | head -1`, could not show it: `head` auto-approves, so nothing in it was deniable.)
 - **A WORKING-DIRECTORY SANDBOX SITS ABOVE THE ALLOW LIST, AND NO RULE OVERRIDES IT.** Both
   `mkdir -p /tmp/x` and `printf … > /tmp/x.md` are refused: *"Claude Code may only write to files in
   the allowed working directories for this session: '/opt/jahjah/web'"*. A rule written for it was
   proved unable to fire and removed rather than shipped. Same class as W103(a).
+- **`npm run reference` walks only GIT-TRACKED files.** Regenerate before `git add` of a new file and
+  the reference silently omits it; CI's drift check then fails an otherwise correct PR. **Stage new
+  files first, regenerate second** (measured in P2a · T3).
+- **Destructive `gh api` calls belong to the owner's own shell.** `gh api -X DELETE
+  repos/obidex/jahjah-website/git/refs/heads/chunk/p1-t0` was refused outright, with no prompt, in the
+  same words as the `settings.json` edits below: `Permission for this action was denied by the Claude
+  Code auto mode classifier. Reason: Blocked by classifier.` So the classifier's line is not confined
+  to one file. A plan must not route a branch, ref or other deletion through the executor — the owner
+  runs it, and the task is closed as an owner action (P2a · T3(d)).
 
 > **⚠ WRITE THE REPORT BODY INSIDE THE REPO.** `/relay-report`'s own example path was
 > `/tmp/relay-report.md`, and **that write is refused** — measured above. The refusal is scoped to the
@@ -212,7 +224,7 @@ rule to answer a Codex finding in the PR.
 
 **If a command you need is refused, that is a finding, not an obstacle to route around** — report
 it with the exact command. A dispatched session cannot edit `.claude/**` at all (W116) — **and
-`.claude/settings.json` in particular has refused every route yet tried, from interactive sessions
+`.claude/settings.json` in particular has refused every session route yet tried, from interactive sessions
 too** (ROADMAP F47). The one-line `"Bash(gh issue close:*)"` addition has been attempted and refused
 **three times**: twice in P1.2, a scripted edit and the Edit tool alike (W133), in what the P2a plan
 records as an `acceptEdits` session — F47 itself says only "interactive"; and a third time by
@@ -222,12 +234,17 @@ whether it would prompt instead. **It did not prompt** — and the same words ca
 classifier.` **What the third attempt does not settle** is which of two readings holds, because a
 session cannot read back its own permission mode: either default mode is no protection from the
 classifier, or the invocation did not put the session in default mode at all — Session A's own
-harness system-reminder said auto mode was active. Either way F47 stands, and the axis this task
-set out to close — `acceptEdits` versus default — is still open; a further probe of it needs a chunk
-plan that names one, because both the P1.2 ruling and F47 say do not retry this edit. **Every
-refusal so far has landed on that one file:** the same Session A edited
-`.claude/skills/relay-report/SKILL.md` without complaint, as P1.2 had edited `reviewer.md` and both
-skills. Only those few paths have ever been tried, so the boundary is still unmapped and is not
-guessed at here. The remedy lies outside a Claude Code session — the owner edits the file by hand,
-or the classifier is configured to permit it. Until one of those happens, a plan that turns on
-adding an allow rule stops here.
+harness system-reminder said auto mode was active. Either way no session has a route, and the axis
+that task set out to close — `acceptEdits` versus default — is still open; a further probe of it
+needs a chunk plan that names one.
+
+**THE ROUTE THAT WORKS, measured 2026-09-09 (P2a · T1b, #56, W138): the owner edits
+`.claude/settings.json` by hand, outside any Claude Code session, and the executor commits his
+uncommitted diff** after gating it — `git status --porcelain` lists exactly that one file, the JSON
+still parses, the new rule appears exactly once. That is how `"Bash(gh issue close:*)"` got into the
+allow list, and it is the route for every future allow rule: a plan that needs one names the owner's
+hand edit as a **precondition**, never as an executor task. Session edits elsewhere in `.claude/` have
+gone through — `.claude/agents/reviewer.md` and both skills, the relay-report skill among them — but the
+refusals are not confined to `settings.json` either: a destructive `gh api` call was refused in the
+same words (trap above). Only a handful of actions have ever been tried, so the boundary is still
+unmapped and is not guessed at here.
