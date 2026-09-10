@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `1613c1ef70a71e3fe83797bc4247ce622c36702a`
-**Commit subject:** chore(canon,ci): housekeeping, the done-marker and quieter bot PRs (#69)
-**Copied (UTC):** 2026-09-10T18:07:00Z
+**Mirrored commit:** `5cdf39048d407b7b3dd3b23eea59d27b34f5ca15`
+**Commit subject:** docs(canon): close P2b-1 — Astro 7, the adapter and src/lib on the record (#73)
+**Copied (UTC):** 2026-09-10T18:37:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -19,9 +19,9 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 |---|---|---|
 | `CLAUDE.md` | 29754 | `CLAUDE.md` |
 | `STRATEGIST.md` | 28452 | `docs/STRATEGIST.md` |
-| `STATE.md` | 38895 | `docs/STATE.md` |
-| `ROADMAP.md` | 45286 | `docs/ROADMAP.md` |
-| `DECISIONS.md` | 77815 | `docs/DECISIONS.md` |
+| `STATE.md` | 45431 | `docs/STATE.md` |
+| `ROADMAP.md` | 49972 | `docs/ROADMAP.md` |
+| `DECISIONS.md` | 87942 | `docs/DECISIONS.md` |
 | `reference/site.md` | 9529 | `docs/reference/site.md` |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it
