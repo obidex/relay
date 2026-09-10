@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `4b45dbc1aeccb37c45e8d091c99476a06cedd277`
-**Commit subject:** docs(allowlist): record outcome (b) — settings.json refused in default mode (#54)
-**Copied (UTC):** 2026-09-05T14:07:04Z
+**Mirrored commit:** `df9174d1f4964d19e45b1b8f50773d2e7c0281e6`
+**Commit subject:** chore(allowlist): permit gh issue close — owner-edited by hand (F46, F47 route) (#56)
+**Copied (UTC):** 2026-09-10T00:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
