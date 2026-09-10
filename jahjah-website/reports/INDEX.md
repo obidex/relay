@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-10T08:52:04Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-10T10:01:46Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website/reports/<name>`.
@@ -18,9 +18,10 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-we
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
+| `2026-09-10-p2b1-astro7-adapter-blocked.md` | 2026-09-10T10:01:46Z | **In plain words:** Astro 7 builds the site correctly: 68 pages, every check passes, the five dependency up... |
 | `2026-09-10-p2a-foundation-lite-progress.md` | 2026-09-10T00:01:32Z | **Session B has started, and its first act was to commit a line the owner had to add by hand.** T1 (Session... |
 | `2026-09-10-p2a-foundation-lite-progress-2.md` | 2026-09-10T01:11:56Z | **Two more PRs merged, and the second one earned its keep by being wrong first.** T2 put W076's SKU field o... |
-| `2026-09-10-p2a-foundation-lite-final.md` | 2026-09-10T08:52:04Z | **P2a is finished: six PRs merged across four sessions, one of them abandoned early, and the chunk's main q... |
+| `2026-09-10-p2a-foundation-lite-final.md` | 2026-09-10T08:52:05Z | **P2a is finished: six PRs merged across four sessions, one of them abandoned early, and the chunk's main q... |
 | `2026-09-05-p2a-foundation-lite-progress.md` | 2026-09-05T13:54:42Z | **Session A of chunk P2a is done, and its one task produced a negative result that is worth more than the c... |
 | `2026-09-05-p12-gates-deps-progress.md` | 2026-09-05T11:44:14Z | **T1 is merged, and it did not go entirely to plan — two of its eight items are not in it, both reported ra... |
 | `2026-09-05-p12-gates-deps-progress-3.md` | 2026-09-05T12:22:08Z | **T3 is merged and F44 is closed: `ci` no longer depends on one product staying published.** The Verify ste... |
