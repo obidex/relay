@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-10T07:33:26Z by `jahjah-chunk8-scratch`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-10T07:33:30Z by `jahjah-chunk8-scratch`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -11,7 +11,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
-| `ALERT-chunk8-scratch-disabled.md` | 2026-09-10T07:33:26Z | ALERT — the chunk8-scratch job hit its failure cap and turned itself off |
+| `ALERT-chunk8-scratch-disabled.md` | 2026-09-10T07:33:30Z | ALERT — the chunk8-scratch job hit its failure cap and turned itself off |
 | `HEALTH-daily.md` | 2026-09-10T05:00:07Z | daily health — OK, all 12 automations alive |
 | `HEARTBEAT-chunk8-scratch.md` | 2026-09-10T00:55:49Z | proof-of-life for the scratch chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-dispatcher.md` | 2026-09-10T06:47:11Z | dispatch lane proof-of-life — running, last poll 2026-09-10T06:47:08Z |

@@ -2,16 +2,16 @@
 
 <!-- index: ALERT — the chunk8-scratch job hit its failure cap and turned itself off -->
 
-**When (UTC):** 2026-09-10T07:33:26Z
+**When (UTC):** 2026-09-10T07:33:30Z
 **Box:** `germany-vpn`
 **Unit:** `jahjah-chunk8-scratch.timer` — `systemctl disable --now` has been run on it. **It will not come back on
 its own, and it will not come back after a reboot.**
 
 ## Why
 
-The job failed **4 times in a row** (cap is 3).
+The job failed **5 times in a row** (cap is 3).
 
-Last failure: gh issue list failed on obidex/chunk8-nonexistent (see the lines above in this log)
+Last failure: chunk #999004 exited 1 after 810s
 
 ## What is no longer happening
 
