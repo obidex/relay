@@ -44,10 +44,10 @@ On-demand routes: **0**. Every on-demand route must be named by the chunk plan t
 | File | Props (from `Astro.props` destructuring) |
 |---|---|
 | src/components/NoImageTile.astro | `label = ''`, `size = 'md'` |
-| src/components/ProductCard.astro | `name`, `category`, `image`, `imageCard`, `slug`, `brand`, `lang = 'en'`, `variants = []`, `headingLevel = 'h3'` |
+| src/components/ProductCard.astro | `name`, `category`, `image`, `imageCard`, `slug`, `brand`, `lang = 'en'`, `variants = []`, `headingLevel = 'h3'`, `eager = false` |
 | src/components/pages/HomeContent.astro | `lang = 'en'`, `base = '/'` |
 | src/components/pages/ProductDetail.astro | `product`, `lang = 'en'`, `base = '/'` |
-| src/components/pages/ProductsContent.astro | `lang = 'en'` |
+| src/components/pages/ProductsContent.astro | `lang = 'en'`, `products` |
 | src/layouts/Layout.astro | `title`, `description`, `lang = site.defaultLang`, `fullTitle = false`, `ogImage`, `ogType = 'website'`, `noindex = false` |
 
 ## Data layer and server library exports
@@ -56,6 +56,8 @@ On-demand routes: **0**. Every on-demand route must be named by the chunk plan t
 |---|---|---|
 | src/utils/i18n.js | `getLangFromUrl(pathname)` | function |
 | src/utils/i18n.js | `getOppositeUrl(pathname)` | function |
+| src/utils/images.js | `SRCSET_WIDTHS` | const |
+| src/utils/images.js | `srcsetFrom(url, widths = SRCSET_WIDTHS)` | function |
 | src/utils/jsonld.js | `jsonLd(obj)` | function |
 | src/utils/sanity.js | `getAllProducts(lang = 'en')` | function |
 | src/utils/sanity.js | `getProductBySlug(slug, lang = 'en')` | function |
