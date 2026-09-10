@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-10T17:01:44Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-10T17:04:00Z by `jahjah-sql-live`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -19,13 +19,13 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
 | `SCAN-gitleaks.md` | 2026-09-07T04:00:09Z | weekly gitleaks scan — ZERO secrets found in either repo history |
 | `SCAN-trivy.md` | 2026-09-07T03:00:19Z | weekly trivy scan — 10 critical, 150 high, 181 medium, 132 low |
-| `SQL-live.md` | 2026-09-10T16:59:56Z | nightly SQL suites vs LIVE — PASS 28/28 in 12s |
+| `SQL-live.md` | 2026-09-10T17:04:00Z | nightly SQL suites vs LIVE — PASS 28/28 in 11s |
 
 ## Dated reports (newest first — pruned to the newest 10 by `jahjah-retention`)
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
-| `2026-09-10-chunk9-preflight.md` | 2026-09-10T17:01:44Z | chunk 9 preflight — suites in the replay container: 2/28 as-is, 26/28 with harness actors + auth.uid(); 2 e... |
+| `2026-09-10-chunk9-preflight.md` | 2026-09-10T17:01:46Z | chunk 9 preflight — suites in the replay container: 2/28 as-is, 26/28 with harness actors + auth.uid(); 2 e... |
 | `2026-09-10-chunk8-preflight.md` | 2026-09-10T00:25:45Z | chunk 8 preflight — lane code written, bash -n + shellcheck clean, mirror lane closed with 9 sabotage-prove... |
 | `2026-09-10-chunk8-install.md` | 2026-09-10T08:13:28Z | chunk 8 install — the new chunk-lane code is live on both lanes, resolved config differs by one key, both t... |
 | `2026-09-10-chunk8-final.md` | 2026-09-10T10:24:54Z | chunk 8 final — MERGED 6718a45; detective control, chunk breaker, quota/open-PR outcomes, working DB lane, ... |
