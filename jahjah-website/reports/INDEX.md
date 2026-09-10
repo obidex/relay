@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-10T17:31:28Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-10T17:58:17Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website/reports/<name>`.
@@ -19,7 +19,8 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-we
 | File | Updated (UTC) | What it is |
 |---|---|---|
 | `2026-09-10-p2b1-astro7-adapter-progress.md` | 2026-09-10T16:38:32Z | **In plain words:** Astro 7 is live. The strategist chose option B, so the site keeps its old browser floor... |
-| `2026-09-10-p2b1-astro7-adapter-progress-4.md` | 2026-09-10T17:31:28Z | **In plain words:** The typed server library the next phase needs is now in the code. It has readers for th... |
+| `2026-09-10-p2b1-astro7-adapter-progress-5.md` | 2026-09-10T17:58:17Z | **In plain words:** The housekeeping is in. The chunk report now ends with a clear "you may close this wind... |
+| `2026-09-10-p2b1-astro7-adapter-progress-4.md` | 2026-09-10T17:31:29Z | **In plain words:** The typed server library the next phase needs is now in the code. It has readers for th... |
 | `2026-09-10-p2b1-astro7-adapter-progress-3.md` | 2026-09-10T17:15:38Z | **In plain words:** The Vercel adapter is live. The strategist checked the preview independently and ruled ... |
 | `2026-09-10-p2b1-astro7-adapter-progress-2.md` | 2026-09-10T16:50:24Z | **In plain words:** The Vercel adapter is added in PR 67. The build is unchanged: the same 68 pages, byte f... |
 | `2026-09-10-p2b1-astro7-adapter-blocked.md` | 2026-09-10T10:01:47Z | **In plain words:** Astro 7 builds the site correctly: 68 pages, every check passes, the five dependency up... |
