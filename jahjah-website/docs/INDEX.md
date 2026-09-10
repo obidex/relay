@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `df9174d1f4964d19e45b1b8f50773d2e7c0281e6`
-**Commit subject:** chore(allowlist): permit gh issue close — owner-edited by hand (F46, F47 route) (#56)
-**Copied (UTC):** 2026-09-10T00:07:04Z
+**Mirrored commit:** `a10426a23b4401e2eff9930f93892d0c7ec369ff`
+**Commit subject:** feat(sanity): add an immutable, unique SKU to every product variant (W076) (#57)
+**Copied (UTC):** 2026-09-10T00:37:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -22,7 +22,7 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 | `STATE.md` | 34174 | `docs/STATE.md` |
 | `ROADMAP.md` | 40932 | `docs/ROADMAP.md` |
 | `DECISIONS.md` | 68490 | `docs/DECISIONS.md` |
-| `reference/site.md` | 8744 | `docs/reference/site.md` |
+| `reference/site.md` | 8780 | `docs/reference/site.md` |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it
 looks old, that may only mean nothing merged. Liveness is

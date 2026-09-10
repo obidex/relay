@@ -139,6 +139,7 @@ Status: **IN SYNC** (slug, nameEn, nameAr, hex identical)
 | `seoDescriptionAr` | text | meta |  |
 | `published` | boolean | meta |  |
 | `variants` | array | meta |  |
+| `variants[].sku` | string |  |  |
 | `variants[].modelNumber` | string |  | required |
 | `variants[].color` | string |  |  |
 | `variants[].gallery` | array |  |  |
