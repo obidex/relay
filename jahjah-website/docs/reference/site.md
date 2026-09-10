@@ -56,6 +56,7 @@ On-demand routes: **0**. Every on-demand route must be named by the chunk plan t
 |---|---|---|
 | src/utils/i18n.js | `getLangFromUrl(pathname)` | function |
 | src/utils/i18n.js | `getOppositeUrl(pathname)` | function |
+| src/utils/jsonld.js | `jsonLd(obj)` | function |
 | src/utils/sanity.js | `getAllProducts(lang = 'en')` | function |
 | src/utils/sanity.js | `getProductBySlug(slug, lang = 'en')` | function |
 | src/utils/sanity.js | `getAllCategories(lang = 'en')` | function |
