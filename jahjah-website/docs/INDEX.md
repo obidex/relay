@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `1bc78cf904aee756ebc29edfed0542e333b7c8c4`
-**Commit subject:** build(deps): move to Astro 7 and apply the five Dependabot updates (F48) (#62)
-**Copied (UTC):** 2026-09-10T16:37:03Z
+**Mirrored commit:** `16802cfc014250a4a582c1573f5eb76e97735e67`
+**Commit subject:** feat(lib): add the typed src/lib skeleton and a pass-through middleware (#68)
+**Copied (UTC):** 2026-09-10T17:37:01Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -22,7 +22,7 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 | `STATE.md` | 38895 | `docs/STATE.md` |
 | `ROADMAP.md` | 45286 | `docs/ROADMAP.md` |
 | `DECISIONS.md` | 77815 | `docs/DECISIONS.md` |
-| `reference/site.md` | 8989 | `docs/reference/site.md` |
+| `reference/site.md` | 9529 | `docs/reference/site.md` |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it
 looks old, that may only mean nothing merged. Liveness is

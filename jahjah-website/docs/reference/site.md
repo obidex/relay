@@ -7,12 +7,12 @@
 | Fact | Value |
 |---|---|
 | Astro output mode | static (default) |
-| Adapter | none |
+| Adapter | @astrojs/vercel |
 | `site` | https://jahjah-website.vercel.app |
 | Sanity Studio basePath | /admin |
 | `vercel.json` rewrites | 3 (/admin, /admin/, /admin/:path*) |
 | `vercel.json` other keys | none |
-| Middleware | none |
+| Middleware | src/middleware.ts |
 
 ## Routes (`src/pages`)
 
@@ -65,6 +65,11 @@ On-demand routes: **0**. Every on-demand route must be named by the chunk plan t
 | src/utils/sanity.js | `getAllBrands(lang = 'en')` | function |
 | src/utils/sanity.js | `getBrandBySlug(slug, lang = 'en')` | function |
 | src/utils/sanity.js | `getProductsByBrand(brandId, lang = 'en')` | function |
+| src/lib/db.ts | `anonClient()` | function |
+| src/lib/db.ts | `serviceClient()` | function |
+| src/lib/env.ts | `supabaseUrl()` | function |
+| src/lib/env.ts | `supabaseAnonKey()` | function |
+| src/lib/env.ts | `supabaseServiceRoleKey()` | function |
 | src/config/site.js | `site` | const |
 | src/config/site.js | `branches` | const |
 | src/data/products-ar.js | `productsAr` | const |
@@ -173,16 +178,21 @@ EN/AR key sets: **SYMMETRIC**
 | `PUBLIC_SANITY_DATASET` | client-visible | src/utils/sanity.js, scripts/hidden-products-check.mjs |
 | `PUBLIC_SANITY_PROJECT_ID` | client-visible | src/utils/sanity.js, scripts/hidden-products-check.mjs |
 | `SANITY_READ_TOKEN` | server-only | src/utils/sanity.js, scripts/hidden-products-check.mjs |
+| `SUPABASE_ANON_KEY` | server-only | src/lib/env.ts |
+| `SUPABASE_SERVICE_ROLE_KEY` | server-only | src/lib/env.ts |
+| `SUPABASE_URL` | server-only | src/lib/env.ts |
 
 ## Dependencies (`package.json`)
 
 | Package | Version | Kind |
 |---|---|---|
 | @astrojs/sitemap | ^3.7.4 | dependency |
+| @astrojs/vercel | ^11.0.10 | dependency |
 | @sanity/astro | ^3.4.0 | dependency |
 | @sanity/client | ^7.22.0 | dependency |
 | @sanity/image-url | ^2.1.1 | dependency |
 | @sanity/vision | ^5.24.0 | dependency |
+| @supabase/supabase-js | ^2.116.0 | dependency |
 | astro | ^7.3.2 | dependency |
 | react | ^19.2.6 | dependency |
 | react-dom | ^19.2.6 | dependency |
