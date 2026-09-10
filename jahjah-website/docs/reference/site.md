@@ -11,7 +11,7 @@
 | `site` | https://jahjah-website.vercel.app |
 | Sanity Studio basePath | /admin |
 | `vercel.json` rewrites | 3 (/admin, /admin/, /admin/:path*) |
-| `vercel.json` other keys | none |
+| `vercel.json` other keys | git |
 | Middleware | src/middleware.ts |
 
 ## Routes (`src/pages`)
