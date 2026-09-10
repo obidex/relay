@@ -14,7 +14,7 @@
 | Executor | this VPS · clone `/opt/jahjah/web` · Node 22 · npm · `gh` authenticated (verify in preflight) · shell is bash |
 | Hosting | Vercel — auto-deploys `master`; preview deployment per branch; **also** redeploys on Sanity publish via deploy hook (no commit) |
 | CMS | Sanity project `pxf1amia`, dataset `production`, Studio embedded at `/admin` |
-| Web DB (from P2) | Supabase project #2 — auth, staff, customers, tiers, prices, promotions, stock, settings, audit. **Independent of the ERP's Supabase project.** |
+| Web DB (from P2b) | Supabase project #2 — auth, staff, customers, tiers, prices, promotions, stock, settings, audit. **Independent of the ERP's Supabase project.** |
 | Live | `https://jahjah-website.vercel.app` (domain `jahjah.net` connects only at launch — W027) |
 | Reports | `/relay-report` publishes to **both**: a comment on the chunk's GitHub issue (when `CHUNK_ISSUE` is set) **and** the public relay `obidex/relay` under `jahjah-website/reports/`. The issue is where the plan, the approval and the result live as one thread; the relay is what the strategist reads on a timed cadence. Neither is optional (W099). |
 

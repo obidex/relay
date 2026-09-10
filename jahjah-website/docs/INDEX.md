@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `16802cfc014250a4a582c1573f5eb76e97735e67`
-**Commit subject:** feat(lib): add the typed src/lib skeleton and a pass-through middleware (#68)
-**Copied (UTC):** 2026-09-10T17:37:01Z
+**Mirrored commit:** `1613c1ef70a71e3fe83797bc4247ce622c36702a`
+**Commit subject:** chore(canon,ci): housekeeping, the done-marker and quieter bot PRs (#69)
+**Copied (UTC):** 2026-09-10T18:07:00Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -17,8 +17,8 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 
 | File | Bytes | Source path in the repo |
 |---|---|---|
-| `CLAUDE.md` | 29753 | `CLAUDE.md` |
-| `STRATEGIST.md` | 27695 | `docs/STRATEGIST.md` |
+| `CLAUDE.md` | 29754 | `CLAUDE.md` |
+| `STRATEGIST.md` | 28452 | `docs/STRATEGIST.md` |
 | `STATE.md` | 38895 | `docs/STATE.md` |
 | `ROADMAP.md` | 45286 | `docs/ROADMAP.md` |
 | `DECISIONS.md` | 77815 | `docs/DECISIONS.md` |

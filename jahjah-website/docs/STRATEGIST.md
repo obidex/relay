@@ -60,9 +60,11 @@ one thread in the repository the work changes.
 
 No mid-chunk pings. The only mid-chunk messages to the owner are **BLOCKED**, **stall**, or **final**.
 
-**A chunk started by hand still works** — paste the prompt into tmux `web` as before. It differs in
-exactly two ways: `CHUNK_ISSUE` is unset so reports go only to the relay, and the executor is asked
-to approve the relay-publish wrapper once (W103, point a).
+**A chunk started by hand still works:** in tmux `web`, start `claude --permission-mode auto` and
+paste the prompt (P2b-1, issue #61). It differs from a dispatched run in two ways: `CHUNK_ISSUE` is
+unset, so reports reach the issue only if the prompt's first line names it (or the owner exports it);
+and the relay-publish wrapper, pre-granted to a dispatched run, is decided by auto mode like any
+other command. In P2b-1 it ran without a prompt every time (W103, point a).
 
 **Three facts about the two kinds of session, learned in P1 and worth planning around (W116, W117, W138).**
 A **dispatched** session cannot edit `.claude/**` at all — the harness refuses it whatever the
@@ -72,9 +74,11 @@ hand**, outside any Claude Code session, with the executor committing his diff b
 (measured 2026-09-09, P2a · T1b) — never by the chunk that hits it. A plan that pre-authorizes the
 executor to edit that file is pre-authorizing something no session can do; it names the owner's hand
 edit as a **precondition** instead. A dispatched session also runs only what the allowlist names, so
-the allowlist must be **exercised by a dry run** before a chunk depends on it. And an **interactive**
-session that goes quiet is usually sitting on a permission prompt rather than crashed: the owner
-presses through it or re-pastes the chunk. Neither kind of stall shows up as a failure anywhere —
+the allowlist must be **exercised by a dry run** before a chunk depends on it. An **interactive**
+session runs in **auto mode**, and **the owner is never a permission gate**: auto mode decides, and a
+refusal is a finding the session reports with the exact command, not a prompt he presses through
+(P2b-1, issue #61). A quiet interactive session is waiting on a background task or on a verdict
+line, never on a permission from him. Neither kind of stall shows up as a failure anywhere —
 the dispatch lane's label fallback only fires when the process actually exits.
 
 **What the lane does when a chunk fails to say so.** When the chunk's process exits, the lane reads
@@ -333,6 +337,10 @@ fresher, and **the mirror wins**. Never upload a copy of a canon file to the pro
   checked against that.
 - **A repo `.gitignore` can silently drop files from an owner push (W092).** `git add` reports
   nothing; the branch simply lands without them. **Every preflight counts files**, before and after.
+- **Two classes of action are owner-shell commands (W138, W139; P2b-1, issue #61).** Edits to
+  `.claude/settings.json` and destructive `gh api` calls (branch or ref deletion and the like) are
+  run by the owner in his own shell. The strategist hands them over as keystrokes; a plan names them as
+  preconditions or owner actions, never as executor tasks.
 
 ### Owner rules for this lane
 
