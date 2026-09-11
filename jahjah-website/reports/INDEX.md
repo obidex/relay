@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-11T17:23:24Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-11T17:41:00Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website/reports/<name>`.
@@ -19,7 +19,8 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-we
 | File | Updated (UTC) | What it is |
 |---|---|---|
 | `2026-09-11-p2b-3-first-route-progress.md` | 2026-09-11T12:54:30Z | P2b-3 T1 is merged: the web DB's F65 hardening migration (amendment 5's SQL, verbatim) is applied. Visitors... |
-| `2026-09-11-p2b-3-first-route-progress-2.md` | 2026-09-11T17:23:24Z | P2b-3 T2 is merged. `/api/health` is live in production and answers 200 `{"ok":true,"db":"ok"}` after a rea... |
+| `2026-09-11-p2b-3-first-route-progress-2.md` | 2026-09-11T17:23:26Z | P2b-3 T2 is merged. `/api/health` is live in production and answers 200 `{"ok":true,"db":"ok"}` after a rea... |
+| `2026-09-11-p2b-3-first-route-final.md` | 2026-09-11T17:41:00Z | P2b-3 is done, and with it P2 is closed. The web DB is hardened: visitors get a permission error on every t... |
 | `2026-09-11-p2b-3-first-route-blocked.md` | 2026-09-11T10:55:30Z | P2b-3 stopped in preflight, before T0, and nothing was written anywhere. The Vercel team is still on the Ho... |
 | `2026-09-11-p2b-3-first-route-blocked-3.md` | 2026-09-11T13:05:37Z | P2b-3 stopped at T2's preview check, by the plan's own STOP rule. The `/api/health` route is built, reviewe... |
 | `2026-09-11-p2b-3-first-route-blocked-2.md` | 2026-09-11T13:05:41Z | P2b-3 stopped again before its first write: the migration was never pushed, and no branch, PR, deployment o... |
