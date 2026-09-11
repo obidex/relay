@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-11T09:11:28Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-11T09:23:51Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website/reports/<name>`.
@@ -18,7 +18,8 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-we
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
-| `2026-09-11-p2b2-webdb-progress.md` | 2026-09-11T09:11:28Z | The chunk resumed under the strategist's ruling A, and T1 is merged: the web database's foundation migratio... |
+| `2026-09-11-p2b2-webdb-progress.md` | 2026-09-11T09:11:29Z | The chunk resumed under the strategist's ruling A, and T1 is merged: the web database's foundation migratio... |
+| `2026-09-11-p2b2-webdb-progress-2.md` | 2026-09-11T09:23:51Z | T2 is merged: the website's server code now has typed readers for the web database's settings, prices, prom... |
 | `2026-09-11-p2b2-webdb-blocked.md` | 2026-09-11T08:52:40Z | The web database now has its schema: the one approved migration was applied verbatim, the tables are empty,... |
 | `2026-09-10-p2b1c-canon-diet-progress.md` | 2026-09-10T23:03:42Z | T1 is done: Dependabot's grouped security update (#77) is applied in #80 and merged, and the bot's PR is cl... |
 | `2026-09-10-p2b1c-canon-diet-progress-2.md` | 2026-09-10T23:39:11Z | T2 is done: the canon diet merged in #81. The six mirrored canon files went from 262,210 to 70,072 bytes, a... |
