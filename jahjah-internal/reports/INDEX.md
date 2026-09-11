@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-11T09:35:31Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-11T09:37:04Z by `jahjah-web-docs`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -15,7 +15,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | `HEARTBEAT-dispatcher.md` | 2026-09-11T09:33:55Z | dispatch lane proof-of-life — running, last poll 2026-09-11T09:33:53Z |
 | `HEARTBEAT-erp-dispatch.md` | 2026-09-11T09:35:07Z | proof-of-life for the ERP chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-dispatch.md` | 2026-09-11T09:06:05Z | proof-of-life for the website chunk lane — stale > ~70 min means chunks are not being picked up |
-| `HEARTBEAT-web-docs.md` | 2026-09-11T09:07:05Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
+| `HEARTBEAT-web-docs.md` | 2026-09-11T09:37:04Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
 | `SCAN-gitleaks.md` | 2026-09-07T04:00:09Z | weekly gitleaks scan — ZERO secrets found in either repo history |
 | `SCAN-trivy.md` | 2026-09-07T03:00:19Z | weekly trivy scan — 10 critical, 150 high, 181 medium, 132 low |
@@ -25,7 +25,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
-| `2026-09-11-chunk-135-final.md` | 2026-09-11T09:35:31Z | KIND: final |
+| `2026-09-11-chunk-135-final.md` | 2026-09-11T09:35:32Z | KIND: final |
 | `2026-09-11-chunk-134-final.md` | 2026-09-11T09:32:35Z | KIND: final |
 | `2026-09-10-chunk9-rider.md` | 2026-09-10T18:23:37Z | chunk 9 rider — MERGED 8e4715a; today's reds explained; ci-ok fails on any failure-level annotation; D240 (... |
 | `2026-09-10-chunk9-preflight.md` | 2026-09-10T17:01:46Z | chunk 9 preflight — suites in the replay container: 2/28 as-is, 26/28 with harness actors + auth.uid(); 2 e... |
