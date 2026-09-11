@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `b34e9a7a9f82095745a79133188eabd8b9e884ea`
-**Commit subject:** feat(schema): SKU backfill run, sku required, Product JSON-LD sku (P3-1a T3) (#101)
-**Copied (UTC):** 2026-09-11T19:07:04Z
+**Mirrored commit:** `b5942745a0ad8cf55a8e7103031d2d69711d5acf`
+**Commit subject:** feat(config): /_image answers 404, image endpoint off (P3-1a T4) (#102)
+**Copied (UTC):** 2026-09-11T19:37:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
