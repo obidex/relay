@@ -6,11 +6,11 @@
 
 | Aspect | Status |
 |---|---|
-| **Programme** | P0 → P0.1 → P0.2 → P1 → P1.1 → P1.2 → **P2 CLOSED 2026-09-11** (P2a → P2b-1/-1b/-1c → P2b-2 → P2b-3) → **P3 Admin Mode** ★ → P4 accounts → P5 UX (parallel) → **L** → P6 |
-| **Next step** | P3 Admin Mode (§5) |
-| **`master` HEAD at the last canon update** | `ede9a29` (#91). Normally `master` is one commit ahead of this line: the canon PR itself. A bigger gap means commits landed outside the chunk loop. |
-| **Live** | 68 pages EN + AR on `https://jahjah-website.vercel.app`: 22 products, 5 brands, 6 categories. No prices, no login. Astro 7.3.2 + `@astrojs/vercel` 11.0.10. Every page prerendered; on-demand routes: 1, `/api/health` (W158). Vercel Hobby (W090 as amended). |
-| **Web DB** | Supabase project #2, schema v2 (W153, W159): 7 tables + the `stock_visible` view, empty but the 6 settings. Anon gets 42501 everywhere; quantity is staff-only. Only `/api/health` reads it. |
+| **Programme** | P0 → P0.1 → P0.2 → P1 → P1.1 → P1.2 → **P2 CLOSED 2026-09-11** (P2a → P2b-1/-1b/-1c → P2b-2 → P2b-3) → **P3 Admin Mode** ★ (P3-1a done) → P4 accounts → P5 UX (parallel) → **L** → P6 |
+| **Next step** | P3-B1 staff session + TOTP (§5) |
+| **`master` HEAD at the last canon update** | `216d2cc` (#99). Normally `master` is one commit ahead of this line: the canon PR itself. A bigger gap means commits landed outside the chunk loop. |
+| **Live** | 68 pages EN + AR on `https://jahjah-website.vercel.app`: 22 products, 5 brands, 6 categories. No prices, no login. Astro 7.3.2 + `@astrojs/vercel` 11.0.10, Studio 5.31.2. Every page prerendered; on-demand routes: 1, `/api/health` (W158); `/_image` 404 (W166); Product JSON-LD `sku` (W165). Vercel Hobby (W090 as amended). |
+| **Web DB** | Supabase project #2, schema v3 (W153, W159, W166): 7 tables + the `stock_visible` view, empty but the 6 settings. Anon gets 42501 everywhere; quantity is staff-only; `search_path` pinned. Only `/api/health` reads it. |
 | **Content** | Placeholder catalogue (AI names; 1 product has real photos). Deleted when real data enters, never polished (W007). |
 | **Sister project** | `jahjah-internal` (ERP): separate canon, **not connected** (W075). |
 
@@ -41,11 +41,11 @@
 
 | Date | Chunk · issue | Close HEAD | PRs | Result |
 |---|---|---|---|---|
-| 09-11 | P2b-3 first route · #89 | this PR | #90 #91 + close | F65 hardening under GATE 1; `/api/health` 200 on Hobby; 3 BLOCKED (Hobby + view name, view write path on a scratch DB, preview env → W161); **P2 closed** |
+| 09-11 | P3-1a SKU + advisors · #97 | this PR | #98 #99 #101 #102 + close | SKUs backfilled + `required()` + JSON-LD `sku` (GATE 1); advisors v3 (GATE 1); `/_image` 404; Studio 5.31.2; 1 BLOCKED (`db push` refused, owner ran it) |
+| 09-11 | P2b-3 first route · #89 | `2203388` | #90 #91 + close | F65 hardening under GATE 1; `/api/health` 200 on Hobby; 3 BLOCKED (Hobby + view name, view write path on a scratch DB, preview env → W161); **P2 closed** |
 | 09-11 | P2b-2 web DB · #85 | `41de536` | #86 #87 #88 | Supabase #2 linked; schema v1 + RLS + audit under GATE 1; typed readers in `src/lib` |
 | 09-10 | P2b-1c canon diet · #79 | `cbc423a` | #80 #81 + close | #77's security group applied; canon 262→70 KB, history archived; efficiency rules |
 | 09-10 | P2b-1b bot quiet · #74 | `15cf22c` | #75 #76 #78 | Vercel skips bot branches; security updates grouped (#77); 5 bot updates applied; audit 20→16 |
-| 09-10 | P2b-1 Astro 7 + adapter · #61 | `5cdf390` | #62 #67 #68 #69 #73 | Astro 7 with the iOS 16 floor pinned; static adapter; `src/lib` skeleton; auto-mode start rule |
 
 ## 4. EPHEMERAL FACTS
 
@@ -58,7 +58,7 @@
 | Relay | `raw.githubusercontent.com/obidex/relay/main/jahjah-website/{docs,reports}/` |
 | Automations | `jahjah-web-truth` Mon 05:30 · `-docs` 30 min · `-backup` 02:30 nightly · `-backup-check` Mon 03:30 · `-dispatch` 2 min (kill: `touch /opt/jahjah/WEB_DISPATCH_OFF`). Registry: `jahjah-internal/docs/runbooks/automations.md` |
 
-**Secret names (never values):** `PUBLIC_SANITY_PROJECT_ID` · `PUBLIC_SANITY_DATASET` · `SANITY_READ_TOKEN` (Vercel, VPS, Actions) · `SANITY_WRITE_TOKEN` (server only; the owner creates it at P3 start) · the deploy-hook URL (a credential) · `SUPABASE_URL`, `SUPABASE_ANON_KEY` (VPS; Vercel Production + Preview) · `SUPABASE_SERVICE_ROLE_KEY`: service key Production-only (W161), plus VPS `.env.local` · `SUPABASE_PROJECT_REF` (VPS) · `SUPABASE_ACCESS_TOKEN`, `SUPABASE_DB_PASSWORD`: CLI-only, exported for one command (W154).
+**Secret names (never values):** `PUBLIC_SANITY_PROJECT_ID` · `PUBLIC_SANITY_DATASET` · `SANITY_READ_TOKEN` (Vercel, VPS, Actions) · `SANITY_WRITE_TOKEN` (VPS + Vercel Production since 2026-09-11) · the deploy-hook URL (a credential) · `SUPABASE_URL`, `SUPABASE_ANON_KEY` (VPS; Vercel Production + Preview) · `SUPABASE_SERVICE_ROLE_KEY`: service key Production-only (W161), plus VPS `.env.local` · `SUPABASE_PROJECT_REF` (VPS) · `SUPABASE_ACCESS_TOKEN`, `SUPABASE_DB_PASSWORD`: CLI-only, exported for one command (W154).
 
 **Plans:** Vercel Hobby → Pro at launch (W090) · Sanity Free · GitHub Pro (~$4/mo, for the ruleset) · Supabase Free, project #2 since 2026-09-11 (ERP is #1) · Claude Max.
 
@@ -66,8 +66,6 @@
 
 ## 5. NEXT STEP
 
-**P3 · Admin Mode** (ROADMAP §2, the P3 block). Owner precondition: create `SANITY_WRITE_TOKEN` (W079) and set it in Vercel Production and the VPS; the strategist gives the keystrokes. First in P3: the SKU backfill + `required()` (F51, F50) with that token, under GATE 1. Also open: Dependabot #83 and #84 in a chunk PR (W114; `@sanity/client` 8 is a major, its own chunk), F64 (ERP-side `pg_dump`), F68 before P4.
+**P3-B1 staff session + TOTP (card #95); design lane: card #94 runs in its own chat, D-steps approved there unlock card #96 chunks.** Also open: Dependabot #84 (`@sanity/client` 8, a major, W114), F64 (ERP-side `pg_dump`), F68 before P4.
 
-**ROTATION NOTE:** the strategist chat rotates after this chunk. The next strategist starts from this file and needs nothing else.
-
-**HANDOVER:** P2 is closed: the web DB is hardened and the first on-demand route is live, proving function + env + DB on Hobby. Next is P3 Admin Mode, because staff editing without a programmer is the owner's top priority (W082); pressure-test its panel against how leading appliance distributors' back offices handle bulk status and tier pricing.
+**HANDOVER:** P3-1a is done: every variant carries its immutable SKU (W165), the key Admin Mode and the price/stock tables join on, and the web DB advisors are down to the intended set (W166). Next is P3-B1, because every Admin Mode write needs an attributable `aal2` staff session first (W080). A plan that migrates names the owner-run `supabase db push`: auto mode refused it (#97). Pressure-test the staff session against how leading appliance distributors' back offices handle roles, 2FA recovery and shared devices.

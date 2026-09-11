@@ -1,6 +1,6 @@
 # STRATEGIST.md — How This Project Is Run
 
-> For the strategist AI, which plans, writes every chunk and reviews results. Read it once per rotation. Nothing dated lives here; that is `docs/STATE.md`.
+> For the strategist AI, which plans, writes every chunk and reviews results. Nothing dated lives here; that is `docs/STATE.md`.
 
 ## READING MAP
 
@@ -14,7 +14,7 @@
 | `docs/reference/site.md`: GENERATED code facts | **before asserting anything about the code** |
 | `docs/archive/`: frozen history, full narratives | **never load in a session**; not mirrored; provenance only |
 
-Canon: `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website/docs/<path>?v=<any>` (≤ 30 min lag; INDEX's "Mirrored commit" wins, W102). Code, PRs, CI, issues: the GitHub connector. The claude.ai project lags (W098); the mirror wins; never upload canon. 90% path: STATE → ROADMAP → reference.
+Canon: `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website/docs/<path>?v=<any>` (INDEX's "Mirrored commit" wins, W102). Code, PRs, CI, issues: the GitHub connector. The claude.ai project lags (W098); the mirror wins; never upload canon.
 
 ## 1. ROLES AND THE LOOP
 
@@ -33,10 +33,13 @@ Canon: `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website/docs/
 
 Strategist opens an issue with the whole plan (`chunk:proposed` + `model:opus|sonnet`) → owner adds `chunk:approved` → the lane starts it within 2 min (`chunk:running`, `CHUNK_ISSUE` set) → the executor runs unattended, reporting to the issue + relay → `final` sets `chunk:done` and closes the issue (W127; `blocked`/`interrupted` leave it open) → the strategist verifies and reports once. Mid-chunk messages to the owner: BLOCKED, stall, final only.
 
+**Cards:** a major piece of work is a parent issue labelled `card`; its chunks are sub-issues; tasks live in the chunk body. The strategist closes a card after a leftover sweep (stale rows, dead flags, orphan files).
+
 **Hand-started:** in tmux `web`, `claude --permission-mode auto` (docs-only: `claude --model sonnet --permission-mode auto`; the model label names the model), then paste the prompt, whose first line names the issue. The owner is never a permission gate; a refusal is a finding (W144).
 
 **Session limits:**
-- A dispatched session cannot edit `.claude/**` and runs only allowlisted commands; dry-run the allowlist first (W116). No session edits `.claude/settings.json`: the owner's hand edit is a precondition (W138).
+- A dispatched session cannot edit `.claude/**` and runs only allowlisted commands; dry-run the allowlist first (W116).
+- Auto mode refuses `supabase db push` (#97): a migration plan names the owner's `!` push.
 
 ### Labels
 
@@ -45,8 +48,6 @@ Strategist opens an issue with the whole plan (`chunk:proposed` + `model:opus|so
 | `chunk:proposed` · `chunk:approved` · `chunk:running` | waiting on the owner · confirmed, the lane starts it · running |
 | `chunk:done` · `chunk:blocked` · `chunk:failed` | final posted · stopped or cap hit · exited without a report |
 | `model:opus` · `model:sonnet` | routing (opus by default) |
-
-Kill switch: `touch /opt/jahjah/WEB_DISPATCH_OFF`. Lane details: `jahjah-internal` `docs/runbooks/automations.md`.
 
 ### Plan contents and check cadence
 
@@ -95,7 +96,7 @@ A Sanity write or DB migration is shown verbatim in the plan, and the owner's co
 - a Tier-3 file changed outside the plan;
 - a broken build.
 
-Arabic never blocks a merge; native review is batched (W125). Anything else becomes a dated DECISIONS entry plus a ROADMAP row.
+Anything else becomes a dated DECISIONS entry plus a ROADMAP row.
 
 ## 3. RISK TIERS AND MODEL
 
@@ -123,7 +124,7 @@ CAPS: <hours, retries, build timeout>. STOP: <...>
 REPORTS: progress per merged PR; final; BLOCKED. CANON in the last PR.
 ```
 
-**Reading reports:** veto an unnamed Tier-3 file in your next message; on `final`, verify HEAD and PROD yourself; on BLOCKED, bring the owner ONE A/B decision with a recommendation.
+**Reading reports:** veto an unnamed Tier-3 file in your next message.
 
 ## 5. WORKING WITH THE OWNER
 
@@ -166,7 +167,8 @@ Self-improvement is mandatory: every chunk close turns what it learned into ≤ 
 | In: canon, reports | relay mirror | ≤ 30 min lag; unauthenticated `api.github.com` is rate-limited; `github.com` is robots-blocked |
 | Out: work, corrections | one issue per chunk; its comments | the owner's label starts work; comments are records, not a channel |
 | Both: a connected folder | Cowork in his laptop clone | the push stays his; GATE 2 binds; canon stays the implementer's |
+| Out: design | a `design`-labelled card, in its own chat | a screen is built only after `approve <step> <option>` there; the approved artboard source is the chunk's spec |
 
 - **Extracts are lossy:** open the file before calling a rule absent.
-- **Guardrails:** `.claude/settings.json` is not a sandbox (W095); the ruleset holds. `.`/`source` cannot be allowed (W103). Preflights count files (W092). Settings edits and destructive `gh api` calls are owner keystrokes (W138, W139).
+- **Guardrails:** `.claude/settings.json` is not a sandbox (W095); the ruleset holds. `.`/`source` cannot be allowed (W103). Settings edits and destructive `gh api` calls are owner keystrokes (W138, W139).
 - **Owner rules:** rephrase his request before acting; work in a folder he connects; one-time information goes in chat; an issue is read on a phone, so headline first.

@@ -6,7 +6,7 @@
 
 ## Foundation (late 2025 – 2026-04)
 
-- **W001** superseded by W074.
+- **W001, W017, W032, W035, W053, W057, W061, W071** superseded (successors: W074, W089, W085, W084, W072, W085/W072, W072, W072); archive has the text.
 - **W002** LOCKED. Apple/Muji-inspired aesthetic on white, tokens in `src/styles/global.css`; when in doubt choose the richer option (W052).
 - **W003** LOCKED. Vanilla CSS with custom properties; no Tailwind, shadcn, CSS-in-JS or any CSS framework.
 - **W004** LOCKED. Vanilla JS on pages; no React/Vue/Svelte for site features (Studio's React stays inside Studio).
@@ -28,7 +28,6 @@
 
 ## Direction (2026-05-10 – 05-14)
 
-- **W017** superseded by W089.
 - **W018** LOCKED. Rejected for the public site: Next.js, Shopify, WooCommerce, an off-the-shelf ERP. Do not reopen.
 - **W019** LESSON. Astro's scoper injects into a leading attribute selector inside scoped `<style>`, so chain RTL rules on `html[dir="rtl"]`; check `dist/_astro/*.css`.
 - **W020** LESSON. Cascade and layout bugs: measure the compiled output first, fix second.
@@ -46,10 +45,8 @@
 
 ## Phase A/B lessons (2026-05-15 – 05-18)
 
-- **W032** superseded by W085.
 - **W033** LESSON. At equal specificity, source order decides and Astro does not reorder: shared rules before overrides.
 - **W034** LESSON. `Astro.url.pathname` in a static `404.astro` is `/404`: visitor-URL logic runs client-side (`is:inline`).
-- **W035** superseded by W084.
 - **W036** LESSON. Per-variant images fall back to the product's; before choosing "simpler now", walk the next roadmap item.
 - **W037** LOCKED. Tier-3 work never bundles the irreversible step; a Tier-3 PR merges in a chunk only if the plan named the file.
 - **W038** amended by W094. `COLOR_OPTIONS` is duplicated in `product.ts` and `sanity.js` and edited together (TS→JS import rejected).
@@ -67,15 +64,12 @@
 - **W050** LESSON. Copy a production-verified pattern verbatim; adapt data, not structure.
 - **W051** LESSON. EN/AR mirrors are diffed programmatically (`<style>`, `t()` calls), not eyeballed.
 - **W052** LOCKED. The owner prefers rich UI; the strategist never recommends the plain option.
-- **W053** superseded by W072.
 - **W054** LOCKED. Early-churning content ships in `translations.js`, migrating to Sanity when editing becomes the bottleneck.
 - **W055** LOCKED. Support/policy pages live in the footer; top nav is for what customers shop for.
 - **W056** LOCKED. Every AR string, meta included, is approved text; reusing an approved sentence beats drafting a new one.
-- **W057** superseded by W085 and W072.
 - **W058** LOCKED. An interrupted session's claims are worthless; the next re-runs build and verification from scratch.
 - **W059** LESSON. Defer pattern-dependent details to the investigation step; never guess.
 - **W060** LESSON. Arabic: no "built-on-X", bureaucratic noun phrases or defensive claims; would a Syrian merchant say it face to face? Warranty `كفالة معتمدة من شركة الجحجاح التجارية`; SUNNY/DSP `الوكيل الحصري`.
-- **W061** superseded by W072.
 
 ## Strategic reset (2026-06-11)
 
@@ -88,7 +82,6 @@
 - **W068** LOCKED. Category landing pages in scope; analytics + WhatsApp-click events are launch items; Sanity backup required (W083).
 - **W069** delivered by W084. The agentic layer (`.claude/` deny rules, reviewer, skills).
 - **W070** delivered by W073. Audit the live site before trusting a doc (weekly `jahjah-web-truth`).
-- **W071** superseded by W072.
 
 ## Canon reset (2026-09-02)
 
@@ -217,3 +210,5 @@
 - **W162** LESSON. Relay report filenames are unique per publish (`-blocked-N`, `-progress-N`, `-final`): list the folder first, never overwrite.
 - **W163** LESSON. Run a GATE 1 migration on a throwaway local Supabase Postgres before the push; here it caught a view write path the approved text missed.
 - **W164** LESSON. An on-demand route switches Astro to server output: pages move to `dist/client/`, so every `dist/` reader follows; `/_image` joins the function (F67).
+- **W165** LOCKED. SKU scheme `BRAND-MODEL8[-COLOR2]` from `scripts/backfill-sku.mjs` (#97, run once); `sku` required since P3-1a; immutability is a writer policy (backfill, Admin Mode), not a Studio property; Product JSON-LD emits the first variant's `sku`.
+- **W166** LOCKED. Advisors v3 (#97): `search_path` pinned everywhere; trigger functions not executable by `authenticated`; the five RLS helpers stay executable by design (W155); `/_image` answers 404 — the site serves images from the Sanity CDN only (F67).

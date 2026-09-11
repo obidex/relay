@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `216d2cc5bbafedb20d50ff092c658623700e79fc`
-**Commit subject:** feat(db): F70 advisors, search_path pinned, trigger fns off authenticated (P3-1a T2) (#99)
-**Copied (UTC):** 2026-09-11T21:37:04Z
+**Mirrored commit:** `1ebd0c0ed1a0b5f05f555f7f3cc3826225a7e1e2`
+**Commit subject:** docs(canon): close P3-1a, SKUs required, advisors v3, /_image off (#103)
+**Copied (UTC):** 2026-09-11T23:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -18,10 +18,10 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 | File | Bytes | Source path in the repo |
 |---|---|---|
 | `CLAUDE.md` | 11982 | `CLAUDE.md` |
-| `STRATEGIST.md` | 11980 | `docs/STRATEGIST.md` |
-| `STATE.md` | 8142 | `docs/STATE.md` |
-| `ROADMAP.md` | 9555 | `docs/ROADMAP.md` |
-| `DECISIONS.md` | 24598 | `docs/DECISIONS.md` |
+| `STRATEGIST.md` | 11966 | `docs/STRATEGIST.md` |
+| `STATE.md` | 8181 | `docs/STATE.md` |
+| `ROADMAP.md` | 9492 | `docs/ROADMAP.md` |
+| `DECISIONS.md` | 25013 | `docs/DECISIONS.md` |
 | `reference/site.md` | 10424 | `docs/reference/site.md` |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it
