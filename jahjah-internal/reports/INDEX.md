@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-11T03:07:00Z by `jahjah-web-docs`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-11T03:15:04Z by `jahjah-sql-live`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -15,11 +15,11 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | `HEARTBEAT-dispatcher.md` | 2026-09-11T02:21:07Z | dispatch lane proof-of-life — running, last poll 2026-09-11T02:21:03Z |
 | `HEARTBEAT-erp-dispatch.md` | 2026-09-11T02:29:05Z | proof-of-life for the ERP chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-dispatch.md` | 2026-09-11T02:26:05Z | proof-of-life for the website chunk lane — stale > ~70 min means chunks are not being picked up |
-| `HEARTBEAT-web-docs.md` | 2026-09-11T03:07:00Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
+| `HEARTBEAT-web-docs.md` | 2026-09-11T03:07:02Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
 | `SCAN-gitleaks.md` | 2026-09-07T04:00:09Z | weekly gitleaks scan — ZERO secrets found in either repo history |
 | `SCAN-trivy.md` | 2026-09-07T03:00:19Z | weekly trivy scan — 10 critical, 150 high, 181 medium, 132 low |
-| `SQL-live.md` | 2026-09-10T17:28:33Z | nightly SQL suites vs LIVE — PASS 28/28 in 13s |
+| `SQL-live.md` | 2026-09-11T03:15:04Z | nightly SQL suites vs LIVE — PASS 28/28 in 12s |
 
 ## Dated reports (newest first — pruned to the newest 10 by `jahjah-retention`)
 
