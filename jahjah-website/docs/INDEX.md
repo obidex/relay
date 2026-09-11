@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `b5942745a0ad8cf55a8e7103031d2d69711d5acf`
-**Commit subject:** feat(config): /_image answers 404, image endpoint off (P3-1a T4) (#102)
-**Copied (UTC):** 2026-09-11T19:37:04Z
+**Mirrored commit:** `216d2cc5bbafedb20d50ff092c658623700e79fc`
+**Commit subject:** feat(db): F70 advisors, search_path pinned, trigger fns off authenticated (P3-1a T2) (#99)
+**Copied (UTC):** 2026-09-11T21:37:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
