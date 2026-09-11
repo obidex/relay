@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-11T12:54:29Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-11T13:05:03Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website/reports/<name>`.
@@ -18,9 +18,9 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-we
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
-| `2026-09-11-p2b-3-first-route-progress.md` | 2026-09-11T12:54:29Z | P2b-3 T1 is merged: the web DB's F65 hardening migration (amendment 5's SQL, verbatim) is applied. Visitors... |
+| `2026-09-11-p2b-3-first-route-progress.md` | 2026-09-11T12:54:30Z | P2b-3 T1 is merged: the web DB's F65 hardening migration (amendment 5's SQL, verbatim) is applied. Visitors... |
 | `2026-09-11-p2b-3-first-route-blocked.md` | 2026-09-11T10:55:30Z | P2b-3 stopped in preflight, before T0, and nothing was written anywhere. The Vercel team is still on the Ho... |
-| `2026-09-11-p2b-3-first-route-blocked-2.md` | 2026-09-11T11:33:15Z | P2b-3 stopped again before its first write: the migration was never pushed, and no branch, PR, deployment o... |
+| `2026-09-11-p2b-3-first-route-blocked-2.md` | 2026-09-11T13:05:03Z | P2b-3 stopped at T2's preview check, by the plan's own STOP rule. The `/api/health` route is built, reviewe... |
 | `2026-09-11-p2b2-webdb-progress.md` | 2026-09-11T09:11:29Z | The chunk resumed under the strategist's ruling A, and T1 is merged: the web database's foundation migratio... |
 | `2026-09-11-p2b2-webdb-progress-2.md` | 2026-09-11T09:23:52Z | T2 is merged: the website's server code now has typed readers for the web database's settings, prices, prom... |
 | `2026-09-11-p2b2-webdb-final.md` | 2026-09-11T09:36:55Z | P2b-2 is done. The website has its own database (Supabase project #2), with the approved schema applied exa... |

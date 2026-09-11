@@ -1,26 +1,24 @@
-P2b-3 stopped again before its first write: the migration was never pushed, and no branch, PR, deployment or file change was made. I tested amendment 1's SQL on a throwaway local copy of the database (the same Supabase Postgres 17.6 image), and it has one gap. The new view `stock_visible` inherits Supabase's default "all privileges" grant for signed-in users. Because the view runs as its owner, any signed-in user could insert stock rows through it, and any active customer could change or delete every stock row, without the staff TOTP gate. The fix is one word in one line; changing approved SQL is a semantic change, so GATE 1 says BLOCKED rather than me editing it.
+P2b-3 stopped at T2's preview check, by the plan's own STOP rule. The `/api/health` route is built, reviewed and green on CI and Codex (👍), but on the preview it returns 503 `{"ok":false}`. Its runtime log says `SUPABASE_URL` is not set in that deployment's server environment. T1 (the F65 hardening) is merged and live, and PR #91 stays open and unmerged. The fix is an owner step in the Vercel dashboard, then a resume that redeploys the preview, merges #91 and runs T3.
 
 === REPORT: P2b-3-first-route · blocked ===
-HEAD: 41de536 | tree: clean (only the untracked `.mcp.json`, committed in T1 by plan) | branch: master
-PRs: none opened
-CI: not run (no branch pushed) · PROD: unchanged | live probes: not run
-DONE: preflight green: fetch, HEAD == origin/master, 95 tracked files, gh auth, ls-remote, `npm ci` exit 0, build exit 0 (68 pages), env NAMES present, `.mcp.json` parses (http, `read_only=true`, no secret), and the project-scoped read-only `supabase` MCP answers. T0: labels moved to `chunk:running` (proposed and blocked removed). T1: the SQL was taken from amendment 1 by script, not retyped, and tested locally only, never pushed.
-DEVIATIONS: none. The remote DB was only read, through the read-only MCP: catalog queries (`pg_default_acl`, `pg_class.relacl`), no data rows.
+HEAD: 54abd0c (master) | tree: clean | branch: chunk/p2b3-t2-health (8d63a84, pushed)
+PRs: #90 54abd0c merged (T1) · #91 8d63a84 OPEN, not merged (T2 /api/health)
+CI: #91 ci green · master ci green on 54abd0c · PROD: READY (54abd0c) | live probes: / 200
+DONE: T0 labels. T1 merged: migration applied under GATE 1, smoke green (see the T1 progress report).
+  T2 built and reviewed. health.ts, verify.sh 7d (1 function, 1 on-demand route, no secret in .vercel/output, no HTML under /api) and the reference (on-demand 1).
+  Local build: 68 HTML files, verify 0 FAIL / 0 WARN / 67 pages, negative test FAILs, client-bundle supabase grep 0. `/`, `/ar/`, `/products/` and `/admin` are byte-identical to production.
+  The built function, called locally with the VPS env, returns 200 {"ok":true,"db":"ok"} with no-store and JSON. With no env it returns 503 {"ok":false}.
+  Executor reviewer CLEAN. Codex 👍 on #91 (13:04Z, 4 min after the PR opened).
+DEVIATIONS:
+1. An on-demand route switches Astro to server mode, and the pages move from dist/ to dist/client/ (measured; the plan assumed dist/). verify.sh reads the pages there.
+2. scripts/hidden-products-check.mjs (not in T2's list, not Tier 3) got a one-line change so the sitemap stays in the W077 check. The reviewer ruled it justified.
 FINDINGS/BLOCKERS:
-1. BLOCKER (GATE 1, amendment 1 SQL). Remote catalog: the default ACL for role `postgres` in `public` grants `authenticated=arwdDxtm` on new tables and views. The migration's `alter default privileges … revoke … from anon, public` leaves `authenticated` alone, so `stock_visible` is created with INSERT/UPDATE/DELETE for `authenticated`. `revoke all … from anon, public` + `grant select` does not remove them.
-   The view is auto-updatable (one table, plain columns), and with `security_invoker = false` writes reach `public.stock` as its owner `postgres`, and table owners are exempt from RLS (`force_rls` = false). Local result with the SQL as written:
-   - an active aal1 non-staff customer: `update stock_visible set status='out'` and `delete from stock_visible` both succeeded on real rows (audit rows written with that user as actor);
-   - an `authenticated` session that is neither staff nor an active customer: `insert into stock_visible` succeeded (a view's WHERE never checks inserts without `check option`);
-   - direct writes to `public.stock` stayed 42501, as intended.
-   This opens a stock write path around W080's aal2 staff gate, which contradicts the migration's own comment ("the table becomes staff-only"). It is not THE BAR (a visitor gets nothing), and no user can reach it today (0 users; the anon key is server-only). Still, pushing it knowingly would be applying a write whose effect contradicts its description.
-2. Verified locally, and unchanged by the fix: both migrations apply cleanly in order. Anon gets `42501` on all 7 tables, on `stock_visible` and on `is_staff()`. A customer reads `stock_visible` (sku, status, updated_at); `quantity` through the view is `42703` (no such column); the customer's direct `stock` read returns 0 rows.
-3. With the one-word fix applied on top, locally: the view ACL is `authenticated=r` and `service_role` keeps `arwdDxtm`. The customer still reads the view, and insert, update and delete are each `42501`.
-CANON: none updated
-NEXT-NEEDED: one ruling.
-  A (recommended): Amendment 5 replaces ONE line of amendment 1's SQL
-    - revoke all on public.stock_visible from anon, public;
-    + revoke all on public.stock_visible from anon, authenticated, public;
-  (the following `grant select … to authenticated, service_role;` stays). Then paste the same resume prompt; T1 → T2 → T3 run unchanged. Everything else in T1 is pre-verified above.
-  B: apply amendment 1 verbatim now and carry the view's write revoke as a high F-row into P3's first migration, before any staff or customer session exists. One round trip faster; production carries the write path until then.
-Left untouched: Supabase remote (catalog reads only, no push), Vercel, Sanity, every repo file. The scratch container was removed and the local branch deleted, never pushed.
+1. BLOCKER (plan STOP: env NAME missing on Vercel). Preview dpl_BBesr6swTNETNCGdEti6ZWVeEePw: GET and HEAD /api/health return 503 {"ok":false}, with cache-control no-store and content-type application/json. The runtime log (Vercel MCP) reads "SUPABASE_URL is not set in the server environment". The route reads SUPABASE_URL first, so SUPABASE_SERVICE_ROLE_KEY is unverified. The Vercel tools do not list env names, so whether Production has them is unknown too.
+2. Astro also routes its own /_image and /_server-islands/* to the function. On the preview, /_image?href=/og-default.jpg&w=64&f=webp returns 200: visitors can make it resize the site's own images. It is not a data path. Turning it off is an astro.config.mjs change, which no plan has named yet. ROADMAP row at T3.
+3. Carried from T1: Codex P2 on #90 (stock_visible ignores stock_display='hidden') needs a follow-up migration before P4. Advisors: 1 intended ERROR (security_definer_view), 10 WARNs.
+CANON: none updated (T3 not reached)
+NEXT-NEEDED: one owner step, then a resume.
+  A (recommended): in Vercel, open jahjah-website → Settings → Environment Variables. Make SUPABASE_URL, SUPABASE_ANON_KEY and SUPABASE_SERVICE_ROLE_KEY each exist for BOTH Production and Preview, with the service key marked Sensitive. Then paste "RESUME P2b-3-first-route at T2: PR #91 open". The executor pushes an empty commit to #91's branch for a fresh preview, re-probes, merges and runs T3 unchanged.
+  B: set them for Production only, so public previews never run with the service key (flag 12). The strategist then amends T2 to accept a post-merge production probe instead of the preview probe. That keeps previews keyless but merges without the preview proof.
+Left untouched: Vercel settings (read-only lookups and runtime logs only), Sanity, the web DB after T1's approved push (catalog reads via the read-only MCP only), #91 unmerged, master (only #90 merged).
 === END ===
