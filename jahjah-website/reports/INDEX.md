@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-11T19:10:54Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-11T19:11:31Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website/reports/<name>`.
@@ -19,8 +19,9 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-we
 | File | Updated (UTC) | What it is |
 |---|---|---|
 | `2026-09-11-p3-1a-sku-advisors-progress.md` | 2026-09-11T18:51:23Z | P3-1a progress 1 of issue #97: T1 is merged. The Studio packages `sanity` and `@sanity/vision` moved from 5... |
-| `2026-09-11-p3-1a-sku-advisors-progress-3.md` | 2026-09-11T19:10:54Z | P3-1a progress 3 of issue #97: T4 is merged (#102, `b594274`). Astro's `/_image` endpoint now answers 404 o... |
+| `2026-09-11-p3-1a-sku-advisors-progress-3.md` | 2026-09-11T19:10:55Z | P3-1a progress 3 of issue #97: T4 is merged (#102, `b594274`). Astro's `/_image` endpoint now answers 404 o... |
 | `2026-09-11-p3-1a-sku-advisors-progress-2.md` | 2026-09-11T19:06:59Z | P3-1a progress 2 of issue #97: T3 is merged (#101, `b34e9a7`). Every variant in Sanity now carries its SKU:... |
+| `2026-09-11-p3-1a-sku-advisors-blocked.md` | 2026-09-11T19:11:31Z | P3-1a is blocked on issue #97: T1, T3 and T4 are merged and live, but T2's web-DB migration is not applied.... |
 | `2026-09-11-p2b-3-first-route-progress.md` | 2026-09-11T12:54:30Z | P2b-3 T1 is merged: the web DB's F65 hardening migration (amendment 5's SQL, verbatim) is applied. Visitors... |
 | `2026-09-11-p2b-3-first-route-progress-2.md` | 2026-09-11T17:23:26Z | P2b-3 T2 is merged. `/api/health` is live in production and answers 200 `{"ok":true,"db":"ok"}` after a rea... |
 | `2026-09-11-p2b-3-first-route-final.md` | 2026-09-11T17:41:02Z | P2b-3 is done, and with it P2 is closed. The web DB is hardened: visitors get a permission error on every t... |
