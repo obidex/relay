@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `cbc423aa2967693f4501feb4ad32dfdaea7fbb12`
-**Commit subject:** docs(canon): close P2b-1c, the canon diet on the record (#82)
-**Copied (UTC):** 2026-09-11T00:07:04Z
+**Mirrored commit:** `41de536f906b4f288b5bd0832a250a896d755036`
+**Commit subject:** docs(canon): close P2b-2, web DB schema v1 on the record (#88)
+**Copied (UTC):** 2026-09-11T09:37:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -19,10 +19,10 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 |---|---|---|
 | `CLAUDE.md` | 11994 | `CLAUDE.md` |
 | `STRATEGIST.md` | 11991 | `docs/STRATEGIST.md` |
-| `STATE.md` | 7753 | `docs/STATE.md` |
-| `ROADMAP.md` | 8058 | `docs/ROADMAP.md` |
-| `DECISIONS.md` | 20729 | `docs/DECISIONS.md` |
-| `reference/site.md` | 9528 | `docs/reference/site.md` |
+| `STATE.md` | 9138 | `docs/STATE.md` |
+| `ROADMAP.md` | 9555 | `docs/ROADMAP.md` |
+| `DECISIONS.md` | 22864 | `docs/DECISIONS.md` |
+| `reference/site.md` | 10219 | `docs/reference/site.md` |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it
 looks old, that may only mean nothing merged. Liveness is

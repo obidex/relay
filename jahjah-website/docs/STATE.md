@@ -6,10 +6,11 @@
 
 | Aspect | Status |
 |---|---|
-| **Programme** | P0 → P0.1 → P0.2 → P1 → P1.1 → P1.2 → P2a → P2b-1 → P2b-1b → P2b-1c canon diet → **P2b-2 web DB + first on-demand route** ★ → P3 Admin Mode → P4 accounts → P5 UX (parallel) → **L** → P6 |
-| **Next step** | P2b-2, waiting on the owner at a PC (§5) |
-| **`master` HEAD at the last canon update** | `8e80804` (#81). Normally `master` is one commit ahead of this line: the canon PR itself. A bigger gap means commits landed outside the chunk loop. |
+| **Programme** | P0 → P0.1 → P0.2 → P1 → P1.1 → P1.2 → P2a → P2b-1 → P2b-1b → P2b-1c canon diet → P2b-2 web DB → **P2b-3 first on-demand route** ★ → P3 Admin Mode → P4 accounts → P5 UX (parallel) → **L** → P6 |
+| **Next step** | P2b-3, gated on Vercel Pro (§5) |
+| **`master` HEAD at the last canon update** | `0173d8b` (#87). Normally `master` is one commit ahead of this line: the canon PR itself. A bigger gap means commits landed outside the chunk loop. |
 | **Live** | 68 pages EN + AR on `https://jahjah-website.vercel.app`: 22 products, 5 brands, 6 categories. No prices, no login. Astro 7.3.2 + `@astrojs/vercel` 11.0.10, every route prerendered, no function (W141, W142). |
+| **Web DB** | Supabase project #2 linked, schema v1 (W153): 7 tables, empty except the 6 settings; RLS on every table; audit trigger on six. Nothing on the site reads it yet: the `src/lib` readers have no caller until P2b-3. `db diff` is empty beyond the platform-owned `rls_auto_enable`/`ensure_rls` (W153, W154). |
 | **Content** | Placeholder catalogue (AI names; 1 product has real photos). Deleted when real data enters, never polished (W007). |
 | **Sister project** | `jahjah-internal` (ERP): separate canon, **not connected** (W075). |
 
@@ -27,7 +28,7 @@
 1. **Two paths to production:** a merge to `master`, AND a Sanity publish (webhook → deploy hook, ~2 min). The second has no commit; only TRUTH sees it.
 2. **Placeholder content:** the owner asked that no photos be uploaded to placeholder products. The watermark was ruled clean (W126).
 3. **Launch facts ruled 2026-09-04 (W126):** founded 2010; SUNNY/DSP exclusive for all of Syria; numbers, hours, warranty and brands unchanged. The Damascus `+90` number is correct. Still the owner's: tier names, currency, showroom address, a confirmation pass.
-4. **Vercel Hobby, adapter already in (static):** Pro before the first on-demand route (W090). No web DB yet. `src/lib/db.ts` factories are unused (W143). Free Supabase pauses when idle (W091).
+4. **Vercel Hobby, adapter already in (static):** Pro before the first on-demand route (W090). The web DB's readers in `src/lib` have no caller yet (W143). **Free Supabase pauses after ~1 week idle (W091)** until the nightly `pg_dump` keeps it awake (F64); nothing touches it yet.
 5. **Project knowledge is a lagging sync; the mirror wins.** A fresh `INDEX.md` does not mean a fresh sibling (W098, W102).
 6. **The dispatched executor has never finished a real chunk:** #24 and #36 both died on the shared subscription window (W128). Every chunk since has run interactively. The fix is ERP-side, last checked 2026-09-05. Reports stay dual-published until F26.
 7. **Codex (`chatgpt-codex-connector`) speaks on four surfaces:** review, inline, issue comment, and the 👍 reaction (= clean). 👀 is not a verdict. Every PR measured since P1.1 got an answer. Keep the literal `@codex` out of issue comments: it starts a Codex "task".
@@ -36,16 +37,17 @@
 10. **The reviewer subagent holds `Read` + `Bash` only.** `Grep`/`Glob` are listed but not granted, and Bash scoping is not enforced, so it is not read-only (F11).
 11. **Browser floor iOS/Safari 16,** pinned by `cssTarget`; only the owner raises it (W141). Diff compiled CSS on any build-tool upgrade (W145).
 12. **Previews are public.** Vercel injects a toolbar script on previews only, so byte-compare production, not a preview. Never use the Vercel MCP's `web_fetch_vercel_url` (W146).
+13. **Web DB residuals, fixed before the first stock row or auth route (F65, GATE 1):** anon can EXECUTE the RLS helper functions through `PUBLIC`, and customers' reads of `stock` return `quantity` whatever `stock_display` says (Codex P1 on #86). Neither reaches a datum today: every table but `settings` is empty.
 
 ## 3. LEDGER (last 5 chunks; older rows in the archive)
 
 | Date | Chunk · issue | Close HEAD | PRs | Result |
 |---|---|---|---|---|
-| 09-10 | P2b-1c canon diet · #79 | this PR | #80 #81 + close | #77's security group applied, audit 16→11; canon 262→70 KB, history archived; efficiency rules; F61 ratified |
+| 09-11 | P2b-2 web DB · #85 | this PR | #86 #87 + close | Supabase #2 linked; schema v1 + RLS + audit applied under GATE 1; typed readers in `src/lib`; 1 BLOCKED (platform `db diff` object, ruled A); Codex P1 routed to F65 |
+| 09-10 | P2b-1c canon diet · #79 | `cbc423a` | #80 #81 + close | #77's security group applied, audit 16→11; canon 262→70 KB, history archived; efficiency rules; F61 ratified |
 | 09-10 | P2b-1b bot quiet · #74 | `15cf22c` | #75 #76 #78 | Vercel skips bot branches; security updates grouped (#77); 5 bot updates applied; audit 20→16 |
 | 09-10 | P2b-1 Astro 7 + adapter · #61 | `5cdf390` | #62 #67 #68 #69 #73 | Astro 7 with the iOS 16 floor pinned; static adapter; `src/lib` skeleton; auto-mode start rule |
 | 09-05→10 | P2a foundation-lite · #53 | `8d037e5` | #54 #56–#60 | SKU field; owner-edited allow rule; F45/F5 closed; responsive images + listing JSON-LD |
-| 09-05 | P1.2 gates + deps · #44 | `3c8d03b` | #45 #46 #51 #52 | Amended Arabic gate in every reviewer file; 3 bot updates; CI guard gets env store |
 
 ## 4. EPHEMERAL FACTS
 
@@ -54,13 +56,13 @@
 | Live / Studio | `https://jahjah-website.vercel.app` · `/admin` |
 | Future domain | `jahjah.net`: owned, NOT connected until the launch bundle (W027) |
 | Repo / Vercel / Sanity | `obidex/jahjah-website` (private, `master`) · Vercel project `jahjah-website` (Hobby) · Sanity `pxf1amia`/`production` |
-| Executor | tmux `web`, clone `/opt/jahjah/web`, Node 22. The box address is never recorded here: this file is public. |
+| Executor | tmux `web`, clone `/opt/jahjah/web`, Node 22, Supabase CLI 2.117.0 (global npm; linked to project #2; state in gitignored `supabase/.temp/`). The box address is never recorded here: this file is public. |
 | Relay | `raw.githubusercontent.com/obidex/relay/main/jahjah-website/{docs,reports}/` |
 | Automations | `jahjah-web-truth` Mon 05:30 · `-docs` 30 min · `-backup` 02:30 nightly · `-backup-check` Mon 03:30 · `-dispatch` 2 min (kill: `touch /opt/jahjah/WEB_DISPATCH_OFF`). Registry: `jahjah-internal/docs/runbooks/automations.md` |
 
-**Secret names (never values):** `PUBLIC_SANITY_PROJECT_ID` · `PUBLIC_SANITY_DATASET` · `SANITY_READ_TOKEN` (Vercel, VPS, Actions) · `SANITY_WRITE_TOKEN` (server only, from P2b-2) · the deploy-hook URL (a credential) · `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY` (server-only). The Supabase values do not exist until P2b-2.
+**Secret names (never values):** `PUBLIC_SANITY_PROJECT_ID` · `PUBLIC_SANITY_DATASET` · `SANITY_READ_TOKEN` (Vercel, VPS, Actions) · `SANITY_WRITE_TOKEN` (server only; P2b-3's SKU backfill needs it) · the deploy-hook URL (a credential) · `SUPABASE_URL`, `SUPABASE_ANON_KEY` (a publishable key), `SUPABASE_SERVICE_ROLE_KEY` (a secret key): server-only, VPS `.env.local` now, Vercel at P2b-3 · `SUPABASE_PROJECT_REF` (VPS) · `SUPABASE_ACCESS_TOKEN`, `SUPABASE_DB_PASSWORD`: CLI-only, VPS `.env.local`, exported for one command, never the server runtime (W154).
 
-**Plans:** Vercel Hobby (Pro ~$20/mo at P2b-2) · Sanity Free · GitHub Pro (~$4/mo, needed for the ruleset) · Supabase Free from P2b-2 (ERP is project #1) · Claude Max.
+**Plans:** Vercel Hobby (Pro ~$20/mo before P2b-3) · Sanity Free · GitHub Pro (~$4/mo, needed for the ruleset) · Supabase Free, project #2 since 2026-09-11 (ERP is project #1) · Claude Max.
 
 **Owner-side open items:**
 - Which of the 22 placeholders to keep (the owner hides them himself, W126).
@@ -72,15 +74,14 @@
 
 ## 5. NEXT STEP
 
-**P2b-2 · web DB + first on-demand route.** It waits on the owner at a PC for three things:
-- create Supabase project #2;
-- create `SANITY_WRITE_TOKEN` (W079);
-- turn on Vercel Pro (W090).
+**P2b-3 · first on-demand route.** It waits on the owner at a PC:
+- turn on Vercel Pro (W090), and set the three server-only Supabase names in Vercel;
+- `SANITY_WRITE_TOKEN` (W079) for the SKU backfill, if not already created.
 
 The strategist gives the keystrokes. Then everything is Tier 3, under GATE 1 wherever it writes:
-- the schema, RLS, TOTP MFA and nightly `pg_dump` (W083, W091);
+- its first auth-facing migration, shown verbatim: F65 (the helpers' EXECUTE, the customer `stock` projection), before any stock row or auth route;
+- the first on-demand route, named by the plan (W074), with `verify.sh` asserting `.vercel/output/` first (F54);
 - the SKU backfill + `required()` (F51) and the JSON-LD `sku` (F50);
-- the first on-demand route, named by the plan (W074);
-- whatever Dependabot opens (W114).
+- Dependabot #83 and #84, applied in a chunk PR (W114; `@sanity/client` 8 is a major, its own chunk).
 
-The code side is ready (W141–W143). Run it by hand as `claude --permission-mode auto` unless the dispatcher's usage-limit fix is confirmed (W128, W144).
+The web-DB `pg_dump` is ERP-side (F64). Run the chunk by hand as `claude --permission-mode auto` unless the dispatcher's usage-limit fix is confirmed (W128, W144).

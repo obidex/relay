@@ -189,3 +189,19 @@
 
 - **W152** LOCKED. The canon diet (#81) cut the mirrored canon from 262,210 to 70,072 bytes. Live files hold rules only; history lives verbatim in `docs/archive/`, never mirrored or loaded.
   The owner's session-efficiency rules (`CLAUDE.md` §5, STRATEGIST §1) cap reports, PR bodies, reviewer passes and Codex waits. "`dist/` byte-identical" means the 67 public pages (F61).
+
+## P2b-2 execution (2026-09-11)
+
+- **W153** LOCKED. Web DB schema v1 is `supabase/migrations/20260911000000_p2b2_foundation.sql` as applied (#86). It has seven tables (`staff`, `customers`, `settings` with six keys: W081's four, plus `currency` (W066) and `tier_names` (F7), `prices`, `promotions`, `stock`, `audit_log`), an audit trigger on six of them, and the sign-up trigger (W081).
+  RLS rests on three principles:
+  - Every table denies by default.
+  - The service key is server-only and bypasses RLS (W079), so the caller of a `src/lib` reader is the gate.
+  - Staff writes need `aal2` (TOTP, W080).
+  Supabase's `rls_auto_enable()` and `ensure_rls` are platform-owned (the owner's "Enable automatic RLS") and are never versioned, so "`db diff` empty" means empty beyond them (ruling 2026-09-11).
+  Two residuals stand until F65: anon can EXECUTE the helpers through `PUBLIC`, and customers' `stock` reads return `quantity`.
+- **W154** LOCKED. Every web-DB change is a file in `supabase/migrations/`, applied by `supabase db push` from the executor's linked clone. GATE 1 shows every migration verbatim in the plan, and the file is extracted from the issue body, never retyped.
+  A push is proven three ways: `migration list` (local = remote), `db diff --linked` (W153), and `scripts/db-smoke.mjs` (counts only; exit 2 on a mismatch, 3 on an anon row).
+  The CLI's access token and DB password are exported for one command and never reach the runtime or `src/lib/env.ts`.
+- **W155** LESSON. On Supabase, `revoke execute … from anon` is inert while `PUBLIC` holds EXECUTE. RLS policies call their helpers with the caller's privileges, so a real revoke turns anon's empty reads into permission errors. Probe with the publishable key before trusting a revoke.
+- **W156** LESSON. RLS filters rows, never columns: a policy that lets a role read a table hands that role every column. Hide a column with a view, an RPC or column grants (Codex P1, #86).
+- **W157** LESSON. A plan's "expect: no diff" must allow for what the platform provisions at project creation. Measure a fresh project's `db diff` before writing the expectation.

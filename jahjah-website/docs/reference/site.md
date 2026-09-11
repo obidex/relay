@@ -65,11 +65,17 @@ On-demand routes: **0**. Every on-demand route must be named by the chunk plan t
 | src/utils/sanity.js | `getAllBrands(lang = 'en')` | function |
 | src/utils/sanity.js | `getBrandBySlug(slug, lang = 'en')` | function |
 | src/utils/sanity.js | `getProductsByBrand(brandId, lang = 'en')` | function |
+| src/lib/customers.ts | `getCustomer(userId: string)` | function |
 | src/lib/db.ts | `anonClient()` | function |
 | src/lib/db.ts | `serviceClient()` | function |
 | src/lib/env.ts | `supabaseUrl()` | function |
 | src/lib/env.ts | `supabaseAnonKey()` | function |
 | src/lib/env.ts | `supabaseServiceRoleKey()` | function |
+| src/lib/env.ts | `supabaseProjectRef()` | function |
+| src/lib/prices.ts | `getPricesForSkus(skus: readonly string[], tier: Tier)` | function |
+| src/lib/prices.ts | `getPromotionsForSkus(skus: readonly string[], tier: Tier)` | function |
+| src/lib/settings.ts | `getSettings()` | function |
+| src/lib/stock.ts | `getStockForSkus(skus: readonly string[])` | function |
 | src/config/site.js | `site` | const |
 | src/config/site.js | `branches` | const |
 | src/data/products-ar.js | `productsAr` | const |
@@ -178,9 +184,10 @@ EN/AR key sets: **SYMMETRIC**
 | `PUBLIC_SANITY_DATASET` | client-visible | src/utils/sanity.js, scripts/hidden-products-check.mjs |
 | `PUBLIC_SANITY_PROJECT_ID` | client-visible | src/utils/sanity.js, scripts/hidden-products-check.mjs |
 | `SANITY_READ_TOKEN` | server-only | src/utils/sanity.js, scripts/hidden-products-check.mjs |
-| `SUPABASE_ANON_KEY` | server-only | src/lib/env.ts |
-| `SUPABASE_SERVICE_ROLE_KEY` | server-only | src/lib/env.ts |
-| `SUPABASE_URL` | server-only | src/lib/env.ts |
+| `SUPABASE_ANON_KEY` | server-only | src/lib/env.ts, scripts/db-smoke.mjs |
+| `SUPABASE_PROJECT_REF` | server-only | src/lib/env.ts |
+| `SUPABASE_SERVICE_ROLE_KEY` | server-only | src/lib/env.ts, scripts/db-smoke.mjs |
+| `SUPABASE_URL` | server-only | src/lib/env.ts, scripts/db-smoke.mjs |
 
 ## Dependencies (`package.json`)
 
@@ -204,6 +211,7 @@ Engines: `{"node":">=22.12.0"}` · Scripts: `dev`, `build`, `preview`, `astro`, 
 
 | Path | Purpose (first comment line) |
 |---|---|
+| scripts/db-smoke.mjs | db-smoke.mjs — the web DB's runtime smoke check (P2b-2, issue #85). Read-only; prints COUNTS only. |
 | scripts/generate-reference.mjs | generate-reference.mjs — writes docs/reference/site.md from the source tree (W085). |
 | scripts/heading-audit.mjs | Heading-hierarchy audit over the BUILT site (P1.6, accessibility). |
 | scripts/hidden-products-check.mjs | hidden-products-check.mjs — assert that no hidden product reached the build (W077). |
