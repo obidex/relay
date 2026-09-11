@@ -37,7 +37,6 @@ Strategist opens an issue with the whole plan (`chunk:proposed` + `model:opus|so
 
 **Session limits:**
 - A dispatched session cannot edit `.claude/**` and runs only allowlisted commands; dry-run the allowlist first (W116). No session edits `.claude/settings.json`: the owner's hand edit is a precondition (W138).
-- A process that exits while its issue is `chunk:running` gets `chunk:failed` from the lane.
 
 ### Labels
 
@@ -86,9 +85,7 @@ A Sanity write or DB migration is shown verbatim in the plan, and the owner's co
 - A PR, green `ci` and a clean executor reviewer; `master-protection` enforces it, no bypass (W100). The plan names the self-merging PRs (same-scope follow-ups included).
 - Tier-3 files only as named: `tier3-guard` checks the line (W101); you judge that the plan covers *those* files.
 - Codex (`chatgpt-codex-connector`, reads `AGENTS.md`) is the reviewer of record but not a required check. Silence is never approval (W105, W113, W130).
-- The `review` job (`REVIEW.md`) runs on dispatch only.
 - Verify merge and deploy yourself (`list_deployments`, live probes). PR-green is not `master`-green.
-- The Sanity webhook is a second, commitless path to production, watched by TRUTH.
 
 ### THE BAR — the only things that block a merge
 
@@ -159,6 +156,8 @@ Apply the ten shared principles in `https://jahjah-internal.vercel.app/internal/
 
 **Handover:** the final report ends with where things stand, the single next step and its why, and a nudge to pressure-test that feature against domain leaders. A new chat starts from STATE.
 
+Self-improvement is mandatory: every chunk close turns what it learned into ≤ 2-line entries — executor rules → CLAUDE.md, strategist-lane rules → STRATEGIST §1/§8, everything else → DECISIONS LESSON. Nothing learned may stay only in chat or in a report.
+
 ## 8. THE STRATEGIST'S OWN LANE
 
 | Direction | Channel | Limit |
@@ -168,7 +167,6 @@ Apply the ten shared principles in `https://jahjah-internal.vercel.app/internal/
 | Out: work, corrections | one issue per chunk; its comments | the owner's label starts work; comments are records, not a channel |
 | Both: a connected folder | Cowork in his laptop clone | the push stays his; GATE 2 binds; canon stays the implementer's |
 
-- Reports are dual-published until F26 closes.
 - **Extracts are lossy:** open the file before calling a rule absent.
 - **Guardrails:** `.claude/settings.json` is not a sandbox (W095); the ruleset holds. `.`/`source` cannot be allowed (W103). Preflights count files (W092). Settings edits and destructive `gh api` calls are owner keystrokes (W138, W139).
 - **Owner rules:** rephrase his request before acting; work in a folder he connects; one-time information goes in chat; an issue is read on a phone, so headline first.

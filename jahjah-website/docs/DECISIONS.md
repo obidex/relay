@@ -110,7 +110,7 @@
 - **W087** LOCKED. No Vercel "ignored build step": it can silently skip a deploy-hook content build.
 - **W088** LOCKED, partly ruled by W126. One named person rules on founding year, numbers, hours, warranty, delivery, agency claims and brands before launch.
 - **W089** LOCKED; its branch-protection rejection reversed by W100. Phase order P1 → P2 → P3 Admin Mode → P4 → P5 → L → P6.
-- **W090** LOCKED. Vercel Pro precedes the first on-demand route in production; unprotected previews are the PR review surface.
+- **W090** LOCKED, amended by W158. Vercel Pro precedes the first on-demand route in production; unprotected previews are the PR review surface.
 - **W091** LOCKED. Free Supabase pauses after ~1 week idle; the nightly backup keeps it awake and health flags a pause.
 
 ## P0 execution (2026-09-02)
@@ -205,3 +205,15 @@
 - **W155** LESSON. On Supabase, `revoke execute … from anon` is inert while `PUBLIC` holds EXECUTE. RLS policies call their helpers with the caller's privileges, so a real revoke turns anon's empty reads into permission errors. Probe with the publishable key before trusting a revoke.
 - **W156** LESSON. RLS filters rows, never columns: a policy that lets a role read a table hands that role every column. Hide a column with a view, an RPC or column grants (Codex P1, #86).
 - **W157** LESSON. A plan's "expect: no diff" must allow for what the platform provisions at project creation. Measure a fresh project's `db diff` before writing the expectation.
+
+## P2b-3 execution (2026-09-11)
+
+- **W158** LOCKED (amends W090, owner). `GET /api/health` is the first on-demand route (#91): a service-client settings read, 200 `{"ok":true,"db":"ok"}` or 503, `no-store`. It proved function + env + web DB on Hobby.
+  W090 now: Vercel Pro is a prerequisite of launch (domain, prices, login), not of an on-demand route; Hobby's limit is its non-commercial terms, which the static site already carries.
+- **W159** LOCKED. Hardening v2 (#90): anon and `PUBLIC` hold no table, view or function privilege, so visitors get 42501 (supersedes F65's "0 rows"); `stock` is staff-only, signed-in users read `stock_visible` (sku, status, updated_at).
+  LESSON: revoke `authenticated` on any `security_invoker = false` view before granting; Supabase's default ACL grants it everything, and the view writes as its RLS-exempt owner.
+- **W160** LOCKED. The executor's Supabase MCP (`.mcp.json`, `read_only=true`) is available, optional. The strategist may use the org's Supabase connector read-only on `jahjah-web`.
+- **W161** LOCKED. `SUPABASE_SERVICE_ROLE_KEY` is in Vercel Production only; `SUPABASE_URL`/`SUPABASE_ANON_KEY` in Production + Preview. Public previews build any branch, so DB routes answer 503 there (F69).
+- **W162** LESSON. Relay report filenames are unique per publish (`-blocked-N`, `-progress-N`, `-final`): list the folder first, never overwrite.
+- **W163** LESSON. Run a GATE 1 migration on a throwaway local Supabase Postgres before the push; here it caught a view write path the approved text missed.
+- **W164** LESSON. An on-demand route switches Astro to server output: pages move to `dist/client/`, so every `dist/` reader follows; `/_image` joins the function (F67).

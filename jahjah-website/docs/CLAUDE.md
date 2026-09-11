@@ -55,7 +55,7 @@ Unsure 2 vs 3 → 3. The model is on the chunk's first line; never change it mid
 - One executor-reviewer pass per PR, and a second only when the first returned a BLOCK. A chunk-close canon PR gets one pass, which checks IDs and numbers, not prose style.
 - Codex: wait 5 min, then post one plain `@codex review` PR comment, wait 5 more, then proceed with the silence recorded.
 - Never re-measure a fact the canon already carries unless the task changes it. A "`dist/` byte-identical" proof is made only when the plan asks, and covers the 67 public pages, never `/admin` (F61).
-- Docs-only chunks start with `claude --model sonnet --permission-mode auto`. The issue's model label is the model the owner's start command names.
+- Relay report filenames are unique per publish (`-blocked-N`, `-progress-N`, `-final`): list the folder first, never overwrite (W162).
 - Every session's last message opens with DONE, WAITING FOR YOU (what), or STOPPED (why).
 
 **Tier-3 PR:** the body carries `Tier-3: authorized by chunk <name>`, unemphasised, at column 1 (W101, W134). Editing the body re-runs the guard.

@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `ede9a29403a6b800fa723a5bc49590f5b12f3ce5`
-**Commit subject:** feat(api): GET /api/health, the first on-demand route (P2b-3 T2) (#91)
-**Copied (UTC):** 2026-09-11T17:37:04Z
+**Mirrored commit:** `2203388446ae4cfcd76948eac0c7b3301dba533f`
+**Commit subject:** docs(canon): close P2b-3, P2 closed and the first on-demand route on the record (#92)
+**Copied (UTC):** 2026-09-11T18:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -17,11 +17,11 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 
 | File | Bytes | Source path in the repo |
 |---|---|---|
-| `CLAUDE.md` | 11994 | `CLAUDE.md` |
-| `STRATEGIST.md` | 11991 | `docs/STRATEGIST.md` |
-| `STATE.md` | 9138 | `docs/STATE.md` |
+| `CLAUDE.md` | 11982 | `CLAUDE.md` |
+| `STRATEGIST.md` | 11980 | `docs/STRATEGIST.md` |
+| `STATE.md` | 8142 | `docs/STATE.md` |
 | `ROADMAP.md` | 9555 | `docs/ROADMAP.md` |
-| `DECISIONS.md` | 22864 | `docs/DECISIONS.md` |
+| `DECISIONS.md` | 24598 | `docs/DECISIONS.md` |
 | `reference/site.md` | 10290 | `docs/reference/site.md` |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it
