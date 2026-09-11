@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `2203388446ae4cfcd76948eac0c7b3301dba533f`
-**Commit subject:** docs(canon): close P2b-3, P2 closed and the first on-demand route on the record (#92)
-**Copied (UTC):** 2026-09-11T18:07:04Z
+**Mirrored commit:** `b34e9a7a9f82095745a79133188eabd8b9e884ea`
+**Commit subject:** feat(schema): SKU backfill run, sku required, Product JSON-LD sku (P3-1a T3) (#101)
+**Copied (UTC):** 2026-09-11T19:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -22,7 +22,7 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 | `STATE.md` | 8142 | `docs/STATE.md` |
 | `ROADMAP.md` | 9555 | `docs/ROADMAP.md` |
 | `DECISIONS.md` | 24598 | `docs/DECISIONS.md` |
-| `reference/site.md` | 10290 | `docs/reference/site.md` |
+| `reference/site.md` | 10424 | `docs/reference/site.md` |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it
 looks old, that may only mean nothing merged. Liveness is
