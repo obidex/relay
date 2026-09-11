@@ -2,7 +2,7 @@
 
 <!-- index: proof-of-life for the ERP chunk lane — stale > ~70 min means chunks are not being picked up -->
 
-**Written (UTC):** 2026-09-11T20:09:04Z
+**Written (UTC):** 2026-09-11T20:59:04Z
 **State:** OK — daily cap reached, #157 held
 **Chunk in flight:** none
 **Chunks started today (UTC 2026-09-11):** 3 of 3
