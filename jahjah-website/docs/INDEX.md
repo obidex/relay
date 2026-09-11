@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `5cd1e404b1279593f100ab16460e7629977ec681`
-**Commit subject:** build(deps): apply the npm-security group (Dependabot #77) (#80)
-**Copied (UTC):** 2026-09-10T23:07:04Z
+**Mirrored commit:** `cbc423aa2967693f4501feb4ad32dfdaea7fbb12`
+**Commit subject:** docs(canon): close P2b-1c, the canon diet on the record (#82)
+**Copied (UTC):** 2026-09-11T00:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -17,11 +17,11 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 
 | File | Bytes | Source path in the repo |
 |---|---|---|
-| `CLAUDE.md` | 29754 | `CLAUDE.md` |
-| `STRATEGIST.md` | 28452 | `docs/STRATEGIST.md` |
-| `STATE.md` | 49677 | `docs/STATE.md` |
-| `ROADMAP.md` | 53875 | `docs/ROADMAP.md` |
-| `DECISIONS.md` | 90924 | `docs/DECISIONS.md` |
+| `CLAUDE.md` | 11994 | `CLAUDE.md` |
+| `STRATEGIST.md` | 11991 | `docs/STRATEGIST.md` |
+| `STATE.md` | 7753 | `docs/STATE.md` |
+| `ROADMAP.md` | 8058 | `docs/ROADMAP.md` |
+| `DECISIONS.md` | 20729 | `docs/DECISIONS.md` |
 | `reference/site.md` | 9528 | `docs/reference/site.md` |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it
