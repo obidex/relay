@@ -211,7 +211,7 @@ Engines: `{"node":">=22.12.0"}` · Scripts: `dev`, `build`, `preview`, `astro`, 
 
 | Path | Purpose (first comment line) |
 |---|---|
-| scripts/db-smoke.mjs | db-smoke.mjs — the web DB's runtime smoke check (P2b-2, issue #85). Read-only; prints COUNTS only. |
+| scripts/db-smoke.mjs | db-smoke.mjs — the web DB's runtime smoke check (P2b-2, issue #85). Read-only; prints counts and err |
 | scripts/generate-reference.mjs | generate-reference.mjs — writes docs/reference/site.md from the source tree (W085). |
 | scripts/heading-audit.mjs | Heading-hierarchy audit over the BUILT site (P1.6, accessibility). |
 | scripts/hidden-products-check.mjs | hidden-products-check.mjs — assert that no hidden product reached the build (W077). |
