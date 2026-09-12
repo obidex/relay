@@ -66,6 +66,8 @@ On-demand routes: **1**. Every on-demand route must be named by the chunk plan t
 | src/utils/sanity.js | `getAllBrands(lang = 'en')` | function |
 | src/utils/sanity.js | `getBrandBySlug(slug, lang = 'en')` | function |
 | src/utils/sanity.js | `getProductsByBrand(brandId, lang = 'en')` | function |
+| src/lib/auth.ts | `serverClient(cookies: AstroCookies, requestHeaders: Headers)` | function |
+| src/lib/auth.ts | `getStaff(client: SupabaseClient)` | function |
 | src/lib/customers.ts | `getCustomer(userId: string)` | function |
 | src/lib/db.ts | `anonClient()` | function |
 | src/lib/db.ts | `serviceClient()` | function |
@@ -200,6 +202,7 @@ EN/AR key sets: **SYMMETRIC**
 | @sanity/client | ^7.22.0 | dependency |
 | @sanity/image-url | ^2.1.1 | dependency |
 | @sanity/vision | ^5.24.0 | dependency |
+| @supabase/ssr | ^0.12.7 | dependency |
 | @supabase/supabase-js | ^2.116.0 | dependency |
 | astro | ^7.3.2 | dependency |
 | react | ^19.2.6 | dependency |
