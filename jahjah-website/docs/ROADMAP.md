@@ -19,7 +19,7 @@ Studio stays at `/admin` for bulk editing. The ERP stays unconnected until a lat
 | P0 · P0.1 · P0.2 | done 2026-09-02 | Only a dispatched chunk finishing from a label; see F26 and W128 |
 | P1 · P1.1 · P1.2 | done 2026-09-04/05 | Only "every visible product looks real", which waits on the owner's curation (W126) |
 | **P2** (P2a → P2b-3) | **closed** 2026-09-11 | Web DB schema v2 under RLS (W153, W159); the first on-demand route `/api/health` on Hobby (W158). Carried: F64, F68, Dependabot #84 (W114; a major) |
-| **P3** Admin Mode (owner's top priority, W082) | next | The P3 block below. **Exit:** an editor works without a programmer or a Sanity seat; every change is attributable; prices entered while `prices_visible` is OFF |
+| **P3** Admin Mode (owner's top priority, W082) | in progress | The P3 block below. **Exit:** an editor works without a programmer or a Sanity seat; every change is attributable; prices entered while `prices_visible` is OFF |
 | **P4** customer accounts | — | Sign-up/login, tier (default 1), price island, stock, promotions, `require_approval`; hidden = 404 without staff (W077). **Exit:** tiers 1/2/3/none see exactly their prices |
 | **P5** public UX (parallel to P3–P4) | — | Homepage repositioning, brand strip, category imagery and `/categories/[slug]` (W041), featured/new, search + filters, badge cards, related products, trust strip, service page, showroom map (decision-gated), View Transitions, Lighthouse, static-page JSON-LD, LocalBusiness after W088. AR through batched review (W125) |
 | **L** launch bundle (W027) | one event | Vercel Pro (W090), spend cap, Cloudflare, `jahjah.net`, CORS, `site` URL, webhook check, analytics + WhatsApp events, share-cache refresh, Search Console, Bing, Business Profile, editor invites |
@@ -28,12 +28,12 @@ Studio stays at `/admin` for bulk editing. The ERP stays unconnected until a lat
 
 **The P3 block (W082):**
 - **Owner precondition:** `SANITY_WRITE_TOKEN` (W079), created at P3 start; server env only.
-- **Staff session:** roles admin/editor/sales, TOTP enrolment to `aal2` (W080); each route named by its plan (W074).
+- **Staff session:** done P3-B1 (#104) — roles admin/editor/sales, TOTP enrolment to `aal2` (W080, W167); the five `/api/staff/*` routes named by that plan (W074).
 - **Server write routes:** content to Sanity with `SANITY_WRITE_TOKEN`, commerce to the web DB under RLS; every write audited (W080).
 - **Pencil** on the live page: name, description, specs, images, status, visibility, 3 tier prices, promo.
 - **`/admin-mode` panel:** filters, search, bulk status, customers + tiers, settings; Studio deep-link.
 - **Audit viewer:** `audit_log` by actor, table, date.
-- **First:** F51/F50 done (P3-1a); next P3-B1.
+- **First:** F51/F50 done (P3-1a); P3-B1 done; next P3-B2 write routes.
 
 ## 3. FOLLOW-UP REGISTER (open rows only)
 
@@ -61,9 +61,11 @@ Studio stays at `/admin` for bulk editing. The ERP stays unconnected until a lat
 | F64 | med | Web-DB `pg_dump` added to `jahjah-web-backup`: an ERP-side unit, needs the DB connection string in the VPS env (W083). Until then the free project pauses after ~1 week idle (W091) | the nightly backup dumps the web DB and `-backup-check` verifies it |
 | F66 | low | `grep -c '^SUPABASE_' .env.local` (a count-only preflight step) ran in P2b-2's first session and was refused on resume. Names were then proven by the processes that read them | a plan's env check uses a process-based check, or the owner adds an allow rule |
 | F68 | high | `stock_visible` ignores `stock_display = 'hidden'` (Codex P2, #90); 0 users today. From F65: `getStockStatusForSkus()` on the view, SKUs validated before `.in()`, tier `none` vs untiered promotions (W081) | a GATE 1 migration + the reader, before sign-in (P4) |
-| F69 | med | No preview DB: DB-backed routes answer 503 on previews (W161) | P3+ gives previews a keyless DB or rules 503 permanent |
-| F71 | low | Stale after P3-1a: `README.md` line 61 calls `SANITY_WRITE_TOKEN` local-only (it is in Vercel Production since 2026-09-11); `src/utils/sanity.js` lines 75-76 say no page renders `sku` (the Product JSON-LD does, W165) | a chunk naming those files rewords them |
+| F69 | med | **No preview Supabase environment at all**, measured 2026-09-12 (P3-B1): not just the service key — `SUPABASE_URL` is unset on Preview too, so every DB and auth route answers 503/500 there and no preview can exercise one (W161) | the owner adds `SUPABASE_URL` + `SUPABASE_ANON_KEY` to Preview, or 503/500 on previews is ruled permanent |
 | F72 | med | 21 of the 22 products have no variant, so they carry no SKU and no price or stock row can key on them. W076 wants ≥ 1 variant per product; the Studio still allows none, and the catalogue is placeholder (W007). Raised by Codex on #103 | real products replace the placeholders with ≥ 1 variant each, or a chunk amends W076 |
+| F73 | high | An MFA reset does not end the account's sessions (P3-B1, measured): after `staff-mfa-reset`, the existing access token keeps `aal2` until it expires and the refresh token is not revoked, though it renews at `aal1`. A lost device keeps write access for up to the token lifetime, and read-level session access after that; `staff-remove` + re-add is the only full cut-off | a session-revocation path exists (a GoTrue admin sign-out, or a shorter access-token lifetime the owner sets), or the residual is ruled acceptable |
+| F74 | med | `tier3-guard`'s path regex does not cover `src/pages/api/**`, so a Tier-3 route change is not machine-checked for the authorization line (raised by the reviewer on #106) | the workflow's regex covers on-demand routes, or the gap is ruled acceptable |
+| F75 | low | TOTP enrolment passes no `issuer`, so authenticator apps label the account with the project default rather than Jahjah. Changing it later means re-enrolling everyone; nobody has enrolled yet | the screens chunk (card #96) sets `issuer` before the first real enrolment |
 
 ## 4. OPEN DECISIONS (owner's)
 

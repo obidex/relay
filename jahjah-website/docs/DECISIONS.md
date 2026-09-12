@@ -185,30 +185,24 @@
 
 ## P2b-2 execution (2026-09-11)
 
-- **W153** LOCKED. Web DB schema v1 is `supabase/migrations/20260911000000_p2b2_foundation.sql` as applied (#86). It has seven tables (`staff`, `customers`, `settings` with six keys: W081's four, plus `currency` (W066) and `tier_names` (F7), `prices`, `promotions`, `stock`, `audit_log`), an audit trigger on six of them, and the sign-up trigger (W081).
-  RLS rests on three principles:
-  - Every table denies by default.
-  - The service key is server-only and bypasses RLS (W079), so the caller of a `src/lib` reader is the gate.
-  - Staff writes need `aal2` (TOTP, W080).
-  Supabase's `rls_auto_enable()` and `ensure_rls` are platform-owned (the owner's "Enable automatic RLS") and are never versioned, so "`db diff` empty" means empty beyond them (ruling 2026-09-11).
-  Two residuals stand until F65: anon can EXECUTE the helpers through `PUBLIC`, and customers' `stock` reads return `quantity`.
-- **W154** LOCKED. Every web-DB change is a file in `supabase/migrations/`, applied by `supabase db push` from the executor's linked clone. GATE 1 shows every migration verbatim in the plan, and the file is extracted from the issue body, never retyped.
-  A push is proven three ways: `migration list` (local = remote), `db diff --linked` (W153), and `scripts/db-smoke.mjs` (counts only; exit 2 on a mismatch, 3 on an anon row).
-  The CLI's access token and DB password are exported for one command and never reach the runtime or `src/lib/env.ts`.
-- **W155** LESSON. On Supabase, `revoke execute … from anon` is inert while `PUBLIC` holds EXECUTE. RLS policies call their helpers with the caller's privileges, so a real revoke turns anon's empty reads into permission errors. Probe with the publishable key before trusting a revoke.
-- **W156** LESSON. RLS filters rows, never columns: a policy that lets a role read a table hands that role every column. Hide a column with a view, an RPC or column grants (Codex P1, #86).
-- **W157** LESSON. A plan's "expect: no diff" must allow for what the platform provisions at project creation. Measure a fresh project's `db diff` before writing the expectation.
+- **W153** LOCKED. Web DB schema v1 = `supabase/migrations/20260911000000_p2b2_foundation.sql` as applied (#86): 7 tables (`staff`, `customers`, `settings` with 6 keys — W081's four plus `currency` (W066), `tier_names` (F7) — `prices`, `promotions`, `stock`, `audit_log`), an audit trigger on six, the sign-up trigger (W081).
+  RLS: every table denies by default; the service key bypasses it (W079), so a `src/lib` reader's caller is the gate; staff writes need `aal2` (W080). `rls_auto_enable()`/`ensure_rls` are platform-owned and unversioned, so "`db diff` empty" means beyond them (2026-09-11). F65's residuals: closed by W159.
+- **W154** LOCKED. Every web-DB change is a file in `supabase/migrations/` applied by `supabase db push` from the linked clone; GATE 1 shows it verbatim in the plan and the file is extracted from the issue body, never retyped.
+  Proven three ways: `migration list` (local = remote), `db diff --linked` (W153), `scripts/db-smoke.mjs` (counts only; exit 2 on a mismatch, 3 on an anon row; `audit` reported, not compared, since P3-B1). The CLI's token and DB password are exported for one command, never reaching the runtime.
+- **W155** LESSON. `revoke execute … from anon` is inert while `PUBLIC` holds EXECUTE. RLS policies call helpers with the caller's privileges, so a real revoke turns anon's empty reads into permission errors. Probe with the publishable key before trusting a revoke.
+- **W156** LESSON. RLS filters rows, never columns: a policy letting a role read a table hands it every column. Hide one with a view, an RPC or column grants (Codex P1, #86).
+- **W157** LESSON. A plan's "expect: no diff" must allow for what the platform provisions at project creation: measure a fresh project's `db diff` first.
 
 ## P2b-3 execution (2026-09-11)
 
-- **W158** LOCKED (amends W090, owner). `GET /api/health` is the first on-demand route (#91): a service-client settings read, 200 `{"ok":true,"db":"ok"}` or 503, `no-store`. It proved function + env + web DB on Hobby.
-  W090 now: Vercel Pro is a prerequisite of launch (domain, prices, login), not of an on-demand route; Hobby's limit is its non-commercial terms, which the static site already carries.
-- **W159** LOCKED. Hardening v2 (#90): anon and `PUBLIC` hold no table, view or function privilege, so visitors get 42501 (supersedes F65's "0 rows"); `stock` is staff-only, signed-in users read `stock_visible` (sku, status, updated_at).
-  LESSON: revoke `authenticated` on any `security_invoker = false` view before granting; Supabase's default ACL grants it everything, and the view writes as its RLS-exempt owner.
+- **W158** LOCKED (amends W090, owner). `GET /api/health` was the first on-demand route (#91): a service-client settings read, 200 `{"ok":true,"db":"ok"}` or 503, `no-store`, proving function + env + web DB on Hobby. W090 now: Vercel Pro is a prerequisite of launch (domain, prices, login), not of an on-demand route; Hobby's limit is its non-commercial terms, which the static site already carries.
+- **W159** LOCKED. Hardening v2 (#90): anon and `PUBLIC` hold no table, view or function privilege, so visitors get 42501 (supersedes F65's "0 rows"); `stock` is staff-only, signed-in users read `stock_visible` (sku, status, updated_at). LESSON: revoke `authenticated` on any `security_invoker = false` view before granting — Supabase's default ACL grants it everything and the view writes as its RLS-exempt owner.
 - **W160** LOCKED. The executor's Supabase MCP (`.mcp.json`, `read_only=true`) is available, optional. The strategist may use the org's Supabase connector read-only on `jahjah-web`.
-- **W161** LOCKED. `SUPABASE_SERVICE_ROLE_KEY` is in Vercel Production only; `SUPABASE_URL`/`SUPABASE_ANON_KEY` in Production + Preview. Public previews build any branch, so DB routes answer 503 there (F69).
+- **W161** LOCKED, corrected by P3-B1. `SUPABASE_SERVICE_ROLE_KEY` is in Vercel Production only; `SUPABASE_URL`/`SUPABASE_ANON_KEY` were recorded as Production + Preview but measured 2026-09-12 **Preview has neither**, so a DB or auth route answers 503/500 there and is tested against the built function locally, then production (F69).
 - **W162** LESSON. Relay report filenames are unique per publish (`-blocked-N`, `-progress-N`, `-final`): list the folder first, never overwrite.
 - **W163** LESSON. Run a GATE 1 migration on a throwaway local Supabase Postgres before the push; here it caught a view write path the approved text missed.
 - **W164** LESSON. An on-demand route switches Astro to server output: pages move to `dist/client/`, so every `dist/` reader follows; `/_image` joins the function (F67).
 - **W165** LOCKED. SKU scheme `BRAND-MODEL8[-COLOR2]` from `scripts/backfill-sku.mjs` (#97, run once); `sku` required since P3-1a; immutability is a writer policy (backfill, Admin Mode), not a Studio property; Product JSON-LD emits the first variant's `sku`.
 - **W166** LOCKED. Advisors v3 (#97): `search_path` pinned everywhere; trigger functions not executable by `authenticated`; the five RLS helpers stay executable by design (W155); `/_image` answers 404 — the site serves images from the Sanity CDN only (F67).
+- **W167** LOCKED. Staff session (P3-B1, #104): cookies via `@supabase/ssr` (`getAll`/`setAll` on Astro's jar), `HttpOnly; Secure; SameSite=Lax; Path=/`, no `Max-Age` — a shared showroom PC forgets the login; identity from `getClaims()` (`sub`, `aal`), never `getSession()`; the caller's own session + RLS is the gate, no request path holds the service key; `aal2` is the JWT claim after `mfa.verify`; non-staff gets 403 and that jar is cleared; every failure body is `{"ok":false}`.
+  Recovery = owner-run `scripts/staff-mfa-reset.mjs`; no recovery codes in v1. Measured, correcting the design as drafted: deleting a factor does NOT sign sessions out, it only costs the session `aal2` at its next renewal — a lost device needs `staff-remove` + re-add (F73).
