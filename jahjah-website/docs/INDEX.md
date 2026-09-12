@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `e467302ea9820c355a948f1c9df392ce5be1b896`
-**Commit subject:** feat(scripts): owner-run staff account, MFA-reset and removal tools (P3-B1 T3) (#107)
-**Copied (UTC):** 2026-09-12T03:07:04Z
+**Mirrored commit:** `80759a2a68e1fce61b6ae4c6f310752ea13c8411`
+**Commit subject:** test(scripts): end-to-end staff session smoke, cleanup that cannot be skipped (P3-B1 T4) (#108)
+**Copied (UTC):** 2026-09-12T04:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -22,7 +22,7 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 | `STATE.md` | 8181 | `docs/STATE.md` |
 | `ROADMAP.md` | 9492 | `docs/ROADMAP.md` |
 | `DECISIONS.md` | 25013 | `docs/DECISIONS.md` |
-| `reference/site.md` | 11539 | `docs/reference/site.md` |
+| `reference/site.md` | 11720 | `docs/reference/site.md` |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it
 looks old, that may only mean nothing merged. Liveness is
