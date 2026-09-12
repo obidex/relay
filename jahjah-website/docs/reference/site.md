@@ -22,6 +22,11 @@
 | /about | page | prerendered | src/pages/about.astro |
 | /admin/[...all] | page | prerendered | src/pages/admin/[...all].astro |
 | /api/health | endpoint | **on-demand** | src/pages/api/health.ts |
+| /api/staff/login | endpoint | **on-demand** | src/pages/api/staff/login.ts |
+| /api/staff/logout | endpoint | **on-demand** | src/pages/api/staff/logout.ts |
+| /api/staff/me | endpoint | **on-demand** | src/pages/api/staff/me.ts |
+| /api/staff/mfa/enroll | endpoint | **on-demand** | src/pages/api/staff/mfa/enroll.ts |
+| /api/staff/mfa/verify | endpoint | **on-demand** | src/pages/api/staff/mfa/verify.ts |
 | /ar/about | page | prerendered | src/pages/ar/about.astro |
 | /ar/brands | page | prerendered | src/pages/ar/brands.astro |
 | /ar/brands/[slug] | page | prerendered | src/pages/ar/brands/[slug].astro |
@@ -38,7 +43,7 @@
 | /products | page | prerendered | src/pages/products.astro |
 | /products/[slug] | page | prerendered | src/pages/products/[slug].astro |
 
-On-demand routes: **1**. Every on-demand route must be named by the chunk plan that introduced it (W074).
+On-demand routes: **6**. Every on-demand route must be named by the chunk plan that introduced it (W074).
 
 ## Components and their props
 

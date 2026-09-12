@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `24bfda5180df0528cb3ffc66ff3b026d5d6f24de`
-**Commit subject:** feat(auth): cookie staff session library + middleware hook (P3-B1 T1) (#105)
-**Copied (UTC):** 2026-09-12T01:07:04Z
+**Mirrored commit:** `fea51bfc517c0777d24334b98d9644d0bde47ad7`
+**Commit subject:** feat(api): five authenticated staff routes, aal1 to aal2 (P3-B1 T2) (#106)
+**Copied (UTC):** 2026-09-12T02:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -22,7 +22,7 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 | `STATE.md` | 8181 | `docs/STATE.md` |
 | `ROADMAP.md` | 9492 | `docs/ROADMAP.md` |
 | `DECISIONS.md` | 25013 | `docs/DECISIONS.md` |
-| `reference/site.md` | 10629 | `docs/reference/site.md` |
+| `reference/site.md` | 11040 | `docs/reference/site.md` |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it
 looks old, that may only mean nothing merged. Liveness is
