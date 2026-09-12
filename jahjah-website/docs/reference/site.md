@@ -194,8 +194,8 @@ EN/AR key sets: **SYMMETRIC**
 | `SANITY_READ_TOKEN` | server-only | src/utils/sanity.js, scripts/hidden-products-check.mjs |
 | `SUPABASE_ANON_KEY` | server-only | src/lib/env.ts, scripts/db-smoke.mjs |
 | `SUPABASE_PROJECT_REF` | server-only | src/lib/env.ts |
-| `SUPABASE_SERVICE_ROLE_KEY` | server-only | src/lib/env.ts, scripts/db-smoke.mjs |
-| `SUPABASE_URL` | server-only | src/lib/env.ts, scripts/db-smoke.mjs |
+| `SUPABASE_SERVICE_ROLE_KEY` | server-only | src/lib/env.ts, scripts/db-smoke.mjs, scripts/staff-add.mjs, scripts/staff-mfa-reset.mjs, scripts/staff-remove.mjs |
+| `SUPABASE_URL` | server-only | src/lib/env.ts, scripts/db-smoke.mjs, scripts/staff-add.mjs, scripts/staff-mfa-reset.mjs, scripts/staff-remove.mjs |
 
 ## Dependencies (`package.json`)
 
@@ -227,6 +227,9 @@ Engines: `{"node":">=22.12.0"}` · Scripts: `dev`, `build`, `preview`, `astro`, 
 | scripts/hidden-products-check.mjs | hidden-products-check.mjs — assert that no hidden product reached the build (W077). |
 | scripts/migrate-brand-copy.mjs | One-shot patch: writes nameEn, nameAr, shortDescriptionEn, shortDescriptionAr, |
 | scripts/migrate-to-sanity.mjs | Migrates all products, brands, and categories from the static JS data |
+| scripts/staff-add.mjs | staff-add.mjs — create (or adopt) an auth user and give it an Admin Mode role (P3-B1, issue #104). |
+| scripts/staff-mfa-reset.mjs | staff-mfa-reset.mjs — the lost-phone recovery (P3-B1, issue #104; W167). |
+| scripts/staff-remove.mjs | staff-remove.mjs — delete a staff account outright (P3-B1, issue #104). |
 | scripts/verify.sh | verify.sh — the compiled-output verification ritual (W046, W047, W019, W033, W077). |
 | .github/dependabot.yml | Dependency updates, weekly, in as few pull requests as possible. |
 | .github/workflows/ci.yml | CI |
