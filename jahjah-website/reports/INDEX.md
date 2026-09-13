@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-12T04:25:39Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-13T06:00:04Z by `jahjah-retention`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website/reports/<name>`.
@@ -22,20 +22,9 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-we
 | `2026-09-12-p3-b1-staff-session-progress-4.md` | 2026-09-12T03:57:57Z | P3-B1 T4 is merged and the whole chunk now has its proof: run against production, the staff session passes ... |
 | `2026-09-12-p3-b1-staff-session-progress-3.md` | 2026-09-12T03:05:18Z | P3-B1 T3 is merged: the owner now has three commands for staff accounts — add, reset the authenticator, rem... |
 | `2026-09-12-p3-b1-staff-session-progress-2.md` | 2026-09-12T01:49:29Z | P3-B1 T2 is merged and live: a staff member can now sign in, enrol a TOTP authenticator and reach `aal2`, p... |
-| `2026-09-12-p3-b1-staff-session-final.md` | 2026-09-12T04:25:39Z | A staff member can now sign in to the site with an email and password, enrol an authenticator app, type the... |
+| `2026-09-12-p3-b1-staff-session-final.md` | 2026-09-12T04:25:40Z | A staff member can now sign in to the site with an email and password, enrol an authenticator app, type the... |
 | `2026-09-11-p3-1a-sku-advisors-progress.md` | 2026-09-11T18:51:23Z | P3-1a progress 1 of issue #97: T1 is merged. The Studio packages `sanity` and `@sanity/vision` moved from 5... |
 | `2026-09-11-p3-1a-sku-advisors-progress-4.md` | 2026-09-11T21:32:02Z | P3-1a progress 4 of issue #97: T2 is merged (#99, `216d2cc`) after you ran the migration push. The web DB i... |
 | `2026-09-11-p3-1a-sku-advisors-progress-3.md` | 2026-09-11T19:10:55Z | P3-1a progress 3 of issue #97: T4 is merged (#102, `b594274`). Astro's `/_image` endpoint now answers 404 o... |
 | `2026-09-11-p3-1a-sku-advisors-progress-2.md` | 2026-09-11T19:06:59Z | P3-1a progress 2 of issue #97: T3 is merged (#101, `b34e9a7`). Every variant in Sanity now carries its SKU:... |
 | `2026-09-11-p3-1a-sku-advisors-final.md` | 2026-09-11T22:42:37Z | P3-1a is done (issue #97, card #93). Every product variant now carries its immutable SKU, the key that Admi... |
-| `2026-09-11-p3-1a-sku-advisors-blocked.md` | 2026-09-11T19:11:32Z | P3-1a is blocked on issue #97: T1, T3 and T4 are merged and live, but T2's web-DB migration is not applied.... |
-| `2026-09-11-p2b-3-first-route-progress.md` | 2026-09-11T12:54:30Z | P2b-3 T1 is merged: the web DB's F65 hardening migration (amendment 5's SQL, verbatim) is applied. Visitors... |
-| `2026-09-11-p2b-3-first-route-progress-2.md` | 2026-09-11T17:23:26Z | P2b-3 T2 is merged. `/api/health` is live in production and answers 200 `{"ok":true,"db":"ok"}` after a rea... |
-| `2026-09-11-p2b-3-first-route-final.md` | 2026-09-11T17:41:02Z | P2b-3 is done, and with it P2 is closed. The web DB is hardened: visitors get a permission error on every t... |
-| `2026-09-11-p2b-3-first-route-blocked.md` | 2026-09-11T10:55:30Z | P2b-3 stopped in preflight, before T0, and nothing was written anywhere. The Vercel team is still on the Ho... |
-| `2026-09-11-p2b-3-first-route-blocked-3.md` | 2026-09-11T13:05:37Z | P2b-3 stopped at T2's preview check, by the plan's own STOP rule. The `/api/health` route is built, reviewe... |
-| `2026-09-11-p2b-3-first-route-blocked-2.md` | 2026-09-11T13:05:41Z | P2b-3 stopped again before its first write: the migration was never pushed, and no branch, PR, deployment o... |
-| `2026-09-11-p2b2-webdb-progress.md` | 2026-09-11T09:11:29Z | The chunk resumed under the strategist's ruling A, and T1 is merged: the web database's foundation migratio... |
-| `2026-09-11-p2b2-webdb-progress-2.md` | 2026-09-11T09:23:52Z | T2 is merged: the website's server code now has typed readers for the web database's settings, prices, prom... |
-| `2026-09-11-p2b2-webdb-final.md` | 2026-09-11T09:36:55Z | P2b-2 is done. The website has its own database (Supabase project #2), with the approved schema applied exa... |
-| `2026-09-11-p2b2-webdb-blocked.md` | 2026-09-11T08:52:40Z | The web database now has its schema: the one approved migration was applied verbatim, the tables are empty,... |
