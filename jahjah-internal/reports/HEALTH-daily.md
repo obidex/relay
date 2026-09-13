@@ -2,7 +2,7 @@
 
 <!-- index: daily health — OK, all 12 automations alive -->
 
-**Generated (UTC):** 2026-09-12T05:00:04Z · **Verdict:** **OK** — everything below is within normal bounds.
+**Generated (UTC):** 2026-09-13T05:00:04Z · **Verdict:** **OK** — everything below is within normal bounds.
 
 Overwritten in place once a day. Git history is the archive — the previous days are in
 this file's commit log, not in extra files. **If the timestamp above is more than ~26 hours
@@ -15,18 +15,18 @@ a timer can be `enabled` and still have no next elapse, in which case it never f
 
 | Job | Enabled | Last run | Result | Consecutive failures | Next run (UTC) | Last run said |
 |---|---|---|---|---|---|---|
-| `jahjah-backup` | enabled | 2h 59m ago | success | 0 / 3 | 2026-09-13 02:00 | ok: 2.2M in 3s, 95 tables, 7 kept, 1 rotated out |
-| `jahjah-erp-dispatch` | enabled | 1m ago | success | 0 / 3 | 2026-09-12 05:01 | ok: idle — nothing approved |
+| `jahjah-backup` | enabled | 2h 59m ago | success | 0 / 3 | 2026-09-14 02:00 | ok: 2.2M in 3s, 95 tables, 7 kept, 1 rotated out |
+| `jahjah-erp-dispatch` | enabled | 1m ago | success | 0 / 3 | 2026-09-13 05:01 | ok: idle — nothing approved |
 | `jahjah-health` | enabled | running now | success | 0 / 3 | (running now) | ok: published HEALTH-daily.md — 0 attention item(s), 12 job(s) in the ledger |
-| `jahjah-retention` | enabled | 10h 53m ago | success | 0 / 3 | 2026-09-13 06:00 | ok: 2 folder(s), 38 pruned · branches: 0 deleted |
-| `jahjah-scan-gitleaks` | enabled | 5d 0h ago | success | 0 / 3 | 2026-09-14 04:00 | ok: published SCAN-gitleaks.md — 0 hit(s) across 813 commits |
-| `jahjah-scan-trivy` | enabled | 5d 1h ago | success | 0 / 3 | 2026-09-14 03:00 | ok: published SCAN-trivy.md — 6 targets, 10 critical, 150 high, 181 medium, 132 low |
-| `jahjah-sql-live` | enabled | 1h 44m ago | success | 0 / 3 | 2026-09-13 03:15 | ok: 28/28 suites passed against live in 12s at 07734cd (migrations in step) |
-| `jahjah-web-backup-check` | enabled | 5d 1h ago | success | 0 / 3 | 2026-09-14 03:30 | ok: OK — sanity-production-20260907-023004.tar.gz (0h old): product=22 ok; brand=5 ok; c |
-| `jahjah-web-backup` | enabled | 2h 29m ago | success | 0 / 3 | 2026-09-13 02:30 | ok: 62K in 2s, 33 documents, 7 kept, 1 rotated out |
+| `jahjah-retention` | enabled | 1d 10h ago | success | 0 / 3 | 2026-09-13 06:00 | ok: 2 folder(s), 38 pruned · branches: 0 deleted |
+| `jahjah-scan-gitleaks` | enabled | 6d 0h ago | success | 0 / 3 | 2026-09-14 04:00 | ok: published SCAN-gitleaks.md — 0 hit(s) across 813 commits |
+| `jahjah-scan-trivy` | enabled | 6d 1h ago | success | 0 / 3 | 2026-09-14 03:00 | ok: published SCAN-trivy.md — 6 targets, 10 critical, 150 high, 181 medium, 132 low |
+| `jahjah-sql-live` | enabled | 1h 44m ago | success | 0 / 3 | 2026-09-14 03:15 | ok: 28/28 suites passed against live in 12s at 07734cd (migrations in step) |
+| `jahjah-web-backup-check` | enabled | 6d 1h ago | success | 0 / 3 | 2026-09-14 03:30 | ok: OK — sanity-production-20260907-023004.tar.gz (0h old): product=22 ok; brand=5 ok; c |
+| `jahjah-web-backup` | enabled | 2h 29m ago | success | 0 / 3 | 2026-09-14 02:30 | ok: 62K in 2s, 33 documents, 7 kept, 1 rotated out |
 | `jahjah-web-dispatch` | enabled | running now | success | 0 / 3 | (running now) | ok: idle — nothing approved |
-| `jahjah-web-docs` | enabled | 22m ago | success | 0 / 3 | 2026-09-12 05:07 | ok: mirrored 96aa8a3, 6 file(s), 0 absent |
-| `jahjah-web-truth` | enabled | 4d 23h ago | success | 0 / 3 | 2026-09-14 05:30 | ok: build **clean**, 68 page(s), 1 live issue(s) |
+| `jahjah-web-docs` | enabled | 22m ago | success | 0 / 3 | 2026-09-13 05:07 | ok: no change (96aa8a3) |
+| `jahjah-web-truth` | enabled | 5d 23h ago | success | 0 / 3 | 2026-09-14 05:30 | ok: build **clean**, 68 page(s), 1 live issue(s) |
 
 A job disables its own timer after **3 consecutive failures** and publishes
 `ALERT-<job>-disabled.md` next to this file.
@@ -62,7 +62,7 @@ conditions fail is skipped rather than failed, so freshness is the only signal t
 | | |
 |---|---|
 | Verdict | **OK** |
-| Last checked | 5d 1h ago |
+| Last checked | 6d 1h ago |
 | Detail | sanity-production-20260907-023004.tar.gz (0h old): product=22 ok; brand=5 ok; category=6 ok; 3 image reference(s), all present; 3 image file(s) in the archive; 33 documents total |
 
 `jahjah-web-backup-check`, Mondays 03:30 UTC: it unpacks the newest archive and compares its
@@ -75,17 +75,17 @@ failed job, so it never appears in the fleet table — only here.
 
 | | |
 |---|---|
-| Disk `/` | 23G used of 38G (62%), 14G free |
-| Memory | 902 MB used of 3819 MB (23%), 2917 MB available |
+| Disk `/` | 23G used of 38G (63%), 14G free |
+| Memory | 859 MB used of 3819 MB (22%), 2960 MB available |
 | Swap | 99 MB used of 4095 MB (2%) |
-| Load | 0.03, 0.01, 0.00 (over 2 cores) |
-| Uptime | 1 week, 6 days, 7 hours, 37 minutes |
+| Load | 0.04, 0.02, 0.00 (over 2 cores) |
+| Uptime | 2 weeks, 7 hours, 37 minutes |
 
 ## SSH attack blocking (fail2ban — active)
 
 | Jail | Banned in last 24h | Currently banned | Banned ever |
 |---|---|---|---|
-| `sshd` | 40 | 0 | 36 |
+| `sshd` | 7 | 0 | 73 |
 
 Counts only. Addresses are deliberately not published.
 
@@ -95,10 +95,10 @@ Counts only. Addresses are deliberately not published.
 
 | Peer | Last handshake |
 |---|---|
-| peer 1 | 53m ago |
-| peer 2 | 2m ago |
-| peer 3 | 14h 45m ago |
-| peer 4 | 2d 16h ago |
+| peer 1 | 5h 24m ago |
+| peer 2 | 1m ago |
+| peer 3 | 1d 14h ago |
+| peer 4 | 3d 16h ago |
 | peer 5 | never |
 | peer 6 | never |
 
@@ -108,14 +108,14 @@ Peers are numbered, not named. Keys and endpoint addresses are deliberately not 
 
 | Container | State | Status |
 |---|---|---|
-| `portainer` | running | Up 11 days |
+| `portainer` | running | Up 12 days |
 
 ## Chunk lanes
 
 | Lane | Repository | Heartbeat state | Heartbeat age | In flight | For | Chunk fails | Usage cap |
 |---|---|---|---|---|---|---|---|
-| `jahjah-web-dispatch` | `obidex/jahjah-website` | OK — idle, no `chunk:approved` issue open | 38m ago | none | — | 0/3 | — |
-| `jahjah-erp-dispatch` | `obidex/jahjah-internal` | OK — idle, no `chunk:approved` issue open | 33m ago | none | — | 0/3 | — |
+| `jahjah-web-dispatch` | `obidex/jahjah-website` | OK — idle, no `chunk:approved` issue open | 22m ago | none | — | 0/3 | — |
+| `jahjah-erp-dispatch` | `obidex/jahjah-internal` | OK — idle, no `chunk:approved` issue open | 19m ago | none | — | 0/3 | — |
 
 Both lanes are the SAME script with a different parameter file (`D230`). Each picks up
 `chunk:approved` issues on its own repository every 2 minutes and runs them on this box.
@@ -136,11 +136,7 @@ as an attention item so it is never a surprise.
 
 | Dispatched (UTC) | Lane | Issue | A chunk was already running when it was approved? |
 |---|---|---|---|
-| 2026-09-11T09:31:08Z | `ERP` | #134 | no |
-| 2026-09-11T09:35:06Z | `ERP` | #135 | no |
-| 2026-09-11T10:05:06Z | `ERP` | #145 | no |
-| 2026-09-12T00:01:08Z | `ERP` | #157 | no |
-| 2026-09-12T01:05:14Z | `ERP` | #158 | no |
+| _none_ | | | |
 
 This is the **detective control** that replaced the retired approval-window check
 (`D237`). A dispatched chunk runs with this box's own GitHub credential — the same account
