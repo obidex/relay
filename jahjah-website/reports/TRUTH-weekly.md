@@ -5,7 +5,7 @@
 > **World-readable file. Commit subjects appear here — website strategist: confirm this is
 > acceptable or request hashes-only.**
 
-**Generated (UTC):** 2026-09-07T05:30:04Z · by `jahjah-web-truth` on the VPS work engine · **overwritten weekly**
+**Generated (UTC):** 2026-09-14T05:30:04Z · by `jahjah-web-truth` on the VPS work engine · **overwritten weekly**
 
 An outside reading of `obidex/jahjah-website`, taken without touching it. This job never
 pushes to that repo, never edits its files, never touches Vercel or Sanity, and never applies
@@ -24,7 +24,7 @@ use this copy — it uses a throwaway clone taken fresh from `origin/master`.
 | HEAD | `9bdcb40` — docs: update Claude project status |
 | Working tree | clean |
 | Ahead of `origin/master` | 0 commit(s) |
-| Behind `origin/master` | 29 commit(s) |
+| Behind `origin/master` | 61 commit(s) |
 
 ### Last 10 commits
 
@@ -45,7 +45,7 @@ use this copy — it uses a throwaway clone taken fresh from `origin/master`.
 
 ## 2. Clean build on Linux
 
-`npm ci && npm run build` in a **fresh clone** of `origin/master` at `4b45dbc`, made this run and deleted next run.
+`npm ci && npm run build` in a **fresh clone** of `origin/master` at `96aa8a3`, made this run and deleted next run.
 The website is developed on Windows, so this is the check that a case-sensitive filesystem
 still resolves every import.
 
@@ -54,12 +54,12 @@ still resolves every import.
 | Result | **clean** |
 | Exit code | 0 |
 | Pages built | 68 |
-| Duration | 43 s |
-| `dist/` size | 10M |
+| Duration | 12 s |
+| `dist/` size | 11M |
 
 Notable build output:
 
-    05:31:07 [WARN] [vite] [plugin vite-plugin-sanity-studio-chunk-warning] Some chunks are larger than 500 kB after minification. Consider:
+    05:30:34 [WARN] [vite] [plugin vite-plugin-sanity-studio-chunk-warning] Some chunks are larger than 500 kB after minification. Consider:
     The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
 
 -----
@@ -74,12 +74,6 @@ on one line would count as one — under-reporting exactly the pages carrying th
 
 | Page type | Pages | Blocks | Pages with none | `@type`s present |
 |---|---|---|---|---|
-| home (EN+AR) | 2 | 2 | 0 | Country, Organization, Place, PostalAddress |
-| product detail | 44 | 46 | 0 | Brand, BreadcrumbList, ListItem, Product |
-| brand detail | 10 | 20 | 0 | Brand, BreadcrumbList, ListItem |
-| listing pages | 4 | 0 | 4 | — |
-| static pages | 7 | 0 | 7 | — |
-| studio mount | 1 | 0 | 1 | — |
 
 ### Head links
 
@@ -88,23 +82,23 @@ on one line would count as one — under-reporting exactly the pages carrying th
 | `hreflang` links | 198 | 66 / 68 |
 | `og:image` tags | 67 | 67 / 68 |
 
-No `hreflang`: `404.html admin/index.html`
+No `hreflang`: `client/404.html client/admin/index.html`
 
-No `og:image`: `admin/index.html`
+No `og:image`: `client/admin/index.html`
 
 ### Images (content pages, Studio excluded)
 
 | Check | Count |
 |---|---|
 | `<img>` tags | 10 |
-| `loading="lazy"` | 0 |
-| `srcset=` | 0 |
+| `loading="lazy"` | 8 |
+| `srcset=` | 10 |
 
 ### Real photos vs placeholder
 
 | Check | Count |
 |---|---|
-| built pages: Sanity CDN image refs | 36 |
+| built pages: Sanity CDN image refs | 72 |
 | built pages: placeholder refs | 0 |
 
 ### RTL rules in `dist/_astro/*.css`
@@ -115,25 +109,12 @@ clean bill of health.
 
 | Stylesheet | `[dir=rtl]` (compiled form) | `[dir="rtl"]` (source form) |
 |---|---|---|
-| `Layout.B2KQ5eIl.css` | 7 | 0 |
-| `ProductDetail.BChhaZZQ.css` | 2 | 0 |
 
 RTL selectors in compiled order — at equal specificity, source order decides the cascade:
 
-    Layout.B2KQ5eIl.css: [dir=rtl] h1,[dir=rtl] h2,[dir=rtl] h3
-    Layout.B2KQ5eIl.css: [dir=rtl] .icon-flip-rtl
-    Layout.B2KQ5eIl.css: html[dir=rtl] .mobile-panel[data-astro-cid-sckkx6r4]
-    Layout.B2KQ5eIl.css: html.menu-open .mobile-panel[data-astro-cid-sckkx6r4],html[dir=rtl].menu-open .mobile-panel[data-astro-cid-sckkx6r4]
-    Layout.B2KQ5eIl.css: [data-astro-cid-sckkx6r4][dir=rtl] .footer-heading[data-astro-cid-sckkx6r4]
-    ProductDetail.BChhaZZQ.css: html[dir=rtl] .breadcrumb[data-astro-cid-bnnekw4u] li[data-astro-cid-bnnekw4u]+li[data-astro-cid-bnnekw4u]:before
-    ProductDetail.BChhaZZQ.css: [data-astro-cid-bnnekw4u][dir=rtl] .product-name[data-astro-cid-bnnekw4u]
+    (no [dir=rtl] rules in the compiled CSS)
 
-**Dead RTL rules found.** `dir` lives on `<html>`, which carries the layout's scope id.
-Astro attaches a component's own scope id to a leading attribute selector, so an RTL rule
-written as `[dir="rtl"] .x` inside any other component compiles to a selector that requires
-one element to hold both ids — which no element does:
-
-- `[data-astro-cid-bnnekw4u][dir=rtl] …` in `ProductDetail.BChhaZZQ.css` — `<html>` carries `data-astro-cid-sckkx6r4`, so this selector can never match.
+No dead scoped RTL rules found.
 
 -----
 
@@ -162,8 +143,8 @@ one element to hold both ids — which no element does:
 
 | | |
 |---|---|
-| Homepage HTML size | 22469 bytes |
-| Live `/products`: Sanity CDN image refs | 1 |
+| Homepage HTML size | 22473 bytes |
+| Live `/products`: Sanity CDN image refs | 5 |
 | Live `/products`: placeholder refs | 0 |
 
 **1 path(s) did not return the expected status.**
