@@ -6,13 +6,26 @@
 
 | Aspect | Status |
 |---|---|
-| **Programme** | P0 → P0.1 → P0.2 → P1 → P1.1 → P1.2 → **P2 CLOSED 2026-09-11** (P2a → P2b-1/-1b/-1c → P2b-2 → P2b-3) → **P3 Admin Mode** ★ (P3-1a, P3-B1 done) → P4 accounts → P5 UX (parallel) → **L** → P6 · engine v3 (card #112): M0, M1 done, M2 next |
+| **Programme** | P0–P2 done → **P3 Admin Mode** ★ → P4 accounts → P5 UX (parallel) → **L** → P6 (phase table below; ROADMAP retired to issues by M2) · engine v3 (card #112): M0, M1 done, M2 running → M3 replay → M4 pilot → M5 handover |
 | **Next step** | M2 brain (card #112), then P3-B2 write routes (§5) |
 | **`master` HEAD at the last canon update** | `96d69e1` (#122). Normally `master` is one commit ahead of this line: the canon PR itself. A bigger gap means commits landed outside the chunk loop. |
 | **Live** | 68 pages EN + AR on `https://jahjah-website.vercel.app`: 22 products, 5 brands, 6 categories. No prices, no login. Astro 7.3.2 + `@astrojs/vercel` 11.0.10, Studio 5.31.2. Every page prerendered; on-demand routes: 6 (`/api/health` + `/api/staff/*`, W167); `/_image` 404 (W166); Product JSON-LD `sku` (W165). Vercel Hobby (W090 as amended). |
 | **Web DB** | Supabase project #2, schema v3 (W153, W159, W166): 7 tables + the `stock_visible` view, empty but the 6 settings (`audit_log` grows with every write). Anon gets 42501 everywhere; quantity is staff-only; `search_path` pinned. Read by `/api/health` and, as the caller, by `/api/staff/*`. |
 | **Content** | Placeholder catalogue (AI names; 1 product has real photos). Deleted when real data enters, never polished (W007). |
 | **Sister project** | `jahjah-internal` (ERP): separate canon, **not connected** (W075). |
+
+### Phases (run in order; out-of-order work gets redone)
+
+| Phase | Status | Remaining · exit |
+|---|---|---|
+| P0–P2 | done (P2 closed 2026-09-11) | carried: #143 (F64), #145 (F68), Dependabot #84 (W114, a major); P1's "every visible product looks real" waits on the owner's curation (W126) |
+| **P3** Admin Mode (W082) | in progress: P3-1a, P3-B1 done; P3-B2 write routes next (card #95); build per card #111 | exit: an editor works without a programmer or a Sanity seat; every change attributable; prices entered while `prices_visible` is OFF |
+| P4 accounts | — | sign-up/login, tier (default 1), price island, stock, promotions, `require_approval`; hidden = 404 without staff (W077). Exit: tiers 1/2/3/none see exactly their prices |
+| P5 public UX (parallel to P3–P4) | — | homepage repositioning, brand strip, category imagery and pages (W041), featured/new, search + filters, badges, related, trust strip, service page, showroom map (decision-gated), View Transitions, Lighthouse, static JSON-LD, LocalBusiness after W088; AR by batched review (W125) |
+| L launch bundle (W027) | one event | Vercel Pro (W090), spend cap, Cloudflare, `jahjah.net`, CORS, `site` URL, webhook check, analytics + WhatsApp events, share-cache refresh, Search Console, Bing, Business Profile, editor invites; #134 (F36) |
+| P6 after launch | — | quote list to sales/WhatsApp; VPS mirror (`@astrojs/node`, Caddy), cut over by DNS after a clean month (W078); ERP SKU sync (W075); orders/payments last (W064). Later: mobile app, guides/blog, testimonials, translate-on-paste plugin |
+
+**Target (W074 W075 W081 W082):** visitors see the catalogue with no prices; tiered customers see their own prices and stock; staff edit in place through Admin Mode; Studio stays at `/admin`. **Rejected, do not reopen:** Next.js, Shopify, WooCommerce, an off-the-shelf ERP (W018) · commerce in Sanity (W075) · a separate portal or `trade.` subdomain, Sanity visual editing as Admin Mode (W082) · an ignored build step (W087) · migrating host at launch (W027, W078) · a hosted Studio (W011).
 
 ### CI and the merge gate
 
@@ -27,7 +40,7 @@
 1. **Two paths to production:** a merge to `master`, AND a Sanity publish (webhook → deploy hook, ~2 min). The second has no commit; only TRUTH sees it.
 2. **Placeholder content:** the owner asked that no photos be uploaded to placeholder products. The watermark was ruled clean (W126).
 3. **Launch facts ruled 2026-09-04 (W126):** founded 2010; SUNNY/DSP exclusive for all of Syria; numbers, hours, warranty and brands unchanged. The Damascus `+90` number is correct. Still the owner's: tier names, currency, showroom address, a confirmation pass.
-4. **Free Supabase pauses after ~1 week idle (W091)** until the nightly `pg_dump` keeps it awake (F64). `/api/health` touches it only when called.
+4. **Free Supabase pauses after ~1 week idle (W091)** until the nightly `pg_dump` keeps it awake (#143, F64). `/api/health` touches it only when called.
 5. **Project knowledge is a lagging sync; the mirror wins.** A fresh `INDEX.md` does not mean a fresh sibling (W098, W102).
 6. **The v3 dispatcher (`jahjah-web-run`, W168) has closed one no-op card (#120) and no real card yet.** It runs live workers, but `/run-card` arrives in M2: label nothing `card:ready` before then. The relay-era lane `-dispatch` is disabled; #24 and #36 had died on the shared window (W128). Reports stay dual-published until F26.
 7. **Codex (`chatgpt-codex-connector`) speaks on four surfaces:** review, inline, issue comment, and the 👍 reaction (= clean). 👀 is not a verdict.
@@ -37,7 +50,7 @@
 11. **Browser floor iOS/Safari 16,** pinned by `cssTarget`; only the owner raises it (W141). Diff compiled CSS on any build-tool upgrade (W145).
 12. **Previews carry NO Supabase environment at all (W161, measured 2026-09-12):** not just no service key — no `SUPABASE_URL` either, so every DB or auth route answers 503/500 there and cannot be tested on a preview. Test the built function locally, then production. Vercel injects a toolbar script on previews only, so byte-compare production. Never use the Vercel MCP's `web_fetch_vercel_url` (W146).
 13. **Hooks are live (settings v3, W168):** `pre-bash` refuses a recursive rm outside the tree, writes under `/etc`, `/root` and `~/.claude`, `supabase db push|reset`, `sanity dataset`, `vercel` and any push reaching `master`; `post-edit` type-checks `.ts` and syntax-checks `.js`/`.mjs`. A refusal is a finding.
-14. **`think` runs in tmux `think`** (Remote Control, `claude-fable-5-1`, `think.settings.json`, dontAsk), started by the owner with `bash scripts/dispatch/think.sh`. It shares this clone, so a branch switch here moves its checkout too (F77).
+14. **`think` runs in tmux `think`** (Remote Control, `claude-fable-5-1`, `think.settings.json`, dontAsk), started by the owner with `bash scripts/dispatch/think.sh`. It shares this clone, so a branch switch here moves its checkout too (#152, F77).
 
 ## 3. LEDGER (last 5 chunks; older rows in the archive)
 
@@ -64,10 +77,22 @@
 
 **Plans:** Vercel Hobby → Pro at launch (W090) · Sanity Free · GitHub Pro (~$4/mo, for the ruleset) · Supabase Free, project #2 since 2026-09-11 (ERP is #1) · Claude Max.
 
-**Owner-side open items:** which placeholders to keep (W126) · tier names (F7) · currency (W066) · ShamCash docs (W064) · showroom address · TRUTH build warnings F3/F4 (the Monday run re-measures).
+### Owner decisions (open; the default holds until he rules)
+
+| Decision | Blocks | Default |
+|---|---|---|
+| Which of the 22 placeholders to keep (he toggles `published` himself, W126) | P5 curation | all 22 visible |
+| Launch-fact confirmation pass (numbers, hours, warranty) + delivery coverage (W088) | L | site as is |
+| Currency: SYP / USD / both (W066) | flipping `prices_visible` | OFF |
+| Tier names (#128, F7) | P4 (`settings.tier_names`) | Tier 1/2/3 |
+| Publish the showroom address? | P5 showroom, L profile | unchanged |
+| ShamCash merchant API (W064) | P6 ordering | quote list only |
+| Guides/testimonials: will anyone write them? | Later | skip |
+
+Answered: watermark, hiding, founding year, exclusivity, numbers/hours/warranty/brands (W126); Dependabot never gets the Sanity secrets (F24, 2026-09-04). Also his: TRUTH build warnings #126/#127 (F3/F4; the Monday run re-measures).
 
 ## 5. NEXT STEP
 
-**M2 brain (card #112):** canon dissection, the card template, and the skills strategist / run-card / milestone-review / migrate-db. After it: P3-B2 write routes (card #95); P3-1b `@sanity/client` 8 (card #93) may run before it; design lane card #94 runs in its own chat, D-steps approved there unlock card #111 (P3-U build) chunks. Also open: Dependabot #84 (`@sanity/client` 8, a major, W114), F64 (ERP-side `pg_dump`), F68 before P4.
+**M2 brain (card #112):** canon dissection, the card template, and the skills strategist / run-card / milestone-review / migrate-db. After it: P3-B2 write routes (card #95); P3-1b `@sanity/client` 8 (card #93) may run before it; design lane card #94 runs in its own chat, D-steps approved there unlock card #111 (P3-U build) chunks. Also open: Dependabot #84 (`@sanity/client` 8, a major, W114), #143 (F64, ERP-side `pg_dump`), #145 (F68) before P4. The follow-up register is now `backlog` issues (`pri:*`, `risk:*`).
 
-**HANDOVER:** M1 is done: the machinery of v3 runs, but work is still described the relay-era way. `jahjah-web-run` ticks every 2 minutes in live mode and has proven the loop with a no-op card; `think` answers from the owner's phone; hooks type-check and guard every session; CI type-checks every PR. M2 gives the engine its brain: until `/run-card` and the card template exist, nobody labels an issue `card:ready`. Read W168-W170 first. Settings edits, `install.sh` and `think.sh` stay owner-run. `think` shares this clone and inherits part of the project allow list (F77), which M2 should settle before `think` writes canon.
+**HANDOVER:** M1 is done: the machinery of v3 runs, but work is still described the relay-era way. `jahjah-web-run` ticks every 2 minutes in live mode and has proven the loop with a no-op card; `think` answers from the owner's phone; hooks type-check and guard every session; CI type-checks every PR. M2 gives the engine its brain: until `/run-card` and the card template exist, nobody labels an issue `card:ready`. Read W168-W170 first. Settings edits, `install.sh` and `think.sh` stay owner-run. `think` shares this clone and inherits part of the project allow list (#152, F77), which M2 should settle before `think` writes canon.

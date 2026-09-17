@@ -242,6 +242,7 @@ Engines: `{"node":">=22.12.0"}` · Scripts: `dev`, `build`, `preview`, `astro`, 
 | scripts/staff-remove.mjs | staff-remove.mjs — delete a staff account outright (P3-B1, issue #104). |
 | scripts/staff-smoke.mjs | staff-smoke.mjs — the staff session, end to end, against a running deployment (P3-B1, issue #104). |
 | scripts/verify.sh | verify.sh — the compiled-output verification ritual (W046, W047, W019, W033, W077). |
+| .github/ISSUE_TEMPLATE/card.yml | Card |
 | .github/dependabot.yml | Dependency updates, weekly, in as few pull requests as possible. |
 | .github/workflows/ci.yml | CI |
 | .github/workflows/claude-review.yml | Claude review |

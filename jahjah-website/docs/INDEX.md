@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `556b275eadf9b5e7f1c0cfc8f660486748d67a2d`
-**Commit subject:** docs(claude): 53-line core contract, relay-era file archived (M2-brain T2) (#125)
-**Copied (UTC):** 2026-09-17T15:07:04Z
+**Mirrored commit:** `b340d189211afa09d7d6eb3d5e954defe962c584`
+**Commit subject:** feat(github): card issue template, tier3-guard covers API routes and card lines (M2-brain T4) (#156)
+**Copied (UTC):** 2026-09-17T15:37:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -19,10 +19,10 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 |---|---|---|
 | `CLAUDE.md` | 7142 | `CLAUDE.md` |
 | `STRATEGIST.md` | 11966 | `docs/STRATEGIST.md` |
-| `STATE.md` | 10246 | `docs/STATE.md` |
-| `ROADMAP.md` | 12388 | `docs/ROADMAP.md` |
+| `STATE.md` | 13089 | `docs/STATE.md` |
 | `DECISIONS.md` | 26913 | `docs/DECISIONS.md` |
-| `reference/site.md` | 12787 | `docs/reference/site.md` |
+| `reference/site.md` | 12830 | `docs/reference/site.md` |
+| `ROADMAP.md` | — | not present at this commit |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it
 looks old, that may only mean nothing merged. Liveness is
