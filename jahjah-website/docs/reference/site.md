@@ -231,6 +231,7 @@ Engines: `{"node":">=22.12.0"}` · Scripts: `dev`, `build`, `preview`, `astro`, 
 | scripts/dispatch/metrics.mjs | metrics.mjs — chunk metrics for the v3 dispatcher baseline (M0, issue #113). |
 | scripts/dispatch/settings.v3.json |  |
 | scripts/dispatch/think.settings.json |  |
+| scripts/dispatch/think.sh | think.sh — OWNER-RUN: starts `think`, the planning session reached from the Claude app (M1-engine). |
 | scripts/generate-reference.mjs | generate-reference.mjs — writes docs/reference/site.md from the source tree (W085). |
 | scripts/heading-audit.mjs | Heading-hierarchy audit over the BUILT site (P1.6, accessibility). |
 | scripts/hidden-products-check.mjs | hidden-products-check.mjs — assert that no hidden product reached the build (W077). |

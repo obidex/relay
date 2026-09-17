@@ -147,7 +147,7 @@
 - **W125** LOCKED (owner; supersedes W025's blocking clause). Arabic never blocks a merge: strategist-approved Arabic ships; native review is batched.
 - **W126** LOCKED (owner rulings). Watermark clean; only the owner hides products; founded 2010; SUNNY/DSP exclusive; issues close by `final`.
 - **W127** LOCKED. `/relay-report final` moves `chunk:running` → `chunk:done` and closes the issue (the owner never closes one by hand); `blocked`/`interrupted` leave it open.
-- **W128** LESSON. A dispatched run dies on the shared 5-hour window leaving 53 bytes; the dispatcher must capture `stream-json` and retry it (ERP-side).
+- **W128** LESSON, remedy replaced by W168. A dispatched run dies on the shared 5-hour window leaving 53 bytes; the dispatcher must capture `stream-json` and retry it (ERP-side).
 - **W129** LESSON. `gh pr merge --squash` takes the branch's first commit message: always pass `--subject`.
 - **W130** LESSON (amends W113). Codex's 👍 reaction means "reviewed, nothing found": read all four surfaces; believe a system's own convention.
 - **W131** LOCKED. PR-body heading `AR strings shipped (strategist-approved per W125; batched for native review)`; a missing list is a nit; a rule names when its artefact exists.
@@ -206,3 +206,10 @@
 - **W166** LOCKED. Advisors v3 (#97): `search_path` pinned everywhere; trigger functions not executable by `authenticated`; the five RLS helpers stay executable by design (W155); `/_image` answers 404 — the site serves images from the Sanity CDN only (F67).
 - **W167** LOCKED. Staff session (P3-B1, #104): cookies via `@supabase/ssr` (`getAll`/`setAll` on Astro's jar), `HttpOnly; Secure; SameSite=Lax; Path=/`, no `Max-Age` — a shared showroom PC forgets the login; identity from `getClaims()` (`sub`, `aal`), never `getSession()`; the caller's own session + RLS is the gate, no request path holds the service key; `aal2` is the JWT claim after `mfa.verify`; non-staff gets 403 and that jar is cleared; every failure body is `{"ok":false}`.
   Recovery = owner-run `scripts/staff-mfa-reset.mjs`; no recovery codes in v1. Measured, correcting the design as drafted: deleting a factor does NOT sign sessions out, it only costs the session `aal2` at its next renewal — a lost device needs `staff-remove` + re-add (F73).
+
+## Engine v3, M1 (2026-09-17)
+
+- **W168** LOCKED. The v3 engine (#114): `card:*`/`size:*`/`risk:*`/`backlog`/`stop`/`alert` labels; `jahjah-web-run` runs one idempotent `dispatch.sh` tick every 2 min (STOP file or `stop` label, 8 cards/day, 1 in flight, usage-limit sleep then `--resume`, 3 failures → `card:failed` + STOP + alert), one worktree per card on Opus/xhigh for `risk:3`, else Sonnet/medium; settings v3 wires the `pre-bash`/`post-edit` hooks; agents builder (sonnet), reader (haiku), reviewer.
+  `think` = `claude --remote-control "Jahjah think"` (server mode refuses `--settings`/`--model`/`--effort`) on fable with `think.settings.json`, whose denies offset the project rules `--settings` adds to; settings edits, `install.sh` and `think.sh` are owner-run.
+- **W169** LESSON. A file permission rule is `Edit(path)`, never `Write(path)`: Claude Code matches only Edit rules (they cover every editing tool), warns on a Write rule, and the interactive start refuses while a headless run only prints the warning to stderr. Check stderr, not the exit code.
+- **W170** LESSON. On tmux 3.4 a bare `=name` resolves only for session commands (`has-session`, `kill-session`); pane and window commands (`display-message`, `set-option`, `capture-pane`) need `=name:`, or they fail and a script misreads a live session as dead.

@@ -16,7 +16,7 @@ Studio stays at `/admin` for bulk editing. The ERP stays unconnected until a lat
 
 | Phase | Status | Remaining |
 |---|---|---|
-| P0 · P0.1 · P0.2 | done 2026-09-02 | Only a dispatched chunk finishing from a label; see F26 and W128 |
+| P0 · P0.1 · P0.2 | done 2026-09-02 | The v3 dispatcher closed a no-op card from a label (#120, W168); a real card waits on M2; see F26 |
 | P1 · P1.1 · P1.2 | done 2026-09-04/05 | Only "every visible product looks real", which waits on the owner's curation (W126) |
 | **P2** (P2a → P2b-3) | **closed** 2026-09-11 | Web DB schema v2 under RLS (W153, W159); the first on-demand route `/api/health` on Hobby (W158). Carried: F64, F68, Dependabot #84 (W114; a major) |
 | **P3** Admin Mode (owner's top priority, W082) | in progress | The P3 block below. **Exit:** an editor works without a programmer or a Sanity seat; every change is attributable; prices entered while `prices_visible` is OFF |
@@ -33,7 +33,9 @@ Studio stays at `/admin` for bulk editing. The ERP stays unconnected until a lat
 - **Pencil** on the live page: name, description, specs, images, status, visibility, 3 tier prices, promo.
 - **`/admin-mode` panel:** filters, search, bulk status, customers + tiers, settings; Studio deep-link.
 - **Audit viewer:** `audit_log` by actor, table, date.
-- **First:** F51/F50 done (P3-1a); P3-B1 done; next P3-B2 write routes.
+- **First:** F51/F50 done (P3-1a); P3-B1 done; next P3-B2 write routes, after M2.
+
+**Engine v3 (card #112):** M0 baseline done (#113); M1 engine done (#114, W168); **M2 brain next**; then M3 replay, M4 pilot, M5 handover. **Owner-run commands (rule):** settings edits (`cp scripts/dispatch/settings.v3.json .claude/settings.json`, W138), systemd (`bash scripts/dispatch/install.sh`) and the `think` start (`bash scripts/dispatch/think.sh`) are typed by the owner; the scripts refuse without a terminal or inside a Claude session, and a plan names them as owner points.
 
 ## 3. FOLLOW-UP REGISTER (open rows only)
 
@@ -52,9 +54,7 @@ Studio stays at `/admin` for bulk editing. The ERP stays unconnected until a lat
 | F39 | med | A silent interactive session looks the same as a finished one (W117) | silence is distinguishable from completion without opening the issue |
 | F43 | med | **AR mass review, standing since 2026-09-04:** `nav.breadcrumbLabel`, `products.viewImage`, `products.variantLabel` (#34) and `home.featureDealer` (#42). The questions are in those PR bodies | the native reviewer rules on the batch; the row resets |
 | F49 | low | The slug validator reports "Slug is required" for a duplicate (chained `.error()`); W013 locks it | a chunk naming it splits the rules, with the W013 exclusion unchanged |
-| F52 | med | No dispatched run has attempted `gh issue close` | a dispatched `final` closes its issue and reports whether the close ran |
-| F53 | low | 20 linux gnu/musl lockfile entries lack `libc` (this box's npm omits it, and `npm update` strips the present ones: #98 restored 29) | a named dependency task restores them, or npm emits the field |
-| F55 | med | CI does not type-check (`typescript` is not a dependency) | a plan adds it as a named dependency, plus a CI step |
+| F53 | low | This box's npm strips `libc` from the lockfile on every install. Since #117, 47 of the 49 gnu/musl entries carry it (29 restored, 18 from the registry; the 2 `arm-gnueabihf` builds publish none), so every dependency task must restore it | npm emits the field |
 | F56 | low | The reference generator misses `export type`/`interface` | a chunk naming the generator adds them |
 | F58 | low | The relay-report skill says a hand-started chunk approves the publish once, which contradicts W144 | the next chunk naming the skill rewrites it |
 | F63 | low | `claude-review.yml`'s header says REVIEW.md carries five always-checks; since P2b-1c REVIEW.md points at `AGENTS.md`'s six | the next chunk naming the workflow rewords that comment |
@@ -66,6 +66,10 @@ Studio stays at `/admin` for bulk editing. The ERP stays unconnected until a lat
 | F73 | high | An MFA reset does not end the account's sessions (P3-B1, measured): after `staff-mfa-reset`, the existing access token keeps `aal2` until it expires and the refresh token is not revoked, though it renews at `aal1`. A lost device keeps write access for up to the token lifetime, and read-level session access after that; `staff-remove` + re-add is the only full cut-off | a session-revocation path exists (a GoTrue admin sign-out, or a shorter access-token lifetime the owner sets), or the residual is ruled acceptable |
 | F74 | med | `tier3-guard`'s path regex does not cover `src/pages/api/**`, so a Tier-3 route change is not machine-checked for the authorization line (raised by the reviewer on #106) | the workflow's regex covers on-demand routes, or the gap is ruled acceptable |
 | F75 | low | TOTP enrolment passes no `issuer`, so authenticator apps label the account with the project default rather than Jahjah. Changing it later means re-enrolling everyone; nobody has enrolled yet | the screens chunk (card #96) sets `issuer` before the first real enrolment |
+| F76 | low | The type-check (`tsconfig.json`, CI, the post-edit hook) excludes `astro.config.mjs`, `sanity.config.ts`, `sanity.cli.ts` and `src/sanity/**`: 5 pre-existing errors (2 in `astro.config.mjs`, 3 `client.fetch<number>` in `product.ts`), so edits there get no type-check (ruling A, #114) | a card naming those files fixes them and drops the exclude; the W013 slug-validator exclusion stays unchanged |
+| F77 | med | `think` shares the executor's clone (a branch switch in either moves both, and the timer reads `dispatch.sh` from it). `--settings` adds to the project settings, so `think` still inherits `git add`, `git switch`, `git branch`, `gh pr close`/`comment`; whether the phone can change its permission mode is unmeasured | M2 gives `think` its own clone or worktree and settles its rules |
+| F78 | med | `Bash(gh api repos/obidex/jahjah-website/*)` allows any HTTP method (a ruleset DELETE matches); `Bash(bash scripts/dispatch/*)` pre-approves the owner-run scripts, which only their terminal/CLAUDECODE guard stops; `Bash(gh label:*)` allows deleting labels | the owner narrows the rules, or pre-bash refuses the writes |
+| F79 | low | Dispatcher gaps (#121 review): no `git fetch` before a worktree, so a card can start on stale `master`; a half-failed relabel stalls the queue with no alert; `tick.log` never rotates; `scripts/dispatch/STOP` is untracked (a second STOP lives in the state dir) | a card naming `dispatch.sh` closes them |
 
 ## 4. OPEN DECISIONS (owner's)
 

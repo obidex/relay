@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `485e2507e8b39109648b5d98713bfa553e0e5d1f`
-**Commit subject:** feat(dispatch): one-tick card dispatcher and owner-run installer (M1-engine T4) (#121)
-**Copied (UTC):** 2026-09-17T11:07:04Z
+**Mirrored commit:** `ef36b4c877fcc39d61f097dc961c2740b6bbf61b`
+**Commit subject:** docs(canon): close M1-engine, W168-W170, F52 and F55 archived (#123)
+**Copied (UTC):** 2026-09-17T14:37:01Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -19,10 +19,10 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 |---|---|---|
 | `CLAUDE.md` | 11982 | `CLAUDE.md` |
 | `STRATEGIST.md` | 11966 | `docs/STRATEGIST.md` |
-| `STATE.md` | 8695 | `docs/STATE.md` |
-| `ROADMAP.md` | 10601 | `docs/ROADMAP.md` |
-| `DECISIONS.md` | 25556 | `docs/DECISIONS.md` |
-| `reference/site.md` | 12653 | `docs/reference/site.md` |
+| `STATE.md` | 10246 | `docs/STATE.md` |
+| `ROADMAP.md` | 12388 | `docs/ROADMAP.md` |
+| `DECISIONS.md` | 26913 | `docs/DECISIONS.md` |
+| `reference/site.md` | 12787 | `docs/reference/site.md` |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it
 looks old, that may only mean nothing merged. Liveness is
