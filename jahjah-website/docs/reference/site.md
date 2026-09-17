@@ -250,6 +250,10 @@ Engines: `{"node":">=22.12.0"}` · Scripts: `dev`, `build`, `preview`, `astro`, 
 | .claude/agents/reader.md |  |
 | .claude/agents/reviewer.md |  |
 | .claude/settings.json |  |
+| .claude/skills/migrate-db/SKILL.md |  |
+| .claude/skills/milestone-review/SKILL.md |  |
 | .claude/skills/relay-report/SKILL.md |  |
+| .claude/skills/run-card/SKILL.md |  |
 | .claude/skills/ship/SKILL.md |  |
+| .claude/skills/strategist/SKILL.md |  |
 | .claude/skills/verify/SKILL.md |  |

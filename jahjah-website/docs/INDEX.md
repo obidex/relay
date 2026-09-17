@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `b340d189211afa09d7d6eb3d5e954defe962c584`
-**Commit subject:** feat(github): card issue template, tier3-guard covers API routes and card lines (M2-brain T4) (#156)
-**Copied (UTC):** 2026-09-17T15:37:04Z
+**Mirrored commit:** `fcc0af991fa7b040fa973af34c56654ac536eadc`
+**Commit subject:** feat(claude): run-card, migrate-db, milestone-review and strategist skills (M2-brain T5) (#157)
+**Copied (UTC):** 2026-09-17T16:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -21,7 +21,7 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 | `STRATEGIST.md` | 11966 | `docs/STRATEGIST.md` |
 | `STATE.md` | 13089 | `docs/STATE.md` |
 | `DECISIONS.md` | 26913 | `docs/DECISIONS.md` |
-| `reference/site.md` | 12830 | `docs/reference/site.md` |
+| `reference/site.md` | 13002 | `docs/reference/site.md` |
 | `ROADMAP.md` | — | not present at this commit |
 
 **This file changes only when `master` changes.** It is therefore NOT a liveness signal — if it
