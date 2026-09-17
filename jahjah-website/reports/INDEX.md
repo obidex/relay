@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-14T05:30:04Z by `jahjah-web-truth`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-17T01:48:42Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website/reports/<name>`.
@@ -12,12 +12,13 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-we
 | File | Updated (UTC) | What it is |
 |---|---|---|
 | `README.md` | 2026-09-01T00:10:56Z | what this folder is and who writes to it |
-| `TRUTH-weekly.md` | 2026-09-14T05:30:04Z | weekly independent reading of the jahjah-website project — git, clean Linux build, compiled output, live site |
+| `TRUTH-weekly.md` | 2026-09-14T05:30:45Z | weekly independent reading of the jahjah-website project — git, clean Linux build, compiled output, live site |
 
 ## Dated reports (newest first — pruned to the newest 10 by `jahjah-retention`)
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
+| `2026-09-17-m0-baseline-final.md` | 2026-09-17T01:48:42Z | M0-baseline (#113) is done. It built one reusable script (`scripts/dispatch/metrics.mjs`) that measures a c... |
 | `2026-09-12-p3-b1-staff-session-progress.md` | 2026-09-12T01:13:22Z | P3-B1 T1 is merged and on production: the site now has a staff session library, though nothing uses it yet.... |
 | `2026-09-12-p3-b1-staff-session-progress-4.md` | 2026-09-12T03:57:57Z | P3-B1 T4 is merged and the whole chunk now has its proof: run against production, the staff session passes ... |
 | `2026-09-12-p3-b1-staff-session-progress-3.md` | 2026-09-12T03:05:18Z | P3-B1 T3 is merged: the owner now has three commands for staff accounts — add, reset the authenticator, rem... |
