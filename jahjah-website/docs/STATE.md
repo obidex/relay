@@ -8,7 +8,7 @@
 |---|---|
 | **Programme** | P0 → P0.1 → P0.2 → P1 → P1.1 → P1.2 → **P2 CLOSED 2026-09-11** (P2a → P2b-1/-1b/-1c → P2b-2 → P2b-3) → **P3 Admin Mode** ★ (P3-1a, P3-B1 done) → P4 accounts → P5 UX (parallel) → **L** → P6 |
 | **Next step** | P3-B2 write routes (§5) |
-| **`master` HEAD at the last canon update** | `80759a2` (#108). Normally `master` is one commit ahead of this line: the canon PR itself. A bigger gap means commits landed outside the chunk loop. |
+| **`master` HEAD at the last canon update** | `dd06703` (#115). Normally `master` is one commit ahead of this line: the canon PR itself. A bigger gap means commits landed outside the chunk loop. |
 | **Live** | 68 pages EN + AR on `https://jahjah-website.vercel.app`: 22 products, 5 brands, 6 categories. No prices, no login. Astro 7.3.2 + `@astrojs/vercel` 11.0.10, Studio 5.31.2. Every page prerendered; on-demand routes: 6 (`/api/health` + `/api/staff/*`, W167); `/_image` 404 (W166); Product JSON-LD `sku` (W165). Vercel Hobby (W090 as amended). |
 | **Web DB** | Supabase project #2, schema v3 (W153, W159, W166): 7 tables + the `stock_visible` view, empty but the 6 settings (`audit_log` grows with every write). Anon gets 42501 everywhere; quantity is staff-only; `search_path` pinned. Read by `/api/health` and, as the caller, by `/api/staff/*`. |
 | **Content** | Placeholder catalogue (AI names; 1 product has real photos). Deleted when real data enters, never polished (W007). |
@@ -41,11 +41,11 @@
 
 | Date | Chunk · issue | Close HEAD | PRs | Result |
 |---|---|---|---|---|
-| 09-12 | P3-B1 staff session · #104 | this PR | #105 #106 #107 #108 + close | `@supabase/ssr` session library; 5 `/api/staff/*` routes to `aal2`; 3 owner-run admin scripts; end-to-end smoke 40/40 on production. 10 Codex P2s and 3 reviewer BLOCKs, all fixed; W161 and W167's recovery line corrected by measurement |
+| 09-17 | M0 baseline · #113 | this PR | #115 + close | `scripts/dispatch/metrics.mjs`; numbers on the issue |
+| 09-12 | P3-B1 staff session · #104 | `96aa8a3` | #105 #106 #107 #108 + close | `@supabase/ssr` session library; 5 `/api/staff/*` routes to `aal2`; 3 owner-run admin scripts; end-to-end smoke 40/40 on production. 10 Codex P2s and 3 reviewer BLOCKs, all fixed; W161 and W167's recovery line corrected by measurement |
 | 09-11 | P3-1a SKU + advisors · #97 | `1ebd0c0` | #98 #99 #101 #102 + close | SKUs backfilled + `required()` + JSON-LD `sku` (GATE 1); advisors v3 (GATE 1); `/_image` 404; Studio 5.31.2; 1 BLOCKED (`db push` refused, owner ran it) |
 | 09-11 | P2b-3 first route · #89 | `2203388` | #90 #91 + close | F65 hardening under GATE 1; `/api/health` 200 on Hobby; 3 BLOCKED (Hobby + view name, view write path on a scratch DB, preview env → W161); **P2 closed** |
 | 09-11 | P2b-2 web DB · #85 | `41de536` | #86 #87 #88 | Supabase #2 linked; schema v1 + RLS + audit under GATE 1; typed readers in `src/lib` |
-| 09-10 | P2b-1c canon diet · #79 | `cbc423a` | #80 #81 + close | #77's security group applied; canon 262→70 KB, history archived; efficiency rules |
 
 ## 4. EPHEMERAL FACTS
 

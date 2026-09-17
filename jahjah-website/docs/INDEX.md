@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `dd06703b7ed826198fd1ad19a1c5c67c9d9d1b49`
-**Commit subject:** feat(dispatch): chunk-metrics script for the v3 baseline (#115)
-**Copied (UTC):** 2026-09-17T01:37:04Z
+**Mirrored commit:** `a884e8e1b96ee7b2301b2932f43dd4e5e6e4e814`
+**Commit subject:** docs(canon): close M0-baseline, STATE ledger row for #113 (#116)
+**Copied (UTC):** 2026-09-17T02:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -19,7 +19,7 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 |---|---|---|
 | `CLAUDE.md` | 11982 | `CLAUDE.md` |
 | `STRATEGIST.md` | 11966 | `docs/STRATEGIST.md` |
-| `STATE.md` | 8734 | `docs/STATE.md` |
+| `STATE.md` | 8695 | `docs/STATE.md` |
 | `ROADMAP.md` | 10601 | `docs/ROADMAP.md` |
 | `DECISIONS.md` | 25556 | `docs/DECISIONS.md` |
 | `reference/site.md` | 11834 | `docs/reference/site.md` |
