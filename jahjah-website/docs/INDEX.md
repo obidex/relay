@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `ef36b4c877fcc39d61f097dc961c2740b6bbf61b`
-**Commit subject:** docs(canon): close M1-engine, W168-W170, F52 and F55 archived (#123)
-**Copied (UTC):** 2026-09-17T14:37:01Z
+**Mirrored commit:** `556b275eadf9b5e7f1c0cfc8f660486748d67a2d`
+**Commit subject:** docs(claude): 53-line core contract, relay-era file archived (M2-brain T2) (#125)
+**Copied (UTC):** 2026-09-17T15:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -17,7 +17,7 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 
 | File | Bytes | Source path in the repo |
 |---|---|---|
-| `CLAUDE.md` | 11982 | `CLAUDE.md` |
+| `CLAUDE.md` | 7142 | `CLAUDE.md` |
 | `STRATEGIST.md` | 11966 | `docs/STRATEGIST.md` |
 | `STATE.md` | 10246 | `docs/STATE.md` |
 | `ROADMAP.md` | 12388 | `docs/ROADMAP.md` |
