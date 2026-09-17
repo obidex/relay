@@ -222,6 +222,7 @@ Engines: `{"node":">=22.12.0"}` · Scripts: `dev`, `build`, `preview`, `astro`, 
 |---|---|
 | scripts/backfill-sku.mjs | backfill-sku.mjs — P3-1a, one-shot (GATE 1 text; never re-run after --write, CLAUDE.md §3). |
 | scripts/db-smoke.mjs | db-smoke.mjs — the web DB's runtime smoke check (P2b-2, issue #85). Read-only; prints counts and err |
+| scripts/dispatch/metrics.mjs | metrics.mjs — chunk metrics for the v3 dispatcher baseline (M0, issue #113). |
 | scripts/generate-reference.mjs | generate-reference.mjs — writes docs/reference/site.md from the source tree (W085). |
 | scripts/heading-audit.mjs | Heading-hierarchy audit over the BUILT site (P1.6, accessibility). |
 | scripts/hidden-products-check.mjs | hidden-products-check.mjs — assert that no hidden product reached the build (W077). |
