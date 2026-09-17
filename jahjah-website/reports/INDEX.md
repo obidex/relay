@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-17T10:42:32Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-17T14:20:14Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website/reports/<name>`.
@@ -19,7 +19,8 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-we
 | File | Updated (UTC) | What it is |
 |---|---|---|
 | `2026-09-17-m1-engine-progress.md` | 2026-09-17T08:48:48Z | T1 of M1-engine is merged: the edit and bash hooks exist, and CI now type-checks every PR, with the `tsconf... |
-| `2026-09-17-m1-engine-progress-4.md` | 2026-09-17T10:42:32Z | T4 of M1-engine is merged, and the v3 dispatcher is running under systemd (`jahjah-web-run`, every 2 minute... |
+| `2026-09-17-m1-engine-progress-5.md` | 2026-09-17T14:20:14Z | T5 of M1-engine is merged, and `think` is running: tmux session `think`, Remote Control active, `claude-fab... |
+| `2026-09-17-m1-engine-progress-4.md` | 2026-09-17T10:42:33Z | T4 of M1-engine is merged, and the v3 dispatcher is running under systemd (`jahjah-web-run`, every 2 minute... |
 | `2026-09-17-m1-engine-progress-3.md` | 2026-09-17T09:30:04Z | T3 of M1-engine is merged: the builder (sonnet) and reader (haiku) agents exist, and the reviewer's header ... |
 | `2026-09-17-m1-engine-progress-2.md` | 2026-09-17T09:16:54Z | T2 of M1-engine is merged: settings v3 is in force (the owner's copy is committed), and the hooks are live ... |
 | `2026-09-17-m1-engine-blocked.md` | 2026-09-17T07:18:30Z | M1-engine stopped at T1 on one of its own STOP conditions: the edit hook, as specified, blocks a clean file... |
