@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `83b5eea975023be32adae433f59bfe77ee36ac22`
-**Commit subject:** docs(canon): close M2-brain, STATE v3, W171-W173, STRATEGIST archived (#161)
-**Copied (UTC):** 2026-09-17T16:37:04Z
+**Mirrored commit:** `29989617b28844eac25777368715983e93eea8e3`
+**Commit subject:** chore(dispatch): allow card-*/canon/* pushes and think's squash merge (M2b-rules) (#163)
+**Copied (UTC):** 2026-09-17T21:37:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -18,7 +18,7 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 | File | Bytes | Source path in the repo |
 |---|---|---|
 | `CLAUDE.md` | 7142 | `CLAUDE.md` |
-| `STATE.md` | 7996 | `docs/STATE.md` |
+| `STATE.md` | 8115 | `docs/STATE.md` |
 | `DECISIONS.md` | 28237 | `docs/DECISIONS.md` |
 | `reference/site.md` | 13002 | `docs/reference/site.md` |
 | `STRATEGIST.md` | — | not present at this commit |

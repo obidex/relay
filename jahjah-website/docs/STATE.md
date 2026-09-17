@@ -68,10 +68,8 @@
 | Publish the showroom address? | P5 map, L profile | unchanged |
 | ShamCash merchant API (W064) | P6 ordering | quote list |
 | Guides/testimonials: will anyone write them? | Later | skip |
-| Canon PRs: owner tap, or auto-merge (card #112 am. 2)? | think's canon flow | owner tap |
-| Worker push rule for `card-*` branches (#160) | M3 replay | classifier |
 
-Answered: W126; Dependabot gets no Sanity secrets.
+Answered: W126; Dependabot gets no Sanity secrets; workers push `card-*`/`canon/*` under allow rules, not the classifier; canon PRs auto-merge as a ruling, but the `Bash(gh pr merge:*)` deny in `think.settings.json` still overrides the allow, so `think` cannot merge yet — narrowing that deny is an owner edit (chunk M2b-rules, #162).
 
 ## 5. NEXT STEP
 
