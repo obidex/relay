@@ -213,6 +213,7 @@ EN/AR key sets: **SYMMETRIC**
 | react | ^19.2.6 | dependency |
 | react-dom | ^19.2.6 | dependency |
 | sanity | ^5.24.0 | dependency |
+| typescript | ^5.9.3 | dev |
 
 Engines: `{"node":">=22.12.0"}` · Scripts: `dev`, `build`, `preview`, `astro`, `reference`, `verify`
 
@@ -222,6 +223,9 @@ Engines: `{"node":">=22.12.0"}` · Scripts: `dev`, `build`, `preview`, `astro`, 
 |---|---|
 | scripts/backfill-sku.mjs | backfill-sku.mjs — P3-1a, one-shot (GATE 1 text; never re-run after --write, CLAUDE.md §3). |
 | scripts/db-smoke.mjs | db-smoke.mjs — the web DB's runtime smoke check (P2b-2, issue #85). Read-only; prints counts and err |
+| scripts/dispatch/hooks/post-edit.sh | PostToolUse hook (Edit\|Write), wired by scripts/dispatch/settings.v3.json (M1-engine). |
+| scripts/dispatch/hooks/pre-bash.mjs | PreToolUse hook logic for Bash, called by pre-bash.sh (M1-engine). Belt and braces over the |
+| scripts/dispatch/hooks/pre-bash.sh | PreToolUse hook (Bash), wired by scripts/dispatch/settings.v3.json (M1-engine). |
 | scripts/dispatch/metrics.mjs | metrics.mjs — chunk metrics for the v3 dispatcher baseline (M0, issue #113). |
 | scripts/generate-reference.mjs | generate-reference.mjs — writes docs/reference/site.md from the source tree (W085). |
 | scripts/heading-audit.mjs | Heading-hierarchy audit over the BUILT site (P1.6, accessibility). |
