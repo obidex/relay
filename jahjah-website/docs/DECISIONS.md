@@ -213,3 +213,10 @@
   `think` = `claude --remote-control "Jahjah think"` (server mode refuses `--settings`/`--model`/`--effort`) on fable with `think.settings.json`, whose denies offset the project rules `--settings` adds to; settings edits, `install.sh` and `think.sh` are owner-run.
 - **W169** LESSON. A file permission rule is `Edit(path)`, never `Write(path)`: Claude Code matches only Edit rules (they cover every editing tool), warns on a Write rule, and the interactive start refuses while a headless run only prints the warning to stderr. Check stderr, not the exit code.
 - **W170** LESSON. On tmux 3.4 a bare `=name` resolves only for session commands (`has-session`, `kill-session`); pane and window commands (`display-message`, `set-option`, `capture-pane`) need `=name:`, or they fail and a script misreads a live session as dead.
+
+## Engine v3, M2 (2026-09-17)
+
+- **W171** LOCKED. Canon v3 (#124): `CLAUDE.md` is a ≤ 60-line core; procedure lives in the skills run-card, migrate-db, milestone-review and strategist (`ship` = post-merge, `verify` kept); work is a card from `.github/ISSUE_TEMPLATE/card.yml`; the ROADMAP became `backlog` issues + STATE; STRATEGIST, ROADMAP and the relay-era `CLAUDE.md` are archived. Amends W030/W084: the reviewer runs always at risk 3, and risk 1–2 relies on hooks + CI + Codex; `scripts/dispatch/**` is risk 3.
+  `think` runs in its own worktree (`think.sh --restart`); the dispatcher fetches before each `card-<n>` worktree and rotates its logs; settings v3 narrows `gh api` to pulls/issues reads and drops `gh label`; `tier3-guard` also covers `src/pages/api/**` and accepts `Tier-3: authorized by card #<n>`.
+- **W172** LESSON. An unquoted ` #` in YAML frontmatter starts a comment, so a skill's description was silently cut there (seen in the skill listing): quote any description that contains ` #`.
+- **W173** LESSON. Claude Code trusts a git worktree of a trusted clone, inside or outside it, but not a separate repo nested in it, where the project allow list is ignored with only a stderr warning. Measure permission rules with headless `dontAsk` runs in a throwaway worktree before the owner copies them.
