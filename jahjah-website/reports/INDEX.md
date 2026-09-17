@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-17T09:16:53Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-17T09:30:03Z by `jahjah-session`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website/reports/<name>`.
@@ -19,7 +19,8 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-we
 | File | Updated (UTC) | What it is |
 |---|---|---|
 | `2026-09-17-m1-engine-progress.md` | 2026-09-17T08:48:48Z | T1 of M1-engine is merged: the edit and bash hooks exist, and CI now type-checks every PR, with the `tsconf... |
-| `2026-09-17-m1-engine-progress-2.md` | 2026-09-17T09:16:53Z | T2 of M1-engine is merged: settings v3 is in force (the owner's copy is committed), and the hooks are live ... |
+| `2026-09-17-m1-engine-progress-3.md` | 2026-09-17T09:30:03Z | T3 of M1-engine is merged: the builder (sonnet) and reader (haiku) agents exist, and the reviewer's header ... |
+| `2026-09-17-m1-engine-progress-2.md` | 2026-09-17T09:16:54Z | T2 of M1-engine is merged: settings v3 is in force (the owner's copy is committed), and the hooks are live ... |
 | `2026-09-17-m1-engine-blocked.md` | 2026-09-17T07:18:30Z | M1-engine stopped at T1 on one of its own STOP conditions: the edit hook, as specified, blocks a clean file... |
 | `2026-09-17-m0-baseline-final.md` | 2026-09-17T01:48:42Z | M0-baseline (#113) is done. It built one reusable script (`scripts/dispatch/metrics.mjs`) that measures a c... |
 | `2026-09-12-p3-b1-staff-session-progress.md` | 2026-09-12T01:13:22Z | P3-B1 T1 is merged and on production: the site now has a staff session library, though nothing uses it yet.... |
