@@ -227,6 +227,8 @@ Engines: `{"node":">=22.12.0"}` · Scripts: `dev`, `build`, `preview`, `astro`, 
 | scripts/dispatch/hooks/pre-bash.mjs | PreToolUse hook logic for Bash, called by pre-bash.sh (M1-engine). Belt and braces over the |
 | scripts/dispatch/hooks/pre-bash.sh | PreToolUse hook (Bash), wired by scripts/dispatch/settings.v3.json (M1-engine). |
 | scripts/dispatch/metrics.mjs | metrics.mjs — chunk metrics for the v3 dispatcher baseline (M0, issue #113). |
+| scripts/dispatch/settings.v3.json |  |
+| scripts/dispatch/think.settings.json |  |
 | scripts/generate-reference.mjs | generate-reference.mjs — writes docs/reference/site.md from the source tree (W085). |
 | scripts/heading-audit.mjs | Heading-hierarchy audit over the BUILT site (P1.6, accessibility). |
 | scripts/hidden-products-check.mjs | hidden-products-check.mjs — assert that no hidden product reached the build (W077). |
@@ -240,6 +242,8 @@ Engines: `{"node":">=22.12.0"}` · Scripts: `dev`, `build`, `preview`, `astro`, 
 | .github/dependabot.yml | Dependency updates, weekly, in as few pull requests as possible. |
 | .github/workflows/ci.yml | CI |
 | .github/workflows/claude-review.yml | Claude review |
+| .claude/agents/builder.md |  |
+| .claude/agents/reader.md |  |
 | .claude/agents/reviewer.md |  |
 | .claude/settings.json |  |
 | .claude/skills/relay-report/SKILL.md |  |
