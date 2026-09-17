@@ -41,11 +41,11 @@
 
 | Date | Work · issue | Close HEAD | PRs | Result |
 |---|---|---|---|---|
+| 09-17 | Engine · worktree env + clone on master · #164 | this PR | this PR | `dispatch.sh` symlinks the clone's `.env.local` into a card worktree on every path (fresh, reused, resumed), so `verify.sh` and the smoke scripts run there; the unit puts the clone on master and fast-forwards before each tick, and refuses a dirty one. Offline simulation 50/50; its 4 new link checks fail on the old script. Owner re-runs `install.sh` once |
 | 09-17 | M2 brain · #124 | this PR | #125 #155–#158 + close | `CLAUDE.md` core (53 lines); skills run-card, migrate-db, milestone-review, strategist (haiku-proven); card template; `tier3-guard` + API routes; ROADMAP → #126–#154; think's worktree; settings narrowed (W171) |
 | 09-17 | M1 engine · #114 | `ef36b4c` | #117–#119 #121–#123 | Hooks, `tsc` in CI, settings v3, agents, `jahjah-web-run`, `think` on the phone (W168–W170) |
 | 09-17 | M0 baseline · #113 | `a884e8e` | #115 #116 | `scripts/dispatch/metrics.mjs`; numbers on #113 |
 | 09-12 | P3-B1 staff session · #104 | `96aa8a3` | #105–#109 | Staff sessions (`aal2`); smoke 40/40 |
-| 09-11 | P3-1a SKU + advisors · #97 | `1ebd0c0` | #98 #99 #101–#103 | SKUs required; advisors v3 |
 
 ## 4. FACTS AND OWNER DECISIONS
 
