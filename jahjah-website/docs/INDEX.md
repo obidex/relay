@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `ac9e117232fd68c178acdf080ccabc686a19a169`
-**Commit subject:** i18n: staff.signIn / staff.signOut keys for the P3 screens (#181)
-**Copied (UTC):** 2026-09-18T00:37:00Z
+**Mirrored commit:** `915ae394a0306a0a3d422fac58461089b8c6baf0`
+**Commit subject:** feat(auth): TOTP enrolment names Jahjah as the otpauth issuer (#183)
+**Copied (UTC):** 2026-09-18T01:07:00Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -18,7 +18,7 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 | File | Bytes | Source path in the repo |
 |---|---|---|
 | `CLAUDE.md` | 7142 | `CLAUDE.md` |
-| `STATE.md` | 8633 | `docs/STATE.md` |
+| `STATE.md` | 9041 | `docs/STATE.md` |
 | `DECISIONS.md` | 28237 | `docs/DECISIONS.md` |
 | `reference/site.md` | 13024 | `docs/reference/site.md` |
 | `STRATEGIST.md` | — | not present at this commit |
