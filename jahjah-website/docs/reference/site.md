@@ -182,6 +182,7 @@ Status: **IN SYNC** (slug, nameEn, nameAr, hex identical)
 | `lang.*` | 2 | 2 |
 | `nav.*` | 10 | 10 |
 | `products.*` | 16 | 16 |
+| `staff.*` | 2 | 2 |
 
 EN/AR key sets: **SYMMETRIC**
 
