@@ -43,7 +43,7 @@
 | /products | page | prerendered | src/pages/products.astro |
 | /products/[slug] | page | prerendered | src/pages/products/[slug].astro |
 
-On-demand routes: **6**. Every on-demand route must be named by the chunk plan that introduced it (W074).
+On-demand routes: **6**. Every on-demand route must be named by the card that introduced it (W074).
 
 ## Components and their props
 
