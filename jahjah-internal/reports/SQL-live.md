@@ -2,9 +2,9 @@
 
 <!-- index: nightly SQL suites vs LIVE — PASS 28/28 in 12s -->
 
-**Generated (UTC):** 2026-09-17T03:15:04Z
+**Generated (UTC):** 2026-09-18T03:15:04Z
 **Verdict:** **PASS** — all 28 suites passed against the live database.
-**Suites from:** `obidex/jahjah-internal` `main` at `07734cd`
+**Suites from:** `obidex/jahjah-internal` `main` at `c5eef66`
 **Migrations:** in step — all 78 migrations on main are applied on live, and live has none main lacks (newest `20260905120000`)
 **Ran for:** 12s
 
@@ -16,10 +16,10 @@ running** (or is switched off: `/opt/jahjah/SQL_LIVE_OFF`).
 | Suite | Result | Seconds |
 |---|---|---|
 | `activity_log_record_history_tests` | PASS | 0.8 |
-| `activity_log_tests` | PASS | 0.4 |
+| `activity_log_tests` | PASS | 0.5 |
 | `arabic_cut_tests` | PASS | 0.5 |
 | `catalog_supplier_tests` | PASS | 0.7 |
-| `fx_cut_tests` | PASS | 0.5 |
+| `fx_cut_tests` | PASS | 0.6 |
 | `imports_costs_tests` | PASS | 0.2 |
 | `imports_landed_cost_tests` | PASS | 0.3 |
 | `imports_milestones_tests` | PASS | 0.3 |
@@ -34,11 +34,11 @@ running** (or is switched off: `/opt/jahjah/SQL_LIVE_OFF`).
 | `purchase_order_3b_tests` | PASS | 0.3 |
 | `purchase_order_payments_tests` | PASS | 0.2 |
 | `purchase_order_variant_plan_tests` | PASS | 0.3 |
-| `reference_data_tests` | PASS | 0.2 |
+| `reference_data_tests` | PASS | 0.3 |
 | `sales_dispatch_tests` | PASS | 0.6 |
 | `sales_invoice_aging_tests` | PASS | 0.7 |
 | `sales_orders_tests` | PASS | 0.6 |
-| `sales_payments_returns_tests` | PASS | 0.8 |
+| `sales_payments_returns_tests` | PASS | 0.9 |
 | `sales_tests` | PASS | 0.4 |
 | `security_sweep_hardening_tests` | PASS | 0.2 |
 | `security_sweep_s1_fixes_tests` | PASS | 0.1 |
