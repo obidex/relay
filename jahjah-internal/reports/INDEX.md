@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-18T04:37:04Z by `jahjah-erp-dispatch`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-18T05:00:04Z by `jahjah-health`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -11,8 +11,8 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
-| `HEALTH-daily.md` | 2026-09-17T05:00:06Z | daily health — OK, all 12 automations alive |
-| `HEARTBEAT-erp-dispatch.md` | 2026-09-18T04:37:04Z | proof-of-life for the ERP chunk lane — stale > ~70 min means chunks are not being picked up |
+| `HEALTH-daily.md` | 2026-09-18T05:00:04Z | daily health — NEEDS ATTENTION (3 item(s)) |
+| `HEARTBEAT-erp-dispatch.md` | 2026-09-18T04:37:09Z | proof-of-life for the ERP chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-dispatch.md` | 2026-09-17T10:24:06Z | proof-of-life for the website chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-docs.md` | 2026-09-18T04:37:06Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
