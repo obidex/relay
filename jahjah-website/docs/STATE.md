@@ -41,11 +41,11 @@
 
 | Date | Work · issue | Close HEAD | PRs | Result |
 |---|---|---|---|---|
+| 09-18 | deps · @sanity/client 7 → 8, the carried major (#84) (replay R08) · #172 | `75c9c13` | #187 | `npm install @sanity/client@^8`; v8.0.0's breaking changes (Node 22.12+, ESM-only, removed `requester`/`proxy`/`_requestHandler`) don't touch `createClient` options, `client.fetch` or `patch().set().commit()`; the 47 `libc` lockfile entries this box's npm strips were restored (F53); 67 public pages byte-identical before/after, `verify.sh` 0 FAIL, `hidden-products-check.mjs` exit 0, `backfill-sku.mjs` dry-run still `to set 0`; #84 closed naming this PR |
 | 09-18 | auth · TOTP enrolment issuer "Jahjah" (replay R04) · #168 | this PR | this PR | `mfa.enroll` now passes `issuer: 'Jahjah'`, so an authenticator labels the entry Jahjah instead of GoTrue's own fallback (F75, #150); `staff-smoke.mjs` gained the issuer assertion — 1 FAIL against production's old code, ALL PASS locally against the new; 68 built pages and 46 static assets byte-identical, still 1 function |
 | 09-18 | i18n · staff.signIn/signOut keys (replay R03) · #167 | `ac9e117` | #181 | added `staff` namespace (`signIn`, `signOut`) to `en`/`ar` in `translations.js`, unconsumed; reference `staff.*` 2/2 SYMMETRIC; 68 built pages byte-identical before/after |
 | 09-18 | docs · AGENTS.md drops relay-era pointers · #166 | this PR | this PR | reworded THE BAR/follow-up/Tier-3/`chunk plan` pointers to `.claude/skills/milestone-review/SKILL.md`, `backlog` issues, #137 and `Tier-3: authorized by card #<n>`; THE BAR and the six checks unchanged |
 | 09-17 | Engine · worktree env + clone on master · #164 | this PR | this PR | `dispatch.sh` symlinks the clone's `.env.local` into a card worktree on every path (fresh, reused, resumed), so `verify.sh` and the smoke scripts run there; the unit puts the clone on master and fast-forwards before each tick, and refuses a dirty one. Offline simulation 50/50; its 4 new link checks fail on the old script. Owner re-runs `install.sh` once |
-| 09-17 | M2 brain · #124 | this PR | #125 #155–#158 + close | `CLAUDE.md` core (53 lines); skills run-card, migrate-db, milestone-review, strategist (haiku-proven); card template; `tier3-guard` + API routes; ROADMAP → #126–#154; think's worktree; settings narrowed (W171) |
 
 ## 4. FACTS AND OWNER DECISIONS
 

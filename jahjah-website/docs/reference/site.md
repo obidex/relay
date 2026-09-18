@@ -205,7 +205,7 @@ EN/AR key sets: **SYMMETRIC**
 | @astrojs/sitemap | ^3.7.4 | dependency |
 | @astrojs/vercel | ^11.0.10 | dependency |
 | @sanity/astro | ^3.4.0 | dependency |
-| @sanity/client | ^7.22.0 | dependency |
+| @sanity/client | ^8.6.2 | dependency |
 | @sanity/image-url | ^2.1.1 | dependency |
 | @sanity/vision | ^5.24.0 | dependency |
 | @supabase/ssr | ^0.12.7 | dependency |

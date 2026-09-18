@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `915ae394a0306a0a3d422fac58461089b8c6baf0`
-**Commit subject:** feat(auth): TOTP enrolment names Jahjah as the otpauth issuer (#183)
-**Copied (UTC):** 2026-09-18T01:07:00Z
+**Mirrored commit:** `528b32fa54e650fbf0720a74391926fcbe261f52`
+**Commit subject:** docs(state): ledger row for card #172 (#188)
+**Copied (UTC):** 2026-09-18T02:37:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -18,9 +18,9 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 | File | Bytes | Source path in the repo |
 |---|---|---|
 | `CLAUDE.md` | 7142 | `CLAUDE.md` |
-| `STATE.md` | 9041 | `docs/STATE.md` |
+| `STATE.md` | 9325 | `docs/STATE.md` |
 | `DECISIONS.md` | 28237 | `docs/DECISIONS.md` |
-| `reference/site.md` | 13024 | `docs/reference/site.md` |
+| `reference/site.md` | 13023 | `docs/reference/site.md` |
 | `STRATEGIST.md` | — | not present at this commit |
 | `ROADMAP.md` | — | not present at this commit |
 
