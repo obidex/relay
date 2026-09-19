@@ -226,7 +226,7 @@ Engines: `{"node":">=22.12.0"}` · Scripts: `dev`, `build`, `preview`, `astro`, 
 | Path | Purpose (first comment line) |
 |---|---|
 | scripts/backfill-sku.mjs | backfill-sku.mjs — P3-1a, one-shot (GATE 1 text; never re-run after --write, CLAUDE.md §3). |
-| scripts/db-smoke.mjs | db-smoke.mjs — the web DB's runtime smoke check (P2b-2, issue #85). Read-only; prints counts and err |
+| scripts/db-smoke.mjs | db-smoke.mjs — the web DB's runtime smoke check (P2b-2, issue #85). Steps 1-2 are read-only; step 3  |
 | scripts/dispatch/dispatch.sh | dispatch.sh — ONE tick of the v3 card dispatcher (M1-engine). jahjah-web-run.timer runs it |
 | scripts/dispatch/hooks/post-edit.sh | PostToolUse hook (Edit\|Write), wired by scripts/dispatch/settings.v3.json (M1-engine). |
 | scripts/dispatch/hooks/pre-bash.mjs | PreToolUse hook logic for Bash, called by pre-bash.sh (M1-engine). Belt and braces over the |

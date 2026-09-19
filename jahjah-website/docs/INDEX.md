@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `35b6ebefdb39109ad4938ca18f5c914fe5fe6bdb`
-**Commit subject:** fix(db): stock_visible honours stock_display = hidden, F68 (#186)
-**Copied (UTC):** 2026-09-19T17:37:00Z
+**Mirrored commit:** `892c06c5430c433a0667dc2fcb52e0098ea0d544`
+**Commit subject:** test(db): db-smoke asserts the hidden stock_display case (#198)
+**Copied (UTC):** 2026-09-19T18:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -18,7 +18,7 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 | File | Bytes | Source path in the repo |
 |---|---|---|
 | `CLAUDE.md` | 7142 | `CLAUDE.md` |
-| `STATE.md` | 10150 | `docs/STATE.md` |
+| `STATE.md` | 10295 | `docs/STATE.md` |
 | `DECISIONS.md` | 28886 | `docs/DECISIONS.md` |
 | `reference/site.md` | 14006 | `docs/reference/site.md` |
 | `STRATEGIST.md` | — | not present at this commit |
