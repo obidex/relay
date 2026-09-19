@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `e69b6e145fd961965f9aa7d73fe0bb20da0c87fc`
-**Commit subject:** chore(canon): retarget relay-era pointers to the card and /run-card (#190)
-**Copied (UTC):** 2026-09-18T15:37:00Z
+**Mirrored commit:** `c2288171a5aac8b69886e0590b370b2033a88104`
+**Commit subject:** feat(dispatch): tick.sh makes a failing tick loud; post-edit checks .sh (#193)
+**Copied (UTC):** 2026-09-19T00:07:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -18,9 +18,9 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 | File | Bytes | Source path in the repo |
 |---|---|---|
 | `CLAUDE.md` | 7142 | `CLAUDE.md` |
-| `STATE.md` | 9416 | `docs/STATE.md` |
+| `STATE.md` | 10077 | `docs/STATE.md` |
 | `DECISIONS.md` | 28237 | `docs/DECISIONS.md` |
-| `reference/site.md` | 13017 | `docs/reference/site.md` |
+| `reference/site.md` | 13126 | `docs/reference/site.md` |
 | `STRATEGIST.md` | — | not present at this commit |
 | `ROADMAP.md` | — | not present at this commit |
 
