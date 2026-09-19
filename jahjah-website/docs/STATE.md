@@ -9,13 +9,13 @@
 | **Programme** | P0–P2 done → **P3 Admin Mode** ★ → P4 → P5 (parallel) → **L** → P6 · engine v3 (card #112): M0, M1, M2 done → **M3 replay** → M4 pilot → M5 handover |
 | **`master` HEAD at the last canon update** | `5fa6858` (#158). `master` is normally one commit ahead (this PR). |
 | **Live** | 68 pages EN + AR (22 products, 5 brands, 6 categories); no prices, no login. Astro 7.3.2, Studio 5.31.2; 6 on-demand routes (`/api/*`, W167). |
-| **Web DB** | Supabase #2, schema v3 (W153 W159 W166): 7 tables + `stock_visible`, empty but the 6 settings; anon gets 42501. |
+| **Web DB** | Supabase #2, schema v4 (W153 W159 W166 W174): 7 tables + `stock_visible`, which honours `stock_display` so a customer sees no status while it is `hidden` (F68); empty but the 6 settings; anon gets 42501. |
 | **Content · ERP** | Placeholder catalogue, deleted when real data enters (W007) · `jahjah-internal`: own canon, not connected (W075). |
 | **Gate** | Required job `ci` (`tier3-guard`, build, `tsc`, 67 pages, `verify.sh`, reference drift, gitleaks); ruleset `master-protection` (W100). Codex reviews, not a check. |
 
 | Phase | Status | Remaining · exit |
 |---|---|---|
-| P0–P2 | done | carried: #143 (F64), #145 (F68), Dependabot #84 (a major, W114); "every product looks real" waits on the owner (W126) |
+| P0–P2 | done | carried: #143 (F64), Dependabot #84 (a major, W114); "every product looks real" waits on the owner (W126) |
 | **P3** Admin Mode (W082) | P3-1a, P3-B1 done; next P3-B2 write routes (card #95), then the build (card #111) | exit: an editor works without a programmer or a Sanity seat; every change attributable; prices entered while `prices_visible` is OFF |
 | P4 accounts | — | sign-up, tiers, price island, stock, promotions; exit: tiers 1/2/3/none see exactly their prices |
 | P5 public UX | parallel | homepage repositioning, category imagery + pages (W041), search + filters, trust strip, service page, showroom map, Lighthouse; AR batched (W125) |
@@ -73,6 +73,6 @@ Answered: W126; Dependabot gets no Sanity secrets; workers push `card-*`/`canon/
 
 ## 5. NEXT STEP
 
-**M3 replay (card #112):** `think` writes 12 dry cards across the template's paths (auto, owner tap, risk 1–3, a blocked-by chain, a GATE-1 dry run, "no work needed"); 12/12 through `jahjah-web-run` before any real card is ready. Then M4 (one real backlog card vs M0) and M5 (relay retired, #131). Product next: P3-B2 (card #95; P3-1b, card #93, may go first), #145 before P4.
+**M3 replay (card #112):** `think` writes 12 dry cards across the template's paths (auto, owner tap, risk 1–3, a blocked-by chain, a GATE-1 dry run, "no work needed"); 12/12 through `jahjah-web-run` before any real card is ready. Then M4 (one real backlog card vs M0) and M5 (relay retired, #131). Product next: P3-B2 (card #95; P3-1b, card #93, may go first), then P4.
 
 **HANDOVER (to `think`):** M2 is done. Read `CLAUDE.md` (the core) and `/strategist` (yours); procedure lives in `/run-card`, `/migrate-db`, `/milestone-review`, `/ship`. Work is a card from the template; follow-ups are the open `backlog` issues (#159 lists M2's stale pointers). You run in your own worktree, reset to `origin/master` at each start, and edit only STATE and DECISIONS on `canon/*` branches. First: M3's 12 dry cards (none `card:ready` until #160 is settled), then the two new rulings in §4. Read W168–W173.

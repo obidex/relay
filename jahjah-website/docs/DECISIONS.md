@@ -220,3 +220,8 @@
   `think` runs in its own worktree (`think.sh --restart`); the dispatcher fetches before each `card-<n>` worktree and rotates its logs; settings v3 narrows `gh api` to pulls/issues reads and drops `gh label`; `tier3-guard` also covers `src/pages/api/**` and accepts `Tier-3: authorized by card #<n>`.
 - **W172** LESSON. An unquoted ` #` in YAML frontmatter starts a comment, so a skill's description was silently cut there (seen in the skill listing): quote any description that contains ` #`.
 - **W173** LESSON. Claude Code trusts a git worktree of a trusted clone, inside or outside it, but not a separate repo nested in it, where the project allow list is ignored with only a stderr warning. Measure permission rules with headless `dontAsk` runs in a throwaway worktree before the owner copies them.
+
+## Engine v3, M3 replay (2026-09-18)
+
+- **W174** LOCKED. Owner ruling on card #170: no text reader of `settings` is granted to `authenticated`, now or later. A helper the view needs is single-purpose and boolean-typed — `stock_shown()`, no argument — so one bit leaves the table instead of every key, present and future, over `/rest/v1/rpc/…`; `setting_bool` is not a precedent for a `text` twin.
+  `stock_visible` asks it too, closing F68: an active customer sees no stock status while `stock_display` is `hidden`, staff see it either way (schema v4). The switch is fail-open and case-sensitive, so Admin Mode must write exactly `"hidden"`.

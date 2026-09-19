@@ -84,6 +84,7 @@ On-demand routes: **6**. Every on-demand route must be named by the card that in
 | src/lib/prices.ts | `getPromotionsForSkus(skus: readonly string[], tier: Tier)` | function |
 | src/lib/settings.ts | `getSettings()` | function |
 | src/lib/stock.ts | `getStockForSkus(skus: readonly string[])` | function |
+| src/lib/stock.ts | `getStockStatusForSkus(client: SupabaseClient, skus: readonly string[])` | function |
 | src/config/site.js | `site` | const |
 | src/config/site.js | `branches` | const |
 | src/data/products-ar.js | `productsAr` | const |
@@ -190,6 +191,8 @@ EN/AR key sets: **SYMMETRIC**
 
 | Name | Exposure | Used in |
 |---|---|---|
+| `CLAUDE_THINK` | server-only | scripts/dispatch/hooks/pre-bash.mjs |
+| `PATH` | server-only | scripts/dispatch/hooks/pre-bash.test.mjs |
 | `PUBLIC_SANITY_DATASET` | client-visible | src/utils/sanity.js, scripts/hidden-products-check.mjs |
 | `PUBLIC_SANITY_PROJECT_ID` | client-visible | src/utils/sanity.js, scripts/hidden-products-check.mjs |
 | `SANITY_READ_TOKEN` | server-only | src/utils/sanity.js, scripts/hidden-products-check.mjs |
@@ -228,9 +231,14 @@ Engines: `{"node":">=22.12.0"}` · Scripts: `dev`, `build`, `preview`, `astro`, 
 | scripts/dispatch/hooks/post-edit.sh | PostToolUse hook (Edit\|Write), wired by scripts/dispatch/settings.v3.json (M1-engine). |
 | scripts/dispatch/hooks/pre-bash.mjs | PreToolUse hook logic for Bash, called by pre-bash.sh (M1-engine). Belt and braces over the |
 | scripts/dispatch/hooks/pre-bash.sh | PreToolUse hook (Bash), wired by scripts/dispatch/settings.v3.json (M1-engine). |
+| scripts/dispatch/hooks/pre-bash.test.mjs | Unit tests for the pre-bash hook (pre-bash.sh -> pre-bash.mjs). Each case feeds the hook the |
 | scripts/dispatch/install.sh | install.sh — OWNER-RUN (systemd is an owner-run command, card #112). Installs the v3 card |
 | scripts/dispatch/metrics.mjs | metrics.mjs — chunk metrics for the v3 dispatcher baseline (M0, issue #113). |
 | scripts/dispatch/settings.v3.json |  |
+| scripts/dispatch/sim/bin/claude | Fake claude for the dispatcher simulation; behaviour from $SIM_WORK/claude-mode. |
+| scripts/dispatch/sim/bin/gh | Fake gh for the dispatcher simulation: issues live in $SIM_WORK/issues.json. |
+| scripts/dispatch/sim/run.sh | run.sh — the offline dispatcher simulation (M1-engine, card #179). One command drives the real |
+| scripts/dispatch/sim/suite.sh | suite.sh — the assertions over the dispatcher simulation, one per branch of a tick. Sourced by |
 | scripts/dispatch/think.settings.json |  |
 | scripts/dispatch/think.sh | think.sh — OWNER-RUN: starts `think`, the planning session reached from the Claude app (M1-engine). |
 | scripts/dispatch/tick.sh | tick.sh — ONE tick of the card dispatcher, clone hygiene first (card #178). |
