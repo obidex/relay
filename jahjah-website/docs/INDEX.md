@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `23c7557ebaf71e0a93f74f83a7fa0514ae2fb370`
-**Commit subject:** fix(scripts): reference generator now catches export type/interface (#206)
-**Copied (UTC):** 2026-09-20T15:37:03Z
+**Mirrored commit:** `53de1481f2c4aa21970b057b557ea397c112a146`
+**Commit subject:** fix(types): drop the config/Sanity type-check exclude (#151) (#207)
+**Copied (UTC):** 2026-09-20T20:37:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
