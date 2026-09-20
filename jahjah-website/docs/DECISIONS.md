@@ -225,3 +225,7 @@
 
 - **W174** LOCKED. Owner ruling on card #170: no text reader of `settings` is granted to `authenticated`, now or later. A helper the view needs is single-purpose and boolean-typed — `stock_shown()`, no argument — so one bit leaves the table instead of every key, present and future, over `/rest/v1/rpc/…`; `setting_bool` is not a precedent for a `text` twin.
   `stock_visible` asks it too, closing F68: an active customer sees no stock status while `stock_display` is `hidden`, staff see it either way (schema v4). The switch is fail-open and case-sensitive, so Admin Mode must write exactly `"hidden"`.
+- **W175** LESSON. A worker's `gh pr merge` on a green, Codex-answered `auto` card can be refused by the classifier as "Merge Without Review" (#175, #178): the card ends BLOCKED and the owner or `think` merges; never retry.
+- **W176** LESSON. A per-card ledger row in STATE §3 conflicts with every PR waiting on a tap (#185, #193, #195): the row goes in the card's closing comment and the milestone review rebuilds §3 once.
+- **W177** LESSON. A card that blocks loses its worktree, so an owner-run push line must run from the clone: `git show origin/card-<n>:<file> > <file>`, push, `rm -f` (#170). Workers' `git push --delete` is refused as Git Destructive: branch cleanup is owner-run (#203).
+- **W178** LESSON. `runs.log` counts a run once per attempt: 28 runs across the replay (13 DONE, 10 BLOCKED, 4 with no status line read) cost 157 USD API-equivalent, a usage estimate and not a bill.
