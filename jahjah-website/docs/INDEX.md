@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `39e95e26cbb9a42a9e12a2617020f48706a92938`
-**Commit subject:** docs(canon): M3 replay milestone review, STATE rebuilt, W175-W178 (#204)
-**Copied (UTC):** 2026-09-20T00:37:04Z
+**Mirrored commit:** `23c7557ebaf71e0a93f74f83a7fa0514ae2fb370`
+**Commit subject:** fix(scripts): reference generator now catches export type/interface (#206)
+**Copied (UTC):** 2026-09-20T15:37:03Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -20,7 +20,7 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 | `CLAUDE.md` | 7142 | `CLAUDE.md` |
 | `STATE.md` | 8190 | `docs/STATE.md` |
 | `DECISIONS.md` | 29782 | `docs/DECISIONS.md` |
-| `reference/site.md` | 14006 | `docs/reference/site.md` |
+| `reference/site.md` | 14778 | `docs/reference/site.md` |
 | `STRATEGIST.md` | — | not present at this commit |
 | `ROADMAP.md` | — | not present at this commit |
 

@@ -71,6 +71,7 @@ On-demand routes: **6**. Every on-demand route must be named by the card that in
 | src/utils/sanity.js | `getAllBrands(lang = 'en')` | function |
 | src/utils/sanity.js | `getBrandBySlug(slug, lang = 'en')` | function |
 | src/utils/sanity.js | `getProductsByBrand(brandId, lang = 'en')` | function |
+| src/lib/auth.ts | `StaffIdentity` | interface |
 | src/lib/auth.ts | `serverClient(cookies: AstroCookies, requestHeaders: Headers)` | function |
 | src/lib/auth.ts | `getStaff(client: SupabaseClient)` | function |
 | src/lib/customers.ts | `getCustomer(userId: string)` | function |
@@ -84,7 +85,23 @@ On-demand routes: **6**. Every on-demand route must be named by the card that in
 | src/lib/prices.ts | `getPromotionsForSkus(skus: readonly string[], tier: Tier)` | function |
 | src/lib/settings.ts | `getSettings()` | function |
 | src/lib/stock.ts | `getStockForSkus(skus: readonly string[])` | function |
+| src/lib/stock.ts | `StockStatusRow` | type |
 | src/lib/stock.ts | `getStockStatusForSkus(client: SupabaseClient, skus: readonly string[])` | function |
+| src/lib/types.ts | `Tier` | type |
+| src/lib/types.ts | `PriceTier` | type |
+| src/lib/types.ts | `StockDisplay` | type |
+| src/lib/types.ts | `ProductVisibility` | type |
+| src/lib/types.ts | `StaffRole` | type |
+| src/lib/types.ts | `CustomerStatus` | type |
+| src/lib/types.ts | `StockStatus` | type |
+| src/lib/types.ts | `StaffMember` | interface |
+| src/lib/types.ts | `Customer` | interface |
+| src/lib/types.ts | `Price` | interface |
+| src/lib/types.ts | `Promotion` | interface |
+| src/lib/types.ts | `StockRow` | interface |
+| src/lib/types.ts | `SettingValues` | interface |
+| src/lib/types.ts | `Setting` | type |
+| src/lib/types.ts | `AuditRow` | interface |
 | src/config/site.js | `site` | const |
 | src/config/site.js | `branches` | const |
 | src/data/products-ar.js | `productsAr` | const |
