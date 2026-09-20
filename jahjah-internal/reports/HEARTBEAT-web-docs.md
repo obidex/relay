@@ -2,7 +2,7 @@
 
 <!-- index: proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running -->
 
-**Written (UTC):** 2026-09-20T17:37:04Z
+**Written (UTC):** 2026-09-20T18:37:04Z
 **State:** OK — master unchanged
 **Mirrored `master`:** `23c7557ebaf71e0a93f74f83a7fa0514ae2fb370`
 **Runs:** every 30 minutes. **Stale by more than ~70 minutes = this job is not running**, and
