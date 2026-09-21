@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-09-21T05:00:04Z by `jahjah-health`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-09-21T05:37:04Z by `jahjah-web-docs`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -11,10 +11,10 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
-| `HEALTH-daily.md` | 2026-09-21T05:00:04Z | daily health — NEEDS ATTENTION (3 item(s)) |
+| `HEALTH-daily.md` | 2026-09-21T05:00:06Z | daily health — NEEDS ATTENTION (3 item(s)) |
 | `HEARTBEAT-erp-dispatch.md` | 2026-09-21T04:59:05Z | proof-of-life for the ERP chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-dispatch.md` | 2026-09-17T10:24:06Z | proof-of-life for the website chunk lane — stale > ~70 min means chunks are not being picked up |
-| `HEARTBEAT-web-docs.md` | 2026-09-21T04:37:06Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
+| `HEARTBEAT-web-docs.md` | 2026-09-21T05:37:04Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
 | `SCAN-gitleaks.md` | 2026-09-21T04:00:10Z | weekly gitleaks scan — ZERO secrets found in either repo history |
 | `SCAN-trivy.md` | 2026-09-21T03:00:15Z | weekly trivy scan — 13 critical, 376 high, 531 medium, 344 low |
