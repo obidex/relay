@@ -1,14 +1,14 @@
 # Weekly dependency + image scan (trivy)
 
-<!-- index: weekly trivy scan — 13 critical, 368 high, 534 medium, 328 low -->
+<!-- index: weekly trivy scan — 13 critical, 376 high, 531 medium, 344 low -->
 
-**Generated (UTC):** 2026-09-14T03:00:04Z · **trivy 0.74.0** · **8 target(s)** (1 repo + 7 image(s))
+**Generated (UTC):** 2026-09-21T03:00:04Z · **trivy 0.74.0** · **8 target(s)** (1 repo + 7 image(s))
 
 Overwritten in place each week. Git history is the archive.
 
 ## Verdict
 
-**13 critical, 368 high, 534 medium, 328 low** across all targets (1267 total).
+**13 critical, 376 high, 531 medium, 344 low** across all targets (1288 total).
 
 Most findings on a docker image are in the base operating-system packages of a
 third-party image, not in anything this project wrote. The repo row is the one that
@@ -19,17 +19,17 @@ reflects our own dependency choices.
 | Target | Critical | High | Medium | Low | Unknown |
 |---|---|---|---|---|---|
 | `repo: jahjah-internal (npm)` | 0 | 0 | 1 | 0 | 0 |
-| `image: portainer/portainer-ce:lts` | 0 | 11 | 8 | 1 | 1 |
-| `image: public.ecr.aws/supabase/gotrue:v2.196.0` | 0 | 26 | 13 | 13 | 1 |
-| `image: public.ecr.aws/supabase/postgres:17.6.1.166` | 0 | 38 | 54 | 13 | 7 |
-| `image: public.ecr.aws/supabase/postgres-meta:v0.96.1` | 9 | 103 | 137 | 108 | 2 |
-| `image: public.ecr.aws/supabase/realtime:v2.130.0` | 3 | 116 | 239 | 167 | 6 |
-| `image: public.ecr.aws/supabase/storage-api:v1.73.1` | 1 | 36 | 28 | 13 | 0 |
-| `image: supabase/postgres:17.6.1.167` | 0 | 38 | 54 | 13 | 7 |
+| `image: portainer/portainer-ce:lts` | 0 | 11 | 8 | 5 | 1 |
+| `image: public.ecr.aws/supabase/gotrue:v2.196.0` | 0 | 26 | 13 | 17 | 1 |
+| `image: public.ecr.aws/supabase/postgres:17.6.1.166` | 0 | 38 | 50 | 17 | 7 |
+| `image: public.ecr.aws/supabase/postgres-meta:v0.96.1` | 9 | 104 | 140 | 106 | 4 |
+| `image: public.ecr.aws/supabase/realtime:v2.130.0` | 3 | 122 | 242 | 169 | 4 |
+| `image: public.ecr.aws/supabase/storage-api:v1.73.1` | 1 | 37 | 27 | 13 | 0 |
+| `image: supabase/postgres:17.6.1.167` | 0 | 38 | 50 | 17 | 7 |
 
 ## Top items (critical and high only)
 
-Showing up to 20 of 381 critical/high findings, critical first.
+Showing up to 20 of 389 critical/high findings, critical first.
 
 | Severity | Advisory | Package | Installed | Fixed in | Target |
 |---|---|---|---|---|---|
