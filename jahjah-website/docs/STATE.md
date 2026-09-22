@@ -1,12 +1,12 @@
 # STATE.md — Where the Project Is Right Now
 
-> The only volatile file in the canon: `think` keeps it current (`canon/*` PRs); §3 is rebuilt at each milestone review from the cards' closing comments. No rules here. History: `docs/archive/` (never loaded).
+> The only volatile file in the canon: threads keep it current on the coordinator's cards; §3 is rebuilt at each milestone review from the cards' closing comments. No rules here. History: `docs/archive/` (never loaded).
 
 ## 1. PROGRAMME
 
 | Aspect | Status |
 |---|---|
-| **Programme** | P0–P2 done → **P3 Admin Mode** ★ → P4 → P5 (parallel) → **L** → P6 · engine v3 (card #112): M0–M2 done → **M3 replay 12/12 PASS** → M4 pilot → M5 handover · `scripts/dispatch/**` is **retiring** (Claude Code Projects replaces the engine after M3; M5 deletes it) |
+| **Programme** | P0–P2 done → **P3 Admin Mode** ★ → P4 → P5 (parallel) → **L** → P6 · engine: M0–M5 done; the Claude Code Project `jahjah-website` (coordinator + threads) runs the work (W181) · next: the P3 build from #111 via threads |
 | **`master` HEAD at the last canon update** | `892c06c` (#198). `master` is normally one commit ahead (this PR). |
 | **Live** | 68 pages EN + AR (22 products, 5 brands, 6 categories); no prices, no login. Astro 7.3.2, Studio 5.31.2; 6 on-demand routes (`/api/*`, W167). |
 | **Web DB** | Supabase #2, schema v4 (W153 W159 W166 W174): 7 tables + `stock_visible`, which honours `stock_display` so a customer sees no status while it is `hidden` (F68); empty but the 6 settings; anon gets 42501. |
@@ -29,13 +29,13 @@
 1. **Two paths to production:** a merge to `master`, and a Sanity publish (deploy hook, ~2 min, no commit).
 2. **Owner rulings (W126):** no photos on placeholders; watermark clean; founded 2010; SUNNY/DSP exclusive; numbers, hours, warranty, brands unchanged.
 3. **Free Supabase pauses after ~1 week idle (W091)** until #143 dumps it nightly; `/api/health` touches it only when called.
-4. **Cards only.** Work is an issue from `.github/ISSUE_TEMPLATE/card.yml`, run by `/run-card`; `jahjah-web-run` takes the oldest `card:ready` every 2 min (W168, W171). M3's 12 dry cards passed 12/12 (table on #112). Reports also go to the relay until M5 (#131).
-5. **Codex** speaks on four surfaces (review, inline, comment, `+1` = clean; `eyes` = no verdict). All of M2's PRs got a usage-limit notice instead: check its quota before waiting.
+4. **Cards only.** Work is an issue from `.github/ISSUE_TEMPLATE/card.yml`; the coordinator starts a thread that runs it with `/run-card` (W171, W181). No dispatch labels.
+5. **Codex** was silent on every M4 pilot PR: threads check it once before merging and never wait (`/run-card` §7).
 6. **No session edits `.claude/settings.json`:** the owner copies `scripts/dispatch/settings.v3.json` (W138); a file rule is `Edit(path)` (W169).
 7. **The reviewer agent is not read-only** (its Bash is unscoped). **Browser floor iOS 16** (W141, W145).
 8. **Previews carry no Supabase env** (W161, #146): test DB/auth routes locally, then on production; probe with plain `curl` (W146).
 9. **Hooks are live (W168):** `pre-bash` refuses destructive and owner-only commands and any push reaching `master`; `post-edit` type-checks. A refusal is a finding.
-10. **`think`** runs in tmux `think` (fable, dontAsk) in its own worktree, reset to `origin/master` at each start; `think.sh --restart` reloads it. It writes only issues, STATE/DECISIONS and `canon/*` PRs.
+10. **Threads** run Opus 5.5, effort from the `risk:*` label (W180); `supabase db push` stays owner-run until the W179 card lands.
 
 ## 3. LEDGER (newest 5; older rows → `docs/archive/STATE-history.md`)
 
@@ -52,8 +52,8 @@
 | What | Where |
 |---|---|
 | Repo · Vercel · Sanity | `obidex/jahjah-website` · `jahjah-website` · `pxf1amia`/`production`; `jahjah.net` waits for L (W027) |
-| Box | clone `/opt/jahjah/web` (Node 22, Supabase CLI 2.117.0 linked to #2, read-only MCP, W160) · `think` worktree `/opt/jahjah/think` · dispatcher state `/opt/jahjah/run-state`. No addresses. |
-| Automations | `jahjah-web-run` 2 min (kill: `scripts/dispatch/STOP` or a `stop` issue) · `-truth` Mon · `-docs` 30 min · `-backup` 02:30 + `-backup-check` Mon · registry in `jahjah-internal` |
+| Box | clone `/opt/jahjah/web` (Node 22, Supabase CLI 2.117.0 linked to #2, read-only MCP, W160). No addresses. |
+| Automations | `jahjah-web-truth` Mon · `-docs` 30 min · `-backup` 02:30 + `-backup-check` Mon · registry in `jahjah-internal` |
 | Backlog | open issues labelled `backlog` + `pri:*` + `risk:*` |
 
 **Secret names (never values):** `PUBLIC_SANITY_*`, `SANITY_READ_TOKEN` (Vercel, VPS, Actions) · `SANITY_WRITE_TOKEN` (VPS, Production) · the deploy-hook URL · `SUPABASE_URL`, `SUPABASE_ANON_KEY` (VPS, Production) · `SUPABASE_SERVICE_ROLE_KEY` (Production, VPS) · `SUPABASE_PROJECT_REF` · `SUPABASE_ACCESS_TOKEN`, `SUPABASE_DB_PASSWORD` (CLI, one command, W154).
@@ -69,10 +69,10 @@
 | ShamCash merchant API (W064) | P6 ordering | quote list |
 | Guides/testimonials: will anyone write them? | Later | skip |
 
-Answered: W126; Dependabot gets no Sanity secrets; workers push `card-*`/`canon/*` under allow rules; `think` merges only its own canon PRs (#185); a worker's own merge can still be refused as "Merge Without Review" (W176).
+Answered: W126; Dependabot gets no Sanity secrets; threads push `card-*` under allow rules; a thread's own merge can still be refused as "Merge Without Review" (W175).
 
 ## 5. NEXT STEP
 
-**M4 pilot (card #112):** one real backlog card end to end, compared with M0. Open first: #201 (canon rulings), #202 (Actions minutes), #203 (branch delete). Product next: P3-B2 (card #95; P3-1b, card #93, may go first), then P4.
+**P3 build (card #111) via threads.** Open first: the W179 card (thread-run `supabase db push`), #202 (Actions minutes), #203 (branch delete). Product: P3-B2 (card #95; P3-1b, card #93, may go first), then P4.
 
-**HANDOVER (to `think`):** M3 is done. Read `CLAUDE.md` and `/strategist`; procedure lives in `/run-card`, `/migrate-db`, `/milestone-review`, `/ship`. Work is a card; follow-ups are the open `backlog` issues. Read W168–W177.
+**HANDOVER (to the coordinator):** M5 is done: the VPS engine and the relay are gone, and the Project runs the work. Read `CLAUDE.md` (it imports `AGENTS.md`) and `/strategist`; procedure lives in `/run-card`, `/migrate-db`, `/milestone-review`, `/ship`. Follow-ups are the open `backlog` issues. Read W179–W181.

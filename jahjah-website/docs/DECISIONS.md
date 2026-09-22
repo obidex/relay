@@ -229,3 +229,12 @@
 - **W176** LESSON. A per-card ledger row in STATE §3 conflicts with every PR waiting on a tap (#185, #193, #195): the row goes in the card's closing comment and the milestone review rebuilds §3 once.
 - **W177** LESSON. A card that blocks loses its worktree, so an owner-run push line must run from the clone: `git show origin/card-<n>:<file> > <file>`, push, `rm -f` (#170). Workers' `git push --delete` is refused as Git Destructive: branch cleanup is owner-run (#203).
 - **W178** LESSON. `runs.log` counts a run once per attempt: 28 runs across the replay (13 DONE, 10 BLOCKED, 4 with no status line read) cost 157 USD API-equivalent, a usage estimate and not a bill.
+
+## Engine v4, M4 pilot (2026-09-22)
+
+- **W179** LOCKED. Owner ruling A on card #196: a project thread runs `supabase db push` itself, with the credential in the cloud environment, after GATE 1 approval (SQL verbatim in the card, owner-approved there); amends the owner-run push of W154 and migrate-db.
+  Not live yet: the `supabase db push` deny rule in `.claude/settings.json` (owner-copied from `settings.v3.json`, W138), migrate-db step 2, the environment credential and the `supabase` CLI still need a card; until then the push stays owner-run.
+- **W180** LOCKED. M4 pilot GO for M5 (#196): #142, #140, #151 shipped through project threads as PRs #205, #206, #207. Usage per card: 11.5M, 6.7M, 26.8M tokens (45.0M), of which 8.8M was a wasted Sonnet run on #151.
+  Amends W168: threads and coordinator run Opus 5.5 (risk 3 high effort, else medium), a card is never re-run on another model, and several risk-1/2 cards share one thread.
+- **W181** LOCKED. M5 (#210): the Claude Code Project `jahjah-website` replaces the VPS engine: coordinator = strategist, threads = workers, the Project overview = the board; `dispatch.sh`, `tick.sh`, `install.sh`, `think.sh`, the sim and the relay lane are deleted, `card:*`/`chunk:*`/`model:*` labels retired.
+  The VPS keeps `jahjah-web-truth` and the backup timers only. `AGENTS.md` is the one rulebook and `CLAUDE.md` imports it (#201 16a/c); amends W168, W171.

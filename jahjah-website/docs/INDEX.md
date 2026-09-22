@@ -2,9 +2,9 @@
 
 <!-- index: the website project's canon, mirrored from master by jahjah-web-docs -->
 
-**Mirrored commit:** `53de1481f2c4aa21970b057b557ea397c112a146`
-**Commit subject:** fix(types): drop the config/Sanity type-check exclude (#151) (#207)
-**Copied (UTC):** 2026-09-20T20:37:04Z
+**Mirrored commit:** `7d1dc41d20129846cec1805fc9558d90e410e882`
+**Commit subject:** chore(canon): M5 handover, retire the VPS engine and relay lane (#212)
+**Copied (UTC):** 2026-09-22T20:37:04Z
 **Disclosure:** the commit subject above is published here verbatim, as it is in the weekly TRUTH
 report. Nothing else about the commit is — no author, no body, no diff. Ask for hashes-only if that
 is not acceptable.
@@ -17,10 +17,10 @@ Raw URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-website
 
 | File | Bytes | Source path in the repo |
 |---|---|---|
-| `CLAUDE.md` | 7142 | `CLAUDE.md` |
-| `STATE.md` | 8190 | `docs/STATE.md` |
-| `DECISIONS.md` | 29782 | `docs/DECISIONS.md` |
-| `reference/site.md` | 14778 | `docs/reference/site.md` |
+| `CLAUDE.md` | 2100 | `CLAUDE.md` |
+| `STATE.md` | 7781 | `docs/STATE.md` |
+| `DECISIONS.md` | 31190 | `docs/DECISIONS.md` |
+| `reference/site.md` | 13699 | `docs/reference/site.md` |
 | `STRATEGIST.md` | — | not present at this commit |
 | `ROADMAP.md` | — | not present at this commit |
 
