@@ -1,8 +1,8 @@
 # Daily health — `germany-vpn`
 
-<!-- index: daily health — NEEDS ATTENTION (7 item(s)) -->
+<!-- index: daily health — NEEDS ATTENTION (1 item(s)) -->
 
-**Generated (UTC):** 2026-09-23T05:00:04Z · **Verdict:** **NEEDS ATTENTION — 7 item(s)**
+**Generated (UTC):** 2026-09-24T05:00:04Z · **Verdict:** **NEEDS ATTENTION — 1 item(s)**
 
 Overwritten in place once a day. Git history is the archive — the previous days are in
 this file's commit log, not in extra files. **If the timestamp above is more than ~26 hours
@@ -10,13 +10,7 @@ old, the health job itself has stopped and nothing here can be trusted as curren
 
 ## Needs attention
 
-- `jahjah-erp-dispatch.timer` is not armed — it will never fire
-- `jahjah-erp-dispatch.timer` is `disabled`, not enabled
-- `jahjah-web-dispatch.timer` is not armed — it will never fire
-- `jahjah-web-dispatch.timer` is `disabled`, not enabled
-- disk is 92% full
-- the website chunk-lane heartbeat is 8316 minutes old and not PAUSED — an approved chunk would sit unclaimed
-- the ERP chunk-lane heartbeat is 529 minutes old and not PAUSED — an approved chunk would sit unclaimed
+- `jahjah-web-dispatch.timer` is retired (D254) but still installed — remove it
 
 ## The automation fleet
 
@@ -25,31 +19,30 @@ a timer can be `enabled` and still have no next elapse, in which case it never f
 
 | Job | Enabled | Last run | Result | Consecutive failures | Next run (UTC) | Last run said |
 |---|---|---|---|---|---|---|
-| `jahjah-backup` | enabled | 2h 59m ago | success | 0 / 3 | 2026-09-24 02:00 | ok: 2.4M in 3s, 99 tables, 7 kept, 1 rotated out |
-| `jahjah-erp-dispatch` | disabled | never | success | 0 / 3 | **NOT ARMED** | ok: idle — nothing approved |
-| `jahjah-health` | enabled | running now | success | 0 / 3 | (running now) | ok: published HEALTH-daily.md — 3 attention item(s), 13 job(s) in the ledger |
-| `jahjah-retention` | enabled | 2d 22h ago | success | 0 / 3 | 2026-09-27 06:00 | ok: 2 folder(s), 16 pruned · branches: 0 deleted |
-| `jahjah-scan-gitleaks` | enabled | 2d 0h ago | success | 0 / 3 | 2026-09-28 04:00 | ok: published SCAN-gitleaks.md — 0 hit(s) across 2180 commits |
-| `jahjah-scan-trivy` | enabled | 2d 1h ago | success | 0 / 3 | 2026-09-28 03:00 | ok: published SCAN-trivy.md — 8 targets, 13 critical, 376 high, 531 medium, 344 low |
-| `jahjah-sql-live` | enabled | 1h 44m ago | success | 0 / 3 | 2026-09-24 03:15 | ok: 28/28 suites passed against live in 13s at d095454 (migrations in step) |
-| `jahjah-web-backup-check` | enabled | 2d 1h ago | success | 0 / 3 | 2026-09-28 03:30 | ok: OK — sanity-production-20260921-023004.tar.gz (0h old): product=22 ok; brand=5 ok; c |
-| `jahjah-web-backup` | enabled | 2h 29m ago | success | 0 / 3 | 2026-09-24 02:30 | ok: 62K in 2s, 33 documents, 7 kept, 1 rotated out |
-| `jahjah-web-dispatch` | disabled | never | success | 0 / 3 | **NOT ARMED** | — |
-| `jahjah-web-truth` | enabled | 1d 23h ago | success | 0 / 3 | 2026-09-28 05:30 | ok: build **clean**, 68 page(s), 1 live issue(s) |
+| `jahjah-backup` | enabled | 2h 59m ago | success | 0 / 3 | 2026-09-25 02:00 | ok: 3.0M in 4s, 108 tables, 7 kept, 1 rotated out |
+| `jahjah-cleanup` | enabled | 13h 28m ago | success | 0 / 2 | 2026-09-27 04:30 | ok: nothing to do — 10.4 GB free on /, at or above 8 GB |
+| `jahjah-health` | enabled | running now | success | 0 / 3 | (running now) | ok: published HEALTH-daily.md — 7 attention item(s), 11 job(s) in the ledger |
+| `jahjah-retention` | enabled | 3d 22h ago | success | 0 / 3 | 2026-09-27 06:00 | ok: 2 folder(s), 16 pruned · branches: 0 deleted |
+| `jahjah-scan-gitleaks` | enabled | 3d 0h ago | success | 0 / 3 | 2026-09-28 04:00 | ok: published SCAN-gitleaks.md — 0 hit(s) across 2180 commits |
+| `jahjah-scan-trivy` | enabled | 3d 1h ago | success | 0 / 3 | 2026-09-28 03:00 | ok: published SCAN-trivy.md — 8 targets, 13 critical, 376 high, 531 medium, 344 low |
+| `jahjah-sql-live` | enabled | 1h 44m ago | success | 0 / 3 | 2026-09-25 03:15 | ok: 30/30 suites passed against live in 15s at 5b6467c (migrations in step) |
+| `jahjah-web-backup-check` | enabled | 3d 1h ago | success | 0 / 3 | 2026-09-28 03:30 | ok: OK — sanity-production-20260921-023004.tar.gz (0h old): product=22 ok; brand=5 ok; c |
+| `jahjah-web-backup` | enabled | 2h 29m ago | success | 0 / 3 | 2026-09-25 02:30 | ok: 62K in 4s, 33 documents, 7 kept, 1 rotated out |
+| `jahjah-web-truth` | enabled | 2d 23h ago | success | 0 / 3 | 2026-09-28 05:30 | ok: build **clean**, 68 page(s), 1 live issue(s) |
 
-A job disables its own timer after **3 consecutive failures** and publishes
-`ALERT-<job>-disabled.md` next to this file.
+A job disables its own timer when its consecutive failures reach the cap in its row
+(**3** unless the row says otherwise) and publishes `ALERT-<job>-disabled.md` next to this file.
 
 ## Database backup
 
 | | |
 |---|---|
 | Newest dump | 2h 59m ago |
-| Size | 2.4M |
-| Tables in it | 99 |
-| Last dump took | 3s |
+| Size | 3.0M |
+| Tables in it | 108 |
+| Last dump took | 4s |
 | Dumps kept | 7 (7 nights) |
-| Space used | 20M |
+| Space used | 21M |
 
 Dumps stay on the box in `/root/backups` (mode 700) and are never published.
 
@@ -71,7 +64,7 @@ conditions fail is skipped rather than failed, so freshness is the only signal t
 | | |
 |---|---|
 | Verdict | **OK** |
-| Last checked | 2d 1h ago |
+| Last checked | 3d 1h ago |
 | Detail | sanity-production-20260921-023004.tar.gz (0h old): product=22 ok; brand=5 ok; category=6 ok; 3 image reference(s), all present; 3 image file(s) in the archive; 33 documents total |
 
 `jahjah-web-backup-check`, Mondays 03:30 UTC: it unpacks the newest archive and compares its
@@ -84,17 +77,17 @@ failed job, so it never appears in the fleet table — only here.
 
 | | |
 |---|---|
-| Disk `/` | 33G used of 38G (92%), 3.0G free |
-| Memory | 820 MB used of 3819 MB (21%), 2999 MB available |
-| Swap | 246 MB used of 4095 MB (6%) |
-| Load | 1.55, 1.70, 1.68 (over 2 cores) |
-| Uptime | 3 weeks, 3 days, 7 hours, 37 minutes |
+| Disk `/` | 26G used of 38G (72%), 11G free |
+| Memory | 805 MB used of 3819 MB (21%), 3014 MB available |
+| Swap | 371 MB used of 4095 MB (9%) |
+| Load | 0.00, 0.00, 0.09 (over 2 cores) |
+| Uptime | 3 weeks, 4 days, 7 hours, 37 minutes |
 
 ## SSH attack blocking (fail2ban — active)
 
 | Jail | Banned in last 24h | Currently banned | Banned ever |
 |---|---|---|---|
-| `sshd` | 68 | 0 | 62 |
+| `sshd` | 53 | 5 | 115 |
 
 Counts only. Addresses are deliberately not published.
 
@@ -104,9 +97,9 @@ Counts only. Addresses are deliberately not published.
 
 | Peer | Last handshake |
 |---|---|
-| peer 1 | 3m ago |
-| peer 2 | 2d 9h ago |
-| peer 3 | 9h 40m ago |
+| peer 1 | 6m ago |
+| peer 2 | 3d 9h ago |
+| peer 3 | 14h 47m ago |
 | peer 4 | never |
 | peer 5 | never |
 | peer 6 | 0m ago |
@@ -119,70 +112,13 @@ Peers are numbered, not named. Keys and endpoint addresses are deliberately not 
 |---|---|---|
 | `portainer` | running | Up 3 weeks |
 
-## Chunk lanes
-
-| Lane | Repository | Heartbeat state | Heartbeat age | In flight | For | Chunk fails | Usage cap |
-|---|---|---|---|---|---|---|---|
-| `jahjah-web-dispatch` | `obidex/jahjah-website` | OK — idle, no `chunk:approved` issue open | 5d 18h ago | none | — | 0/3 | — |
-| `jahjah-erp-dispatch` | `obidex/jahjah-internal` | OK — idle, no `chunk:approved` issue open | 8h 49m ago | none | — | 0/3 | — |
-
-Both lanes are the SAME script with a different parameter file (`D230`). Each picks up
-`chunk:approved` issues on its own repository every 2 minutes and runs them on this box.
-**An idle lane and a dead one look identical in the fleet table** — the heartbeat age above
-is what separates them. Full detail in `HEARTBEAT-<lane>.md` next to this file.
-
-**Chunk fails** is the CHUNK breaker (`D237`), which is separate from the poll's
-three-strike law: at 3 the lane disables its own timer and publishes
-`ALERT-<lane>-chunks-disabled.md`. A **usage cap** death does not count toward it — hitting
-the account's five-hour cap is a queue problem, not a fault, so the chunk is re-queued and
-the lane waits until the time shown.
-
-**Chunk windows open across both tmux sessions: 0.** The lanes cap concurrency
-independently, so two chunks — one per lane — can run at once. Two is allowed; it is listed
-as an attention item so it is never a surprise.
-
-### Dispatches in the last 24 hours
-
-| Dispatched (UTC) | Lane | Issue | A chunk was already running when it was approved? |
-|---|---|---|---|
-| _none_ | | | |
-
-This is the **detective control** that replaced the retired approval-window check
-(`D237`). A dispatched chunk runs with this box's own GitHub credential — the same account
-whose Triage right IS the `chunk:approved` gate — so the label gate does not bind the thing
-it gates (`D231`). Rather than refuse, the lane RECORDS who approved each chunk and whether
-any chunk of either lane was running at that instant. **Who approved it is recorded on the
-issue itself**, in the private repository — not here, because this page is world-readable.
-
-**A flagged row is not a finding.** Approving the next chunk from a phone while the current
-one is still running produces exactly the same row, and it is the ordinary case. What the
-record buys is that the act is visible at all; what it does NOT buy is a boundary — a root
-chunk can rewrite these files, and an approval deferred past every window is
-indistinguishable from the owner's. The real fix stays parked with its trigger (`D231`).
-
-## Dispatched-chunk database lane
+## Database credential
 
 | | |
 |---|---|
 | Credential precondition | OK |
 
-One daily check that the chunk lanes can still reach the database as configured (`D237`).
+One daily check that the box can still reach the database as configured (`D237`).
 **Deliberately a bare token.** This page is world-readable; exactly what is checked, and
 what a change would mean, is operational detail that belongs on the box. The attention list
 and `docs/pitfalls/*` carry it. This row only says whether to go and look.
-
-## GATE-1 accident guard
-
-| | |
-|---|---|
-| State | ACTIVE |
-| Last decision | PARSE (of 91 logged) |
-
-Refuses to apply a migration whose SHA-256 is not published on the relay (`D228`). Two
-halves: the check inside `scripts/db-query.mjs`, and a project-local PreToolUse hook for the
-raw forms. **It is an accident guard, not a boundary** — nothing on this box binds a root
-session holding the database password. **DEGRADED here means even the
-accident guard is degraded. **Which half is degraded is deliberately NOT published** — this
-page is world-readable, and advertising exactly which guard is off is an invitation. The
-detail is in the attention list on the box. Only the decision KIND is published; the log
-itself never leaves the machine.
