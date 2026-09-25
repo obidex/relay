@@ -1,12 +1,12 @@
 # SQL suites against LIVE — nightly
 
-<!-- index: nightly SQL suites vs LIVE — PASS 30/30 in 15s -->
+<!-- index: nightly SQL suites vs LIVE — PASS 34/34 in 19s -->
 
-**Generated (UTC):** 2026-09-24T03:15:00Z
-**Verdict:** **PASS** — all 30 suites passed against the live database.
-**Suites from:** `obidex/jahjah-internal` `main` at `5b6467c`
-**Migrations:** in step — all 83 migrations on main are applied on live, and live has none main lacks (newest `20260924000450`)
-**Ran for:** 15s
+**Generated (UTC):** 2026-09-25T03:15:04Z
+**Verdict:** **PASS** — all 34 suites passed against the live database.
+**Suites from:** `obidex/jahjah-internal` `main` at `713c6df`
+**Migrations:** in step — all 87 migrations on main are applied on live, and live has none main lacks (newest `20260924000800`)
+**Ran for:** 19s
 
 This is the nightly run of the always-rollback SQL test suites against the **live** database, from
 the work engine. Pull-request CI runs the same suites in a throwaway database built from the
@@ -15,17 +15,20 @@ running** (or is switched off: `/opt/jahjah/SQL_LIVE_OFF`).
 
 | Suite | Result | Seconds |
 |---|---|---|
-| `activity_log_record_history_tests` | PASS | 0.5 |
-| `activity_log_tests` | PASS | 0.4 |
-| `arabic_cut_tests` | PASS | 0.6 |
-| `catalog_supplier_tests` | PASS | 0.9 |
-| `d252_daily_syp_rate_tests` | PASS | 0.4 |
+| `activity_log_record_history_tests` | PASS | 0.9 |
+| `activity_log_tests` | PASS | 0.5 |
+| `arabic_cut_tests` | PASS | 0.5 |
+| `cash_sessions_cash_sale_cheques_tests` | PASS | 1.1 |
+| `catalog_supplier_tests` | PASS | 0.8 |
+| `credit_collections_returns_tests` | PASS | 1.2 |
+| `d252_daily_syp_rate_tests` | PASS | 0.3 |
+| `dispatch_driver_capacity_tests` | PASS | 0.4 |
 | `fx_cut_tests` | PASS | 0.5 |
-| `imports_costs_tests` | PASS | 0.3 |
+| `imports_costs_tests` | PASS | 0.2 |
 | `imports_landed_cost_tests` | PASS | 0.3 |
 | `imports_milestones_tests` | PASS | 0.3 |
 | `imports_shipments_tests` | PASS | 0.3 |
-| `inventory_receipt_transfer_tests` | PASS | 0.5 |
+| `inventory_receipt_transfer_tests` | PASS | 0.6 |
 | `inventory_reorder_tests` | PASS | 0.3 |
 | `inventory_stock_tests` | PASS | 0.3 |
 | `permission_system_tests` | PASS | 0.3 |
@@ -33,17 +36,18 @@ running** (or is switched off: `/opt/jahjah/SQL_LIVE_OFF`).
 | `procurement_tests` | PASS | 0.5 |
 | `product_images_tests` | PASS | 0.2 |
 | `purchase_order_3b_tests` | PASS | 0.3 |
-| `purchase_order_payments_tests` | PASS | 0.2 |
+| `purchase_order_payments_tests` | PASS | 0.3 |
 | `purchase_order_variant_plan_tests` | PASS | 0.3 |
 | `reference_data_tests` | PASS | 0.3 |
 | `sales_dispatch_tests` | PASS | 0.6 |
 | `sales_invoice_aging_tests` | PASS | 0.7 |
 | `sales_orders_tests` | PASS | 0.6 |
-| `sales_payments_returns_tests` | PASS | 0.9 |
-| `sales_revisions_price_floor_tests` | PASS | 1.3 |
-| `sales_tests` | PASS | 0.5 |
-| `security_sweep_hardening_tests` | PASS | 0.3 |
+| `sales_payments_returns_tests` | PASS | 1.6 |
+| `sales_revisions_price_floor_tests` | PASS | 1.2 |
+| `sales_tests` | PASS | 0.4 |
+| `security_sweep_hardening_tests` | PASS | 0.2 |
 | `security_sweep_s1_fixes_tests` | PASS | 0.1 |
+| `suppliers_crm_tests` | PASS | 0.9 |
 | `user_management_tests` | PASS | 0.3 |
 
 **Reading a FAIL.** A suite that passes in CI and fails here means live differs from what the
