@@ -5,7 +5,7 @@
 > **World-readable file. Commit subjects appear here — website strategist: confirm this is
 > acceptable or request hashes-only.**
 
-**Generated (UTC):** 2026-09-21T05:30:04Z · by `jahjah-web-truth` on the VPS work engine · **overwritten weekly**
+**Generated (UTC):** 2026-09-26T20:57:26Z · by `jahjah-web-truth` on the VPS work engine · **overwritten weekly**
 
 An outside reading of `obidex/jahjah-website`, taken without touching it. This job never
 pushes to that repo, never edits its files, never touches Vercel or Sanity, and never applies
@@ -24,7 +24,7 @@ use this copy — it uses a throwaway clone taken fresh from `origin/master`.
 | HEAD | `9bdcb40` — docs: update Claude project status |
 | Working tree | clean |
 | Ahead of `origin/master` | 0 commit(s) |
-| Behind `origin/master` | 93 commit(s) |
+| Behind `origin/master` | 171 commit(s) |
 
 ### Last 10 commits
 
@@ -45,7 +45,7 @@ use this copy — it uses a throwaway clone taken fresh from `origin/master`.
 
 ## 2. Clean build on Linux
 
-`npm ci && npm run build` in a **fresh clone** of `origin/master` at `53de148`, made this run and deleted next run.
+`npm ci && npm run build` in a **fresh clone** of `origin/master` at `10e1e23`, made this run and deleted next run.
 The website is developed on Windows, so this is the check that a case-sensitive filesystem
 still resolves every import.
 
@@ -53,14 +53,13 @@ still resolves every import.
 |---|---|
 | Result | **clean** |
 | Exit code | 0 |
-| Pages built | 68 |
-| Duration | 13 s |
-| `dist/` size | 11M |
+| Pages built | 90 |
+| Duration | 18 s |
+| `dist/` size | 14M |
 
 Notable build output:
 
-    05:30:35 [WARN] [vite] [plugin vite-plugin-sanity-studio-chunk-warning] Some chunks are larger than 500 kB after minification. Consider:
-    The default export of @sanity/image-url has been deprecated. Use the named export `createImageUrlBuilder` instead.
+    20:58:03 [WARN] [vite] [plugin vite-plugin-sanity-studio-chunk-warning] Some chunks are larger than 500 kB after minification. Consider:
 
 -----
 
@@ -79,10 +78,10 @@ on one line would count as one — under-reporting exactly the pages carrying th
 
 | Check | Total | Pages carrying it |
 |---|---|---|
-| `hreflang` links | 198 | 66 / 68 |
-| `og:image` tags | 67 | 67 / 68 |
+| `hreflang` links | 258 | 86 / 90 |
+| `og:image` tags | 89 | 89 / 90 |
 
-No `hreflang`: `client/404.html client/admin/index.html`
+No `hreflang`: `client/404.html client/admin/index.html client/ar/quote/index.html client/quote/index.html`
 
 No `og:image`: `client/admin/index.html`
 
@@ -90,15 +89,15 @@ No `og:image`: `client/admin/index.html`
 
 | Check | Count |
 |---|---|
-| `<img>` tags | 10 |
-| `loading="lazy"` | 8 |
-| `srcset=` | 10 |
+| `<img>` tags | 18 |
+| `loading="lazy"` | 14 |
+| `srcset=` | 18 |
 
 ### Real photos vs placeholder
 
 | Check | Count |
 |---|---|
-| built pages: Sanity CDN image refs | 72 |
+| built pages: Sanity CDN image refs | 98 |
 | built pages: placeholder refs | 0 |
 
 ### RTL rules in `dist/_astro/*.css`
@@ -143,7 +142,7 @@ No dead scoped RTL rules found.
 
 | | |
 |---|---|
-| Homepage HTML size | 22473 bytes |
+| Homepage HTML size | 26657 bytes |
 | Live `/products`: Sanity CDN image refs | 5 |
 | Live `/products`: placeholder refs | 0 |
 
