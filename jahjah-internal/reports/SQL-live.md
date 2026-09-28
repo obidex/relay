@@ -1,12 +1,12 @@
 # SQL suites against LIVE — nightly
 
-<!-- index: nightly SQL suites vs LIVE — PASS 35/35 in 20s -->
+<!-- index: nightly SQL suites vs LIVE — PASS 35/35 in 18s -->
 
-**Generated (UTC):** 2026-09-27T03:15:04Z
+**Generated (UTC):** 2026-09-28T03:15:04Z
 **Verdict:** **PASS** — all 35 suites passed against the live database.
 **Suites from:** `obidex/jahjah-internal` `main` at `347b37f`
 **Migrations:** in step — all 88 migrations on main are applied on live, and live has none main lacks (newest `20260926010000`)
-**Ran for:** 20s
+**Ran for:** 18s
 
 This is the nightly run of the always-rollback SQL test suites against the **live** database, from
 the work engine. Pull-request CI runs the same suites in a throwaway database built from the
@@ -16,19 +16,19 @@ running** (or is switched off: `/opt/jahjah/SQL_LIVE_OFF`).
 | Suite | Result | Seconds |
 |---|---|---|
 | `activity_log_record_history_tests` | PASS | 0.8 |
-| `activity_log_tests` | PASS | 0.5 |
+| `activity_log_tests` | PASS | 0.4 |
 | `arabic_cut_tests` | PASS | 0.5 |
 | `cash_sessions_cash_sale_cheques_tests` | PASS | 1.1 |
-| `catalog_supplier_tests` | PASS | 0.9 |
-| `credit_collections_returns_tests` | PASS | 1.3 |
+| `catalog_supplier_tests` | PASS | 0.8 |
+| `credit_collections_returns_tests` | PASS | 1.1 |
 | `d252_daily_syp_rate_tests` | PASS | 0.4 |
-| `data_status_events_tests` | PASS | 0.2 |
-| `dispatch_driver_capacity_tests` | PASS | 0.4 |
+| `data_status_events_tests` | PASS | 0.1 |
+| `dispatch_driver_capacity_tests` | PASS | 0.5 |
 | `fx_cut_tests` | PASS | 0.5 |
 | `imports_costs_tests` | PASS | 0.2 |
 | `imports_landed_cost_tests` | PASS | 0.3 |
 | `imports_milestones_tests` | PASS | 0.3 |
-| `imports_shipments_tests` | PASS | 0.4 |
+| `imports_shipments_tests` | PASS | 0.3 |
 | `inventory_receipt_transfer_tests` | PASS | 0.6 |
 | `inventory_reorder_tests` | PASS | 0.3 |
 | `inventory_stock_tests` | PASS | 0.3 |
@@ -39,16 +39,16 @@ running** (or is switched off: `/opt/jahjah/SQL_LIVE_OFF`).
 | `purchase_order_3b_tests` | PASS | 0.3 |
 | `purchase_order_payments_tests` | PASS | 0.2 |
 | `purchase_order_variant_plan_tests` | PASS | 0.3 |
-| `reference_data_tests` | PASS | 0.3 |
+| `reference_data_tests` | PASS | 0.2 |
 | `sales_dispatch_tests` | PASS | 0.6 |
 | `sales_invoice_aging_tests` | PASS | 0.7 |
 | `sales_orders_tests` | PASS | 0.6 |
-| `sales_payments_returns_tests` | PASS | 1.8 |
+| `sales_payments_returns_tests` | PASS | 1.3 |
 | `sales_revisions_price_floor_tests` | PASS | 1.3 |
 | `sales_tests` | PASS | 0.4 |
 | `security_sweep_hardening_tests` | PASS | 0.2 |
 | `security_sweep_s1_fixes_tests` | PASS | 0.1 |
-| `suppliers_crm_tests` | PASS | 1.0 |
+| `suppliers_crm_tests` | PASS | 0.8 |
 | `user_management_tests` | PASS | 0.3 |
 
 **Reading a FAIL.** A suite that passes in CI and fails here means live differs from what the
