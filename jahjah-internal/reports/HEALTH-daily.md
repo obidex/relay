@@ -2,7 +2,7 @@
 
 <!-- index: daily health — OK, all 11 automations alive -->
 
-**Generated (UTC):** 2026-09-27T05:00:04Z · **Verdict:** **OK** — everything below is within normal bounds.
+**Generated (UTC):** 2026-09-28T05:00:04Z · **Verdict:** **OK** — everything below is within normal bounds.
 
 Overwritten in place once a day. Git history is the archive — the previous days are in
 this file's commit log, not in extra files. **If the timestamp above is more than ~26 hours
@@ -15,20 +15,22 @@ a timer can be `enabled` and still have no next elapse, in which case it never f
 
 | Job | Enabled | Last run | Result | Consecutive failures | Next run (UTC) | Last run said |
 |---|---|---|---|---|---|---|
-| `jahjah-backup` | enabled | 2h 59m ago | success | 0 / 3 | 2026-09-28 02:00 | ok: 4.5M in 4s, 127 tables, 7 kept, 1 rotated out |
-| `jahjah-cleanup` | enabled | 30m ago | success | 0 / 2 | 2026-10-04 04:30 | ok: nothing to do — 8.1 GB free on /, at or above 8 GB |
+| `jahjah-backup` | enabled | 2h 59m ago | success | 0 / 3 | 2026-09-29 02:00 | ok: 4.5M in 4s, 127 tables, 7 kept, 1 rotated out |
+| `jahjah-cleanup` | enabled | 1d 0h ago | success | 0 / 2 | 2026-10-04 04:30 | ok: nothing to do — 8.1 GB free on /, at or above 8 GB |
 | `jahjah-health` | enabled | running now | success | 0 / 3 | (running now) | ok: published HEALTH-daily.md — 0 attention item(s), 11 job(s) in the ledger |
-| `jahjah-retention` | enabled | 6d 22h ago | success | 0 / 3 | 2026-09-27 06:00 | ok: 2 folder(s), 16 pruned · branches: 0 deleted |
+| `jahjah-retention` | enabled | 22h 59m ago | success | 0 / 3 | 2026-10-04 06:00 | ok: 2 folder(s), 0 pruned · branches: 20 deleted |
 | `jahjah-runner-watchdog` | enabled | running now | success | 0 / 2 | (running now) | ok: no runner stalled |
-| `jahjah-scan-gitleaks` | enabled | 6d 0h ago | success | 0 / 3 | 2026-09-28 04:00 | ok: published SCAN-gitleaks.md — 0 hit(s) across 2180 commits |
-| `jahjah-scan-trivy` | enabled | 6d 1h ago | success | 0 / 3 | 2026-09-28 03:00 | ok: published SCAN-trivy.md — 8 targets, 13 critical, 376 high, 531 medium, 344 low |
-| `jahjah-sql-live` | enabled | 1h 44m ago | success | 0 / 3 | 2026-09-28 03:15 | ok: 35/35 suites passed against live in 20s at 347b37f (migrations in step) |
-| `jahjah-web-backup-check` | enabled | 7h 57m ago | success | 0 / 3 | 2026-09-28 03:30 | ok: OK — sanity-production-20260926-205952.tar.gz (0h old): product=22 ok; brand=5 ok; c |
-| `jahjah-web-backup` | enabled | 2h 29m ago | success | 0 / 3 | 2026-09-28 02:30 | ok: 62K in 4s, 33 documents, 7 kept, 1 rotated out |
-| `jahjah-web-truth` | enabled | 8h 1m ago | success | 0 / 3 | 2026-09-28 05:30 | ok: build **clean**, 90 page(s), 1 live issue(s) |
+| `jahjah-scan-gitleaks` | enabled | 59m ago | success | 0 / 3 | 2026-10-05 04:00 | ok: published SCAN-gitleaks.md — 0 hit(s) across 2370 commits |
+| `jahjah-scan-trivy` | enabled | 1h 59m ago | success | 0 / 3 | 2026-10-05 03:00 | ok: published SCAN-trivy.md — 2 targets, 0 critical, 11 high, 11 medium, 5 low |
+| `jahjah-sql-live` | enabled | 1h 44m ago | success | 0 / 3 | 2026-09-29 03:15 | ok: 35/35 suites passed against live in 18s at 347b37f (migrations in step) |
+| `jahjah-web-backup-check` | enabled | 1h 30m ago | success | 0 / 3 | 2026-10-05 03:30 | ok: OK — sanity-production-20260928-023004.tar.gz (0h old): product=22 ok; brand=5 ok; c |
+| `jahjah-web-backup` | enabled | 2h 29m ago | success | 0 / 3 | 2026-09-29 02:30 | ok: 62K in 2s, 33 documents, 7 kept, 1 rotated out |
+| `jahjah-web-truth` | enabled | 1d 8h ago | success | 0 / 3 | 2026-09-28 05:30 | ok: build **clean**, 90 page(s), 1 live issue(s) |
 
 A job disables its own timer when its consecutive failures reach the cap in its row
 (**3** unless the row says otherwise) and publishes `ALERT-<job>-disabled.md` next to this file.
+
+**Branch sweep:** 2026-09-27T06:00:04Z deleted 20 merged branch(es) on jahjah-internal.
 
 ## Database backup
 
@@ -39,7 +41,7 @@ A job disables its own timer when its consecutive failures reach the cap in its 
 | Tables in it | 127 |
 | Last dump took | 4s |
 | Dumps kept | 7 (7 nights) |
-| Space used | 28M |
+| Space used | 30M |
 
 Dumps stay on the box in `/root/backups` (mode 700) and are never published.
 
@@ -61,8 +63,8 @@ conditions fail is skipped rather than failed, so freshness is the only signal t
 | | |
 |---|---|
 | Verdict | **OK** |
-| Last checked | 7h 57m ago |
-| Detail | sanity-production-20260926-205952.tar.gz (0h old): product=22 ok; brand=5 ok; category=6 ok; 3 image reference(s), all present; 3 image file(s) in the archive; 33 documents total |
+| Last checked | 1h 30m ago |
+| Detail | sanity-production-20260928-023004.tar.gz (0h old): product=22 ok; brand=5 ok; category=6 ok; 3 image reference(s), all present; 3 image file(s) in the archive; 33 documents total |
 
 `jahjah-web-backup-check`, Mondays 03:30 UTC: it unpacks the newest archive and compares its
 product, brand and category counts with the LIVE Sanity dataset, then checks that every image
@@ -74,17 +76,17 @@ failed job, so it never appears in the fleet table — only here.
 
 | | |
 |---|---|
-| Disk `/` | 28G used of 38G (78%), 8.2G free |
-| Memory | 864 MB used of 3819 MB (22%), 2955 MB available |
-| Swap | 563 MB used of 4095 MB (13%) |
-| Load | 0.16, 0.03, 0.01 (over 2 cores) |
-| Uptime | 4 weeks, 7 hours, 37 minutes |
+| Disk `/` | 28G used of 38G (78%), 8.1G free |
+| Memory | 984 MB used of 3819 MB (25%), 2834 MB available |
+| Swap | 485 MB used of 4095 MB (11%) |
+| Load | 0.03, 0.01, 0.00 (over 2 cores) |
+| Uptime | 4 weeks, 1 day, 7 hours, 37 minutes |
 
 ## SSH attack blocking (fail2ban — active)
 
 | Jail | Banned in last 24h | Currently banned | Banned ever |
 |---|---|---|---|
-| `sshd` | 22 | 0 | 149 |
+| `sshd` | 44 | 2 | 193 |
 
 Counts only. Addresses are deliberately not published.
 
@@ -95,11 +97,11 @@ Counts only. Addresses are deliberately not published.
 | Peer | Last handshake |
 |---|---|
 | peer 1 | 1m ago |
-| peer 2 | 1d 10h ago |
-| peer 3 | 2d 7h ago |
+| peer 2 | 2d 10h ago |
+| peer 3 | 3d 7h ago |
 | peer 4 | never |
 | peer 5 | never |
-| peer 6 | 30m ago |
+| peer 6 | 6h 30m ago |
 
 Peers are numbered, not named. Keys and endpoint addresses are deliberately not published.
 
