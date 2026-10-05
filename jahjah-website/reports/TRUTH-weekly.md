@@ -5,7 +5,7 @@
 > **World-readable file. Commit subjects appear here — website strategist: confirm this is
 > acceptable or request hashes-only.**
 
-**Generated (UTC):** 2026-09-28T05:30:04Z · by `jahjah-web-truth` on the VPS work engine · **overwritten weekly**
+**Generated (UTC):** 2026-10-05T05:30:02Z · by `jahjah-web-truth` on the VPS work engine · **overwritten weekly**
 
 An outside reading of `obidex/jahjah-website`, taken without touching it. This job never
 pushes to that repo, never edits its files, never touches Vercel or Sanity, and never applies
@@ -24,7 +24,7 @@ use this copy — it uses a throwaway clone taken fresh from `origin/master`.
 | HEAD | `9bdcb40` — docs: update Claude project status |
 | Working tree | clean |
 | Ahead of `origin/master` | 0 commit(s) |
-| Behind `origin/master` | 171 commit(s) |
+| Behind `origin/master` | 172 commit(s) |
 
 ### Last 10 commits
 
@@ -45,7 +45,7 @@ use this copy — it uses a throwaway clone taken fresh from `origin/master`.
 
 ## 2. Clean build on Linux
 
-`npm ci && npm run build` in a **fresh clone** of `origin/master` at `10e1e23`, made this run and deleted next run.
+`npm ci && npm run build` in a **fresh clone** of `origin/master` at `2a4e55e`, made this run and deleted next run.
 The website is developed on Windows, so this is the check that a case-sensitive filesystem
 still resolves every import.
 
@@ -54,12 +54,12 @@ still resolves every import.
 | Result | **clean** |
 | Exit code | 0 |
 | Pages built | 90 |
-| Duration | 17 s |
+| Duration | 23 s |
 | `dist/` size | 14M |
 
 Notable build output:
 
-    05:30:35 [WARN] [vite] [plugin vite-plugin-sanity-studio-chunk-warning] Some chunks are larger than 500 kB after minification. Consider:
+    05:30:47 [WARN] [vite] [plugin vite-plugin-sanity-studio-chunk-warning] Some chunks are larger than 500 kB after minification. Consider:
 
 -----
 
