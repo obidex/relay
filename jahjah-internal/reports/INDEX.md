@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-10-05T03:00:04Z by `jahjah-scan-trivy`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-10-05T03:15:04Z by `jahjah-sql-live`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -17,8 +17,8 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | `HEARTBEAT-web-docs.md` | 2026-09-22T20:37:08Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
 | `SCAN-gitleaks.md` | 2026-09-28T04:00:09Z | weekly gitleaks scan — ZERO secrets found in either repo history |
-| `SCAN-trivy.md` | 2026-10-05T03:00:04Z | weekly trivy scan — 1 critical, 11 high, 11 medium, 5 low |
-| `SQL-live.md` | 2026-10-04T03:15:36Z | nightly SQL suites vs LIVE — FAIL (main ahead of live) 47/53 |
+| `SCAN-trivy.md` | 2026-10-05T03:00:14Z | weekly trivy scan — 1 critical, 11 high, 11 medium, 5 low |
+| `SQL-live.md` | 2026-10-05T03:15:04Z | nightly SQL suites vs LIVE — FAIL 4/61 |
 
 ## Dated reports (newest first — pruned to the newest 10 by `jahjah-retention`)
 
