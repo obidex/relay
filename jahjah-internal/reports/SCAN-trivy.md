@@ -1,14 +1,14 @@
 # Weekly dependency + image scan (trivy)
 
-<!-- index: weekly trivy scan — 0 critical, 11 high, 11 medium, 5 low -->
+<!-- index: weekly trivy scan — 1 critical, 11 high, 11 medium, 5 low -->
 
-**Generated (UTC):** 2026-09-28T03:00:04Z · **trivy 0.74.0** · **2 target(s)** (1 repo + 1 image(s))
+**Generated (UTC):** 2026-10-05T03:00:04Z · **trivy 0.74.0** · **2 target(s)** (1 repo + 1 image(s))
 
 Overwritten in place each week. Git history is the archive.
 
 ## Verdict
 
-**0 critical, 11 high, 11 medium, 5 low** across all targets (28 total).
+**1 critical, 11 high, 11 medium, 5 low** across all targets (29 total).
 
 Most findings on a docker image are in the base operating-system packages of a
 third-party image, not in anything this project wrote. The repo row is the one that
@@ -18,15 +18,16 @@ reflects our own dependency choices.
 
 | Target | Critical | High | Medium | Low | Unknown |
 |---|---|---|---|---|---|
-| `repo: jahjah-internal (npm)` | 0 | 0 | 1 | 0 | 0 |
+| `repo: jahjah-internal (npm)` | 1 | 0 | 1 | 0 | 0 |
 | `image: portainer/portainer-ce:lts` | 0 | 11 | 10 | 5 | 1 |
 
 ## Top items (critical and high only)
 
-Showing up to 20 of 11 critical/high findings, critical first.
+Showing up to 20 of 12 critical/high findings, critical first.
 
 | Severity | Advisory | Package | Installed | Fixed in | Target |
 |---|---|---|---|---|---|
+| CRITICAL | `GHSA-vcvr-r3jv-pc5j` | `next` | 16.3.4 | 16.3.6 | `repo: jahjah-internal (npm)` |
 | HIGH | `CVE-2025-15558` | `github.com/docker/cli` | v28.5.1+incompatible | 29.2.0 | `image: portainer/portainer-ce:lts` |
 | HIGH | `CVE-2026-41567` | `github.com/docker/docker` | v28.5.2+incompatible | none yet | `image: portainer/portainer-ce:lts` |
 | HIGH | `CVE-2026-42306` | `github.com/docker/docker` | v28.5.2+incompatible | none yet | `image: portainer/portainer-ce:lts` |
