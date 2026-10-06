@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-10-05T11:58:42Z by `jahjah-sql-live`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-10-06T03:15:00Z by `jahjah-sql-live`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -18,7 +18,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
 | `SCAN-gitleaks.md` | 2026-10-05T04:00:15Z | weekly gitleaks scan — ZERO secrets found in either repo history |
 | `SCAN-trivy.md` | 2026-10-05T03:00:14Z | weekly trivy scan — 1 critical, 11 high, 11 medium, 5 low |
-| `SQL-live.md` | 2026-10-05T11:58:42Z | nightly SQL suites vs LIVE — PASS 64/64 in 62s |
+| `SQL-live.md` | 2026-10-06T03:15:00Z | nightly SQL suites vs LIVE — PASS 66/66 in 55s |
 
 ## Dated reports (newest first — pruned to the newest 10 by `jahjah-retention`)
 
