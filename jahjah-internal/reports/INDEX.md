@@ -11,6 +11,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 
 | File | Updated (UTC) | What it is |
 |---|---|---|
+| `ALERT-sql-live-disabled.md` | 2026-10-14T03:15:07Z | ALERT — the sql-live job hit its failure cap and turned itself off |
 | `HEALTH-daily.md` | 2026-10-13T05:00:10Z | daily health — NEEDS ATTENTION (1 item(s)) |
 | `HEARTBEAT-erp-dispatch.md` | 2026-09-22T20:11:05Z | proof-of-life for the ERP chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-dispatch.md` | 2026-09-17T10:24:06Z | proof-of-life for the website chunk lane — stale > ~70 min means chunks are not being picked up |
@@ -18,7 +19,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
 | `SCAN-gitleaks.md` | 2026-10-12T04:00:14Z | weekly gitleaks scan — ZERO secrets found in either repo history |
 | `SCAN-trivy.md` | 2026-10-12T03:00:14Z | weekly trivy scan — 0 critical, 17 high, 19 medium, 6 low |
-| `SQL-live.md` | 2026-10-14T03:15:07Z | nightly SQL suites vs LIVE — FAIL 1/88 |
+| `SQL-live.md` | 2026-10-14T03:16:21Z | nightly SQL suites vs LIVE — FAIL 1/88 |
 
 ## Dated reports (newest first — pruned to the newest 10 by `jahjah-retention`)
 
