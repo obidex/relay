@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-10-17T05:00:02Z by `jahjah-health`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-10-18T05:00:02Z by `jahjah-health`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -12,7 +12,7 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 | File | Updated (UTC) | What it is |
 |---|---|---|
 | `ALERT-sql-live-disabled.md` | 2026-10-14T03:16:24Z | ALERT — the sql-live job hit its failure cap and turned itself off |
-| `HEALTH-daily.md` | 2026-10-17T05:00:02Z | daily health — NEEDS ATTENTION (3 item(s)) |
+| `HEALTH-daily.md` | 2026-10-18T05:00:02Z | daily health — NEEDS ATTENTION (3 item(s)) |
 | `HEARTBEAT-erp-dispatch.md` | 2026-09-22T20:11:05Z | proof-of-life for the ERP chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-dispatch.md` | 2026-09-17T10:24:06Z | proof-of-life for the website chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-docs.md` | 2026-09-22T20:37:08Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
