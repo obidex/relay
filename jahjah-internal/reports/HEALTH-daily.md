@@ -2,7 +2,7 @@
 
 <!-- index: daily health — NEEDS ATTENTION (3 item(s)) -->
 
-**Generated (UTC):** 2026-10-18T05:00:02Z · **Verdict:** **NEEDS ATTENTION — 3 item(s)**
+**Generated (UTC):** 2026-10-19T05:00:01Z · **Verdict:** **NEEDS ATTENTION — 3 item(s)**
 
 Overwritten in place once a day. Git history is the archive — the previous days are in
 this file's commit log, not in extra files. **If the timestamp above is more than ~26 hours
@@ -21,16 +21,16 @@ a timer can be `enabled` and still have no next elapse, in which case it never f
 
 | Job | Enabled | Last run | Result | Consecutive failures | Next run (UTC) | Last run said |
 |---|---|---|---|---|---|---|
-| `jahjah-backup` | enabled | 2h 59m ago | success | 0 / 3 | 2026-10-19 02:00 | ok: 7.8M in 6s, 145 tables, 7 kept, 1 rotated out |
-| `jahjah-cleanup` | enabled | 30m ago | success | 0 / 2 | 2026-10-19 04:30 | ok: nothing to do — 12.7 GB free on /, at or above 8 GB |
+| `jahjah-backup` | enabled | 2h 59m ago | success | 0 / 3 | 2026-10-20 02:00 | ok: 7.8M in 6s, 145 tables, 7 kept, 1 rotated out |
+| `jahjah-cleanup` | enabled | 29m ago | success | 0 / 2 | 2026-10-20 04:30 | ok: nothing to do — 12.5 GB free on /, at or above 8 GB |
 | `jahjah-health` | enabled | running now | success | 0 / 3 | (running now) | ok: published HEALTH-daily.md — 3 attention item(s), 11 job(s) in the ledger |
-| `jahjah-retention` | enabled | never | success | 0 / 3 | 2026-10-18 06:00 | ok: 2 folder(s), 0 pruned · branches: 11 deleted |
+| `jahjah-retention` | enabled | 22h 59m ago | success | 0 / 3 | 2026-10-25 06:00 | ok: 2 folder(s), 0 pruned · branches: 0 deleted |
 | `jahjah-runner-watchdog` | enabled | running now | success | 0 / 2 | (running now) | ok: no runner stalled |
-| `jahjah-scan-gitleaks` | enabled | never | success | 0 / 3 | 2026-10-19 04:00 | ok: published SCAN-gitleaks.md — 0 hit(s) across 2542 commits |
-| `jahjah-scan-trivy` | enabled | never | success | 0 / 3 | 2026-10-19 03:00 | ok: published SCAN-trivy.md — 2 targets, 0 critical, 17 high, 19 medium, 6 low |
+| `jahjah-scan-gitleaks` | enabled | 59m ago | success | 0 / 3 | 2026-10-26 04:00 | ok: published SCAN-gitleaks.md — 0 hit(s) across 2556 commits |
+| `jahjah-scan-trivy` | enabled | 1h 59m ago | success | 0 / 3 | 2026-10-26 03:00 | ok: published SCAN-trivy.md — 2 targets, 0 critical, 17 high, 28 medium, 6 low |
 | `jahjah-sql-live` | disabled | never | success | 3 / 3 | **NOT ARMED** | FAILED (cap tripped): 1 of 88 suite(s) did not pass against live: po_schedule_one_transact |
-| `jahjah-web-backup-check` | enabled | never | success | 0 / 3 | 2026-10-19 03:30 | ok: OK — sanity-production-20261012-023008.tar.gz (0h old): product=22 ok; brand=5 ok; c |
-| `jahjah-web-backup` | enabled | 2h 29m ago | success | 0 / 3 | 2026-10-19 02:30 | ok: 62K in 3s, 33 documents, 7 kept, 1 rotated out |
+| `jahjah-web-backup-check` | enabled | 1h 29m ago | success | 0 / 3 | 2026-10-26 03:30 | ok: OK — sanity-production-20261019-023002.tar.gz (0h old): product=22 ok; brand=5 ok; c |
+| `jahjah-web-backup` | enabled | 2h 29m ago | success | 0 / 3 | 2026-10-20 02:30 | ok: 62K in 3s, 33 documents, 7 kept, 1 rotated out |
 | `jahjah-web-truth` | enabled | never | success | 0 / 3 | 2026-10-19 05:30 | ok: build **clean**, 90 page(s), 1 live issue(s) |
 
 A job disables its own timer when its consecutive failures reach the cap in its row
@@ -71,8 +71,8 @@ conditions fail is skipped rather than failed, so freshness is the only signal t
 | | |
 |---|---|
 | Verdict | **OK** |
-| Last checked | 6d 1h ago |
-| Detail | sanity-production-20261012-023008.tar.gz (0h old): product=22 ok; brand=5 ok; category=6 ok; 3 image reference(s), all present; 3 image file(s) in the archive; 33 documents total |
+| Last checked | 1h 29m ago |
+| Detail | sanity-production-20261019-023002.tar.gz (0h old): product=22 ok; brand=5 ok; category=6 ok; 3 image reference(s), all present; 3 image file(s) in the archive; 33 documents total |
 
 `jahjah-web-backup-check`, Mondays 03:30 UTC: it unpacks the newest archive and compares its
 product, brand and category counts with the LIVE Sanity dataset, then checks that every image
@@ -84,17 +84,17 @@ failed job, so it never appears in the fleet table — only here.
 
 | | |
 |---|---|
-| Disk `/` | 23G used of 38G (65%), 13G free |
-| Memory | 1366 MB used of 3819 MB (35%), 2453 MB available |
+| Disk `/` | 24G used of 38G (66%), 13G free |
+| Memory | 1397 MB used of 3819 MB (36%), 2422 MB available |
 | Swap | 0 MB used of 4095 MB (0%) |
-| Load | 0.10, 0.06, 0.01 (over 2 cores) |
-| Uptime | 2 days, 3 hours, 54 minutes |
+| Load | 0.02, 0.04, 0.00 (over 2 cores) |
+| Uptime | 3 days, 3 hours, 54 minutes |
 
 ## SSH attack blocking (fail2ban — active)
 
 | Jail | Banned in last 24h | Currently banned | Banned ever |
 |---|---|---|---|
-| `sshd` | 17 | 0 | 122 |
+| `sshd` | 66 | 0 | 188 |
 
 Counts only. Addresses are deliberately not published.
 
@@ -104,7 +104,7 @@ Counts only. Addresses are deliberately not published.
 
 | Peer | Last handshake |
 |---|---|
-| peer 1 | 1d 0h ago |
+| peer 1 | 2d 0h ago |
 | peer 2 | never |
 | peer 3 | never |
 | peer 4 | never |
@@ -117,7 +117,7 @@ Peers are numbered, not named. Keys and endpoint addresses are deliberately not 
 
 | Container | State | Status |
 |---|---|---|
-| `portainer` | running | Up 2 days |
+| `portainer` | running | Up 3 days |
 
 ## Database credential
 
