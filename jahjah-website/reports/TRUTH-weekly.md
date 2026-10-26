@@ -5,7 +5,7 @@
 > **World-readable file. Commit subjects appear here — website strategist: confirm this is
 > acceptable or request hashes-only.**
 
-**Generated (UTC):** 2026-10-19T05:30:02Z · by `jahjah-web-truth` on the VPS work engine · **overwritten weekly**
+**Generated (UTC):** 2026-10-26T05:30:02Z · by `jahjah-web-truth` on the VPS work engine · **overwritten weekly**
 
 An outside reading of `obidex/jahjah-website`, taken without touching it. This job never
 pushes to that repo, never edits its files, never touches Vercel or Sanity, and never applies
@@ -59,7 +59,7 @@ still resolves every import.
 
 Notable build output:
 
-    05:30:41 [WARN] [vite] [plugin vite-plugin-sanity-studio-chunk-warning] Some chunks are larger than 500 kB after minification. Consider:
+    05:30:37 [WARN] [vite] [plugin vite-plugin-sanity-studio-chunk-warning] Some chunks are larger than 500 kB after minification. Consider:
 
 -----
 
