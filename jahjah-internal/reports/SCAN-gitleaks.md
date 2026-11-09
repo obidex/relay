@@ -2,14 +2,14 @@
 
 <!-- index: weekly gitleaks scan — ZERO secrets found in either repo history -->
 
-**Generated (UTC):** 2026-11-02T04:00:02Z · **gitleaks 8.30.1** · **full history of 2 repositories**
+**Generated (UTC):** 2026-11-09T04:00:02Z · **gitleaks 8.30.1** · **full history of 2 repositories**
 
 Overwritten in place each week. Git history is the archive.
 
 ## Verdict
 
 **ZERO secrets found.** Explicitly: gitleaks read every commit in the full history of both
-the ERP repo and the public relay repo — 2578 commits in total — and found no key, token,
+the ERP repo and the public relay repo — 2599 commits in total — and found no key, token,
 password or connection string in any of them.
 
 ## By repository
@@ -17,7 +17,7 @@ password or connection string in any of them.
 | Repository | Result | History read |
 |---|---|---|
 | jahjah-internal (ERP, private) | clean | 411 commits |
-| relay (public) | clean | 2167 commits |
+| relay (public) | clean | 2188 commits |
 
 ## Findings
 
