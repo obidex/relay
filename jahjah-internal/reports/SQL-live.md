@@ -1,13 +1,13 @@
 # SQL suites against LIVE — nightly
 
-<!-- index: nightly SQL suites vs LIVE — PASS 95/95 in 70s -->
+<!-- index: nightly SQL suites vs LIVE — PASS 95/95 in 71s -->
 
-**Generated (UTC):** 2026-11-14T03:15:01Z
+**Generated (UTC):** 2026-11-15T03:15:09Z
 **Verdict:** **PASS** — all 95 suites passed against the live database.
 **Suites from:** `obidex/jahjah-internal` `main` at `066f45e`
 **Migrations:** in step — all 161 migrations on main are applied on live, and live has none main lacks (newest `20261113180000`)
 **Browser runs on the shared database:** none open
-**Ran for:** 70s
+**Ran for:** 71s
 
 This is the nightly run of the always-rollback SQL test suites against the **live** database, from
 the work engine. Pull-request CI runs the same suites in a throwaway database built from the
@@ -16,34 +16,34 @@ running** (or is switched off: `/opt/jahjah/SQL_LIVE_OFF`).
 
 | Suite | Result | Seconds |
 |---|---|---|
-| `activity_log_record_history_tests` | PASS | 0.8 |
+| `activity_log_record_history_tests` | PASS | 0.9 |
 | `activity_log_tests` | PASS | 0.6 |
 | `arabic_cut_tests` | PASS | 0.6 |
-| `cash_drawer_integrity_tests` | PASS | 1.8 |
+| `cash_drawer_integrity_tests` | PASS | 1.9 |
 | `cash_rate_today_tests` | PASS | 0.3 |
 | `cash_refund_state_tests` | PASS | 0.8 |
 | `cash_sessions_cash_sale_cheques_tests` | PASS | 0.9 |
-| `catalog_identity_tests` | PASS | 1.2 |
-| `catalog_supplier_tests` | PASS | 0.8 |
+| `catalog_identity_tests` | PASS | 1.3 |
+| `catalog_supplier_tests` | PASS | 0.9 |
 | `confirm_sales_order_draft_tests` | PASS | 0.7 |
 | `credit_collections_returns_tests` | PASS | 1.2 |
 | `credit_gate_and_holds_tests` | PASS | 1.6 |
 | `customer_price_tier_gate_tests` | PASS | 0.2 |
 | `d252_daily_syp_rate_tests` | PASS | 0.3 |
-| `damage_grade_history_tests` | PASS | 0.5 |
+| `damage_grade_history_tests` | PASS | 0.4 |
 | `data_status_events_tests` | PASS | 0.2 |
 | `dispatch_driver_capacity_tests` | PASS | 0.5 |
 | `draft_save_rejudges_lines_tests` | PASS | 0.7 |
-| `fx_cut_tests` | PASS | 0.9 |
+| `fx_cut_tests` | PASS | 0.8 |
 | `imports_costs_tests` | PASS | 0.2 |
 | `imports_landed_cost_tests` | PASS | 0.4 |
 | `imports_milestones_tests` | PASS | 0.3 |
 | `imports_shipments_tests` | PASS | 0.3 |
-| `inventory_receipt_transfer_tests` | PASS | 0.6 |
+| `inventory_receipt_transfer_tests` | PASS | 0.7 |
 | `inventory_reorder_tests` | PASS | 0.3 |
 | `inventory_stock_tests` | PASS | 0.3 |
 | `landed_value_true_up_tests` | PASS | 0.8 |
-| `launch_import_tests` | PASS | 1.2 |
+| `launch_import_tests` | PASS | 1.1 |
 | `maintenance_locations_tests` | PASS | 0.7 |
 | `member_roles_one_transaction_tests` | PASS | 0.3 |
 | `members_page_tests` | PASS | 0.3 |
@@ -54,20 +54,20 @@ running** (or is switched off: `/opt/jahjah/SQL_LIVE_OFF`).
 | `platform_access_fixes_tests` | PASS | 0.3 |
 | `platform_minor_fixes_tests` | PASS | 0.2 |
 | `po_add_payment_lock_tests` | PASS | 0.4 |
-| `policy_permission_once_tests` | PASS | 0.2 |
+| `policy_permission_once_tests` | PASS | 0.3 |
 | `po_payments_planned_rule_tests` | PASS | 0.4 |
 | `po_schedule_one_transaction_tests` | PASS | 0.4 |
 | `po_shipment_bridge_tests` | PASS | 0.3 |
 | `procurement_tests` | PASS | 0.5 |
 | `product_images_tests` | PASS | 0.2 |
-| `purchase_order_3b_tests` | PASS | 0.3 |
-| `purchase_order_payments_tests` | PASS | 0.2 |
+| `purchase_order_3b_tests` | PASS | 0.4 |
+| `purchase_order_payments_tests` | PASS | 0.3 |
 | `purchase_order_payment_summaries_tests` | PASS | 0.8 |
 | `purchase_order_variant_plan_tests` | PASS | 0.3 |
 | `receipt_applies_shown_orders_tests` | PASS | 0.7 |
 | `receipt_reversal_tests` | PASS | 0.5 |
 | `receipt_short_arrival_tests` | PASS | 0.5 |
-| `receivables_paging_tests` | PASS | 8.4 |
+| `receivables_paging_tests` | PASS | 7.8 |
 | `receive_shipment_atomic_tests` | PASS | 0.5 |
 | `receiving_pieces_per_unit_tests` | PASS | 0.7 |
 | `receiving_po_open_quantity_tests` | PASS | 1.4 |
@@ -75,29 +75,29 @@ running** (or is switched off: `/opt/jahjah/SQL_LIVE_OFF`).
 | `receiving_verifier_fixes_tests` | PASS | 0.7 |
 | `record_member_names_tests` | PASS | 0.4 |
 | `reference_data_tests` | PASS | 0.3 |
-| `resolve_sale_prices_tests` | PASS | 3.2 |
+| `resolve_sale_prices_tests` | PASS | 3.5 |
 | `return_maintenance_tests` | PASS | 0.9 |
-| `return_refunds_tests` | PASS | 1.5 |
+| `return_refunds_tests` | PASS | 1.4 |
 | `role_keys_you_hold_tests` | PASS | 0.2 |
 | `sale_price_book_page_tests` | PASS | 0.5 |
 | `sale_price_ranges_discounts_tests` | PASS | 0.9 |
 | `sale_price_ranges_tables_tests` | PASS | 0.3 |
 | `sales_credit_marks_trail_tests` | PASS | 0.8 |
-| `sales_dispatch_as_of_tests` | PASS | 0.4 |
+| `sales_dispatch_as_of_tests` | PASS | 0.3 |
 | `sales_dispatch_dock_pages_tests` | PASS | 0.4 |
 | `sales_dispatch_tests` | PASS | 0.7 |
-| `sales_invoice_aging_tests` | PASS | 1.0 |
+| `sales_invoice_aging_tests` | PASS | 1.1 |
 | `sales_order_sent_total_tests` | PASS | 0.5 |
-| `sales_orders_page_tests` | PASS | 0.7 |
+| `sales_orders_page_tests` | PASS | 0.6 |
 | `sales_orders_tests` | PASS | 0.7 |
 | `sales_order_totals_tests` | PASS | 0.4 |
 | `sales_payments_returns_tests` | PASS | 1.0 |
 | `sales_retry_cancel_trail_tests` | PASS | 0.6 |
-| `sales_returnable_orders_page_tests` | PASS | 1.4 |
-| `sales_revisions_price_floor_tests` | PASS | 1.1 |
-| `sales_tests` | PASS | 0.4 |
+| `sales_returnable_orders_page_tests` | PASS | 1.3 |
+| `sales_revisions_price_floor_tests` | PASS | 1.2 |
+| `sales_tests` | PASS | 0.5 |
 | `security_sweep_hardening_tests` | PASS | 0.3 |
-| `security_sweep_s1_fixes_tests` | PASS | 0.1 |
+| `security_sweep_s1_fixes_tests` | PASS | 0.2 |
 | `sell_damaged_decision_tests` | PASS | 0.8 |
 | `sell_damaged_lines_tests` | PASS | 0.5 |
 | `sell_damaged_shelf_tests` | PASS | 0.5 |
