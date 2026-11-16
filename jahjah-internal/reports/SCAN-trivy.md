@@ -1,14 +1,14 @@
 # Weekly dependency + image scan (trivy)
 
-<!-- index: weekly trivy scan — 0 critical, 19 high, 29 medium, 6 low -->
+<!-- index: weekly trivy scan — 0 critical, 19 high, 31 medium, 6 low -->
 
-**Generated (UTC):** 2026-11-09T03:00:02Z · **trivy 0.74.0** · **2 target(s)** (1 repo + 1 image(s))
+**Generated (UTC):** 2026-11-16T03:00:06Z · **trivy 0.74.0** · **2 target(s)** (1 repo + 1 image(s))
 
 Overwritten in place each week. Git history is the archive.
 
 ## Verdict
 
-**0 critical, 19 high, 29 medium, 6 low** across all targets (55 total).
+**0 critical, 19 high, 31 medium, 6 low** across all targets (58 total).
 
 Most findings on a docker image are in the base operating-system packages of a
 third-party image, not in anything this project wrote. The repo row is the one that
@@ -18,8 +18,8 @@ reflects our own dependency choices.
 
 | Target | Critical | High | Medium | Low | Unknown |
 |---|---|---|---|---|---|
-| `repo: jahjah-internal (npm, main 2e60230)` | 0 | 0 | 1 | 0 | 0 |
-| `image: portainer/portainer-ce:lts` | 0 | 19 | 28 | 6 | 1 |
+| `repo: jahjah-internal (npm, main 066f45e)` | 0 | 0 | 1 | 0 | 0 |
+| `image: portainer/portainer-ce:lts` | 0 | 19 | 30 | 6 | 2 |
 
 ## Top items (critical and high only)
 
@@ -49,7 +49,7 @@ Showing up to 20 of 19 critical/high findings, critical first.
 
 ## What was scanned
 
-- `trivy fs --scanners vuln` over the ERP's `package-lock.json` on main (2e60230008d9912596382a6a97dfd345ea3c9eda) — the npm dependency tree.
+- `trivy fs --scanners vuln` over the ERP's `package-lock.json` on main (066f45ee24fdb671b37b17f45595d0595bb94ea0) — the npm dependency tree.
 - `trivy image --scanners vuln` over every image in the local docker store.
 - Only the vulnerability scanner runs. The secret scanner is deliberately off here —
   secrets are covered by `SCAN-gitleaks.md`, which is built to publish a hit without
