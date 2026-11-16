@@ -5,7 +5,7 @@
 > **World-readable file. Commit subjects appear here — website strategist: confirm this is
 > acceptable or request hashes-only.**
 
-**Generated (UTC):** 2026-11-09T05:30:02Z · by `jahjah-web-truth` on the VPS work engine · **overwritten weekly**
+**Generated (UTC):** 2026-11-16T05:30:05Z · by `jahjah-web-truth` on the VPS work engine · **overwritten weekly**
 
 An outside reading of `obidex/jahjah-website`, taken without touching it. This job never
 pushes to that repo, never edits its files, never touches Vercel or Sanity, and never applies
@@ -24,7 +24,7 @@ use this copy — it uses a throwaway clone taken fresh from `origin/master`.
 | HEAD | `9bdcb40` — docs: update Claude project status |
 | Working tree | clean |
 | Ahead of `origin/master` | 0 commit(s) |
-| Behind `origin/master` | 217 commit(s) |
+| Behind `origin/master` | 296 commit(s) |
 
 ### Last 10 commits
 
@@ -45,7 +45,7 @@ use this copy — it uses a throwaway clone taken fresh from `origin/master`.
 
 ## 2. Clean build on Linux
 
-`npm ci && npm run build` in a **fresh clone** of `origin/master` at `a74281c`, made this run and deleted next run.
+`npm ci && npm run build` in a **fresh clone** of `origin/master` at `bc34a4a`, made this run and deleted next run.
 The website is developed on Windows, so this is the check that a case-sensitive filesystem
 still resolves every import.
 
@@ -53,13 +53,13 @@ still resolves every import.
 |---|---|
 | Result | **clean** |
 | Exit code | 0 |
-| Pages built | 90 |
+| Pages built | 56 |
 | Duration | 23 s |
-| `dist/` size | 28M |
+| `dist/` size | 13M |
 
 Notable build output:
 
-    05:30:39 [WARN] [vite] [plugin vite-plugin-sanity-studio-chunk-warning] Some chunks are larger than 500 kB after minification. Consider:
+    05:30:46 [WARN] [vite] [plugin vite-plugin-sanity-studio-chunk-warning] Some chunks are larger than 500 kB after minification. Consider:
 
 -----
 
@@ -78,10 +78,10 @@ on one line would count as one — under-reporting exactly the pages carrying th
 
 | Check | Total | Pages carrying it |
 |---|---|---|
-| `hreflang` links | 258 | 86 / 90 |
-| `og:image` tags | 89 | 89 / 90 |
+| `hreflang` links | 144 | 48 / 56 |
+| `og:image` tags | 55 | 55 / 56 |
 
-No `hreflang`: `client/404.html client/admin/index.html client/ar/quote/index.html client/quote/index.html`
+No `hreflang`: `client/404.html client/admin/index.html client/ar/cart/index.html client/ar/checkout/index.html client/ar/quote/index.html client/cart/index.html client/checkout/index.html client/quote/index.html`
 
 No `og:image`: `client/admin/index.html`
 
@@ -89,15 +89,15 @@ No `og:image`: `client/admin/index.html`
 
 | Check | Count |
 |---|---|
-| `<img>` tags | 18 |
-| `loading="lazy"` | 14 |
-| `srcset=` | 18 |
+| `<img>` tags | 0 |
+| `loading="lazy"` | 0 |
+| `srcset=` | 0 |
 
 ### Real photos vs placeholder
 
 | Check | Count |
 |---|---|
-| built pages: Sanity CDN image refs | 98 |
+| built pages: Sanity CDN image refs | 0 |
 | built pages: placeholder refs | 0 |
 
 ### RTL rules in `dist/_astro/*.css`
@@ -121,7 +121,7 @@ No dead scoped RTL rules found.
 
 | Path | Status | |
 |---|---|---|
-| `/` | 200 | ok |
+| `/` | 302 | **expected 200** |
 | `/about` | 200 | ok |
 | `/brands` | 200 | ok |
 | `/products` | 200 | ok |
@@ -133,7 +133,7 @@ No dead scoped RTL rules found.
 | `/ar/products` | 200 | ok |
 | `/ar/contact` | 200 | ok |
 | `/brands/dcel` | 200 | ok |
-| `/products/dcel-fridge-200` | 200 | ok |
+| `/products/dcel-fridge-200` | 404 | **expected 200** |
 | `/admin` | 200 | ok |
 | `/og-default.jpg` | 200 | ok |
 | `/robots.txt` | 200 | ok |
@@ -142,11 +142,11 @@ No dead scoped RTL rules found.
 
 | | |
 |---|---|
-| Homepage HTML size | 28541 bytes |
-| Live `/products`: Sanity CDN image refs | 5 |
+| Homepage HTML size | 15 bytes |
+| Live `/products`: Sanity CDN image refs | 0 |
 | Live `/products`: placeholder refs | 0 |
 
-**1 path(s) did not return the expected status.**
+**3 path(s) did not return the expected status.**
 
 -----
 
