@@ -5,7 +5,7 @@
 > **World-readable file. Commit subjects appear here — website strategist: confirm this is
 > acceptable or request hashes-only.**
 
-**Generated (UTC):** 2026-11-16T05:30:05Z · by `jahjah-web-truth` on the VPS work engine · **overwritten weekly**
+**Generated (UTC):** 2026-11-21T16:52:03Z · by `jahjah-web-truth` on the VPS work engine · **overwritten weekly**
 
 An outside reading of `obidex/jahjah-website`, taken without touching it. This job never
 pushes to that repo, never edits its files, never touches Vercel or Sanity, and never applies
@@ -16,36 +16,34 @@ strategist and the owner.**
 
 ## 1. Git
 
-The working copy on the VPS at `/root/jahjah-website`, branch `master`. The build in §2 does **not**
-use this copy — it uses a throwaway clone taken fresh from `origin/master`.
+The commit this run built: a fresh clone of `origin/master`, made this run and deleted next run.
 
 | | |
 |---|---|
-| HEAD | `9bdcb40` — docs: update Claude project status |
-| Working tree | clean |
-| Ahead of `origin/master` | 0 commit(s) |
-| Behind `origin/master` | 296 commit(s) |
+| Commit | `7bd04f7` — fix(admin): Change history keeps memberships off customer accounts (card #757) (#817) |
+| Committed | 2026-11-21T18:44:46+03:00 |
+| Branch | `master` |
 
 ### Last 10 commits
 
 | Hash | Subject |
 |---|---|
-| `9bdcb40` | docs: update Claude project status |
-| `9a5c1d7` | feat(content): how-to-buy page (en + ar) |
-| `216160e` | feat(brands): add Brand and BreadcrumbList JSON-LD on detail pages |
-| `0429d33` | feat(brands): wire brand listing to Sanity + cleanup deprecated copy |
-| `507b296` | feat(brands): add rich brand detail pages at /brands/[slug] |
-| `b604ae7` | chore(scripts): one-shot migration of brand copy into Sanity |
-| `27467c1` | feat(schema): extend brand schema with bilingual name and description fields |
-| `dc950d7` | feat(brands): rewrite Brands page with confident per-brand positioning |
-| `6613ba0` | feat(about): rewrite About page with confident positioning copy |
-| `b6a6a11` | feat(contact): rewrite contact page with two-branch layout and catalogue-first CTA |
+| `7bd04f7` | fix(admin): Change history keeps memberships off customer accounts (card #757) (#817) |
+| `c234e33` | fix(auth): code guesses per sender and kind, code-app try limit, staff password check (card #775, 2 of 2) (#804) |
+| `d822c2e` | feat(db): email-code tries per address, sender and code kind; code-app try limit (card #775, 1 of 2) (#801) |
+| `b2a52c7` | docs(canon): new decisions are one file each in docs/decisions/ (inbox #716) (#800) |
+| `e44ceed` | fix(orders): a retried checkout gets its first order number back after a price change (card #795) (#799) |
+| `44de28f` | chore(harness): update kit 0.44.0 to 0.48.1 (#753) |
+| `f7dfa9d` | fix(forms): one phone rule, refused fields marked, back re-checks (card #778) (#794) |
+| `4dd6d3b` | fix(orders): sender limits, one-time key, listed showrooms (card #774, 2 of 2) (#792) |
+| `911792d` | test(checks): leak scan reads every built file; probes prove tier, customer and code-step isolation (card #776) (#790) |
+| `0d31987` | feat(db): order limits per sender, phone normal form, one-time order key (card #774, 1 of 2) (#789) |
 
 -----
 
 ## 2. Clean build on Linux
 
-`npm ci && npm run build` in a **fresh clone** of `origin/master` at `bc34a4a`, made this run and deleted next run.
+`npm ci && npm run build` in a **fresh clone** of `origin/master` at `7bd04f7`, made this run and deleted next run.
 The website is developed on Windows, so this is the check that a case-sensitive filesystem
 still resolves every import.
 
@@ -54,12 +52,22 @@ still resolves every import.
 | Result | **clean** |
 | Exit code | 0 |
 | Pages built | 56 |
-| Duration | 23 s |
-| `dist/` size | 13M |
+| Duration | 29 s |
+| `dist/` size | 25M |
 
 Notable build output:
 
-    05:30:46 [WARN] [vite] [plugin vite-plugin-sanity-studio-chunk-warning] Some chunks are larger than 500 kB after minification. Consider:
+    16:53:03 [WARN] [vite] [plugin vite-plugin-sanity-studio-chunk-warning] Some chunks are larger than 500 kB after minification. Consider:
+
+### The website's own check: `scripts/verify.sh`
+
+Run on this build, as the build user, with the build's three read variables (node v22.23.5). Any FAIL
+fails this job.
+
+| | |
+|---|---|
+| Summary | 0 FAIL · 0 WARN · 55 pages |
+| Duration | 660 s |
 
 -----
 
