@@ -2,7 +2,7 @@
 
 <!-- index: daily health — OK, all 12 automations alive -->
 
-**Generated (UTC):** 2026-11-20T21:46:20Z · **Verdict:** **OK** — everything below is within normal bounds.
+**Generated (UTC):** 2026-11-21T05:00:00Z · **Verdict:** **OK** — everything below is within normal bounds.
 
 Overwritten in place once a day. Git history is the archive — the previous days are in
 this file's commit log, not in extra files. **If the timestamp above is more than ~26 hours
@@ -15,34 +15,34 @@ a timer can be `enabled` and still have no next elapse, in which case it never f
 
 | Job | Enabled | Last run | Result | Consecutive failures | Next run (UTC) | Last run said |
 |---|---|---|---|---|---|---|
-| `jahjah-agents` | enabled | 16h 22m ago | success | 0 / 3 | 2026-11-21 05:20 | ok: published HEALTH-agents.md — 6 repositories, 1 with a "?" |
-| `jahjah-backup` | enabled | 2h 30m ago | success | 0 / 3 | 2026-11-21 02:00 | ok: 8.1M in 7s, 162 tables, 7 kept, 1 rotated out |
-| `jahjah-cleanup` | enabled | 16m ago | success | 0 / 2 | 2026-11-20 22:30 | ok: nothing to do — 10.5 GB free on /, at or above 10 GB |
+| `jahjah-agents` | enabled | 23h 36m ago | success | 0 / 3 | 2026-11-21 05:20 | ok: published HEALTH-agents.md — 6 repositories, 1 with a "?" |
+| `jahjah-backup` | enabled | 2h 59m ago | success | 0 / 3 | 2026-11-22 02:00 | ok: 8.2M in 6s, 179 tables, 7 kept, 1 rotated out |
+| `jahjah-cleanup` | enabled | 29m ago | success | 0 / 2 | 2026-11-21 05:30 | ok: 9.5 GB → 10.9 GB free on /, 1.4 GB freed; skipped: gha-internal (running a job) gha- |
 | `jahjah-health` | enabled | running now | success | 0 / 3 | (running now) | ok: published HEALTH-daily.md — 0 attention item(s), 12 job(s) in the ledger |
 | `jahjah-retention` | enabled | never | success | 0 / 3 | 2026-11-22 06:00 | ok: 2 folder(s), 0 pruned · branches: 0 deleted |
-| `jahjah-runner-watchdog` | enabled | 6m ago | success | 0 / 2 | 2026-11-20 21:50 | ok: no runner stalled |
+| `jahjah-runner-watchdog` | enabled | running now | success | 0 / 2 | (running now) | ok: no runner stalled |
 | `jahjah-scan-gitleaks` | enabled | never | success | 0 / 3 | 2026-11-23 04:00 | ok: published SCAN-gitleaks.md — 0 hit(s) across 2624 commits |
 | `jahjah-scan-trivy` | enabled | never | success | 0 / 3 | 2026-11-23 03:00 | ok: published SCAN-trivy.md — 2 targets, 0 critical, 19 high, 31 medium, 6 low |
-| `jahjah-sql-live` | enabled | 18h 29m ago | success | 0 / 3 | 2026-11-21 03:15 | ok: 102/102 suites passed against live in 93s at 823cae4 (migrations in step) |
+| `jahjah-sql-live` | enabled | 1h 43m ago | success | 0 / 3 | 2026-11-22 03:15 | ok: 104/104 suites passed against live in 98s at c03377e (migrations in step) |
 | `jahjah-web-backup-check` | enabled | never | success | 0 / 3 | 2026-11-23 03:30 | ok: OK — sanity-production-20261116-023006.tar.gz (0h old): product=8 ok; brand=4 ok; ca |
-| `jahjah-web-backup` | enabled | 19h 16m ago | success | 0 / 3 | 2026-11-21 02:30 | ok: 8.9K in 4s, 24 documents, 7 kept, 1 rotated out |
+| `jahjah-web-backup` | enabled | 2h 29m ago | success | 0 / 3 | 2026-11-22 02:30 | ok: 8.9K in 4s, 24 documents, 7 kept, 1 rotated out |
 | `jahjah-web-truth` | enabled | never | success | 0 / 3 | 2026-11-23 05:30 | ok: build **clean**, 56 page(s), 3 live issue(s) |
 
 A job disables its own timer when its consecutive failures reach the cap in its row
 (**3** unless the row says otherwise) and publishes `ALERT-<job>-disabled.md` next to this file.
 
-**Disk cleanup:** 2026-11-20 — 5.1 GB → 6.0 GB free on /, 1.0 GB freed; skipped: gha-infra (running a job) gha-internal (running a job) gha-website (running a job).
+**Disk cleanup:** 2026-11-21 — 9.5 GB → 10.9 GB free on /, 1.4 GB freed; skipped: gha-internal (running a job) gha-website (running a job).
 
 ## Database backup
 
 | | |
 |---|---|
-| Newest dump | 2h 30m ago |
-| Size | 8.1M |
-| Tables in it | 162 |
-| Last dump took | 7s |
+| Newest dump | 2h 59m ago |
+| Size | 8.2M |
+| Tables in it | 179 |
+| Last dump took | 6s |
 | Dumps kept | 7 (7 nights) |
-| Space used | 56M |
+| Space used | 57M |
 
 Dumps stay on the box in `/var/lib/jj-db/dumps` (mode 700) and are never published.
 
@@ -50,7 +50,7 @@ Dumps stay on the box in `/var/lib/jj-db/dumps` (mode 700) and are never publish
 
 | | |
 |---|---|
-| Newest export | 19h 16m ago |
+| Newest export | 2h 29m ago |
 | Size | 8.9K |
 | Documents in it | 24 |
 | Exports kept | 7 (7 nights) |
@@ -64,7 +64,7 @@ conditions fail is skipped rather than failed, so freshness is the only signal t
 | | |
 |---|---|
 | Verdict | **OK** |
-| Last checked | 4d 18h ago |
+| Last checked | 5d 1h ago |
 | Detail | sanity-production-20261116-023006.tar.gz (0h old): product=8 ok; brand=4 ok; category=11 ok; 0 image reference(s), all present; 0 image file(s) in the archive; 24 documents total |
 
 `jahjah-web-backup-check`, Mondays 03:30 UTC: it unpacks the newest archive and compares its
@@ -77,17 +77,17 @@ failed job, so it never appears in the fleet table — only here.
 
 | | |
 |---|---|
-| Disk `/` | 25G used of 38G (69%), 12G free |
-| Memory | 1128 MB used of 3819 MB (29%), 2691 MB available |
-| Swap | 749 MB used of 4095 MB (18%) |
-| Load | 5.62, 2.82, 1.29 (over 2 cores) |
-| Uptime | 20 hours, 41 minutes |
+| Disk `/` | 27G used of 38G (75%), 9.1G free |
+| Memory | 2652 MB used of 3819 MB (69%), 1167 MB available |
+| Swap | 896 MB used of 4095 MB (21%) |
+| Load | 15.26, 13.86, 11.22 (over 2 cores) |
+| Uptime | 1 day, 3 hours, 54 minutes |
 
 ## SSH attack blocking (fail2ban — active)
 
 | Jail | Banned in last 24h | Currently banned | Banned ever |
 |---|---|---|---|
-| `sshd` | 49 | 0 | 38 |
+| `sshd` | 48 | 0 | 51 |
 
 Counts only. Addresses are deliberately not published.
 
@@ -98,12 +98,12 @@ Counts only. Addresses are deliberately not published.
 | Peer | Last handshake |
 |---|---|
 | peer 1 | never |
-| peer 2 | 1m ago |
+| peer 2 | 0m ago |
 | peer 3 | never |
 | peer 4 | never |
 | peer 5 | never |
-| peer 6 | 1m ago |
-| peer 7 | 13h 34m ago |
+| peer 6 | 0m ago |
+| peer 7 | 20h 48m ago |
 | peer 8 | never |
 
 Peers are numbered, not named. Keys and endpoint addresses are deliberately not published.
@@ -112,7 +112,7 @@ Peers are numbered, not named. Keys and endpoint addresses are deliberately not 
 
 | Container | State | Status |
 |---|---|---|
-| `portainer` | running | Up 21 hours |
+| `portainer` | running | Up 28 hours |
 
 ## Database credential
 
