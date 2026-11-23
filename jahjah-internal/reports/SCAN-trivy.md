@@ -1,14 +1,14 @@
 # Weekly dependency + image scan (trivy)
 
-<!-- index: weekly trivy scan — 0 critical, 19 high, 31 medium, 6 low -->
+<!-- index: weekly trivy scan — 0 critical, 20 high, 32 medium, 6 low -->
 
-**Generated (UTC):** 2026-11-16T03:00:06Z · **trivy 0.74.0** · **2 target(s)** (1 repo + 1 image(s))
+**Generated (UTC):** 2026-11-23T03:00:05Z · **trivy 0.74.0** · **2 target(s)** (1 repo + 1 image(s))
 
 Overwritten in place each week. Git history is the archive.
 
 ## Verdict
 
-**0 critical, 19 high, 31 medium, 6 low** across all targets (58 total).
+**0 critical, 20 high, 32 medium, 6 low** across all targets (59 total).
 
 Most findings on a docker image are in the base operating-system packages of a
 third-party image, not in anything this project wrote. The repo row is the one that
@@ -18,16 +18,17 @@ reflects our own dependency choices.
 
 | Target | Critical | High | Medium | Low | Unknown |
 |---|---|---|---|---|---|
-| `repo: jahjah-internal (npm, main 066f45e)` | 0 | 0 | 1 | 0 | 0 |
-| `image: portainer/portainer-ce:lts` | 0 | 19 | 30 | 6 | 2 |
+| `repo: jahjah-internal (npm, main 0c91e91)` | 0 | 0 | 1 | 0 | 0 |
+| `image: portainer/portainer-ce:lts` | 0 | 20 | 31 | 6 | 1 |
 
 ## Top items (critical and high only)
 
-Showing up to 20 of 19 critical/high findings, critical first.
+Showing up to 20 of 20 critical/high findings, critical first.
 
 | Severity | Advisory | Package | Installed | Fixed in | Target |
 |---|---|---|---|---|---|
 | HIGH | `CVE-2026-95837` | `github.com/containerd/containerd/v2` | v2.2.5 | 2.2.7, 2.3.4 | `image: portainer/portainer-ce:lts` |
+| HIGH | `CVE-2026-95839` | `github.com/containerd/containerd/v2` | v2.2.5 | 2.2.10, 2.3.7, 2.4.2 | `image: portainer/portainer-ce:lts` |
 | HIGH | `CVE-2025-15558` | `github.com/docker/cli` | v28.5.1+incompatible | 29.2.0 | `image: portainer/portainer-ce:lts` |
 | HIGH | `CVE-2026-41567` | `github.com/docker/docker` | v28.5.2+incompatible | none yet | `image: portainer/portainer-ce:lts` |
 | HIGH | `CVE-2026-42306` | `github.com/docker/docker` | v28.5.2+incompatible | none yet | `image: portainer/portainer-ce:lts` |
@@ -49,7 +50,7 @@ Showing up to 20 of 19 critical/high findings, critical first.
 
 ## What was scanned
 
-- `trivy fs --scanners vuln` over the ERP's `package-lock.json` on main (066f45ee24fdb671b37b17f45595d0595bb94ea0) — the npm dependency tree.
+- `trivy fs --scanners vuln` over the ERP's `package-lock.json` on main (0c91e91073d070a747eab26097ecff0d4312bb58) — the npm dependency tree.
 - `trivy image --scanners vuln` over every image in the local docker store.
 - Only the vulnerability scanner runs. The secret scanner is deliberately off here —
   secrets are covered by `SCAN-gitleaks.md`, which is built to publish a hit without
