@@ -5,7 +5,7 @@
 > **World-readable file. Commit subjects appear here — website strategist: confirm this is
 > acceptable or request hashes-only.**
 
-**Generated (UTC):** 2026-11-21T21:05:43Z · by `jahjah-web-truth` on the VPS work engine · **overwritten weekly**
+**Generated (UTC):** 2026-11-23T05:30:06Z · by `jahjah-web-truth` on the VPS work engine · **overwritten weekly**
 
 An outside reading of `obidex/jahjah-website`, taken without touching it. This job never
 pushes to that repo, never edits its files, never touches Vercel or Sanity, and never applies
@@ -20,30 +20,30 @@ The commit this run built: a fresh clone of `origin/master`, made this run and d
 
 | | |
 |---|---|
-| Commit | `b2fd99e` — fix(build): one retail catalogue read per build (card #815) (#822) |
-| Committed | 2026-11-21T23:54:40+03:00 |
+| Commit | `48ac38e` — ci: checks scaled to the change, nightly full run, door test in parts (card #862) (#866) |
+| Committed | 2026-11-22T08:58:06-08:00 |
 | Branch | `master` |
 
 ### Last 10 commits
 
 | Hash | Subject |
 |---|---|
-| `b2fd99e` | fix(build): one retail catalogue read per build (card #815) (#822) |
-| `562fb86` | fix(brands): read the brand page's brand by id, not by name (card #811) (#821) |
-| `7cdfdae` | fix(admin): sign-out removes saved customer searches from the browser (card #814) (#820) |
-| `40210f4` | fix(search): keep the header dropdown open on a Safari result click (card #810) (#823) |
-| `134d2eb` | chore(account): drop unreachable switched-off panel and unused reset redirectTo (card #770) (#819) |
-| `7bd04f7` | fix(admin): Change history keeps memberships off customer accounts (card #757) (#817) |
-| `c234e33` | fix(auth): code guesses per sender and kind, code-app try limit, staff password check (card #775, 2 of 2) (#804) |
-| `d822c2e` | feat(db): email-code tries per address, sender and code kind; code-app try limit (card #775, 1 of 2) (#801) |
-| `b2a52c7` | docs(canon): new decisions are one file each in docs/decisions/ (inbox #716) (#800) |
-| `e44ceed` | fix(orders): a retried checkout gets its first order number back after a price change (card #795) (#799) |
+| `48ac38e` | ci: checks scaled to the change, nightly full run, door test in parts (card #862) (#866) |
+| `4ea1c3a` | fix(cart): cap price quotes per calling address (card #859) (#871) |
+| `6b8d8ed` | fix(auth): the password change counts toward the sign-in hold (card #858) (#870) |
+| `364a844` | fix(cart): quick checkout sends a one-time key (card #857) (#867) |
+| `4a1a3ef` | feat(headers): script-src policy with inline-script hashes (card #812) (#864) |
+| `85d76dd` | fix(auth): a declined dealer applicant is told so at sign-in (card #856) (#865) |
+| `93c115a` | fix(catalogue): listing cards merge every colour's offer (card #809) (#863) |
+| `3694b9a` | chore(canon): clear audit C17 and HI02 (card #854) (#855) |
+| `e00ffb8` | chore(harness): update kit 0.48.1 to 0.53.1 (#833) |
+| `aca1423` | feat(auth): a signed-in customer can ask to be a dealer (card #797) (#853) |
 
 -----
 
 ## 2. Clean build on Linux
 
-`npm ci && npm run build` in a **fresh clone** of `origin/master` at `b2fd99e`, made this run and deleted next run.
+`npm ci && npm run build` in a **fresh clone** of `origin/master` at `48ac38e`, made this run and deleted next run.
 The website is developed on Windows, so this is the check that a case-sensitive filesystem
 still resolves every import.
 
@@ -52,12 +52,12 @@ still resolves every import.
 | Result | **clean** |
 | Exit code | 0 |
 | Pages built | 56 |
-| Duration | 32 s |
+| Duration | 22 s |
 | `dist/` size | 25M |
 
 Notable build output:
 
-    21:06:34 [WARN] [vite] [plugin vite-plugin-sanity-studio-chunk-warning] Some chunks are larger than 500 kB after minification. Consider:
+    05:30:47 [WARN] [vite] [plugin vite-plugin-sanity-studio-chunk-warning] Some chunks are larger than 500 kB after minification. Consider:
 
 ### The website's own check: `scripts/verify.sh`
 
@@ -67,7 +67,7 @@ fails this job.
 | | |
 |---|---|
 | Summary | 0 FAIL · 0 WARN · 55 pages |
-| Duration | 662 s |
+| Duration | 324 s |
 
 -----
 
@@ -107,13 +107,13 @@ clean bill of health.
 | `AboutContent.Cnt_Z2kR.css` | 0 | 0 |
 | `account.BAbMQ0ff.css` | 0 | 0 |
 | `_...all_.uqonFUI1.css` | 0 | 0 |
-| `apply.N7b8uSq6.css` | 0 | 0 |
+| `apply.CMdM25j_.css` | 0 | 0 |
 | `CartContent.DCKSdI2F.css` | 0 | 0 |
 | `CheckoutContent.Bksu_FmT.css` | 0 | 0 |
 | `HomeContent.CrvG-vZZ.css` | 0 | 0 |
 | `Layout.BdEvPqoF.css` | 4 | 0 |
 | `lib.CG2hbV0b.css` | 0 | 0 |
-| `LiveProduct.CX3-GTVU.css` | 1 | 0 |
+| `LiveProduct.DeaDdhNn.css` | 1 | 0 |
 | `product-jsonld.B4JqW9l4.css` | 1 | 0 |
 | `SearchContent.Lp-Bfye0.css` | 0 | 0 |
 | `ServiceContent.DEh6gheP.css` | 0 | 0 |
@@ -122,7 +122,7 @@ RTL selectors in compiled order — at equal specificity, source order decides t
 
     Layout.BdEvPqoF.css: [dir=rtl] h1,[dir=rtl] h2,[dir=rtl] h3,[lang=ar] h1,[lang=ar] h2,[lang=ar] h3,[lang=ar] h4
     Layout.BdEvPqoF.css: [dir=rtl] .icon-flip-rtl
-    LiveProduct.CX3-GTVU.css: html[dir=rtl] .breadcrumb[data-astro-cid-fnhlfdoa] li[data-astro-cid-fnhlfdoa]+li[data-astro-cid-fnhlfdoa]:before
+    LiveProduct.DeaDdhNn.css: html[dir=rtl] .breadcrumb[data-astro-cid-fnhlfdoa] li[data-astro-cid-fnhlfdoa]+li[data-astro-cid-fnhlfdoa]:before
     product-jsonld.B4JqW9l4.css: html[dir=rtl] .breadcrumb[data-astro-cid-fnhlfdoa] li[data-astro-cid-fnhlfdoa]+li[data-astro-cid-fnhlfdoa]:before
 
 -----
