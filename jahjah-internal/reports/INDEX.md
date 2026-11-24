@@ -2,7 +2,7 @@
 
 <!-- index: machine-generated index of this folder; every publisher rebuilds it -->
 
-Generated 2026-11-24T03:17:03Z by `jahjah-sql-live`. **Rebuilt from disk on every publish** — read this instead
+Generated 2026-11-24T05:00:02Z by `jahjah-health`. **Rebuilt from disk on every publish** — read this instead
 of listing the folder through the rate-limited GitHub contents API.
 
 Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-internal/reports/<name>`.
@@ -13,14 +13,14 @@ Raw file URLs are `https://raw.githubusercontent.com/obidex/relay/main/jahjah-in
 |---|---|---|
 | `ALERT-sql-live-disabled.md` | 2026-10-14T03:16:24Z | ALERT — the sql-live job hit its failure cap and turned itself off |
 | `HEALTH-agents.md` | 2026-11-23T05:27:31Z | agents health — 6 repositories, 0 with a number GitHub would not give |
-| `HEALTH-daily.md` | 2026-11-23T05:00:11Z | daily health — OK, all 13 automations alive |
+| `HEALTH-daily.md` | 2026-11-24T05:00:02Z | daily health — OK, all 13 automations alive |
 | `HEARTBEAT-erp-dispatch.md` | 2026-09-22T20:11:05Z | proof-of-life for the ERP chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-dispatch.md` | 2026-09-17T10:24:06Z | proof-of-life for the website chunk lane — stale > ~70 min means chunks are not being picked up |
 | `HEARTBEAT-web-docs.md` | 2026-09-22T20:37:08Z | proof-of-life for the website canon mirror — stale > ~70 min means the mirror is not running |
 | `README.md` | 2026-08-31T21:04:58Z | jahjah-internal — machine reports |
 | `SCAN-gitleaks.md` | 2026-11-23T04:00:19Z | weekly gitleaks scan — ZERO secrets found in either repo history |
 | `SCAN-trivy.md` | 2026-11-23T03:00:20Z | weekly trivy scan — 0 critical, 20 high, 32 medium, 6 low |
-| `SQL-live.md` | 2026-11-24T03:17:03Z | nightly SQL suites vs LIVE — PASS 115/115 in 108s |
+| `SQL-live.md` | 2026-11-24T03:17:05Z | nightly SQL suites vs LIVE — PASS 115/115 in 108s |
 
 ## Dated reports (newest first — pruned to the newest 10 by `jahjah-retention`)
 
